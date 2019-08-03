@@ -15,3 +15,113 @@ type User {
   name: String
   posts: [Post!]!
 }
+
+
+
+type Location {
+  id: ID! @id
+  aldmeri: String
+  daggerfall: String
+  ebonheart: String
+}
+type Mundus {
+  name: String!
+  location: Location
+  effect: String!
+  value: String!
+  icon: String
+  id: Int! @id
+}
+
+type SpecialBuff {
+  id: ID! @id
+  name: String!
+  buffDescription: String!
+  description: String
+  duration: Int!
+  notes: String
+  icon: String
+  type: String
+  quality: Int!
+}
+
+type SetSelection {
+  id: ID! @id
+  icon: String
+  slot: String
+  selectedSet: Set
+  trait: Modification @relation(name: "Trait")
+  glyph: Modification @relation(name: "Glyph")
+}
+
+type Set {
+  id: ID! @id
+  setId: Int!
+  name: String!
+  location: String!
+  type: String!
+  slug: String!
+  bonus_item_1: String
+  bonus_item_2: String
+  bonus_item_3: String
+  bonus_item_4: String
+  bonus_item_5: String
+  has_jewels: Int!
+  has_weapons: Int!
+  has_heavy_armor: Int!
+  has_light_armor: Int!
+  has_medium_armor: Int!
+  traits_needed: Int
+  pts: Int
+  eso_id: Int
+}
+
+type Modification {
+  id: ID! @id
+  type: String!
+  description: String!
+  icon: String
+}
+
+type SkillSelection {
+  id: ID! @id
+  index: Int!
+  skill: Skill
+}
+
+type Skill {
+  id: ID! @id
+  skillId: Int!
+  cast_time: String!
+  cost: String!
+  effect_1: String!
+  effect_2: String
+  icon: String
+  name: String!
+  parent: Int
+  pts: Int
+  range: String
+  skillline: Int!
+  slug: String!
+  target: String
+  type: Int!
+  unlocks_at: Int
+}
+
+type Build {
+  id: ID! @id
+  name: String
+  race: String
+  class: String
+  bigPieceSelection: [SetSelection!]! @relation(name: "Bigpieces")
+  smallPieceSelection: [SetSelection!]! @relation(name: "Smallpieces")
+  jewelrySelection: [SetSelection!]! @relation(name: "Jewelry")
+  frontbarSelection: [SetSelection!]! @relation(name: "Frontbar")
+  backbarSelection: [SetSelection!]! @relation(name: "Backbar")
+  newBarOne: [SkillSelection!]! @relation(name: "NewBarOne")
+  newBarTwo: [SkillSelection!]! @relation(name: "NewBarTwo")
+  ultimateOne: Skill @relation(name: "UltimateOne")
+  ultimateTwo: Skill @relation(name: "UltimateTwo")
+  mundus: Mundus
+  buff: SpecialBuff
+}
