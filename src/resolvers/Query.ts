@@ -11,38 +11,43 @@ export const Query = queryType({
       },
     })
 
-    t.list.field('feed', {
+    t.list.field('publishedBuilds', {
       type: 'Post',
       resolve: (parent, args, ctx) => {
-        return ctx.prisma.posts({
+        return ctx.prisma.builds({
           where: { published: true },
         })
       },
     })
 
-    t.list.field('filterPosts', {
-      type: 'Post',
+    t.list.field('filterBuilds', {
+      type: 'Build',
       args: {
         searchString: stringArg({ nullable: true }),
       },
       resolve: (parent, { searchString }, ctx) => {
-        return ctx.prisma.posts({
+        return ctx.prisma.builds({
           where: {
-            OR: [
-              { title_contains: searchString },
-              { content_contains: searchString },
+            AND: [
+              {
+                OR: [
+                  { name_contains: searchString },
+                  { race_contains: searchString },
+                ],
+              },
+              { published: true },
             ],
           },
         })
       },
     })
 
-    t.field('post', {
-      type: 'Post',
+    t.field('build', {
+      type: 'Build',
       nullable: true,
       args: { id: idArg() },
       resolve: (parent, { id }, ctx) => {
-        return ctx.prisma.post({ id })
+        return ctx.prisma.build({ id })
       },
     })
   },

@@ -13,7 +13,7 @@ type User {
   email: String! @unique
   password: String!
   name: String
-  posts: [Post!]!
+  builds: [Build!]!
 }
 
 
@@ -25,7 +25,7 @@ type Location {
   ebonheart: String
 }
 type Mundus {
-  name: String!
+  name: String! @unique
   location: Location
   effect: String!
   value: String!
@@ -35,7 +35,7 @@ type Mundus {
 
 type SpecialBuff {
   id: ID! @id
-  name: String!
+  name: String! @unique
   buffDescription: String!
   description: String
   duration: Int!
@@ -56,7 +56,7 @@ type SetSelection {
 
 type Set {
   id: ID! @id
-  setId: Int!
+  setId: Int! @unique
   name: String!
   location: String!
   type: String!
@@ -78,7 +78,7 @@ type Set {
 
 type Modification {
   id: ID! @id
-  type: String!
+  type: String! @unique
   description: String!
   icon: String
 }
@@ -91,7 +91,7 @@ type SkillSelection {
 
 type Skill {
   id: ID! @id
-  skillId: Int!
+  skillId: Int! @unique
   cast_time: String!
   cost: String!
   effect_1: String!
@@ -110,9 +110,14 @@ type Skill {
 
 type Build {
   id: ID! @id
+  owner: User
   name: String
   race: String
-  class: String
+  esoClass: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  published: Boolean! @default(value: false)
+
   bigPieceSelection: [SetSelection!]! @relation(name: "Bigpieces")
   smallPieceSelection: [SetSelection!]! @relation(name: "Smallpieces")
   jewelrySelection: [SetSelection!]! @relation(name: "Jewelry")

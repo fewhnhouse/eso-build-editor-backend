@@ -52,9 +52,13 @@ type BatchPayload {
 
 type Build {
   id: ID!
+  owner: User
   name: String
   race: String
-  class: String
+  esoClass: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  published: Boolean!
   bigPieceSelection(where: SetSelectionWhereInput, orderBy: SetSelectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SetSelection!]
   smallPieceSelection(where: SetSelectionWhereInput, orderBy: SetSelectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SetSelection!]
   jewelrySelection(where: SetSelectionWhereInput, orderBy: SetSelectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SetSelection!]
@@ -76,9 +80,35 @@ type BuildConnection {
 
 input BuildCreateInput {
   id: ID
+  owner: UserCreateOneWithoutBuildsInput
   name: String
   race: String
-  class: String
+  esoClass: String
+  published: Boolean
+  bigPieceSelection: SetSelectionCreateManyInput
+  smallPieceSelection: SetSelectionCreateManyInput
+  jewelrySelection: SetSelectionCreateManyInput
+  frontbarSelection: SetSelectionCreateManyInput
+  backbarSelection: SetSelectionCreateManyInput
+  newBarOne: SkillSelectionCreateManyInput
+  newBarTwo: SkillSelectionCreateManyInput
+  ultimateOne: SkillCreateOneInput
+  ultimateTwo: SkillCreateOneInput
+  mundus: MundusCreateOneInput
+  buff: SpecialBuffCreateOneInput
+}
+
+input BuildCreateManyWithoutOwnerInput {
+  create: [BuildCreateWithoutOwnerInput!]
+  connect: [BuildWhereUniqueInput!]
+}
+
+input BuildCreateWithoutOwnerInput {
+  id: ID
+  name: String
+  race: String
+  esoClass: String
+  published: Boolean
   bigPieceSelection: SetSelectionCreateManyInput
   smallPieceSelection: SetSelectionCreateManyInput
   jewelrySelection: SetSelectionCreateManyInput
@@ -104,59 +134,27 @@ enum BuildOrderByInput {
   name_DESC
   race_ASC
   race_DESC
-  class_ASC
-  class_DESC
+  esoClass_ASC
+  esoClass_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  published_ASC
+  published_DESC
 }
 
 type BuildPreviousValues {
   id: ID!
   name: String
   race: String
-  class: String
+  esoClass: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  published: Boolean!
 }
 
-type BuildSubscriptionPayload {
-  mutation: MutationType!
-  node: Build
-  updatedFields: [String!]
-  previousValues: BuildPreviousValues
-}
-
-input BuildSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: BuildWhereInput
-  AND: [BuildSubscriptionWhereInput!]
-  OR: [BuildSubscriptionWhereInput!]
-  NOT: [BuildSubscriptionWhereInput!]
-}
-
-input BuildUpdateInput {
-  name: String
-  race: String
-  class: String
-  bigPieceSelection: SetSelectionUpdateManyInput
-  smallPieceSelection: SetSelectionUpdateManyInput
-  jewelrySelection: SetSelectionUpdateManyInput
-  frontbarSelection: SetSelectionUpdateManyInput
-  backbarSelection: SetSelectionUpdateManyInput
-  newBarOne: SkillSelectionUpdateManyInput
-  newBarTwo: SkillSelectionUpdateManyInput
-  ultimateOne: SkillUpdateOneInput
-  ultimateTwo: SkillUpdateOneInput
-  mundus: MundusUpdateOneInput
-  buff: SpecialBuffUpdateOneInput
-}
-
-input BuildUpdateManyMutationInput {
-  name: String
-  race: String
-  class: String
-}
-
-input BuildWhereInput {
+input BuildScalarWhereInput {
   id: ID
   id_not: ID
   id_in: [ID!]
@@ -199,20 +197,216 @@ input BuildWhereInput {
   race_not_starts_with: String
   race_ends_with: String
   race_not_ends_with: String
-  class: String
-  class_not: String
-  class_in: [String!]
-  class_not_in: [String!]
-  class_lt: String
-  class_lte: String
-  class_gt: String
-  class_gte: String
-  class_contains: String
-  class_not_contains: String
-  class_starts_with: String
-  class_not_starts_with: String
-  class_ends_with: String
-  class_not_ends_with: String
+  esoClass: String
+  esoClass_not: String
+  esoClass_in: [String!]
+  esoClass_not_in: [String!]
+  esoClass_lt: String
+  esoClass_lte: String
+  esoClass_gt: String
+  esoClass_gte: String
+  esoClass_contains: String
+  esoClass_not_contains: String
+  esoClass_starts_with: String
+  esoClass_not_starts_with: String
+  esoClass_ends_with: String
+  esoClass_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  published: Boolean
+  published_not: Boolean
+  AND: [BuildScalarWhereInput!]
+  OR: [BuildScalarWhereInput!]
+  NOT: [BuildScalarWhereInput!]
+}
+
+type BuildSubscriptionPayload {
+  mutation: MutationType!
+  node: Build
+  updatedFields: [String!]
+  previousValues: BuildPreviousValues
+}
+
+input BuildSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: BuildWhereInput
+  AND: [BuildSubscriptionWhereInput!]
+  OR: [BuildSubscriptionWhereInput!]
+  NOT: [BuildSubscriptionWhereInput!]
+}
+
+input BuildUpdateInput {
+  owner: UserUpdateOneWithoutBuildsInput
+  name: String
+  race: String
+  esoClass: String
+  published: Boolean
+  bigPieceSelection: SetSelectionUpdateManyInput
+  smallPieceSelection: SetSelectionUpdateManyInput
+  jewelrySelection: SetSelectionUpdateManyInput
+  frontbarSelection: SetSelectionUpdateManyInput
+  backbarSelection: SetSelectionUpdateManyInput
+  newBarOne: SkillSelectionUpdateManyInput
+  newBarTwo: SkillSelectionUpdateManyInput
+  ultimateOne: SkillUpdateOneInput
+  ultimateTwo: SkillUpdateOneInput
+  mundus: MundusUpdateOneInput
+  buff: SpecialBuffUpdateOneInput
+}
+
+input BuildUpdateManyDataInput {
+  name: String
+  race: String
+  esoClass: String
+  published: Boolean
+}
+
+input BuildUpdateManyMutationInput {
+  name: String
+  race: String
+  esoClass: String
+  published: Boolean
+}
+
+input BuildUpdateManyWithoutOwnerInput {
+  create: [BuildCreateWithoutOwnerInput!]
+  delete: [BuildWhereUniqueInput!]
+  connect: [BuildWhereUniqueInput!]
+  set: [BuildWhereUniqueInput!]
+  disconnect: [BuildWhereUniqueInput!]
+  update: [BuildUpdateWithWhereUniqueWithoutOwnerInput!]
+  upsert: [BuildUpsertWithWhereUniqueWithoutOwnerInput!]
+  deleteMany: [BuildScalarWhereInput!]
+  updateMany: [BuildUpdateManyWithWhereNestedInput!]
+}
+
+input BuildUpdateManyWithWhereNestedInput {
+  where: BuildScalarWhereInput!
+  data: BuildUpdateManyDataInput!
+}
+
+input BuildUpdateWithoutOwnerDataInput {
+  name: String
+  race: String
+  esoClass: String
+  published: Boolean
+  bigPieceSelection: SetSelectionUpdateManyInput
+  smallPieceSelection: SetSelectionUpdateManyInput
+  jewelrySelection: SetSelectionUpdateManyInput
+  frontbarSelection: SetSelectionUpdateManyInput
+  backbarSelection: SetSelectionUpdateManyInput
+  newBarOne: SkillSelectionUpdateManyInput
+  newBarTwo: SkillSelectionUpdateManyInput
+  ultimateOne: SkillUpdateOneInput
+  ultimateTwo: SkillUpdateOneInput
+  mundus: MundusUpdateOneInput
+  buff: SpecialBuffUpdateOneInput
+}
+
+input BuildUpdateWithWhereUniqueWithoutOwnerInput {
+  where: BuildWhereUniqueInput!
+  data: BuildUpdateWithoutOwnerDataInput!
+}
+
+input BuildUpsertWithWhereUniqueWithoutOwnerInput {
+  where: BuildWhereUniqueInput!
+  update: BuildUpdateWithoutOwnerDataInput!
+  create: BuildCreateWithoutOwnerInput!
+}
+
+input BuildWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  owner: UserWhereInput
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  race: String
+  race_not: String
+  race_in: [String!]
+  race_not_in: [String!]
+  race_lt: String
+  race_lte: String
+  race_gt: String
+  race_gte: String
+  race_contains: String
+  race_not_contains: String
+  race_starts_with: String
+  race_not_starts_with: String
+  race_ends_with: String
+  race_not_ends_with: String
+  esoClass: String
+  esoClass_not: String
+  esoClass_in: [String!]
+  esoClass_not_in: [String!]
+  esoClass_lt: String
+  esoClass_lte: String
+  esoClass_gt: String
+  esoClass_gte: String
+  esoClass_contains: String
+  esoClass_not_contains: String
+  esoClass_starts_with: String
+  esoClass_not_starts_with: String
+  esoClass_ends_with: String
+  esoClass_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  published: Boolean
+  published_not: Boolean
   bigPieceSelection_every: SetSelectionWhereInput
   bigPieceSelection_some: SetSelectionWhereInput
   bigPieceSelection_none: SetSelectionWhereInput
@@ -577,6 +771,7 @@ input ModificationWhereInput {
 
 input ModificationWhereUniqueInput {
   id: ID
+  type: String
 }
 
 type Mundus {
@@ -761,6 +956,7 @@ input MundusWhereInput {
 }
 
 input MundusWhereUniqueInput {
+  name: String
   id: Int
 }
 
@@ -871,19 +1067,7 @@ input PostCreateInput {
   published: Boolean
   title: String!
   content: String
-  author: UserCreateOneWithoutPostsInput!
-}
-
-input PostCreateManyWithoutAuthorInput {
-  create: [PostCreateWithoutAuthorInput!]
-  connect: [PostWhereUniqueInput!]
-}
-
-input PostCreateWithoutAuthorInput {
-  id: ID
-  published: Boolean
-  title: String!
-  content: String
+  author: UserCreateOneInput!
 }
 
 type PostEdge {
@@ -915,72 +1099,6 @@ type PostPreviousValues {
   content: String
 }
 
-input PostScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
-  published: Boolean
-  published_not: Boolean
-  title: String
-  title_not: String
-  title_in: [String!]
-  title_not_in: [String!]
-  title_lt: String
-  title_lte: String
-  title_gt: String
-  title_gte: String
-  title_contains: String
-  title_not_contains: String
-  title_starts_with: String
-  title_not_starts_with: String
-  title_ends_with: String
-  title_not_ends_with: String
-  content: String
-  content_not: String
-  content_in: [String!]
-  content_not_in: [String!]
-  content_lt: String
-  content_lte: String
-  content_gt: String
-  content_gte: String
-  content_contains: String
-  content_not_contains: String
-  content_starts_with: String
-  content_not_starts_with: String
-  content_ends_with: String
-  content_not_ends_with: String
-  AND: [PostScalarWhereInput!]
-  OR: [PostScalarWhereInput!]
-  NOT: [PostScalarWhereInput!]
-}
-
 type PostSubscriptionPayload {
   mutation: MutationType!
   node: Post
@@ -1003,53 +1121,13 @@ input PostUpdateInput {
   published: Boolean
   title: String
   content: String
-  author: UserUpdateOneRequiredWithoutPostsInput
-}
-
-input PostUpdateManyDataInput {
-  published: Boolean
-  title: String
-  content: String
+  author: UserUpdateOneRequiredInput
 }
 
 input PostUpdateManyMutationInput {
   published: Boolean
   title: String
   content: String
-}
-
-input PostUpdateManyWithoutAuthorInput {
-  create: [PostCreateWithoutAuthorInput!]
-  delete: [PostWhereUniqueInput!]
-  connect: [PostWhereUniqueInput!]
-  set: [PostWhereUniqueInput!]
-  disconnect: [PostWhereUniqueInput!]
-  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
-  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
-  deleteMany: [PostScalarWhereInput!]
-  updateMany: [PostUpdateManyWithWhereNestedInput!]
-}
-
-input PostUpdateManyWithWhereNestedInput {
-  where: PostScalarWhereInput!
-  data: PostUpdateManyDataInput!
-}
-
-input PostUpdateWithoutAuthorDataInput {
-  published: Boolean
-  title: String
-  content: String
-}
-
-input PostUpdateWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput!
-  data: PostUpdateWithoutAuthorDataInput!
-}
-
-input PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput!
-  update: PostUpdateWithoutAuthorDataInput!
-  create: PostCreateWithoutAuthorInput!
 }
 
 input PostWhereInput {
@@ -1822,6 +1900,7 @@ input SetWhereInput {
 
 input SetWhereUniqueInput {
   id: ID
+  setId: Int
 }
 
 type Skill {
@@ -2379,6 +2458,7 @@ input SkillWhereInput {
 
 input SkillWhereUniqueInput {
   id: ID
+  skillId: Int
 }
 
 type SpecialBuff {
@@ -2641,6 +2721,7 @@ input SpecialBuffWhereInput {
 
 input SpecialBuffWhereUniqueInput {
   id: ID
+  name: String
 }
 
 type Subscription {
@@ -2662,7 +2743,7 @@ type User {
   email: String!
   password: String!
   name: String
-  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
+  builds(where: BuildWhereInput, orderBy: BuildOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Build!]
 }
 
 type UserConnection {
@@ -2676,15 +2757,20 @@ input UserCreateInput {
   email: String!
   password: String!
   name: String
-  posts: PostCreateManyWithoutAuthorInput
+  builds: BuildCreateManyWithoutOwnerInput
 }
 
-input UserCreateOneWithoutPostsInput {
-  create: UserCreateWithoutPostsInput
+input UserCreateOneInput {
+  create: UserCreateInput
   connect: UserWhereUniqueInput
 }
 
-input UserCreateWithoutPostsInput {
+input UserCreateOneWithoutBuildsInput {
+  create: UserCreateWithoutBuildsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutBuildsInput {
   id: ID
   email: String!
   password: String!
@@ -2732,11 +2818,18 @@ input UserSubscriptionWhereInput {
   NOT: [UserSubscriptionWhereInput!]
 }
 
+input UserUpdateDataInput {
+  email: String
+  password: String
+  name: String
+  builds: BuildUpdateManyWithoutOwnerInput
+}
+
 input UserUpdateInput {
   email: String
   password: String
   name: String
-  posts: PostUpdateManyWithoutAuthorInput
+  builds: BuildUpdateManyWithoutOwnerInput
 }
 
 input UserUpdateManyMutationInput {
@@ -2745,22 +2838,36 @@ input UserUpdateManyMutationInput {
   name: String
 }
 
-input UserUpdateOneRequiredWithoutPostsInput {
-  create: UserCreateWithoutPostsInput
-  update: UserUpdateWithoutPostsDataInput
-  upsert: UserUpsertWithoutPostsInput
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
   connect: UserWhereUniqueInput
 }
 
-input UserUpdateWithoutPostsDataInput {
+input UserUpdateOneWithoutBuildsInput {
+  create: UserCreateWithoutBuildsInput
+  update: UserUpdateWithoutBuildsDataInput
+  upsert: UserUpsertWithoutBuildsInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateWithoutBuildsDataInput {
   email: String
   password: String
   name: String
 }
 
-input UserUpsertWithoutPostsInput {
-  update: UserUpdateWithoutPostsDataInput!
-  create: UserCreateWithoutPostsInput!
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
+}
+
+input UserUpsertWithoutBuildsInput {
+  update: UserUpdateWithoutBuildsDataInput!
+  create: UserCreateWithoutBuildsInput!
 }
 
 input UserWhereInput {
@@ -2820,9 +2927,9 @@ input UserWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
-  posts_every: PostWhereInput
-  posts_some: PostWhereInput
-  posts_none: PostWhereInput
+  builds_every: BuildWhereInput
+  builds_some: BuildWhereInput
+  builds_none: BuildWhereInput
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

@@ -17,6 +17,15 @@ export interface NexusPrismaTypes {
       Query: QueryObject
       Post: PostObject
       User: UserObject
+      Build: BuildObject
+      SetSelection: SetSelectionObject
+      Set: SetObject
+      Modification: ModificationObject
+      SkillSelection: SkillSelectionObject
+      Skill: SkillObject
+      Mundus: MundusObject
+      Location: LocationObject
+      SpecialBuff: SpecialBuffObject
       PostConnection: PostConnectionObject
       PageInfo: PageInfoObject
       PostEdge: PostEdgeObject
@@ -24,21 +33,15 @@ export interface NexusPrismaTypes {
       UserConnection: UserConnectionObject
       UserEdge: UserEdgeObject
       AggregateUser: AggregateUserObject
-      Location: LocationObject
       LocationConnection: LocationConnectionObject
       LocationEdge: LocationEdgeObject
       AggregateLocation: AggregateLocationObject
-      Mundus: MundusObject
       MundusConnection: MundusConnectionObject
       MundusEdge: MundusEdgeObject
       AggregateMundus: AggregateMundusObject
-      SpecialBuff: SpecialBuffObject
       SpecialBuffConnection: SpecialBuffConnectionObject
       SpecialBuffEdge: SpecialBuffEdgeObject
       AggregateSpecialBuff: AggregateSpecialBuffObject
-      SetSelection: SetSelectionObject
-      Set: SetObject
-      Modification: ModificationObject
       SetSelectionConnection: SetSelectionConnectionObject
       SetSelectionEdge: SetSelectionEdgeObject
       AggregateSetSelection: AggregateSetSelectionObject
@@ -48,15 +51,12 @@ export interface NexusPrismaTypes {
       ModificationConnection: ModificationConnectionObject
       ModificationEdge: ModificationEdgeObject
       AggregateModification: AggregateModificationObject
-      SkillSelection: SkillSelectionObject
-      Skill: SkillObject
       SkillSelectionConnection: SkillSelectionConnectionObject
       SkillSelectionEdge: SkillSelectionEdgeObject
       AggregateSkillSelection: AggregateSkillSelectionObject
       SkillConnection: SkillConnectionObject
       SkillEdge: SkillEdgeObject
       AggregateSkill: AggregateSkillObject
-      Build: BuildObject
       BuildConnection: BuildConnectionObject
       BuildEdge: BuildEdgeObject
       AggregateBuild: AggregateBuildObject
@@ -90,6 +90,15 @@ export interface NexusPrismaTypes {
       Query: QueryFieldDetails
       Post: PostFieldDetails
       User: UserFieldDetails
+      Build: BuildFieldDetails
+      SetSelection: SetSelectionFieldDetails
+      Set: SetFieldDetails
+      Modification: ModificationFieldDetails
+      SkillSelection: SkillSelectionFieldDetails
+      Skill: SkillFieldDetails
+      Mundus: MundusFieldDetails
+      Location: LocationFieldDetails
+      SpecialBuff: SpecialBuffFieldDetails
       PostConnection: PostConnectionFieldDetails
       PageInfo: PageInfoFieldDetails
       PostEdge: PostEdgeFieldDetails
@@ -97,21 +106,15 @@ export interface NexusPrismaTypes {
       UserConnection: UserConnectionFieldDetails
       UserEdge: UserEdgeFieldDetails
       AggregateUser: AggregateUserFieldDetails
-      Location: LocationFieldDetails
       LocationConnection: LocationConnectionFieldDetails
       LocationEdge: LocationEdgeFieldDetails
       AggregateLocation: AggregateLocationFieldDetails
-      Mundus: MundusFieldDetails
       MundusConnection: MundusConnectionFieldDetails
       MundusEdge: MundusEdgeFieldDetails
       AggregateMundus: AggregateMundusFieldDetails
-      SpecialBuff: SpecialBuffFieldDetails
       SpecialBuffConnection: SpecialBuffConnectionFieldDetails
       SpecialBuffEdge: SpecialBuffEdgeFieldDetails
       AggregateSpecialBuff: AggregateSpecialBuffFieldDetails
-      SetSelection: SetSelectionFieldDetails
-      Set: SetFieldDetails
-      Modification: ModificationFieldDetails
       SetSelectionConnection: SetSelectionConnectionFieldDetails
       SetSelectionEdge: SetSelectionEdgeFieldDetails
       AggregateSetSelection: AggregateSetSelectionFieldDetails
@@ -121,15 +124,12 @@ export interface NexusPrismaTypes {
       ModificationConnection: ModificationConnectionFieldDetails
       ModificationEdge: ModificationEdgeFieldDetails
       AggregateModification: AggregateModificationFieldDetails
-      SkillSelection: SkillSelectionFieldDetails
-      Skill: SkillFieldDetails
       SkillSelectionConnection: SkillSelectionConnectionFieldDetails
       SkillSelectionEdge: SkillSelectionEdgeFieldDetails
       AggregateSkillSelection: AggregateSkillSelectionFieldDetails
       SkillConnection: SkillConnectionFieldDetails
       SkillEdge: SkillEdgeFieldDetails
       AggregateSkill: AggregateSkillFieldDetails
-      Build: BuildFieldDetails
       BuildConnection: BuildConnectionFieldDetails
       BuildEdge: BuildEdgeFieldDetails
       AggregateBuild: AggregateBuildFieldDetails
@@ -163,96 +163,63 @@ export interface NexusPrismaTypes {
   inputTypes: {
     fields: {
       PostWhereUniqueInput: PostWhereUniqueInputInputObject
-      PostWhereInput: PostWhereInputInputObject
+      BuildWhereInput: BuildWhereInputInputObject
       UserWhereInput: UserWhereInputInputObject
-      UserWhereUniqueInput: UserWhereUniqueInputInputObject
-      LocationWhereUniqueInput: LocationWhereUniqueInputInputObject
-      LocationWhereInput: LocationWhereInputInputObject
-      MundusWhereUniqueInput: MundusWhereUniqueInputInputObject
-      MundusWhereInput: MundusWhereInputInputObject
-      SpecialBuffWhereUniqueInput: SpecialBuffWhereUniqueInputInputObject
-      SpecialBuffWhereInput: SpecialBuffWhereInputInputObject
-      SetSelectionWhereUniqueInput: SetSelectionWhereUniqueInputInputObject
       SetSelectionWhereInput: SetSelectionWhereInputInputObject
       SetWhereInput: SetWhereInputInputObject
       ModificationWhereInput: ModificationWhereInputInputObject
+      SkillSelectionWhereInput: SkillSelectionWhereInputInputObject
+      SkillWhereInput: SkillWhereInputInputObject
+      MundusWhereInput: MundusWhereInputInputObject
+      LocationWhereInput: LocationWhereInputInputObject
+      SpecialBuffWhereInput: SpecialBuffWhereInputInputObject
+      PostWhereInput: PostWhereInputInputObject
+      UserWhereUniqueInput: UserWhereUniqueInputInputObject
+      LocationWhereUniqueInput: LocationWhereUniqueInputInputObject
+      MundusWhereUniqueInput: MundusWhereUniqueInputInputObject
+      SpecialBuffWhereUniqueInput: SpecialBuffWhereUniqueInputInputObject
+      SetSelectionWhereUniqueInput: SetSelectionWhereUniqueInputInputObject
       SetWhereUniqueInput: SetWhereUniqueInputInputObject
       ModificationWhereUniqueInput: ModificationWhereUniqueInputInputObject
       SkillSelectionWhereUniqueInput: SkillSelectionWhereUniqueInputInputObject
-      SkillSelectionWhereInput: SkillSelectionWhereInputInputObject
-      SkillWhereInput: SkillWhereInputInputObject
       SkillWhereUniqueInput: SkillWhereUniqueInputInputObject
       BuildWhereUniqueInput: BuildWhereUniqueInputInputObject
-      BuildWhereInput: BuildWhereInputInputObject
       PostCreateInput: PostCreateInputInputObject
-      UserCreateOneWithoutPostsInput: UserCreateOneWithoutPostsInputInputObject
-      UserCreateWithoutPostsInput: UserCreateWithoutPostsInputInputObject
-      PostUpdateInput: PostUpdateInputInputObject
-      UserUpdateOneRequiredWithoutPostsInput: UserUpdateOneRequiredWithoutPostsInputInputObject
-      UserUpdateWithoutPostsDataInput: UserUpdateWithoutPostsDataInputInputObject
-      UserUpsertWithoutPostsInput: UserUpsertWithoutPostsInputInputObject
-      PostUpdateManyMutationInput: PostUpdateManyMutationInputInputObject
+      UserCreateOneInput: UserCreateOneInputInputObject
       UserCreateInput: UserCreateInputInputObject
-      PostCreateManyWithoutAuthorInput: PostCreateManyWithoutAuthorInputInputObject
-      PostCreateWithoutAuthorInput: PostCreateWithoutAuthorInputInputObject
-      UserUpdateInput: UserUpdateInputInputObject
-      PostUpdateManyWithoutAuthorInput: PostUpdateManyWithoutAuthorInputInputObject
-      PostUpdateWithWhereUniqueWithoutAuthorInput: PostUpdateWithWhereUniqueWithoutAuthorInputInputObject
-      PostUpdateWithoutAuthorDataInput: PostUpdateWithoutAuthorDataInputInputObject
-      PostUpsertWithWhereUniqueWithoutAuthorInput: PostUpsertWithWhereUniqueWithoutAuthorInputInputObject
-      PostScalarWhereInput: PostScalarWhereInputInputObject
-      PostUpdateManyWithWhereNestedInput: PostUpdateManyWithWhereNestedInputInputObject
-      PostUpdateManyDataInput: PostUpdateManyDataInputInputObject
-      UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
-      LocationCreateInput: LocationCreateInputInputObject
-      LocationUpdateInput: LocationUpdateInputInputObject
-      LocationUpdateManyMutationInput: LocationUpdateManyMutationInputInputObject
-      MundusCreateInput: MundusCreateInputInputObject
-      LocationCreateOneInput: LocationCreateOneInputInputObject
-      MundusUpdateInput: MundusUpdateInputInputObject
-      LocationUpdateOneInput: LocationUpdateOneInputInputObject
-      LocationUpdateDataInput: LocationUpdateDataInputInputObject
-      LocationUpsertNestedInput: LocationUpsertNestedInputInputObject
-      MundusUpdateManyMutationInput: MundusUpdateManyMutationInputInputObject
-      SpecialBuffCreateInput: SpecialBuffCreateInputInputObject
-      SpecialBuffUpdateInput: SpecialBuffUpdateInputInputObject
-      SpecialBuffUpdateManyMutationInput: SpecialBuffUpdateManyMutationInputInputObject
+      BuildCreateManyWithoutOwnerInput: BuildCreateManyWithoutOwnerInputInputObject
+      BuildCreateWithoutOwnerInput: BuildCreateWithoutOwnerInputInputObject
+      SetSelectionCreateManyInput: SetSelectionCreateManyInputInputObject
       SetSelectionCreateInput: SetSelectionCreateInputInputObject
       SetCreateOneInput: SetCreateOneInputInputObject
       SetCreateInput: SetCreateInputInputObject
       ModificationCreateOneInput: ModificationCreateOneInputInputObject
       ModificationCreateInput: ModificationCreateInputInputObject
-      SetSelectionUpdateInput: SetSelectionUpdateInputInputObject
+      SkillSelectionCreateManyInput: SkillSelectionCreateManyInputInputObject
+      SkillSelectionCreateInput: SkillSelectionCreateInputInputObject
+      SkillCreateOneInput: SkillCreateOneInputInputObject
+      SkillCreateInput: SkillCreateInputInputObject
+      MundusCreateOneInput: MundusCreateOneInputInputObject
+      MundusCreateInput: MundusCreateInputInputObject
+      LocationCreateOneInput: LocationCreateOneInputInputObject
+      LocationCreateInput: LocationCreateInputInputObject
+      SpecialBuffCreateOneInput: SpecialBuffCreateOneInputInputObject
+      SpecialBuffCreateInput: SpecialBuffCreateInputInputObject
+      PostUpdateInput: PostUpdateInputInputObject
+      UserUpdateOneRequiredInput: UserUpdateOneRequiredInputInputObject
+      UserUpdateDataInput: UserUpdateDataInputInputObject
+      BuildUpdateManyWithoutOwnerInput: BuildUpdateManyWithoutOwnerInputInputObject
+      BuildUpdateWithWhereUniqueWithoutOwnerInput: BuildUpdateWithWhereUniqueWithoutOwnerInputInputObject
+      BuildUpdateWithoutOwnerDataInput: BuildUpdateWithoutOwnerDataInputInputObject
+      SetSelectionUpdateManyInput: SetSelectionUpdateManyInputInputObject
+      SetSelectionUpdateWithWhereUniqueNestedInput: SetSelectionUpdateWithWhereUniqueNestedInputInputObject
+      SetSelectionUpdateDataInput: SetSelectionUpdateDataInputInputObject
       SetUpdateOneInput: SetUpdateOneInputInputObject
       SetUpdateDataInput: SetUpdateDataInputInputObject
       SetUpsertNestedInput: SetUpsertNestedInputInputObject
       ModificationUpdateOneInput: ModificationUpdateOneInputInputObject
       ModificationUpdateDataInput: ModificationUpdateDataInputInputObject
       ModificationUpsertNestedInput: ModificationUpsertNestedInputInputObject
-      SetSelectionUpdateManyMutationInput: SetSelectionUpdateManyMutationInputInputObject
-      SetUpdateInput: SetUpdateInputInputObject
-      SetUpdateManyMutationInput: SetUpdateManyMutationInputInputObject
-      ModificationUpdateInput: ModificationUpdateInputInputObject
-      ModificationUpdateManyMutationInput: ModificationUpdateManyMutationInputInputObject
-      SkillSelectionCreateInput: SkillSelectionCreateInputInputObject
-      SkillCreateOneInput: SkillCreateOneInputInputObject
-      SkillCreateInput: SkillCreateInputInputObject
-      SkillSelectionUpdateInput: SkillSelectionUpdateInputInputObject
-      SkillUpdateOneInput: SkillUpdateOneInputInputObject
-      SkillUpdateDataInput: SkillUpdateDataInputInputObject
-      SkillUpsertNestedInput: SkillUpsertNestedInputInputObject
-      SkillSelectionUpdateManyMutationInput: SkillSelectionUpdateManyMutationInputInputObject
-      SkillUpdateInput: SkillUpdateInputInputObject
-      SkillUpdateManyMutationInput: SkillUpdateManyMutationInputInputObject
-      BuildCreateInput: BuildCreateInputInputObject
-      SetSelectionCreateManyInput: SetSelectionCreateManyInputInputObject
-      SkillSelectionCreateManyInput: SkillSelectionCreateManyInputInputObject
-      MundusCreateOneInput: MundusCreateOneInputInputObject
-      SpecialBuffCreateOneInput: SpecialBuffCreateOneInputInputObject
-      BuildUpdateInput: BuildUpdateInputInputObject
-      SetSelectionUpdateManyInput: SetSelectionUpdateManyInputInputObject
-      SetSelectionUpdateWithWhereUniqueNestedInput: SetSelectionUpdateWithWhereUniqueNestedInputInputObject
-      SetSelectionUpdateDataInput: SetSelectionUpdateDataInputInputObject
       SetSelectionUpsertWithWhereUniqueNestedInput: SetSelectionUpsertWithWhereUniqueNestedInputInputObject
       SetSelectionScalarWhereInput: SetSelectionScalarWhereInputInputObject
       SetSelectionUpdateManyWithWhereNestedInput: SetSelectionUpdateManyWithWhereNestedInputInputObject
@@ -260,16 +227,53 @@ export interface NexusPrismaTypes {
       SkillSelectionUpdateManyInput: SkillSelectionUpdateManyInputInputObject
       SkillSelectionUpdateWithWhereUniqueNestedInput: SkillSelectionUpdateWithWhereUniqueNestedInputInputObject
       SkillSelectionUpdateDataInput: SkillSelectionUpdateDataInputInputObject
+      SkillUpdateOneInput: SkillUpdateOneInputInputObject
+      SkillUpdateDataInput: SkillUpdateDataInputInputObject
+      SkillUpsertNestedInput: SkillUpsertNestedInputInputObject
       SkillSelectionUpsertWithWhereUniqueNestedInput: SkillSelectionUpsertWithWhereUniqueNestedInputInputObject
       SkillSelectionScalarWhereInput: SkillSelectionScalarWhereInputInputObject
       SkillSelectionUpdateManyWithWhereNestedInput: SkillSelectionUpdateManyWithWhereNestedInputInputObject
       SkillSelectionUpdateManyDataInput: SkillSelectionUpdateManyDataInputInputObject
       MundusUpdateOneInput: MundusUpdateOneInputInputObject
       MundusUpdateDataInput: MundusUpdateDataInputInputObject
+      LocationUpdateOneInput: LocationUpdateOneInputInputObject
+      LocationUpdateDataInput: LocationUpdateDataInputInputObject
+      LocationUpsertNestedInput: LocationUpsertNestedInputInputObject
       MundusUpsertNestedInput: MundusUpsertNestedInputInputObject
       SpecialBuffUpdateOneInput: SpecialBuffUpdateOneInputInputObject
       SpecialBuffUpdateDataInput: SpecialBuffUpdateDataInputInputObject
       SpecialBuffUpsertNestedInput: SpecialBuffUpsertNestedInputInputObject
+      BuildUpsertWithWhereUniqueWithoutOwnerInput: BuildUpsertWithWhereUniqueWithoutOwnerInputInputObject
+      BuildScalarWhereInput: BuildScalarWhereInputInputObject
+      BuildUpdateManyWithWhereNestedInput: BuildUpdateManyWithWhereNestedInputInputObject
+      BuildUpdateManyDataInput: BuildUpdateManyDataInputInputObject
+      UserUpsertNestedInput: UserUpsertNestedInputInputObject
+      PostUpdateManyMutationInput: PostUpdateManyMutationInputInputObject
+      UserUpdateInput: UserUpdateInputInputObject
+      UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
+      LocationUpdateInput: LocationUpdateInputInputObject
+      LocationUpdateManyMutationInput: LocationUpdateManyMutationInputInputObject
+      MundusUpdateInput: MundusUpdateInputInputObject
+      MundusUpdateManyMutationInput: MundusUpdateManyMutationInputInputObject
+      SpecialBuffUpdateInput: SpecialBuffUpdateInputInputObject
+      SpecialBuffUpdateManyMutationInput: SpecialBuffUpdateManyMutationInputInputObject
+      SetSelectionUpdateInput: SetSelectionUpdateInputInputObject
+      SetSelectionUpdateManyMutationInput: SetSelectionUpdateManyMutationInputInputObject
+      SetUpdateInput: SetUpdateInputInputObject
+      SetUpdateManyMutationInput: SetUpdateManyMutationInputInputObject
+      ModificationUpdateInput: ModificationUpdateInputInputObject
+      ModificationUpdateManyMutationInput: ModificationUpdateManyMutationInputInputObject
+      SkillSelectionUpdateInput: SkillSelectionUpdateInputInputObject
+      SkillSelectionUpdateManyMutationInput: SkillSelectionUpdateManyMutationInputInputObject
+      SkillUpdateInput: SkillUpdateInputInputObject
+      SkillUpdateManyMutationInput: SkillUpdateManyMutationInputInputObject
+      BuildCreateInput: BuildCreateInputInputObject
+      UserCreateOneWithoutBuildsInput: UserCreateOneWithoutBuildsInputInputObject
+      UserCreateWithoutBuildsInput: UserCreateWithoutBuildsInputInputObject
+      BuildUpdateInput: BuildUpdateInputInputObject
+      UserUpdateOneWithoutBuildsInput: UserUpdateOneWithoutBuildsInputInputObject
+      UserUpdateWithoutBuildsDataInput: UserUpdateWithoutBuildsDataInputInputObject
+      UserUpsertWithoutBuildsInput: UserUpsertWithoutBuildsInputInputObject
       BuildUpdateManyMutationInput: BuildUpdateManyMutationInputInputObject
       PostSubscriptionWhereInput: PostSubscriptionWhereInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
@@ -285,17 +289,17 @@ export interface NexusPrismaTypes {
     }
   }
   enumTypes: {
+    BuildOrderByInput: BuildOrderByInputValues,
+    SetSelectionOrderByInput: SetSelectionOrderByInputValues,
+    SkillSelectionOrderByInput: SkillSelectionOrderByInputValues,
     PostOrderByInput: PostOrderByInputValues,
     UserOrderByInput: UserOrderByInputValues,
     LocationOrderByInput: LocationOrderByInputValues,
     MundusOrderByInput: MundusOrderByInputValues,
     SpecialBuffOrderByInput: SpecialBuffOrderByInputValues,
-    SetSelectionOrderByInput: SetSelectionOrderByInputValues,
     SetOrderByInput: SetOrderByInputValues,
     ModificationOrderByInput: ModificationOrderByInputValues,
-    SkillSelectionOrderByInput: SkillSelectionOrderByInputValues,
     SkillOrderByInput: SkillOrderByInputValues,
-    BuildOrderByInput: BuildOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -1105,17 +1109,17 @@ type UserObject =
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'posts', args?: UserPostsArgs[] | false, alias?: string  } 
+  | { name: 'builds', args?: UserBuildsArgs[] | false, alias?: string  } 
 
 type UserFields =
   | 'id'
   | 'email'
   | 'password'
   | 'name'
-  | 'posts'
+  | 'builds'
 
 
-type UserPostsArgs =
+type UserBuildsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1158,569 +1162,157 @@ export interface UserFieldDetails {
     nullable: true
     resolve: undefined
   }
-  posts: {
-    type: 'Post'
-    args: Record<UserPostsArgs, core.NexusArgDef<string>>
+  builds: {
+    type: 'Build'
+    args: Record<UserBuildsArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"User">,
-      args: { where?: PostWhereInput | null, orderBy?: prisma.PostOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: BuildWhereInput | null, orderBy?: prisma.BuildOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Post[]> | prisma.Post[]
+    ) => Promise<prisma.Build[]> | prisma.Build[]
   }
 }
   
 
-// Types for PostConnection
+// Types for Build
 
-type PostConnectionObject =
-  | PostConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+type BuildObject =
+  | BuildFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'owner', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'race', args?: [] | false, alias?: string  } 
+  | { name: 'esoClass', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'published', args?: [] | false, alias?: string  } 
+  | { name: 'bigPieceSelection', args?: BuildBigPieceSelectionArgs[] | false, alias?: string  } 
+  | { name: 'smallPieceSelection', args?: BuildSmallPieceSelectionArgs[] | false, alias?: string  } 
+  | { name: 'jewelrySelection', args?: BuildJewelrySelectionArgs[] | false, alias?: string  } 
+  | { name: 'frontbarSelection', args?: BuildFrontbarSelectionArgs[] | false, alias?: string  } 
+  | { name: 'backbarSelection', args?: BuildBackbarSelectionArgs[] | false, alias?: string  } 
+  | { name: 'newBarOne', args?: BuildNewBarOneArgs[] | false, alias?: string  } 
+  | { name: 'newBarTwo', args?: BuildNewBarTwoArgs[] | false, alias?: string  } 
+  | { name: 'ultimateOne', args?: [] | false, alias?: string  } 
+  | { name: 'ultimateTwo', args?: [] | false, alias?: string  } 
+  | { name: 'mundus', args?: [] | false, alias?: string  } 
+  | { name: 'buff', args?: [] | false, alias?: string  } 
 
-type PostConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
+type BuildFields =
+  | 'id'
+  | 'owner'
+  | 'name'
+  | 'race'
+  | 'esoClass'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'published'
+  | 'bigPieceSelection'
+  | 'smallPieceSelection'
+  | 'jewelrySelection'
+  | 'frontbarSelection'
+  | 'backbarSelection'
+  | 'newBarOne'
+  | 'newBarTwo'
+  | 'ultimateOne'
+  | 'ultimateTwo'
+  | 'mundus'
+  | 'buff'
 
 
-
+type BuildBigPieceSelectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type BuildSmallPieceSelectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type BuildJewelrySelectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type BuildFrontbarSelectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type BuildBackbarSelectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type BuildNewBarOneArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type BuildNewBarTwoArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
   
 
-export interface PostConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"PostConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'PostEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"PostConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PostEdge[]> | prisma.PostEdge[]
-  }
-  aggregate: {
-    type: 'AggregatePost'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"PostConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregatePost> | prisma.AggregatePost
-  }
-}
-  
-
-// Types for PageInfo
-
-type PageInfoObject =
-  | PageInfoFields
-  | { name: 'hasNextPage', args?: [] | false, alias?: string  } 
-  | { name: 'hasPreviousPage', args?: [] | false, alias?: string  } 
-  | { name: 'startCursor', args?: [] | false, alias?: string  } 
-  | { name: 'endCursor', args?: [] | false, alias?: string  } 
-
-type PageInfoFields =
-  | 'hasNextPage'
-  | 'hasPreviousPage'
-  | 'startCursor'
-  | 'endCursor'
-
-
-
-  
-
-export interface PageInfoFieldDetails {
-  hasNextPage: {
-    type: 'Boolean'
+export interface BuildFieldDetails {
+  id: {
+    type: 'ID'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: undefined
   }
-  hasPreviousPage: {
-    type: 'Boolean'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  startCursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  endCursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-}
-  
-
-// Types for PostEdge
-
-type PostEdgeObject =
-  | PostEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type PostEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface PostEdgeFieldDetails {
-  node: {
-    type: 'Post'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"PostEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Post> | prisma.Post
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregatePost
-
-type AggregatePostObject =
-  | AggregatePostFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregatePostFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregatePostFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for UserConnection
-
-type UserConnectionObject =
-  | UserConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type UserConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface UserConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"UserConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'UserEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"UserConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.UserEdge[]> | prisma.UserEdge[]
-  }
-  aggregate: {
-    type: 'AggregateUser'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"UserConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateUser> | prisma.AggregateUser
-  }
-}
-  
-
-// Types for UserEdge
-
-type UserEdgeObject =
-  | UserEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type UserEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface UserEdgeFieldDetails {
-  node: {
+  owner: {
     type: 'User'
     args: {}
     description: string
     list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"UserEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateUser
-
-type AggregateUserObject =
-  | AggregateUserFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateUserFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateUserFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for Location
-
-type LocationObject =
-  | LocationFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'aldmeri', args?: [] | false, alias?: string  } 
-  | { name: 'daggerfall', args?: [] | false, alias?: string  } 
-  | { name: 'ebonheart', args?: [] | false, alias?: string  } 
-
-type LocationFields =
-  | 'id'
-  | 'aldmeri'
-  | 'daggerfall'
-  | 'ebonheart'
-
-
-
-  
-
-export interface LocationFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  aldmeri: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
     nullable: true
-    resolve: undefined
-  }
-  daggerfall: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  ebonheart: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-}
-  
-
-// Types for LocationConnection
-
-type LocationConnectionObject =
-  | LocationConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type LocationConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface LocationConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
     resolve: (
-      root: core.RootValue<"LocationConnection">,
+      root: core.RootValue<"Build">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+    ) => Promise<prisma.User | null> | prisma.User | null
   }
-  edges: {
-    type: 'LocationEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"LocationConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.LocationEdge[]> | prisma.LocationEdge[]
-  }
-  aggregate: {
-    type: 'AggregateLocation'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"LocationConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateLocation> | prisma.AggregateLocation
-  }
-}
-  
-
-// Types for LocationEdge
-
-type LocationEdgeObject =
-  | LocationEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type LocationEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface LocationEdgeFieldDetails {
-  node: {
-    type: 'Location'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"LocationEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location> | prisma.Location
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateLocation
-
-type AggregateLocationObject =
-  | AggregateLocationFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateLocationFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateLocationFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for Mundus
-
-type MundusObject =
-  | MundusFields
-  | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'location', args?: [] | false, alias?: string  } 
-  | { name: 'effect', args?: [] | false, alias?: string  } 
-  | { name: 'value', args?: [] | false, alias?: string  } 
-  | { name: 'icon', args?: [] | false, alias?: string  } 
-  | { name: 'id', args?: [] | false, alias?: string  } 
-
-type MundusFields =
-  | 'name'
-  | 'location'
-  | 'effect'
-  | 'value'
-  | 'icon'
-  | 'id'
-
-
-
-  
-
-export interface MundusFieldDetails {
   name: {
     type: 'String'
     args: {}
     description: string
     list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  location: {
-    type: 'Location'
-    args: {}
-    description: string
-    list: undefined
     nullable: true
-    resolve: (
-      root: core.RootValue<"Mundus">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location | null> | prisma.Location | null
-  }
-  effect: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
     resolve: undefined
   }
-  value: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  icon: {
+  race: {
     type: 'String'
     args: {}
     description: string
@@ -1728,368 +1320,180 @@ export interface MundusFieldDetails {
     nullable: true
     resolve: undefined
   }
-  id: {
-    type: 'Int'
+  esoClass: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: undefined
   }
-}
-  
-
-// Types for MundusConnection
-
-type MundusConnectionObject =
-  | MundusConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type MundusConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface MundusConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
     nullable: false
-    resolve: (
-      root: core.RootValue<"MundusConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+    resolve: undefined
   }
-  edges: {
-    type: 'MundusEdge'
+  published: {
+    type: 'Boolean'
     args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  bigPieceSelection: {
+    type: 'SetSelection'
+    args: Record<BuildBigPieceSelectionArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"MundusConnection">,
-      args: {  }  ,
+      root: core.RootValue<"Build">,
+      args: { where?: SetSelectionWhereInput | null, orderBy?: prisma.SetSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.MundusEdge[]> | prisma.MundusEdge[]
+    ) => Promise<prisma.SetSelection[]> | prisma.SetSelection[]
   }
-  aggregate: {
-    type: 'AggregateMundus'
+  smallPieceSelection: {
+    type: 'SetSelection'
+    args: Record<BuildSmallPieceSelectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Build">,
+      args: { where?: SetSelectionWhereInput | null, orderBy?: prisma.SetSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SetSelection[]> | prisma.SetSelection[]
+  }
+  jewelrySelection: {
+    type: 'SetSelection'
+    args: Record<BuildJewelrySelectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Build">,
+      args: { where?: SetSelectionWhereInput | null, orderBy?: prisma.SetSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SetSelection[]> | prisma.SetSelection[]
+  }
+  frontbarSelection: {
+    type: 'SetSelection'
+    args: Record<BuildFrontbarSelectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Build">,
+      args: { where?: SetSelectionWhereInput | null, orderBy?: prisma.SetSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SetSelection[]> | prisma.SetSelection[]
+  }
+  backbarSelection: {
+    type: 'SetSelection'
+    args: Record<BuildBackbarSelectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Build">,
+      args: { where?: SetSelectionWhereInput | null, orderBy?: prisma.SetSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SetSelection[]> | prisma.SetSelection[]
+  }
+  newBarOne: {
+    type: 'SkillSelection'
+    args: Record<BuildNewBarOneArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Build">,
+      args: { where?: SkillSelectionWhereInput | null, orderBy?: prisma.SkillSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SkillSelection[]> | prisma.SkillSelection[]
+  }
+  newBarTwo: {
+    type: 'SkillSelection'
+    args: Record<BuildNewBarTwoArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Build">,
+      args: { where?: SkillSelectionWhereInput | null, orderBy?: prisma.SkillSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SkillSelection[]> | prisma.SkillSelection[]
+  }
+  ultimateOne: {
+    type: 'Skill'
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: (
-      root: core.RootValue<"MundusConnection">,
+      root: core.RootValue<"Build">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateMundus> | prisma.AggregateMundus
+    ) => Promise<prisma.Skill | null> | prisma.Skill | null
   }
-}
-  
-
-// Types for MundusEdge
-
-type MundusEdgeObject =
-  | MundusEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type MundusEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface MundusEdgeFieldDetails {
-  node: {
+  ultimateTwo: {
+    type: 'Skill'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Build">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Skill | null> | prisma.Skill | null
+  }
+  mundus: {
     type: 'Mundus'
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: (
-      root: core.RootValue<"MundusEdge">,
+      root: core.RootValue<"Build">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Mundus> | prisma.Mundus
+    ) => Promise<prisma.Mundus | null> | prisma.Mundus | null
   }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateMundus
-
-type AggregateMundusObject =
-  | AggregateMundusFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateMundusFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateMundusFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for SpecialBuff
-
-type SpecialBuffObject =
-  | SpecialBuffFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'buffDescription', args?: [] | false, alias?: string  } 
-  | { name: 'description', args?: [] | false, alias?: string  } 
-  | { name: 'duration', args?: [] | false, alias?: string  } 
-  | { name: 'notes', args?: [] | false, alias?: string  } 
-  | { name: 'icon', args?: [] | false, alias?: string  } 
-  | { name: 'type', args?: [] | false, alias?: string  } 
-  | { name: 'quality', args?: [] | false, alias?: string  } 
-
-type SpecialBuffFields =
-  | 'id'
-  | 'name'
-  | 'buffDescription'
-  | 'description'
-  | 'duration'
-  | 'notes'
-  | 'icon'
-  | 'type'
-  | 'quality'
-
-
-
-  
-
-export interface SpecialBuffFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  name: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  buffDescription: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  description: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  duration: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  notes: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  icon: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  type: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  quality: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for SpecialBuffConnection
-
-type SpecialBuffConnectionObject =
-  | SpecialBuffConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type SpecialBuffConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface SpecialBuffConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"SpecialBuffConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'SpecialBuffEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"SpecialBuffConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuffEdge[]> | prisma.SpecialBuffEdge[]
-  }
-  aggregate: {
-    type: 'AggregateSpecialBuff'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"SpecialBuffConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateSpecialBuff> | prisma.AggregateSpecialBuff
-  }
-}
-  
-
-// Types for SpecialBuffEdge
-
-type SpecialBuffEdgeObject =
-  | SpecialBuffEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type SpecialBuffEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface SpecialBuffEdgeFieldDetails {
-  node: {
+  buff: {
     type: 'SpecialBuff'
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: (
-      root: core.RootValue<"SpecialBuffEdge">,
+      root: core.RootValue<"Build">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuff> | prisma.SpecialBuff
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateSpecialBuff
-
-type AggregateSpecialBuffObject =
-  | AggregateSpecialBuffFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateSpecialBuffFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateSpecialBuffFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
+    ) => Promise<prisma.SpecialBuff | null> | prisma.SpecialBuff | null
   }
 }
   
@@ -2439,6 +1843,1151 @@ export interface ModificationFieldDetails {
     description: string
     list: undefined
     nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for SkillSelection
+
+type SkillSelectionObject =
+  | SkillSelectionFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'index', args?: [] | false, alias?: string  } 
+  | { name: 'skill', args?: [] | false, alias?: string  } 
+
+type SkillSelectionFields =
+  | 'id'
+  | 'index'
+  | 'skill'
+
+
+
+  
+
+export interface SkillSelectionFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  index: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  skill: {
+    type: 'Skill'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"SkillSelection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Skill | null> | prisma.Skill | null
+  }
+}
+  
+
+// Types for Skill
+
+type SkillObject =
+  | SkillFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'skillId', args?: [] | false, alias?: string  } 
+  | { name: 'cast_time', args?: [] | false, alias?: string  } 
+  | { name: 'cost', args?: [] | false, alias?: string  } 
+  | { name: 'effect_1', args?: [] | false, alias?: string  } 
+  | { name: 'effect_2', args?: [] | false, alias?: string  } 
+  | { name: 'icon', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'parent', args?: [] | false, alias?: string  } 
+  | { name: 'pts', args?: [] | false, alias?: string  } 
+  | { name: 'range', args?: [] | false, alias?: string  } 
+  | { name: 'skillline', args?: [] | false, alias?: string  } 
+  | { name: 'slug', args?: [] | false, alias?: string  } 
+  | { name: 'target', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'unlocks_at', args?: [] | false, alias?: string  } 
+
+type SkillFields =
+  | 'id'
+  | 'skillId'
+  | 'cast_time'
+  | 'cost'
+  | 'effect_1'
+  | 'effect_2'
+  | 'icon'
+  | 'name'
+  | 'parent'
+  | 'pts'
+  | 'range'
+  | 'skillline'
+  | 'slug'
+  | 'target'
+  | 'type'
+  | 'unlocks_at'
+
+
+
+  
+
+export interface SkillFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  skillId: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  cast_time: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  cost: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  effect_1: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  effect_2: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  icon: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  parent: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  pts: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  range: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  skillline: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  slug: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  target: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  type: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  unlocks_at: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for Mundus
+
+type MundusObject =
+  | MundusFields
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'location', args?: [] | false, alias?: string  } 
+  | { name: 'effect', args?: [] | false, alias?: string  } 
+  | { name: 'value', args?: [] | false, alias?: string  } 
+  | { name: 'icon', args?: [] | false, alias?: string  } 
+  | { name: 'id', args?: [] | false, alias?: string  } 
+
+type MundusFields =
+  | 'name'
+  | 'location'
+  | 'effect'
+  | 'value'
+  | 'icon'
+  | 'id'
+
+
+
+  
+
+export interface MundusFieldDetails {
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  location: {
+    type: 'Location'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mundus">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location | null> | prisma.Location | null
+  }
+  effect: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  value: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  icon: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  id: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for Location
+
+type LocationObject =
+  | LocationFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'aldmeri', args?: [] | false, alias?: string  } 
+  | { name: 'daggerfall', args?: [] | false, alias?: string  } 
+  | { name: 'ebonheart', args?: [] | false, alias?: string  } 
+
+type LocationFields =
+  | 'id'
+  | 'aldmeri'
+  | 'daggerfall'
+  | 'ebonheart'
+
+
+
+  
+
+export interface LocationFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  aldmeri: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  daggerfall: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  ebonheart: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for SpecialBuff
+
+type SpecialBuffObject =
+  | SpecialBuffFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'buffDescription', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'duration', args?: [] | false, alias?: string  } 
+  | { name: 'notes', args?: [] | false, alias?: string  } 
+  | { name: 'icon', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'quality', args?: [] | false, alias?: string  } 
+
+type SpecialBuffFields =
+  | 'id'
+  | 'name'
+  | 'buffDescription'
+  | 'description'
+  | 'duration'
+  | 'notes'
+  | 'icon'
+  | 'type'
+  | 'quality'
+
+
+
+  
+
+export interface SpecialBuffFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  buffDescription: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  duration: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  notes: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  icon: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  type: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  quality: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for PostConnection
+
+type PostConnectionObject =
+  | PostConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type PostConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface PostConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"PostConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'PostEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"PostConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PostEdge[]> | prisma.PostEdge[]
+  }
+  aggregate: {
+    type: 'AggregatePost'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"PostConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregatePost> | prisma.AggregatePost
+  }
+}
+  
+
+// Types for PageInfo
+
+type PageInfoObject =
+  | PageInfoFields
+  | { name: 'hasNextPage', args?: [] | false, alias?: string  } 
+  | { name: 'hasPreviousPage', args?: [] | false, alias?: string  } 
+  | { name: 'startCursor', args?: [] | false, alias?: string  } 
+  | { name: 'endCursor', args?: [] | false, alias?: string  } 
+
+type PageInfoFields =
+  | 'hasNextPage'
+  | 'hasPreviousPage'
+  | 'startCursor'
+  | 'endCursor'
+
+
+
+  
+
+export interface PageInfoFieldDetails {
+  hasNextPage: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  hasPreviousPage: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  startCursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  endCursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for PostEdge
+
+type PostEdgeObject =
+  | PostEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type PostEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface PostEdgeFieldDetails {
+  node: {
+    type: 'Post'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"PostEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Post> | prisma.Post
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregatePost
+
+type AggregatePostObject =
+  | AggregatePostFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregatePostFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregatePostFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for UserConnection
+
+type UserConnectionObject =
+  | UserConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type UserConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface UserConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'UserEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.UserEdge[]> | prisma.UserEdge[]
+  }
+  aggregate: {
+    type: 'AggregateUser'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateUser> | prisma.AggregateUser
+  }
+}
+  
+
+// Types for UserEdge
+
+type UserEdgeObject =
+  | UserEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type UserEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface UserEdgeFieldDetails {
+  node: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateUser
+
+type AggregateUserObject =
+  | AggregateUserFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateUserFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateUserFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for LocationConnection
+
+type LocationConnectionObject =
+  | LocationConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type LocationConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface LocationConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'LocationEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LocationEdge[]> | prisma.LocationEdge[]
+  }
+  aggregate: {
+    type: 'AggregateLocation'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateLocation> | prisma.AggregateLocation
+  }
+}
+  
+
+// Types for LocationEdge
+
+type LocationEdgeObject =
+  | LocationEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type LocationEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface LocationEdgeFieldDetails {
+  node: {
+    type: 'Location'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location> | prisma.Location
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateLocation
+
+type AggregateLocationObject =
+  | AggregateLocationFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateLocationFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateLocationFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for MundusConnection
+
+type MundusConnectionObject =
+  | MundusConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type MundusConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface MundusConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"MundusConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'MundusEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"MundusConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MundusEdge[]> | prisma.MundusEdge[]
+  }
+  aggregate: {
+    type: 'AggregateMundus'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"MundusConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateMundus> | prisma.AggregateMundus
+  }
+}
+  
+
+// Types for MundusEdge
+
+type MundusEdgeObject =
+  | MundusEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type MundusEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface MundusEdgeFieldDetails {
+  node: {
+    type: 'Mundus'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"MundusEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Mundus> | prisma.Mundus
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateMundus
+
+type AggregateMundusObject =
+  | AggregateMundusFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateMundusFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateMundusFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for SpecialBuffConnection
+
+type SpecialBuffConnectionObject =
+  | SpecialBuffConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type SpecialBuffConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface SpecialBuffConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SpecialBuffConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'SpecialBuffEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SpecialBuffConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SpecialBuffEdge[]> | prisma.SpecialBuffEdge[]
+  }
+  aggregate: {
+    type: 'AggregateSpecialBuff'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SpecialBuffConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateSpecialBuff> | prisma.AggregateSpecialBuff
+  }
+}
+  
+
+// Types for SpecialBuffEdge
+
+type SpecialBuffEdgeObject =
+  | SpecialBuffEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type SpecialBuffEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface SpecialBuffEdgeFieldDetails {
+  node: {
+    type: 'SpecialBuff'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SpecialBuffEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SpecialBuff> | prisma.SpecialBuff
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateSpecialBuff
+
+type AggregateSpecialBuffObject =
+  | AggregateSpecialBuffFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateSpecialBuffFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateSpecialBuffFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
     resolve: undefined
   }
 }
@@ -2819,231 +3368,6 @@ export interface AggregateModificationFieldDetails {
 }
   
 
-// Types for SkillSelection
-
-type SkillSelectionObject =
-  | SkillSelectionFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'index', args?: [] | false, alias?: string  } 
-  | { name: 'skill', args?: [] | false, alias?: string  } 
-
-type SkillSelectionFields =
-  | 'id'
-  | 'index'
-  | 'skill'
-
-
-
-  
-
-export interface SkillSelectionFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  index: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  skill: {
-    type: 'Skill'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"SkillSelection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Skill | null> | prisma.Skill | null
-  }
-}
-  
-
-// Types for Skill
-
-type SkillObject =
-  | SkillFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'skillId', args?: [] | false, alias?: string  } 
-  | { name: 'cast_time', args?: [] | false, alias?: string  } 
-  | { name: 'cost', args?: [] | false, alias?: string  } 
-  | { name: 'effect_1', args?: [] | false, alias?: string  } 
-  | { name: 'effect_2', args?: [] | false, alias?: string  } 
-  | { name: 'icon', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'parent', args?: [] | false, alias?: string  } 
-  | { name: 'pts', args?: [] | false, alias?: string  } 
-  | { name: 'range', args?: [] | false, alias?: string  } 
-  | { name: 'skillline', args?: [] | false, alias?: string  } 
-  | { name: 'slug', args?: [] | false, alias?: string  } 
-  | { name: 'target', args?: [] | false, alias?: string  } 
-  | { name: 'type', args?: [] | false, alias?: string  } 
-  | { name: 'unlocks_at', args?: [] | false, alias?: string  } 
-
-type SkillFields =
-  | 'id'
-  | 'skillId'
-  | 'cast_time'
-  | 'cost'
-  | 'effect_1'
-  | 'effect_2'
-  | 'icon'
-  | 'name'
-  | 'parent'
-  | 'pts'
-  | 'range'
-  | 'skillline'
-  | 'slug'
-  | 'target'
-  | 'type'
-  | 'unlocks_at'
-
-
-
-  
-
-export interface SkillFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  skillId: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  cast_time: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  cost: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  effect_1: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  effect_2: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  icon: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  name: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  parent: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  pts: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  range: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  skillline: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  slug: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  target: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  type: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  unlocks_at: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-}
-  
-
 // Types for SkillSelectionConnection
 
 type SkillSelectionConnectionObject =
@@ -3290,281 +3614,6 @@ export interface AggregateSkillFieldDetails {
     list: undefined
     nullable: false
     resolve: undefined
-  }
-}
-  
-
-// Types for Build
-
-type BuildObject =
-  | BuildFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'race', args?: [] | false, alias?: string  } 
-  | { name: 'class', args?: [] | false, alias?: string  } 
-  | { name: 'bigPieceSelection', args?: BuildBigPieceSelectionArgs[] | false, alias?: string  } 
-  | { name: 'smallPieceSelection', args?: BuildSmallPieceSelectionArgs[] | false, alias?: string  } 
-  | { name: 'jewelrySelection', args?: BuildJewelrySelectionArgs[] | false, alias?: string  } 
-  | { name: 'frontbarSelection', args?: BuildFrontbarSelectionArgs[] | false, alias?: string  } 
-  | { name: 'backbarSelection', args?: BuildBackbarSelectionArgs[] | false, alias?: string  } 
-  | { name: 'newBarOne', args?: BuildNewBarOneArgs[] | false, alias?: string  } 
-  | { name: 'newBarTwo', args?: BuildNewBarTwoArgs[] | false, alias?: string  } 
-  | { name: 'ultimateOne', args?: [] | false, alias?: string  } 
-  | { name: 'ultimateTwo', args?: [] | false, alias?: string  } 
-  | { name: 'mundus', args?: [] | false, alias?: string  } 
-  | { name: 'buff', args?: [] | false, alias?: string  } 
-
-type BuildFields =
-  | 'id'
-  | 'name'
-  | 'race'
-  | 'class'
-  | 'bigPieceSelection'
-  | 'smallPieceSelection'
-  | 'jewelrySelection'
-  | 'frontbarSelection'
-  | 'backbarSelection'
-  | 'newBarOne'
-  | 'newBarTwo'
-  | 'ultimateOne'
-  | 'ultimateTwo'
-  | 'mundus'
-  | 'buff'
-
-
-type BuildBigPieceSelectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type BuildSmallPieceSelectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type BuildJewelrySelectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type BuildFrontbarSelectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type BuildBackbarSelectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type BuildNewBarOneArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type BuildNewBarTwoArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-  
-
-export interface BuildFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  name: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  race: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  class: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  bigPieceSelection: {
-    type: 'SetSelection'
-    args: Record<BuildBigPieceSelectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Build">,
-      args: { where?: SetSelectionWhereInput | null, orderBy?: prisma.SetSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SetSelection[]> | prisma.SetSelection[]
-  }
-  smallPieceSelection: {
-    type: 'SetSelection'
-    args: Record<BuildSmallPieceSelectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Build">,
-      args: { where?: SetSelectionWhereInput | null, orderBy?: prisma.SetSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SetSelection[]> | prisma.SetSelection[]
-  }
-  jewelrySelection: {
-    type: 'SetSelection'
-    args: Record<BuildJewelrySelectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Build">,
-      args: { where?: SetSelectionWhereInput | null, orderBy?: prisma.SetSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SetSelection[]> | prisma.SetSelection[]
-  }
-  frontbarSelection: {
-    type: 'SetSelection'
-    args: Record<BuildFrontbarSelectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Build">,
-      args: { where?: SetSelectionWhereInput | null, orderBy?: prisma.SetSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SetSelection[]> | prisma.SetSelection[]
-  }
-  backbarSelection: {
-    type: 'SetSelection'
-    args: Record<BuildBackbarSelectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Build">,
-      args: { where?: SetSelectionWhereInput | null, orderBy?: prisma.SetSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SetSelection[]> | prisma.SetSelection[]
-  }
-  newBarOne: {
-    type: 'SkillSelection'
-    args: Record<BuildNewBarOneArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Build">,
-      args: { where?: SkillSelectionWhereInput | null, orderBy?: prisma.SkillSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SkillSelection[]> | prisma.SkillSelection[]
-  }
-  newBarTwo: {
-    type: 'SkillSelection'
-    args: Record<BuildNewBarTwoArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Build">,
-      args: { where?: SkillSelectionWhereInput | null, orderBy?: prisma.SkillSelectionOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SkillSelection[]> | prisma.SkillSelection[]
-  }
-  ultimateOne: {
-    type: 'Skill'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Build">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Skill | null> | prisma.Skill | null
-  }
-  ultimateTwo: {
-    type: 'Skill'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Build">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Skill | null> | prisma.Skill | null
-  }
-  mundus: {
-    type: 'Mundus'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Build">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Mundus | null> | prisma.Mundus | null
-  }
-  buff: {
-    type: 'SpecialBuff'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Build">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuff | null> | prisma.SpecialBuff | null
   }
 }
   
@@ -6747,13 +6796,19 @@ type BuildPreviousValuesObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'race', args?: [] | false, alias?: string  } 
-  | { name: 'class', args?: [] | false, alias?: string  } 
+  | { name: 'esoClass', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'published', args?: [] | false, alias?: string  } 
 
 type BuildPreviousValuesFields =
   | 'id'
   | 'name'
   | 'race'
-  | 'class'
+  | 'esoClass'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'published'
 
 
 
@@ -6784,12 +6839,36 @@ export interface BuildPreviousValuesFieldDetails {
     nullable: true
     resolve: undefined
   }
-  class: {
+  esoClass: {
     type: 'String'
     args: {}
     description: string
     list: undefined
     nullable: true
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  published: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
     resolve: undefined
   }
 }
@@ -6803,7 +6882,7 @@ export type PostWhereUniqueInputInputObject =
   | Extract<keyof PostWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
-export interface PostWhereInput {
+export interface BuildWhereInput {
   id?: string | null
   id_not?: string | null
   id_in?: string[]
@@ -6818,6 +6897,49 @@ export interface PostWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  owner?: UserWhereInput | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  race?: string | null
+  race_not?: string | null
+  race_in?: string[]
+  race_not_in?: string[]
+  race_lt?: string | null
+  race_lte?: string | null
+  race_gt?: string | null
+  race_gte?: string | null
+  race_contains?: string | null
+  race_not_contains?: string | null
+  race_starts_with?: string | null
+  race_not_starts_with?: string | null
+  race_ends_with?: string | null
+  race_not_ends_with?: string | null
+  esoClass?: string | null
+  esoClass_not?: string | null
+  esoClass_in?: string[]
+  esoClass_not_in?: string[]
+  esoClass_lt?: string | null
+  esoClass_lte?: string | null
+  esoClass_gt?: string | null
+  esoClass_gte?: string | null
+  esoClass_contains?: string | null
+  esoClass_not_contains?: string | null
+  esoClass_starts_with?: string | null
+  esoClass_not_starts_with?: string | null
+  esoClass_ends_with?: string | null
+  esoClass_not_ends_with?: string | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -6836,41 +6958,37 @@ export interface PostWhereInput {
   updatedAt_gte?: string | null
   published?: boolean | null
   published_not?: boolean | null
-  title?: string | null
-  title_not?: string | null
-  title_in?: string[]
-  title_not_in?: string[]
-  title_lt?: string | null
-  title_lte?: string | null
-  title_gt?: string | null
-  title_gte?: string | null
-  title_contains?: string | null
-  title_not_contains?: string | null
-  title_starts_with?: string | null
-  title_not_starts_with?: string | null
-  title_ends_with?: string | null
-  title_not_ends_with?: string | null
-  content?: string | null
-  content_not?: string | null
-  content_in?: string[]
-  content_not_in?: string[]
-  content_lt?: string | null
-  content_lte?: string | null
-  content_gt?: string | null
-  content_gte?: string | null
-  content_contains?: string | null
-  content_not_contains?: string | null
-  content_starts_with?: string | null
-  content_not_starts_with?: string | null
-  content_ends_with?: string | null
-  content_not_ends_with?: string | null
-  author?: UserWhereInput | null
-  AND?: PostWhereInput[]
-  OR?: PostWhereInput[]
-  NOT?: PostWhereInput[]
+  bigPieceSelection_every?: SetSelectionWhereInput | null
+  bigPieceSelection_some?: SetSelectionWhereInput | null
+  bigPieceSelection_none?: SetSelectionWhereInput | null
+  smallPieceSelection_every?: SetSelectionWhereInput | null
+  smallPieceSelection_some?: SetSelectionWhereInput | null
+  smallPieceSelection_none?: SetSelectionWhereInput | null
+  jewelrySelection_every?: SetSelectionWhereInput | null
+  jewelrySelection_some?: SetSelectionWhereInput | null
+  jewelrySelection_none?: SetSelectionWhereInput | null
+  frontbarSelection_every?: SetSelectionWhereInput | null
+  frontbarSelection_some?: SetSelectionWhereInput | null
+  frontbarSelection_none?: SetSelectionWhereInput | null
+  backbarSelection_every?: SetSelectionWhereInput | null
+  backbarSelection_some?: SetSelectionWhereInput | null
+  backbarSelection_none?: SetSelectionWhereInput | null
+  newBarOne_every?: SkillSelectionWhereInput | null
+  newBarOne_some?: SkillSelectionWhereInput | null
+  newBarOne_none?: SkillSelectionWhereInput | null
+  newBarTwo_every?: SkillSelectionWhereInput | null
+  newBarTwo_some?: SkillSelectionWhereInput | null
+  newBarTwo_none?: SkillSelectionWhereInput | null
+  ultimateOne?: SkillWhereInput | null
+  ultimateTwo?: SkillWhereInput | null
+  mundus?: MundusWhereInput | null
+  buff?: SpecialBuffWhereInput | null
+  AND?: BuildWhereInput[]
+  OR?: BuildWhereInput[]
+  NOT?: BuildWhereInput[]
 }
-export type PostWhereInputInputObject =
-  | Extract<keyof PostWhereInput, string>
+export type BuildWhereInputInputObject =
+  | Extract<keyof BuildWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -6885,6 +7003,49 @@ export type PostWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'owner', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'race', alias?: string  } 
+  | { name: 'race_not', alias?: string  } 
+  | { name: 'race_in', alias?: string  } 
+  | { name: 'race_not_in', alias?: string  } 
+  | { name: 'race_lt', alias?: string  } 
+  | { name: 'race_lte', alias?: string  } 
+  | { name: 'race_gt', alias?: string  } 
+  | { name: 'race_gte', alias?: string  } 
+  | { name: 'race_contains', alias?: string  } 
+  | { name: 'race_not_contains', alias?: string  } 
+  | { name: 'race_starts_with', alias?: string  } 
+  | { name: 'race_not_starts_with', alias?: string  } 
+  | { name: 'race_ends_with', alias?: string  } 
+  | { name: 'race_not_ends_with', alias?: string  } 
+  | { name: 'esoClass', alias?: string  } 
+  | { name: 'esoClass_not', alias?: string  } 
+  | { name: 'esoClass_in', alias?: string  } 
+  | { name: 'esoClass_not_in', alias?: string  } 
+  | { name: 'esoClass_lt', alias?: string  } 
+  | { name: 'esoClass_lte', alias?: string  } 
+  | { name: 'esoClass_gt', alias?: string  } 
+  | { name: 'esoClass_gte', alias?: string  } 
+  | { name: 'esoClass_contains', alias?: string  } 
+  | { name: 'esoClass_not_contains', alias?: string  } 
+  | { name: 'esoClass_starts_with', alias?: string  } 
+  | { name: 'esoClass_not_starts_with', alias?: string  } 
+  | { name: 'esoClass_ends_with', alias?: string  } 
+  | { name: 'esoClass_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -6903,35 +7064,31 @@ export type PostWhereInputInputObject =
   | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'published_not', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'title_not', alias?: string  } 
-  | { name: 'title_in', alias?: string  } 
-  | { name: 'title_not_in', alias?: string  } 
-  | { name: 'title_lt', alias?: string  } 
-  | { name: 'title_lte', alias?: string  } 
-  | { name: 'title_gt', alias?: string  } 
-  | { name: 'title_gte', alias?: string  } 
-  | { name: 'title_contains', alias?: string  } 
-  | { name: 'title_not_contains', alias?: string  } 
-  | { name: 'title_starts_with', alias?: string  } 
-  | { name: 'title_not_starts_with', alias?: string  } 
-  | { name: 'title_ends_with', alias?: string  } 
-  | { name: 'title_not_ends_with', alias?: string  } 
-  | { name: 'content', alias?: string  } 
-  | { name: 'content_not', alias?: string  } 
-  | { name: 'content_in', alias?: string  } 
-  | { name: 'content_not_in', alias?: string  } 
-  | { name: 'content_lt', alias?: string  } 
-  | { name: 'content_lte', alias?: string  } 
-  | { name: 'content_gt', alias?: string  } 
-  | { name: 'content_gte', alias?: string  } 
-  | { name: 'content_contains', alias?: string  } 
-  | { name: 'content_not_contains', alias?: string  } 
-  | { name: 'content_starts_with', alias?: string  } 
-  | { name: 'content_not_starts_with', alias?: string  } 
-  | { name: 'content_ends_with', alias?: string  } 
-  | { name: 'content_not_ends_with', alias?: string  } 
-  | { name: 'author', alias?: string  } 
+  | { name: 'bigPieceSelection_every', alias?: string  } 
+  | { name: 'bigPieceSelection_some', alias?: string  } 
+  | { name: 'bigPieceSelection_none', alias?: string  } 
+  | { name: 'smallPieceSelection_every', alias?: string  } 
+  | { name: 'smallPieceSelection_some', alias?: string  } 
+  | { name: 'smallPieceSelection_none', alias?: string  } 
+  | { name: 'jewelrySelection_every', alias?: string  } 
+  | { name: 'jewelrySelection_some', alias?: string  } 
+  | { name: 'jewelrySelection_none', alias?: string  } 
+  | { name: 'frontbarSelection_every', alias?: string  } 
+  | { name: 'frontbarSelection_some', alias?: string  } 
+  | { name: 'frontbarSelection_none', alias?: string  } 
+  | { name: 'backbarSelection_every', alias?: string  } 
+  | { name: 'backbarSelection_some', alias?: string  } 
+  | { name: 'backbarSelection_none', alias?: string  } 
+  | { name: 'newBarOne_every', alias?: string  } 
+  | { name: 'newBarOne_some', alias?: string  } 
+  | { name: 'newBarOne_none', alias?: string  } 
+  | { name: 'newBarTwo_every', alias?: string  } 
+  | { name: 'newBarTwo_some', alias?: string  } 
+  | { name: 'newBarTwo_none', alias?: string  } 
+  | { name: 'ultimateOne', alias?: string  } 
+  | { name: 'ultimateTwo', alias?: string  } 
+  | { name: 'mundus', alias?: string  } 
+  | { name: 'buff', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -6993,9 +7150,9 @@ export interface UserWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
-  posts_every?: PostWhereInput | null
-  posts_some?: PostWhereInput | null
-  posts_none?: PostWhereInput | null
+  builds_every?: BuildWhereInput | null
+  builds_some?: BuildWhereInput | null
+  builds_none?: BuildWhereInput | null
   AND?: UserWhereInput[]
   OR?: UserWhereInput[]
   NOT?: UserWhereInput[]
@@ -7058,552 +7215,12 @@ export type UserWhereInputInputObject =
   | { name: 'name_not_starts_with', alias?: string  } 
   | { name: 'name_ends_with', alias?: string  } 
   | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'posts_every', alias?: string  } 
-  | { name: 'posts_some', alias?: string  } 
-  | { name: 'posts_none', alias?: string  } 
+  | { name: 'builds_every', alias?: string  } 
+  | { name: 'builds_some', alias?: string  } 
+  | { name: 'builds_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
-  
-export interface UserWhereUniqueInput {
-  id?: string | null
-  email?: string | null
-}
-export type UserWhereUniqueInputInputObject =
-  | Extract<keyof UserWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  
-export interface LocationWhereUniqueInput {
-  id?: string | null
-}
-export type LocationWhereUniqueInputInputObject =
-  | Extract<keyof LocationWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface LocationWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  aldmeri?: string | null
-  aldmeri_not?: string | null
-  aldmeri_in?: string[]
-  aldmeri_not_in?: string[]
-  aldmeri_lt?: string | null
-  aldmeri_lte?: string | null
-  aldmeri_gt?: string | null
-  aldmeri_gte?: string | null
-  aldmeri_contains?: string | null
-  aldmeri_not_contains?: string | null
-  aldmeri_starts_with?: string | null
-  aldmeri_not_starts_with?: string | null
-  aldmeri_ends_with?: string | null
-  aldmeri_not_ends_with?: string | null
-  daggerfall?: string | null
-  daggerfall_not?: string | null
-  daggerfall_in?: string[]
-  daggerfall_not_in?: string[]
-  daggerfall_lt?: string | null
-  daggerfall_lte?: string | null
-  daggerfall_gt?: string | null
-  daggerfall_gte?: string | null
-  daggerfall_contains?: string | null
-  daggerfall_not_contains?: string | null
-  daggerfall_starts_with?: string | null
-  daggerfall_not_starts_with?: string | null
-  daggerfall_ends_with?: string | null
-  daggerfall_not_ends_with?: string | null
-  ebonheart?: string | null
-  ebonheart_not?: string | null
-  ebonheart_in?: string[]
-  ebonheart_not_in?: string[]
-  ebonheart_lt?: string | null
-  ebonheart_lte?: string | null
-  ebonheart_gt?: string | null
-  ebonheart_gte?: string | null
-  ebonheart_contains?: string | null
-  ebonheart_not_contains?: string | null
-  ebonheart_starts_with?: string | null
-  ebonheart_not_starts_with?: string | null
-  ebonheart_ends_with?: string | null
-  ebonheart_not_ends_with?: string | null
-  AND?: LocationWhereInput[]
-  OR?: LocationWhereInput[]
-  NOT?: LocationWhereInput[]
-}
-export type LocationWhereInputInputObject =
-  | Extract<keyof LocationWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'aldmeri', alias?: string  } 
-  | { name: 'aldmeri_not', alias?: string  } 
-  | { name: 'aldmeri_in', alias?: string  } 
-  | { name: 'aldmeri_not_in', alias?: string  } 
-  | { name: 'aldmeri_lt', alias?: string  } 
-  | { name: 'aldmeri_lte', alias?: string  } 
-  | { name: 'aldmeri_gt', alias?: string  } 
-  | { name: 'aldmeri_gte', alias?: string  } 
-  | { name: 'aldmeri_contains', alias?: string  } 
-  | { name: 'aldmeri_not_contains', alias?: string  } 
-  | { name: 'aldmeri_starts_with', alias?: string  } 
-  | { name: 'aldmeri_not_starts_with', alias?: string  } 
-  | { name: 'aldmeri_ends_with', alias?: string  } 
-  | { name: 'aldmeri_not_ends_with', alias?: string  } 
-  | { name: 'daggerfall', alias?: string  } 
-  | { name: 'daggerfall_not', alias?: string  } 
-  | { name: 'daggerfall_in', alias?: string  } 
-  | { name: 'daggerfall_not_in', alias?: string  } 
-  | { name: 'daggerfall_lt', alias?: string  } 
-  | { name: 'daggerfall_lte', alias?: string  } 
-  | { name: 'daggerfall_gt', alias?: string  } 
-  | { name: 'daggerfall_gte', alias?: string  } 
-  | { name: 'daggerfall_contains', alias?: string  } 
-  | { name: 'daggerfall_not_contains', alias?: string  } 
-  | { name: 'daggerfall_starts_with', alias?: string  } 
-  | { name: 'daggerfall_not_starts_with', alias?: string  } 
-  | { name: 'daggerfall_ends_with', alias?: string  } 
-  | { name: 'daggerfall_not_ends_with', alias?: string  } 
-  | { name: 'ebonheart', alias?: string  } 
-  | { name: 'ebonheart_not', alias?: string  } 
-  | { name: 'ebonheart_in', alias?: string  } 
-  | { name: 'ebonheart_not_in', alias?: string  } 
-  | { name: 'ebonheart_lt', alias?: string  } 
-  | { name: 'ebonheart_lte', alias?: string  } 
-  | { name: 'ebonheart_gt', alias?: string  } 
-  | { name: 'ebonheart_gte', alias?: string  } 
-  | { name: 'ebonheart_contains', alias?: string  } 
-  | { name: 'ebonheart_not_contains', alias?: string  } 
-  | { name: 'ebonheart_starts_with', alias?: string  } 
-  | { name: 'ebonheart_not_starts_with', alias?: string  } 
-  | { name: 'ebonheart_ends_with', alias?: string  } 
-  | { name: 'ebonheart_not_ends_with', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface MundusWhereUniqueInput {
-  id?: number | null
-}
-export type MundusWhereUniqueInputInputObject =
-  | Extract<keyof MundusWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface MundusWhereInput {
-  name?: string | null
-  name_not?: string | null
-  name_in?: string[]
-  name_not_in?: string[]
-  name_lt?: string | null
-  name_lte?: string | null
-  name_gt?: string | null
-  name_gte?: string | null
-  name_contains?: string | null
-  name_not_contains?: string | null
-  name_starts_with?: string | null
-  name_not_starts_with?: string | null
-  name_ends_with?: string | null
-  name_not_ends_with?: string | null
-  location?: LocationWhereInput | null
-  effect?: string | null
-  effect_not?: string | null
-  effect_in?: string[]
-  effect_not_in?: string[]
-  effect_lt?: string | null
-  effect_lte?: string | null
-  effect_gt?: string | null
-  effect_gte?: string | null
-  effect_contains?: string | null
-  effect_not_contains?: string | null
-  effect_starts_with?: string | null
-  effect_not_starts_with?: string | null
-  effect_ends_with?: string | null
-  effect_not_ends_with?: string | null
-  value?: string | null
-  value_not?: string | null
-  value_in?: string[]
-  value_not_in?: string[]
-  value_lt?: string | null
-  value_lte?: string | null
-  value_gt?: string | null
-  value_gte?: string | null
-  value_contains?: string | null
-  value_not_contains?: string | null
-  value_starts_with?: string | null
-  value_not_starts_with?: string | null
-  value_ends_with?: string | null
-  value_not_ends_with?: string | null
-  icon?: string | null
-  icon_not?: string | null
-  icon_in?: string[]
-  icon_not_in?: string[]
-  icon_lt?: string | null
-  icon_lte?: string | null
-  icon_gt?: string | null
-  icon_gte?: string | null
-  icon_contains?: string | null
-  icon_not_contains?: string | null
-  icon_starts_with?: string | null
-  icon_not_starts_with?: string | null
-  icon_ends_with?: string | null
-  icon_not_ends_with?: string | null
-  id?: number | null
-  id_not?: number | null
-  id_in?: number[]
-  id_not_in?: number[]
-  id_lt?: number | null
-  id_lte?: number | null
-  id_gt?: number | null
-  id_gte?: number | null
-  AND?: MundusWhereInput[]
-  OR?: MundusWhereInput[]
-  NOT?: MundusWhereInput[]
-}
-export type MundusWhereInputInputObject =
-  | Extract<keyof MundusWhereInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'name_not', alias?: string  } 
-  | { name: 'name_in', alias?: string  } 
-  | { name: 'name_not_in', alias?: string  } 
-  | { name: 'name_lt', alias?: string  } 
-  | { name: 'name_lte', alias?: string  } 
-  | { name: 'name_gt', alias?: string  } 
-  | { name: 'name_gte', alias?: string  } 
-  | { name: 'name_contains', alias?: string  } 
-  | { name: 'name_not_contains', alias?: string  } 
-  | { name: 'name_starts_with', alias?: string  } 
-  | { name: 'name_not_starts_with', alias?: string  } 
-  | { name: 'name_ends_with', alias?: string  } 
-  | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'location', alias?: string  } 
-  | { name: 'effect', alias?: string  } 
-  | { name: 'effect_not', alias?: string  } 
-  | { name: 'effect_in', alias?: string  } 
-  | { name: 'effect_not_in', alias?: string  } 
-  | { name: 'effect_lt', alias?: string  } 
-  | { name: 'effect_lte', alias?: string  } 
-  | { name: 'effect_gt', alias?: string  } 
-  | { name: 'effect_gte', alias?: string  } 
-  | { name: 'effect_contains', alias?: string  } 
-  | { name: 'effect_not_contains', alias?: string  } 
-  | { name: 'effect_starts_with', alias?: string  } 
-  | { name: 'effect_not_starts_with', alias?: string  } 
-  | { name: 'effect_ends_with', alias?: string  } 
-  | { name: 'effect_not_ends_with', alias?: string  } 
-  | { name: 'value', alias?: string  } 
-  | { name: 'value_not', alias?: string  } 
-  | { name: 'value_in', alias?: string  } 
-  | { name: 'value_not_in', alias?: string  } 
-  | { name: 'value_lt', alias?: string  } 
-  | { name: 'value_lte', alias?: string  } 
-  | { name: 'value_gt', alias?: string  } 
-  | { name: 'value_gte', alias?: string  } 
-  | { name: 'value_contains', alias?: string  } 
-  | { name: 'value_not_contains', alias?: string  } 
-  | { name: 'value_starts_with', alias?: string  } 
-  | { name: 'value_not_starts_with', alias?: string  } 
-  | { name: 'value_ends_with', alias?: string  } 
-  | { name: 'value_not_ends_with', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  | { name: 'icon_not', alias?: string  } 
-  | { name: 'icon_in', alias?: string  } 
-  | { name: 'icon_not_in', alias?: string  } 
-  | { name: 'icon_lt', alias?: string  } 
-  | { name: 'icon_lte', alias?: string  } 
-  | { name: 'icon_gt', alias?: string  } 
-  | { name: 'icon_gte', alias?: string  } 
-  | { name: 'icon_contains', alias?: string  } 
-  | { name: 'icon_not_contains', alias?: string  } 
-  | { name: 'icon_starts_with', alias?: string  } 
-  | { name: 'icon_not_starts_with', alias?: string  } 
-  | { name: 'icon_ends_with', alias?: string  } 
-  | { name: 'icon_not_ends_with', alias?: string  } 
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface SpecialBuffWhereUniqueInput {
-  id?: string | null
-}
-export type SpecialBuffWhereUniqueInputInputObject =
-  | Extract<keyof SpecialBuffWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface SpecialBuffWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  name?: string | null
-  name_not?: string | null
-  name_in?: string[]
-  name_not_in?: string[]
-  name_lt?: string | null
-  name_lte?: string | null
-  name_gt?: string | null
-  name_gte?: string | null
-  name_contains?: string | null
-  name_not_contains?: string | null
-  name_starts_with?: string | null
-  name_not_starts_with?: string | null
-  name_ends_with?: string | null
-  name_not_ends_with?: string | null
-  buffDescription?: string | null
-  buffDescription_not?: string | null
-  buffDescription_in?: string[]
-  buffDescription_not_in?: string[]
-  buffDescription_lt?: string | null
-  buffDescription_lte?: string | null
-  buffDescription_gt?: string | null
-  buffDescription_gte?: string | null
-  buffDescription_contains?: string | null
-  buffDescription_not_contains?: string | null
-  buffDescription_starts_with?: string | null
-  buffDescription_not_starts_with?: string | null
-  buffDescription_ends_with?: string | null
-  buffDescription_not_ends_with?: string | null
-  description?: string | null
-  description_not?: string | null
-  description_in?: string[]
-  description_not_in?: string[]
-  description_lt?: string | null
-  description_lte?: string | null
-  description_gt?: string | null
-  description_gte?: string | null
-  description_contains?: string | null
-  description_not_contains?: string | null
-  description_starts_with?: string | null
-  description_not_starts_with?: string | null
-  description_ends_with?: string | null
-  description_not_ends_with?: string | null
-  duration?: number | null
-  duration_not?: number | null
-  duration_in?: number[]
-  duration_not_in?: number[]
-  duration_lt?: number | null
-  duration_lte?: number | null
-  duration_gt?: number | null
-  duration_gte?: number | null
-  notes?: string | null
-  notes_not?: string | null
-  notes_in?: string[]
-  notes_not_in?: string[]
-  notes_lt?: string | null
-  notes_lte?: string | null
-  notes_gt?: string | null
-  notes_gte?: string | null
-  notes_contains?: string | null
-  notes_not_contains?: string | null
-  notes_starts_with?: string | null
-  notes_not_starts_with?: string | null
-  notes_ends_with?: string | null
-  notes_not_ends_with?: string | null
-  icon?: string | null
-  icon_not?: string | null
-  icon_in?: string[]
-  icon_not_in?: string[]
-  icon_lt?: string | null
-  icon_lte?: string | null
-  icon_gt?: string | null
-  icon_gte?: string | null
-  icon_contains?: string | null
-  icon_not_contains?: string | null
-  icon_starts_with?: string | null
-  icon_not_starts_with?: string | null
-  icon_ends_with?: string | null
-  icon_not_ends_with?: string | null
-  type?: string | null
-  type_not?: string | null
-  type_in?: string[]
-  type_not_in?: string[]
-  type_lt?: string | null
-  type_lte?: string | null
-  type_gt?: string | null
-  type_gte?: string | null
-  type_contains?: string | null
-  type_not_contains?: string | null
-  type_starts_with?: string | null
-  type_not_starts_with?: string | null
-  type_ends_with?: string | null
-  type_not_ends_with?: string | null
-  quality?: number | null
-  quality_not?: number | null
-  quality_in?: number[]
-  quality_not_in?: number[]
-  quality_lt?: number | null
-  quality_lte?: number | null
-  quality_gt?: number | null
-  quality_gte?: number | null
-  AND?: SpecialBuffWhereInput[]
-  OR?: SpecialBuffWhereInput[]
-  NOT?: SpecialBuffWhereInput[]
-}
-export type SpecialBuffWhereInputInputObject =
-  | Extract<keyof SpecialBuffWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'name_not', alias?: string  } 
-  | { name: 'name_in', alias?: string  } 
-  | { name: 'name_not_in', alias?: string  } 
-  | { name: 'name_lt', alias?: string  } 
-  | { name: 'name_lte', alias?: string  } 
-  | { name: 'name_gt', alias?: string  } 
-  | { name: 'name_gte', alias?: string  } 
-  | { name: 'name_contains', alias?: string  } 
-  | { name: 'name_not_contains', alias?: string  } 
-  | { name: 'name_starts_with', alias?: string  } 
-  | { name: 'name_not_starts_with', alias?: string  } 
-  | { name: 'name_ends_with', alias?: string  } 
-  | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'buffDescription', alias?: string  } 
-  | { name: 'buffDescription_not', alias?: string  } 
-  | { name: 'buffDescription_in', alias?: string  } 
-  | { name: 'buffDescription_not_in', alias?: string  } 
-  | { name: 'buffDescription_lt', alias?: string  } 
-  | { name: 'buffDescription_lte', alias?: string  } 
-  | { name: 'buffDescription_gt', alias?: string  } 
-  | { name: 'buffDescription_gte', alias?: string  } 
-  | { name: 'buffDescription_contains', alias?: string  } 
-  | { name: 'buffDescription_not_contains', alias?: string  } 
-  | { name: 'buffDescription_starts_with', alias?: string  } 
-  | { name: 'buffDescription_not_starts_with', alias?: string  } 
-  | { name: 'buffDescription_ends_with', alias?: string  } 
-  | { name: 'buffDescription_not_ends_with', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'description_not', alias?: string  } 
-  | { name: 'description_in', alias?: string  } 
-  | { name: 'description_not_in', alias?: string  } 
-  | { name: 'description_lt', alias?: string  } 
-  | { name: 'description_lte', alias?: string  } 
-  | { name: 'description_gt', alias?: string  } 
-  | { name: 'description_gte', alias?: string  } 
-  | { name: 'description_contains', alias?: string  } 
-  | { name: 'description_not_contains', alias?: string  } 
-  | { name: 'description_starts_with', alias?: string  } 
-  | { name: 'description_not_starts_with', alias?: string  } 
-  | { name: 'description_ends_with', alias?: string  } 
-  | { name: 'description_not_ends_with', alias?: string  } 
-  | { name: 'duration', alias?: string  } 
-  | { name: 'duration_not', alias?: string  } 
-  | { name: 'duration_in', alias?: string  } 
-  | { name: 'duration_not_in', alias?: string  } 
-  | { name: 'duration_lt', alias?: string  } 
-  | { name: 'duration_lte', alias?: string  } 
-  | { name: 'duration_gt', alias?: string  } 
-  | { name: 'duration_gte', alias?: string  } 
-  | { name: 'notes', alias?: string  } 
-  | { name: 'notes_not', alias?: string  } 
-  | { name: 'notes_in', alias?: string  } 
-  | { name: 'notes_not_in', alias?: string  } 
-  | { name: 'notes_lt', alias?: string  } 
-  | { name: 'notes_lte', alias?: string  } 
-  | { name: 'notes_gt', alias?: string  } 
-  | { name: 'notes_gte', alias?: string  } 
-  | { name: 'notes_contains', alias?: string  } 
-  | { name: 'notes_not_contains', alias?: string  } 
-  | { name: 'notes_starts_with', alias?: string  } 
-  | { name: 'notes_not_starts_with', alias?: string  } 
-  | { name: 'notes_ends_with', alias?: string  } 
-  | { name: 'notes_not_ends_with', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  | { name: 'icon_not', alias?: string  } 
-  | { name: 'icon_in', alias?: string  } 
-  | { name: 'icon_not_in', alias?: string  } 
-  | { name: 'icon_lt', alias?: string  } 
-  | { name: 'icon_lte', alias?: string  } 
-  | { name: 'icon_gt', alias?: string  } 
-  | { name: 'icon_gte', alias?: string  } 
-  | { name: 'icon_contains', alias?: string  } 
-  | { name: 'icon_not_contains', alias?: string  } 
-  | { name: 'icon_starts_with', alias?: string  } 
-  | { name: 'icon_not_starts_with', alias?: string  } 
-  | { name: 'icon_ends_with', alias?: string  } 
-  | { name: 'icon_not_ends_with', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'type_not', alias?: string  } 
-  | { name: 'type_in', alias?: string  } 
-  | { name: 'type_not_in', alias?: string  } 
-  | { name: 'type_lt', alias?: string  } 
-  | { name: 'type_lte', alias?: string  } 
-  | { name: 'type_gt', alias?: string  } 
-  | { name: 'type_gte', alias?: string  } 
-  | { name: 'type_contains', alias?: string  } 
-  | { name: 'type_not_contains', alias?: string  } 
-  | { name: 'type_starts_with', alias?: string  } 
-  | { name: 'type_not_starts_with', alias?: string  } 
-  | { name: 'type_ends_with', alias?: string  } 
-  | { name: 'type_not_ends_with', alias?: string  } 
-  | { name: 'quality', alias?: string  } 
-  | { name: 'quality_not', alias?: string  } 
-  | { name: 'quality_in', alias?: string  } 
-  | { name: 'quality_not_in', alias?: string  } 
-  | { name: 'quality_lt', alias?: string  } 
-  | { name: 'quality_lte', alias?: string  } 
-  | { name: 'quality_gt', alias?: string  } 
-  | { name: 'quality_gte', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface SetSelectionWhereUniqueInput {
-  id?: string | null
-}
-export type SetSelectionWhereUniqueInputInputObject =
-  | Extract<keyof SetSelectionWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
   
 export interface SetSelectionWhereInput {
   id?: string | null
@@ -8264,27 +7881,6 @@ export type ModificationWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface SetWhereUniqueInput {
-  id?: string | null
-}
-export type SetWhereUniqueInputInputObject =
-  | Extract<keyof SetWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface ModificationWhereUniqueInput {
-  id?: string | null
-}
-export type ModificationWhereUniqueInputInputObject =
-  | Extract<keyof ModificationWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface SkillSelectionWhereUniqueInput {
-  id?: string | null
-}
-export type SkillSelectionWhereUniqueInputInputObject =
-  | Extract<keyof SkillSelectionWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
 export interface SkillSelectionWhereInput {
   id?: string | null
   id_not?: string | null
@@ -8729,21 +8325,271 @@ export type SkillWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface SkillWhereUniqueInput {
-  id?: string | null
+export interface MundusWhereInput {
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  location?: LocationWhereInput | null
+  effect?: string | null
+  effect_not?: string | null
+  effect_in?: string[]
+  effect_not_in?: string[]
+  effect_lt?: string | null
+  effect_lte?: string | null
+  effect_gt?: string | null
+  effect_gte?: string | null
+  effect_contains?: string | null
+  effect_not_contains?: string | null
+  effect_starts_with?: string | null
+  effect_not_starts_with?: string | null
+  effect_ends_with?: string | null
+  effect_not_ends_with?: string | null
+  value?: string | null
+  value_not?: string | null
+  value_in?: string[]
+  value_not_in?: string[]
+  value_lt?: string | null
+  value_lte?: string | null
+  value_gt?: string | null
+  value_gte?: string | null
+  value_contains?: string | null
+  value_not_contains?: string | null
+  value_starts_with?: string | null
+  value_not_starts_with?: string | null
+  value_ends_with?: string | null
+  value_not_ends_with?: string | null
+  icon?: string | null
+  icon_not?: string | null
+  icon_in?: string[]
+  icon_not_in?: string[]
+  icon_lt?: string | null
+  icon_lte?: string | null
+  icon_gt?: string | null
+  icon_gte?: string | null
+  icon_contains?: string | null
+  icon_not_contains?: string | null
+  icon_starts_with?: string | null
+  icon_not_starts_with?: string | null
+  icon_ends_with?: string | null
+  icon_not_ends_with?: string | null
+  id?: number | null
+  id_not?: number | null
+  id_in?: number[]
+  id_not_in?: number[]
+  id_lt?: number | null
+  id_lte?: number | null
+  id_gt?: number | null
+  id_gte?: number | null
+  AND?: MundusWhereInput[]
+  OR?: MundusWhereInput[]
+  NOT?: MundusWhereInput[]
 }
-export type SkillWhereUniqueInputInputObject =
-  | Extract<keyof SkillWhereUniqueInput, string>
+export type MundusWhereInputInputObject =
+  | Extract<keyof MundusWhereInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'location', alias?: string  } 
+  | { name: 'effect', alias?: string  } 
+  | { name: 'effect_not', alias?: string  } 
+  | { name: 'effect_in', alias?: string  } 
+  | { name: 'effect_not_in', alias?: string  } 
+  | { name: 'effect_lt', alias?: string  } 
+  | { name: 'effect_lte', alias?: string  } 
+  | { name: 'effect_gt', alias?: string  } 
+  | { name: 'effect_gte', alias?: string  } 
+  | { name: 'effect_contains', alias?: string  } 
+  | { name: 'effect_not_contains', alias?: string  } 
+  | { name: 'effect_starts_with', alias?: string  } 
+  | { name: 'effect_not_starts_with', alias?: string  } 
+  | { name: 'effect_ends_with', alias?: string  } 
+  | { name: 'effect_not_ends_with', alias?: string  } 
+  | { name: 'value', alias?: string  } 
+  | { name: 'value_not', alias?: string  } 
+  | { name: 'value_in', alias?: string  } 
+  | { name: 'value_not_in', alias?: string  } 
+  | { name: 'value_lt', alias?: string  } 
+  | { name: 'value_lte', alias?: string  } 
+  | { name: 'value_gt', alias?: string  } 
+  | { name: 'value_gte', alias?: string  } 
+  | { name: 'value_contains', alias?: string  } 
+  | { name: 'value_not_contains', alias?: string  } 
+  | { name: 'value_starts_with', alias?: string  } 
+  | { name: 'value_not_starts_with', alias?: string  } 
+  | { name: 'value_ends_with', alias?: string  } 
+  | { name: 'value_not_ends_with', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  | { name: 'icon_not', alias?: string  } 
+  | { name: 'icon_in', alias?: string  } 
+  | { name: 'icon_not_in', alias?: string  } 
+  | { name: 'icon_lt', alias?: string  } 
+  | { name: 'icon_lte', alias?: string  } 
+  | { name: 'icon_gt', alias?: string  } 
+  | { name: 'icon_gte', alias?: string  } 
+  | { name: 'icon_contains', alias?: string  } 
+  | { name: 'icon_not_contains', alias?: string  } 
+  | { name: 'icon_starts_with', alias?: string  } 
+  | { name: 'icon_not_starts_with', alias?: string  } 
+  | { name: 'icon_ends_with', alias?: string  } 
+  | { name: 'icon_not_ends_with', alias?: string  } 
   | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
   
-export interface BuildWhereUniqueInput {
+export interface LocationWhereInput {
   id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  aldmeri?: string | null
+  aldmeri_not?: string | null
+  aldmeri_in?: string[]
+  aldmeri_not_in?: string[]
+  aldmeri_lt?: string | null
+  aldmeri_lte?: string | null
+  aldmeri_gt?: string | null
+  aldmeri_gte?: string | null
+  aldmeri_contains?: string | null
+  aldmeri_not_contains?: string | null
+  aldmeri_starts_with?: string | null
+  aldmeri_not_starts_with?: string | null
+  aldmeri_ends_with?: string | null
+  aldmeri_not_ends_with?: string | null
+  daggerfall?: string | null
+  daggerfall_not?: string | null
+  daggerfall_in?: string[]
+  daggerfall_not_in?: string[]
+  daggerfall_lt?: string | null
+  daggerfall_lte?: string | null
+  daggerfall_gt?: string | null
+  daggerfall_gte?: string | null
+  daggerfall_contains?: string | null
+  daggerfall_not_contains?: string | null
+  daggerfall_starts_with?: string | null
+  daggerfall_not_starts_with?: string | null
+  daggerfall_ends_with?: string | null
+  daggerfall_not_ends_with?: string | null
+  ebonheart?: string | null
+  ebonheart_not?: string | null
+  ebonheart_in?: string[]
+  ebonheart_not_in?: string[]
+  ebonheart_lt?: string | null
+  ebonheart_lte?: string | null
+  ebonheart_gt?: string | null
+  ebonheart_gte?: string | null
+  ebonheart_contains?: string | null
+  ebonheart_not_contains?: string | null
+  ebonheart_starts_with?: string | null
+  ebonheart_not_starts_with?: string | null
+  ebonheart_ends_with?: string | null
+  ebonheart_not_ends_with?: string | null
+  AND?: LocationWhereInput[]
+  OR?: LocationWhereInput[]
+  NOT?: LocationWhereInput[]
 }
-export type BuildWhereUniqueInputInputObject =
-  | Extract<keyof BuildWhereUniqueInput, string>
+export type LocationWhereInputInputObject =
+  | Extract<keyof LocationWhereInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'aldmeri', alias?: string  } 
+  | { name: 'aldmeri_not', alias?: string  } 
+  | { name: 'aldmeri_in', alias?: string  } 
+  | { name: 'aldmeri_not_in', alias?: string  } 
+  | { name: 'aldmeri_lt', alias?: string  } 
+  | { name: 'aldmeri_lte', alias?: string  } 
+  | { name: 'aldmeri_gt', alias?: string  } 
+  | { name: 'aldmeri_gte', alias?: string  } 
+  | { name: 'aldmeri_contains', alias?: string  } 
+  | { name: 'aldmeri_not_contains', alias?: string  } 
+  | { name: 'aldmeri_starts_with', alias?: string  } 
+  | { name: 'aldmeri_not_starts_with', alias?: string  } 
+  | { name: 'aldmeri_ends_with', alias?: string  } 
+  | { name: 'aldmeri_not_ends_with', alias?: string  } 
+  | { name: 'daggerfall', alias?: string  } 
+  | { name: 'daggerfall_not', alias?: string  } 
+  | { name: 'daggerfall_in', alias?: string  } 
+  | { name: 'daggerfall_not_in', alias?: string  } 
+  | { name: 'daggerfall_lt', alias?: string  } 
+  | { name: 'daggerfall_lte', alias?: string  } 
+  | { name: 'daggerfall_gt', alias?: string  } 
+  | { name: 'daggerfall_gte', alias?: string  } 
+  | { name: 'daggerfall_contains', alias?: string  } 
+  | { name: 'daggerfall_not_contains', alias?: string  } 
+  | { name: 'daggerfall_starts_with', alias?: string  } 
+  | { name: 'daggerfall_not_starts_with', alias?: string  } 
+  | { name: 'daggerfall_ends_with', alias?: string  } 
+  | { name: 'daggerfall_not_ends_with', alias?: string  } 
+  | { name: 'ebonheart', alias?: string  } 
+  | { name: 'ebonheart_not', alias?: string  } 
+  | { name: 'ebonheart_in', alias?: string  } 
+  | { name: 'ebonheart_not_in', alias?: string  } 
+  | { name: 'ebonheart_lt', alias?: string  } 
+  | { name: 'ebonheart_lte', alias?: string  } 
+  | { name: 'ebonheart_gt', alias?: string  } 
+  | { name: 'ebonheart_gte', alias?: string  } 
+  | { name: 'ebonheart_contains', alias?: string  } 
+  | { name: 'ebonheart_not_contains', alias?: string  } 
+  | { name: 'ebonheart_starts_with', alias?: string  } 
+  | { name: 'ebonheart_not_starts_with', alias?: string  } 
+  | { name: 'ebonheart_ends_with', alias?: string  } 
+  | { name: 'ebonheart_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
   
-export interface BuildWhereInput {
+export interface SpecialBuffWhereInput {
   id?: string | null
   id_not?: string | null
   id_in?: string[]
@@ -8772,65 +8618,98 @@ export interface BuildWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
-  race?: string | null
-  race_not?: string | null
-  race_in?: string[]
-  race_not_in?: string[]
-  race_lt?: string | null
-  race_lte?: string | null
-  race_gt?: string | null
-  race_gte?: string | null
-  race_contains?: string | null
-  race_not_contains?: string | null
-  race_starts_with?: string | null
-  race_not_starts_with?: string | null
-  race_ends_with?: string | null
-  race_not_ends_with?: string | null
-  class?: string | null
-  class_not?: string | null
-  class_in?: string[]
-  class_not_in?: string[]
-  class_lt?: string | null
-  class_lte?: string | null
-  class_gt?: string | null
-  class_gte?: string | null
-  class_contains?: string | null
-  class_not_contains?: string | null
-  class_starts_with?: string | null
-  class_not_starts_with?: string | null
-  class_ends_with?: string | null
-  class_not_ends_with?: string | null
-  bigPieceSelection_every?: SetSelectionWhereInput | null
-  bigPieceSelection_some?: SetSelectionWhereInput | null
-  bigPieceSelection_none?: SetSelectionWhereInput | null
-  smallPieceSelection_every?: SetSelectionWhereInput | null
-  smallPieceSelection_some?: SetSelectionWhereInput | null
-  smallPieceSelection_none?: SetSelectionWhereInput | null
-  jewelrySelection_every?: SetSelectionWhereInput | null
-  jewelrySelection_some?: SetSelectionWhereInput | null
-  jewelrySelection_none?: SetSelectionWhereInput | null
-  frontbarSelection_every?: SetSelectionWhereInput | null
-  frontbarSelection_some?: SetSelectionWhereInput | null
-  frontbarSelection_none?: SetSelectionWhereInput | null
-  backbarSelection_every?: SetSelectionWhereInput | null
-  backbarSelection_some?: SetSelectionWhereInput | null
-  backbarSelection_none?: SetSelectionWhereInput | null
-  newBarOne_every?: SkillSelectionWhereInput | null
-  newBarOne_some?: SkillSelectionWhereInput | null
-  newBarOne_none?: SkillSelectionWhereInput | null
-  newBarTwo_every?: SkillSelectionWhereInput | null
-  newBarTwo_some?: SkillSelectionWhereInput | null
-  newBarTwo_none?: SkillSelectionWhereInput | null
-  ultimateOne?: SkillWhereInput | null
-  ultimateTwo?: SkillWhereInput | null
-  mundus?: MundusWhereInput | null
-  buff?: SpecialBuffWhereInput | null
-  AND?: BuildWhereInput[]
-  OR?: BuildWhereInput[]
-  NOT?: BuildWhereInput[]
+  buffDescription?: string | null
+  buffDescription_not?: string | null
+  buffDescription_in?: string[]
+  buffDescription_not_in?: string[]
+  buffDescription_lt?: string | null
+  buffDescription_lte?: string | null
+  buffDescription_gt?: string | null
+  buffDescription_gte?: string | null
+  buffDescription_contains?: string | null
+  buffDescription_not_contains?: string | null
+  buffDescription_starts_with?: string | null
+  buffDescription_not_starts_with?: string | null
+  buffDescription_ends_with?: string | null
+  buffDescription_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  duration?: number | null
+  duration_not?: number | null
+  duration_in?: number[]
+  duration_not_in?: number[]
+  duration_lt?: number | null
+  duration_lte?: number | null
+  duration_gt?: number | null
+  duration_gte?: number | null
+  notes?: string | null
+  notes_not?: string | null
+  notes_in?: string[]
+  notes_not_in?: string[]
+  notes_lt?: string | null
+  notes_lte?: string | null
+  notes_gt?: string | null
+  notes_gte?: string | null
+  notes_contains?: string | null
+  notes_not_contains?: string | null
+  notes_starts_with?: string | null
+  notes_not_starts_with?: string | null
+  notes_ends_with?: string | null
+  notes_not_ends_with?: string | null
+  icon?: string | null
+  icon_not?: string | null
+  icon_in?: string[]
+  icon_not_in?: string[]
+  icon_lt?: string | null
+  icon_lte?: string | null
+  icon_gt?: string | null
+  icon_gte?: string | null
+  icon_contains?: string | null
+  icon_not_contains?: string | null
+  icon_starts_with?: string | null
+  icon_not_starts_with?: string | null
+  icon_ends_with?: string | null
+  icon_not_ends_with?: string | null
+  type?: string | null
+  type_not?: string | null
+  type_in?: string[]
+  type_not_in?: string[]
+  type_lt?: string | null
+  type_lte?: string | null
+  type_gt?: string | null
+  type_gte?: string | null
+  type_contains?: string | null
+  type_not_contains?: string | null
+  type_starts_with?: string | null
+  type_not_starts_with?: string | null
+  type_ends_with?: string | null
+  type_not_ends_with?: string | null
+  quality?: number | null
+  quality_not?: number | null
+  quality_in?: number[]
+  quality_not_in?: number[]
+  quality_lt?: number | null
+  quality_lte?: number | null
+  quality_gt?: number | null
+  quality_gte?: number | null
+  AND?: SpecialBuffWhereInput[]
+  OR?: SpecialBuffWhereInput[]
+  NOT?: SpecialBuffWhereInput[]
 }
-export type BuildWhereInputInputObject =
-  | Extract<keyof BuildWhereInput, string>
+export type SpecialBuffWhereInputInputObject =
+  | Extract<keyof SpecialBuffWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -8859,262 +8738,97 @@ export type BuildWhereInputInputObject =
   | { name: 'name_not_starts_with', alias?: string  } 
   | { name: 'name_ends_with', alias?: string  } 
   | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'race', alias?: string  } 
-  | { name: 'race_not', alias?: string  } 
-  | { name: 'race_in', alias?: string  } 
-  | { name: 'race_not_in', alias?: string  } 
-  | { name: 'race_lt', alias?: string  } 
-  | { name: 'race_lte', alias?: string  } 
-  | { name: 'race_gt', alias?: string  } 
-  | { name: 'race_gte', alias?: string  } 
-  | { name: 'race_contains', alias?: string  } 
-  | { name: 'race_not_contains', alias?: string  } 
-  | { name: 'race_starts_with', alias?: string  } 
-  | { name: 'race_not_starts_with', alias?: string  } 
-  | { name: 'race_ends_with', alias?: string  } 
-  | { name: 'race_not_ends_with', alias?: string  } 
-  | { name: 'class', alias?: string  } 
-  | { name: 'class_not', alias?: string  } 
-  | { name: 'class_in', alias?: string  } 
-  | { name: 'class_not_in', alias?: string  } 
-  | { name: 'class_lt', alias?: string  } 
-  | { name: 'class_lte', alias?: string  } 
-  | { name: 'class_gt', alias?: string  } 
-  | { name: 'class_gte', alias?: string  } 
-  | { name: 'class_contains', alias?: string  } 
-  | { name: 'class_not_contains', alias?: string  } 
-  | { name: 'class_starts_with', alias?: string  } 
-  | { name: 'class_not_starts_with', alias?: string  } 
-  | { name: 'class_ends_with', alias?: string  } 
-  | { name: 'class_not_ends_with', alias?: string  } 
-  | { name: 'bigPieceSelection_every', alias?: string  } 
-  | { name: 'bigPieceSelection_some', alias?: string  } 
-  | { name: 'bigPieceSelection_none', alias?: string  } 
-  | { name: 'smallPieceSelection_every', alias?: string  } 
-  | { name: 'smallPieceSelection_some', alias?: string  } 
-  | { name: 'smallPieceSelection_none', alias?: string  } 
-  | { name: 'jewelrySelection_every', alias?: string  } 
-  | { name: 'jewelrySelection_some', alias?: string  } 
-  | { name: 'jewelrySelection_none', alias?: string  } 
-  | { name: 'frontbarSelection_every', alias?: string  } 
-  | { name: 'frontbarSelection_some', alias?: string  } 
-  | { name: 'frontbarSelection_none', alias?: string  } 
-  | { name: 'backbarSelection_every', alias?: string  } 
-  | { name: 'backbarSelection_some', alias?: string  } 
-  | { name: 'backbarSelection_none', alias?: string  } 
-  | { name: 'newBarOne_every', alias?: string  } 
-  | { name: 'newBarOne_some', alias?: string  } 
-  | { name: 'newBarOne_none', alias?: string  } 
-  | { name: 'newBarTwo_every', alias?: string  } 
-  | { name: 'newBarTwo_some', alias?: string  } 
-  | { name: 'newBarTwo_none', alias?: string  } 
-  | { name: 'ultimateOne', alias?: string  } 
-  | { name: 'ultimateTwo', alias?: string  } 
-  | { name: 'mundus', alias?: string  } 
-  | { name: 'buff', alias?: string  } 
+  | { name: 'buffDescription', alias?: string  } 
+  | { name: 'buffDescription_not', alias?: string  } 
+  | { name: 'buffDescription_in', alias?: string  } 
+  | { name: 'buffDescription_not_in', alias?: string  } 
+  | { name: 'buffDescription_lt', alias?: string  } 
+  | { name: 'buffDescription_lte', alias?: string  } 
+  | { name: 'buffDescription_gt', alias?: string  } 
+  | { name: 'buffDescription_gte', alias?: string  } 
+  | { name: 'buffDescription_contains', alias?: string  } 
+  | { name: 'buffDescription_not_contains', alias?: string  } 
+  | { name: 'buffDescription_starts_with', alias?: string  } 
+  | { name: 'buffDescription_not_starts_with', alias?: string  } 
+  | { name: 'buffDescription_ends_with', alias?: string  } 
+  | { name: 'buffDescription_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'duration', alias?: string  } 
+  | { name: 'duration_not', alias?: string  } 
+  | { name: 'duration_in', alias?: string  } 
+  | { name: 'duration_not_in', alias?: string  } 
+  | { name: 'duration_lt', alias?: string  } 
+  | { name: 'duration_lte', alias?: string  } 
+  | { name: 'duration_gt', alias?: string  } 
+  | { name: 'duration_gte', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
+  | { name: 'notes_not', alias?: string  } 
+  | { name: 'notes_in', alias?: string  } 
+  | { name: 'notes_not_in', alias?: string  } 
+  | { name: 'notes_lt', alias?: string  } 
+  | { name: 'notes_lte', alias?: string  } 
+  | { name: 'notes_gt', alias?: string  } 
+  | { name: 'notes_gte', alias?: string  } 
+  | { name: 'notes_contains', alias?: string  } 
+  | { name: 'notes_not_contains', alias?: string  } 
+  | { name: 'notes_starts_with', alias?: string  } 
+  | { name: 'notes_not_starts_with', alias?: string  } 
+  | { name: 'notes_ends_with', alias?: string  } 
+  | { name: 'notes_not_ends_with', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  | { name: 'icon_not', alias?: string  } 
+  | { name: 'icon_in', alias?: string  } 
+  | { name: 'icon_not_in', alias?: string  } 
+  | { name: 'icon_lt', alias?: string  } 
+  | { name: 'icon_lte', alias?: string  } 
+  | { name: 'icon_gt', alias?: string  } 
+  | { name: 'icon_gte', alias?: string  } 
+  | { name: 'icon_contains', alias?: string  } 
+  | { name: 'icon_not_contains', alias?: string  } 
+  | { name: 'icon_starts_with', alias?: string  } 
+  | { name: 'icon_not_starts_with', alias?: string  } 
+  | { name: 'icon_ends_with', alias?: string  } 
+  | { name: 'icon_not_ends_with', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'type_not', alias?: string  } 
+  | { name: 'type_in', alias?: string  } 
+  | { name: 'type_not_in', alias?: string  } 
+  | { name: 'type_lt', alias?: string  } 
+  | { name: 'type_lte', alias?: string  } 
+  | { name: 'type_gt', alias?: string  } 
+  | { name: 'type_gte', alias?: string  } 
+  | { name: 'type_contains', alias?: string  } 
+  | { name: 'type_not_contains', alias?: string  } 
+  | { name: 'type_starts_with', alias?: string  } 
+  | { name: 'type_not_starts_with', alias?: string  } 
+  | { name: 'type_ends_with', alias?: string  } 
+  | { name: 'type_not_ends_with', alias?: string  } 
+  | { name: 'quality', alias?: string  } 
+  | { name: 'quality_not', alias?: string  } 
+  | { name: 'quality_in', alias?: string  } 
+  | { name: 'quality_not_in', alias?: string  } 
+  | { name: 'quality_lt', alias?: string  } 
+  | { name: 'quality_lte', alias?: string  } 
+  | { name: 'quality_gt', alias?: string  } 
+  | { name: 'quality_gte', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface PostCreateInput {
-  id?: string | null
-  published?: boolean | null
-  title?: string
-  content?: string | null
-  author?: UserCreateOneWithoutPostsInput
-}
-export type PostCreateInputInputObject =
-  | Extract<keyof PostCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'published', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'content', alias?: string  } 
-  | { name: 'author', alias?: string  } 
-  
-export interface UserCreateOneWithoutPostsInput {
-  create?: UserCreateWithoutPostsInput | null
-  connect?: UserWhereUniqueInput | null
-}
-export type UserCreateOneWithoutPostsInputInputObject =
-  | Extract<keyof UserCreateOneWithoutPostsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface UserCreateWithoutPostsInput {
-  id?: string | null
-  email?: string
-  password?: string
-  name?: string | null
-}
-export type UserCreateWithoutPostsInputInputObject =
-  | Extract<keyof UserCreateWithoutPostsInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  
-export interface PostUpdateInput {
-  published?: boolean | null
-  title?: string | null
-  content?: string | null
-  author?: UserUpdateOneRequiredWithoutPostsInput | null
-}
-export type PostUpdateInputInputObject =
-  | Extract<keyof PostUpdateInput, string>
-  | { name: 'published', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'content', alias?: string  } 
-  | { name: 'author', alias?: string  } 
-  
-export interface UserUpdateOneRequiredWithoutPostsInput {
-  create?: UserCreateWithoutPostsInput | null
-  update?: UserUpdateWithoutPostsDataInput | null
-  upsert?: UserUpsertWithoutPostsInput | null
-  connect?: UserWhereUniqueInput | null
-}
-export type UserUpdateOneRequiredWithoutPostsInputInputObject =
-  | Extract<keyof UserUpdateOneRequiredWithoutPostsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface UserUpdateWithoutPostsDataInput {
-  email?: string | null
-  password?: string | null
-  name?: string | null
-}
-export type UserUpdateWithoutPostsDataInputInputObject =
-  | Extract<keyof UserUpdateWithoutPostsDataInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  
-export interface UserUpsertWithoutPostsInput {
-  update?: UserUpdateWithoutPostsDataInput
-  create?: UserCreateWithoutPostsInput
-}
-export type UserUpsertWithoutPostsInputInputObject =
-  | Extract<keyof UserUpsertWithoutPostsInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface PostUpdateManyMutationInput {
-  published?: boolean | null
-  title?: string | null
-  content?: string | null
-}
-export type PostUpdateManyMutationInputInputObject =
-  | Extract<keyof PostUpdateManyMutationInput, string>
-  | { name: 'published', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'content', alias?: string  } 
-  
-export interface UserCreateInput {
-  id?: string | null
-  email?: string
-  password?: string
-  name?: string | null
-  posts?: PostCreateManyWithoutAuthorInput | null
-}
-export type UserCreateInputInputObject =
-  | Extract<keyof UserCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'posts', alias?: string  } 
-  
-export interface PostCreateManyWithoutAuthorInput {
-  create?: PostCreateWithoutAuthorInput[]
-  connect?: PostWhereUniqueInput[]
-}
-export type PostCreateManyWithoutAuthorInputInputObject =
-  | Extract<keyof PostCreateManyWithoutAuthorInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface PostCreateWithoutAuthorInput {
-  id?: string | null
-  published?: boolean | null
-  title?: string
-  content?: string | null
-}
-export type PostCreateWithoutAuthorInputInputObject =
-  | Extract<keyof PostCreateWithoutAuthorInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'published', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'content', alias?: string  } 
-  
-export interface UserUpdateInput {
-  email?: string | null
-  password?: string | null
-  name?: string | null
-  posts?: PostUpdateManyWithoutAuthorInput | null
-}
-export type UserUpdateInputInputObject =
-  | Extract<keyof UserUpdateInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'posts', alias?: string  } 
-  
-export interface PostUpdateManyWithoutAuthorInput {
-  create?: PostCreateWithoutAuthorInput[]
-  delete?: PostWhereUniqueInput[]
-  connect?: PostWhereUniqueInput[]
-  set?: PostWhereUniqueInput[]
-  disconnect?: PostWhereUniqueInput[]
-  update?: PostUpdateWithWhereUniqueWithoutAuthorInput[]
-  upsert?: PostUpsertWithWhereUniqueWithoutAuthorInput[]
-  deleteMany?: PostScalarWhereInput[]
-  updateMany?: PostUpdateManyWithWhereNestedInput[]
-}
-export type PostUpdateManyWithoutAuthorInputInputObject =
-  | Extract<keyof PostUpdateManyWithoutAuthorInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
-  where?: PostWhereUniqueInput
-  data?: PostUpdateWithoutAuthorDataInput
-}
-export type PostUpdateWithWhereUniqueWithoutAuthorInputInputObject =
-  | Extract<keyof PostUpdateWithWhereUniqueWithoutAuthorInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface PostUpdateWithoutAuthorDataInput {
-  published?: boolean | null
-  title?: string | null
-  content?: string | null
-}
-export type PostUpdateWithoutAuthorDataInputInputObject =
-  | Extract<keyof PostUpdateWithoutAuthorDataInput, string>
-  | { name: 'published', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'content', alias?: string  } 
-  
-export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where?: PostWhereUniqueInput
-  update?: PostUpdateWithoutAuthorDataInput
-  create?: PostCreateWithoutAuthorInput
-}
-export type PostUpsertWithWhereUniqueWithoutAuthorInputInputObject =
-  | Extract<keyof PostUpsertWithWhereUniqueWithoutAuthorInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface PostScalarWhereInput {
+export interface PostWhereInput {
   id?: string | null
   id_not?: string | null
   id_in?: string[]
@@ -9175,12 +8889,13 @@ export interface PostScalarWhereInput {
   content_not_starts_with?: string | null
   content_ends_with?: string | null
   content_not_ends_with?: string | null
-  AND?: PostScalarWhereInput[]
-  OR?: PostScalarWhereInput[]
-  NOT?: PostScalarWhereInput[]
+  author?: UserWhereInput | null
+  AND?: PostWhereInput[]
+  OR?: PostWhereInput[]
+  NOT?: PostWhereInput[]
 }
-export type PostScalarWhereInputInputObject =
-  | Extract<keyof PostScalarWhereInput, string>
+export type PostWhereInputInputObject =
+  | Extract<keyof PostWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -9241,231 +8956,186 @@ export type PostScalarWhereInputInputObject =
   | { name: 'content_not_starts_with', alias?: string  } 
   | { name: 'content_ends_with', alias?: string  } 
   | { name: 'content_not_ends_with', alias?: string  } 
+  | { name: 'author', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface PostUpdateManyWithWhereNestedInput {
-  where?: PostScalarWhereInput
-  data?: PostUpdateManyDataInput
+export interface UserWhereUniqueInput {
+  id?: string | null
+  email?: string | null
 }
-export type PostUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof PostUpdateManyWithWhereNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
+export type UserWhereUniqueInputInputObject =
+  | Extract<keyof UserWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'email', alias?: string  } 
   
-export interface PostUpdateManyDataInput {
-  published?: boolean | null
-  title?: string | null
-  content?: string | null
+export interface LocationWhereUniqueInput {
+  id?: string | null
 }
-export type PostUpdateManyDataInputInputObject =
-  | Extract<keyof PostUpdateManyDataInput, string>
+export type LocationWhereUniqueInputInputObject =
+  | Extract<keyof LocationWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface MundusWhereUniqueInput {
+  name?: string | null
+  id?: number | null
+}
+export type MundusWhereUniqueInputInputObject =
+  | Extract<keyof MundusWhereUniqueInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'id', alias?: string  } 
+  
+export interface SpecialBuffWhereUniqueInput {
+  id?: string | null
+  name?: string | null
+}
+export type SpecialBuffWhereUniqueInputInputObject =
+  | Extract<keyof SpecialBuffWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  
+export interface SetSelectionWhereUniqueInput {
+  id?: string | null
+}
+export type SetSelectionWhereUniqueInputInputObject =
+  | Extract<keyof SetSelectionWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface SetWhereUniqueInput {
+  id?: string | null
+  setId?: number | null
+}
+export type SetWhereUniqueInputInputObject =
+  | Extract<keyof SetWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'setId', alias?: string  } 
+  
+export interface ModificationWhereUniqueInput {
+  id?: string | null
+  type?: string | null
+}
+export type ModificationWhereUniqueInputInputObject =
+  | Extract<keyof ModificationWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  
+export interface SkillSelectionWhereUniqueInput {
+  id?: string | null
+}
+export type SkillSelectionWhereUniqueInputInputObject =
+  | Extract<keyof SkillSelectionWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface SkillWhereUniqueInput {
+  id?: string | null
+  skillId?: number | null
+}
+export type SkillWhereUniqueInputInputObject =
+  | Extract<keyof SkillWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'skillId', alias?: string  } 
+  
+export interface BuildWhereUniqueInput {
+  id?: string | null
+}
+export type BuildWhereUniqueInputInputObject =
+  | Extract<keyof BuildWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface PostCreateInput {
+  id?: string | null
+  published?: boolean | null
+  title?: string
+  content?: string | null
+  author?: UserCreateOneInput
+}
+export type PostCreateInputInputObject =
+  | Extract<keyof PostCreateInput, string>
+  | { name: 'id', alias?: string  } 
   | { name: 'published', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'content', alias?: string  } 
+  | { name: 'author', alias?: string  } 
   
-export interface UserUpdateManyMutationInput {
-  email?: string | null
-  password?: string | null
-  name?: string | null
+export interface UserCreateOneInput {
+  create?: UserCreateInput | null
+  connect?: UserWhereUniqueInput | null
 }
-export type UserUpdateManyMutationInputInputObject =
-  | Extract<keyof UserUpdateManyMutationInput, string>
+export type UserCreateOneInputInputObject =
+  | Extract<keyof UserCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateInput {
+  id?: string | null
+  email?: string
+  password?: string
+  name?: string | null
+  builds?: BuildCreateManyWithoutOwnerInput | null
+}
+export type UserCreateInputInputObject =
+  | Extract<keyof UserCreateInput, string>
+  | { name: 'id', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'builds', alias?: string  } 
   
-export interface LocationCreateInput {
-  id?: string | null
-  aldmeri?: string | null
-  daggerfall?: string | null
-  ebonheart?: string | null
+export interface BuildCreateManyWithoutOwnerInput {
+  create?: BuildCreateWithoutOwnerInput[]
+  connect?: BuildWhereUniqueInput[]
 }
-export type LocationCreateInputInputObject =
-  | Extract<keyof LocationCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'aldmeri', alias?: string  } 
-  | { name: 'daggerfall', alias?: string  } 
-  | { name: 'ebonheart', alias?: string  } 
-  
-export interface LocationUpdateInput {
-  aldmeri?: string | null
-  daggerfall?: string | null
-  ebonheart?: string | null
-}
-export type LocationUpdateInputInputObject =
-  | Extract<keyof LocationUpdateInput, string>
-  | { name: 'aldmeri', alias?: string  } 
-  | { name: 'daggerfall', alias?: string  } 
-  | { name: 'ebonheart', alias?: string  } 
-  
-export interface LocationUpdateManyMutationInput {
-  aldmeri?: string | null
-  daggerfall?: string | null
-  ebonheart?: string | null
-}
-export type LocationUpdateManyMutationInputInputObject =
-  | Extract<keyof LocationUpdateManyMutationInput, string>
-  | { name: 'aldmeri', alias?: string  } 
-  | { name: 'daggerfall', alias?: string  } 
-  | { name: 'ebonheart', alias?: string  } 
-  
-export interface MundusCreateInput {
-  name?: string
-  location?: LocationCreateOneInput | null
-  effect?: string
-  value?: string
-  icon?: string | null
-  id?: number | null
-}
-export type MundusCreateInputInputObject =
-  | Extract<keyof MundusCreateInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'location', alias?: string  } 
-  | { name: 'effect', alias?: string  } 
-  | { name: 'value', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  | { name: 'id', alias?: string  } 
-  
-export interface LocationCreateOneInput {
-  create?: LocationCreateInput | null
-  connect?: LocationWhereUniqueInput | null
-}
-export type LocationCreateOneInputInputObject =
-  | Extract<keyof LocationCreateOneInput, string>
+export type BuildCreateManyWithoutOwnerInputInputObject =
+  | Extract<keyof BuildCreateManyWithoutOwnerInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface MundusUpdateInput {
-  name?: string | null
-  location?: LocationUpdateOneInput | null
-  effect?: string | null
-  value?: string | null
-  icon?: string | null
-}
-export type MundusUpdateInputInputObject =
-  | Extract<keyof MundusUpdateInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'location', alias?: string  } 
-  | { name: 'effect', alias?: string  } 
-  | { name: 'value', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  
-export interface LocationUpdateOneInput {
-  create?: LocationCreateInput | null
-  update?: LocationUpdateDataInput | null
-  upsert?: LocationUpsertNestedInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: LocationWhereUniqueInput | null
-}
-export type LocationUpdateOneInputInputObject =
-  | Extract<keyof LocationUpdateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface LocationUpdateDataInput {
-  aldmeri?: string | null
-  daggerfall?: string | null
-  ebonheart?: string | null
-}
-export type LocationUpdateDataInputInputObject =
-  | Extract<keyof LocationUpdateDataInput, string>
-  | { name: 'aldmeri', alias?: string  } 
-  | { name: 'daggerfall', alias?: string  } 
-  | { name: 'ebonheart', alias?: string  } 
-  
-export interface LocationUpsertNestedInput {
-  update?: LocationUpdateDataInput
-  create?: LocationCreateInput
-}
-export type LocationUpsertNestedInputInputObject =
-  | Extract<keyof LocationUpsertNestedInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface MundusUpdateManyMutationInput {
-  name?: string | null
-  effect?: string | null
-  value?: string | null
-  icon?: string | null
-}
-export type MundusUpdateManyMutationInputInputObject =
-  | Extract<keyof MundusUpdateManyMutationInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'effect', alias?: string  } 
-  | { name: 'value', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  
-export interface SpecialBuffCreateInput {
+export interface BuildCreateWithoutOwnerInput {
   id?: string | null
-  name?: string
-  buffDescription?: string
-  description?: string | null
-  duration?: number
-  notes?: string | null
-  icon?: string | null
-  type?: string | null
-  quality?: number
+  name?: string | null
+  race?: string | null
+  esoClass?: string | null
+  published?: boolean | null
+  bigPieceSelection?: SetSelectionCreateManyInput | null
+  smallPieceSelection?: SetSelectionCreateManyInput | null
+  jewelrySelection?: SetSelectionCreateManyInput | null
+  frontbarSelection?: SetSelectionCreateManyInput | null
+  backbarSelection?: SetSelectionCreateManyInput | null
+  newBarOne?: SkillSelectionCreateManyInput | null
+  newBarTwo?: SkillSelectionCreateManyInput | null
+  ultimateOne?: SkillCreateOneInput | null
+  ultimateTwo?: SkillCreateOneInput | null
+  mundus?: MundusCreateOneInput | null
+  buff?: SpecialBuffCreateOneInput | null
 }
-export type SpecialBuffCreateInputInputObject =
-  | Extract<keyof SpecialBuffCreateInput, string>
+export type BuildCreateWithoutOwnerInputInputObject =
+  | Extract<keyof BuildCreateWithoutOwnerInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'buffDescription', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'duration', alias?: string  } 
-  | { name: 'notes', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'quality', alias?: string  } 
+  | { name: 'race', alias?: string  } 
+  | { name: 'esoClass', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  | { name: 'bigPieceSelection', alias?: string  } 
+  | { name: 'smallPieceSelection', alias?: string  } 
+  | { name: 'jewelrySelection', alias?: string  } 
+  | { name: 'frontbarSelection', alias?: string  } 
+  | { name: 'backbarSelection', alias?: string  } 
+  | { name: 'newBarOne', alias?: string  } 
+  | { name: 'newBarTwo', alias?: string  } 
+  | { name: 'ultimateOne', alias?: string  } 
+  | { name: 'ultimateTwo', alias?: string  } 
+  | { name: 'mundus', alias?: string  } 
+  | { name: 'buff', alias?: string  } 
   
-export interface SpecialBuffUpdateInput {
-  name?: string | null
-  buffDescription?: string | null
-  description?: string | null
-  duration?: number | null
-  notes?: string | null
-  icon?: string | null
-  type?: string | null
-  quality?: number | null
+export interface SetSelectionCreateManyInput {
+  create?: SetSelectionCreateInput[]
+  connect?: SetSelectionWhereUniqueInput[]
 }
-export type SpecialBuffUpdateInputInputObject =
-  | Extract<keyof SpecialBuffUpdateInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'buffDescription', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'duration', alias?: string  } 
-  | { name: 'notes', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'quality', alias?: string  } 
-  
-export interface SpecialBuffUpdateManyMutationInput {
-  name?: string | null
-  buffDescription?: string | null
-  description?: string | null
-  duration?: number | null
-  notes?: string | null
-  icon?: string | null
-  type?: string | null
-  quality?: number | null
-}
-export type SpecialBuffUpdateManyMutationInputInputObject =
-  | Extract<keyof SpecialBuffUpdateManyMutationInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'buffDescription', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'duration', alias?: string  } 
-  | { name: 'notes', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'quality', alias?: string  } 
+export type SetSelectionCreateManyInputInputObject =
+  | Extract<keyof SetSelectionCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
   
 export interface SetSelectionCreateInput {
   id?: string | null
@@ -9558,15 +9228,299 @@ export type ModificationCreateInputInputObject =
   | { name: 'description', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   
-export interface SetSelectionUpdateInput {
+export interface SkillSelectionCreateManyInput {
+  create?: SkillSelectionCreateInput[]
+  connect?: SkillSelectionWhereUniqueInput[]
+}
+export type SkillSelectionCreateManyInputInputObject =
+  | Extract<keyof SkillSelectionCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface SkillSelectionCreateInput {
+  id?: string | null
+  index?: number
+  skill?: SkillCreateOneInput | null
+}
+export type SkillSelectionCreateInputInputObject =
+  | Extract<keyof SkillSelectionCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'index', alias?: string  } 
+  | { name: 'skill', alias?: string  } 
+  
+export interface SkillCreateOneInput {
+  create?: SkillCreateInput | null
+  connect?: SkillWhereUniqueInput | null
+}
+export type SkillCreateOneInputInputObject =
+  | Extract<keyof SkillCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface SkillCreateInput {
+  id?: string | null
+  skillId?: number
+  cast_time?: string
+  cost?: string
+  effect_1?: string
+  effect_2?: string | null
+  icon?: string | null
+  name?: string
+  parent?: number | null
+  pts?: number | null
+  range?: string | null
+  skillline?: number
+  slug?: string
+  target?: string | null
+  type?: number
+  unlocks_at?: number | null
+}
+export type SkillCreateInputInputObject =
+  | Extract<keyof SkillCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'skillId', alias?: string  } 
+  | { name: 'cast_time', alias?: string  } 
+  | { name: 'cost', alias?: string  } 
+  | { name: 'effect_1', alias?: string  } 
+  | { name: 'effect_2', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'parent', alias?: string  } 
+  | { name: 'pts', alias?: string  } 
+  | { name: 'range', alias?: string  } 
+  | { name: 'skillline', alias?: string  } 
+  | { name: 'slug', alias?: string  } 
+  | { name: 'target', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'unlocks_at', alias?: string  } 
+  
+export interface MundusCreateOneInput {
+  create?: MundusCreateInput | null
+  connect?: MundusWhereUniqueInput | null
+}
+export type MundusCreateOneInputInputObject =
+  | Extract<keyof MundusCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface MundusCreateInput {
+  name?: string
+  location?: LocationCreateOneInput | null
+  effect?: string
+  value?: string
+  icon?: string | null
+  id?: number | null
+}
+export type MundusCreateInputInputObject =
+  | Extract<keyof MundusCreateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'location', alias?: string  } 
+  | { name: 'effect', alias?: string  } 
+  | { name: 'value', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  | { name: 'id', alias?: string  } 
+  
+export interface LocationCreateOneInput {
+  create?: LocationCreateInput | null
+  connect?: LocationWhereUniqueInput | null
+}
+export type LocationCreateOneInputInputObject =
+  | Extract<keyof LocationCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface LocationCreateInput {
+  id?: string | null
+  aldmeri?: string | null
+  daggerfall?: string | null
+  ebonheart?: string | null
+}
+export type LocationCreateInputInputObject =
+  | Extract<keyof LocationCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'aldmeri', alias?: string  } 
+  | { name: 'daggerfall', alias?: string  } 
+  | { name: 'ebonheart', alias?: string  } 
+  
+export interface SpecialBuffCreateOneInput {
+  create?: SpecialBuffCreateInput | null
+  connect?: SpecialBuffWhereUniqueInput | null
+}
+export type SpecialBuffCreateOneInputInputObject =
+  | Extract<keyof SpecialBuffCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface SpecialBuffCreateInput {
+  id?: string | null
+  name?: string
+  buffDescription?: string
+  description?: string | null
+  duration?: number
+  notes?: string | null
+  icon?: string | null
+  type?: string | null
+  quality?: number
+}
+export type SpecialBuffCreateInputInputObject =
+  | Extract<keyof SpecialBuffCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'buffDescription', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'duration', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'quality', alias?: string  } 
+  
+export interface PostUpdateInput {
+  published?: boolean | null
+  title?: string | null
+  content?: string | null
+  author?: UserUpdateOneRequiredInput | null
+}
+export type PostUpdateInputInputObject =
+  | Extract<keyof PostUpdateInput, string>
+  | { name: 'published', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  
+export interface UserUpdateOneRequiredInput {
+  create?: UserCreateInput | null
+  update?: UserUpdateDataInput | null
+  upsert?: UserUpsertNestedInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneRequiredInputInputObject =
+  | Extract<keyof UserUpdateOneRequiredInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateDataInput {
+  email?: string | null
+  password?: string | null
+  name?: string | null
+  builds?: BuildUpdateManyWithoutOwnerInput | null
+}
+export type UserUpdateDataInputInputObject =
+  | Extract<keyof UserUpdateDataInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'builds', alias?: string  } 
+  
+export interface BuildUpdateManyWithoutOwnerInput {
+  create?: BuildCreateWithoutOwnerInput[]
+  delete?: BuildWhereUniqueInput[]
+  connect?: BuildWhereUniqueInput[]
+  set?: BuildWhereUniqueInput[]
+  disconnect?: BuildWhereUniqueInput[]
+  update?: BuildUpdateWithWhereUniqueWithoutOwnerInput[]
+  upsert?: BuildUpsertWithWhereUniqueWithoutOwnerInput[]
+  deleteMany?: BuildScalarWhereInput[]
+  updateMany?: BuildUpdateManyWithWhereNestedInput[]
+}
+export type BuildUpdateManyWithoutOwnerInputInputObject =
+  | Extract<keyof BuildUpdateManyWithoutOwnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface BuildUpdateWithWhereUniqueWithoutOwnerInput {
+  where?: BuildWhereUniqueInput
+  data?: BuildUpdateWithoutOwnerDataInput
+}
+export type BuildUpdateWithWhereUniqueWithoutOwnerInputInputObject =
+  | Extract<keyof BuildUpdateWithWhereUniqueWithoutOwnerInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface BuildUpdateWithoutOwnerDataInput {
+  name?: string | null
+  race?: string | null
+  esoClass?: string | null
+  published?: boolean | null
+  bigPieceSelection?: SetSelectionUpdateManyInput | null
+  smallPieceSelection?: SetSelectionUpdateManyInput | null
+  jewelrySelection?: SetSelectionUpdateManyInput | null
+  frontbarSelection?: SetSelectionUpdateManyInput | null
+  backbarSelection?: SetSelectionUpdateManyInput | null
+  newBarOne?: SkillSelectionUpdateManyInput | null
+  newBarTwo?: SkillSelectionUpdateManyInput | null
+  ultimateOne?: SkillUpdateOneInput | null
+  ultimateTwo?: SkillUpdateOneInput | null
+  mundus?: MundusUpdateOneInput | null
+  buff?: SpecialBuffUpdateOneInput | null
+}
+export type BuildUpdateWithoutOwnerDataInputInputObject =
+  | Extract<keyof BuildUpdateWithoutOwnerDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'race', alias?: string  } 
+  | { name: 'esoClass', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  | { name: 'bigPieceSelection', alias?: string  } 
+  | { name: 'smallPieceSelection', alias?: string  } 
+  | { name: 'jewelrySelection', alias?: string  } 
+  | { name: 'frontbarSelection', alias?: string  } 
+  | { name: 'backbarSelection', alias?: string  } 
+  | { name: 'newBarOne', alias?: string  } 
+  | { name: 'newBarTwo', alias?: string  } 
+  | { name: 'ultimateOne', alias?: string  } 
+  | { name: 'ultimateTwo', alias?: string  } 
+  | { name: 'mundus', alias?: string  } 
+  | { name: 'buff', alias?: string  } 
+  
+export interface SetSelectionUpdateManyInput {
+  create?: SetSelectionCreateInput[]
+  update?: SetSelectionUpdateWithWhereUniqueNestedInput[]
+  upsert?: SetSelectionUpsertWithWhereUniqueNestedInput[]
+  delete?: SetSelectionWhereUniqueInput[]
+  connect?: SetSelectionWhereUniqueInput[]
+  set?: SetSelectionWhereUniqueInput[]
+  disconnect?: SetSelectionWhereUniqueInput[]
+  deleteMany?: SetSelectionScalarWhereInput[]
+  updateMany?: SetSelectionUpdateManyWithWhereNestedInput[]
+}
+export type SetSelectionUpdateManyInputInputObject =
+  | Extract<keyof SetSelectionUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface SetSelectionUpdateWithWhereUniqueNestedInput {
+  where?: SetSelectionWhereUniqueInput
+  data?: SetSelectionUpdateDataInput
+}
+export type SetSelectionUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof SetSelectionUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface SetSelectionUpdateDataInput {
   icon?: string | null
   slot?: string | null
   selectedSet?: SetUpdateOneInput | null
   trait?: ModificationUpdateOneInput | null
   glyph?: ModificationUpdateOneInput | null
 }
-export type SetSelectionUpdateInputInputObject =
-  | Extract<keyof SetSelectionUpdateInput, string>
+export type SetSelectionUpdateDataInputInputObject =
+  | Extract<keyof SetSelectionUpdateDataInput, string>
   | { name: 'icon', alias?: string  } 
   | { name: 'slot', alias?: string  } 
   | { name: 'selectedSet', alias?: string  } 
@@ -9676,474 +9630,6 @@ export type ModificationUpsertNestedInputInputObject =
   | Extract<keyof ModificationUpsertNestedInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
-  
-export interface SetSelectionUpdateManyMutationInput {
-  icon?: string | null
-  slot?: string | null
-}
-export type SetSelectionUpdateManyMutationInputInputObject =
-  | Extract<keyof SetSelectionUpdateManyMutationInput, string>
-  | { name: 'icon', alias?: string  } 
-  | { name: 'slot', alias?: string  } 
-  
-export interface SetUpdateInput {
-  setId?: number | null
-  name?: string | null
-  location?: string | null
-  type?: string | null
-  slug?: string | null
-  bonus_item_1?: string | null
-  bonus_item_2?: string | null
-  bonus_item_3?: string | null
-  bonus_item_4?: string | null
-  bonus_item_5?: string | null
-  has_jewels?: number | null
-  has_weapons?: number | null
-  has_heavy_armor?: number | null
-  has_light_armor?: number | null
-  has_medium_armor?: number | null
-  traits_needed?: number | null
-  pts?: number | null
-  eso_id?: number | null
-}
-export type SetUpdateInputInputObject =
-  | Extract<keyof SetUpdateInput, string>
-  | { name: 'setId', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'location', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'slug', alias?: string  } 
-  | { name: 'bonus_item_1', alias?: string  } 
-  | { name: 'bonus_item_2', alias?: string  } 
-  | { name: 'bonus_item_3', alias?: string  } 
-  | { name: 'bonus_item_4', alias?: string  } 
-  | { name: 'bonus_item_5', alias?: string  } 
-  | { name: 'has_jewels', alias?: string  } 
-  | { name: 'has_weapons', alias?: string  } 
-  | { name: 'has_heavy_armor', alias?: string  } 
-  | { name: 'has_light_armor', alias?: string  } 
-  | { name: 'has_medium_armor', alias?: string  } 
-  | { name: 'traits_needed', alias?: string  } 
-  | { name: 'pts', alias?: string  } 
-  | { name: 'eso_id', alias?: string  } 
-  
-export interface SetUpdateManyMutationInput {
-  setId?: number | null
-  name?: string | null
-  location?: string | null
-  type?: string | null
-  slug?: string | null
-  bonus_item_1?: string | null
-  bonus_item_2?: string | null
-  bonus_item_3?: string | null
-  bonus_item_4?: string | null
-  bonus_item_5?: string | null
-  has_jewels?: number | null
-  has_weapons?: number | null
-  has_heavy_armor?: number | null
-  has_light_armor?: number | null
-  has_medium_armor?: number | null
-  traits_needed?: number | null
-  pts?: number | null
-  eso_id?: number | null
-}
-export type SetUpdateManyMutationInputInputObject =
-  | Extract<keyof SetUpdateManyMutationInput, string>
-  | { name: 'setId', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'location', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'slug', alias?: string  } 
-  | { name: 'bonus_item_1', alias?: string  } 
-  | { name: 'bonus_item_2', alias?: string  } 
-  | { name: 'bonus_item_3', alias?: string  } 
-  | { name: 'bonus_item_4', alias?: string  } 
-  | { name: 'bonus_item_5', alias?: string  } 
-  | { name: 'has_jewels', alias?: string  } 
-  | { name: 'has_weapons', alias?: string  } 
-  | { name: 'has_heavy_armor', alias?: string  } 
-  | { name: 'has_light_armor', alias?: string  } 
-  | { name: 'has_medium_armor', alias?: string  } 
-  | { name: 'traits_needed', alias?: string  } 
-  | { name: 'pts', alias?: string  } 
-  | { name: 'eso_id', alias?: string  } 
-  
-export interface ModificationUpdateInput {
-  type?: string | null
-  description?: string | null
-  icon?: string | null
-}
-export type ModificationUpdateInputInputObject =
-  | Extract<keyof ModificationUpdateInput, string>
-  | { name: 'type', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  
-export interface ModificationUpdateManyMutationInput {
-  type?: string | null
-  description?: string | null
-  icon?: string | null
-}
-export type ModificationUpdateManyMutationInputInputObject =
-  | Extract<keyof ModificationUpdateManyMutationInput, string>
-  | { name: 'type', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  
-export interface SkillSelectionCreateInput {
-  id?: string | null
-  index?: number
-  skill?: SkillCreateOneInput | null
-}
-export type SkillSelectionCreateInputInputObject =
-  | Extract<keyof SkillSelectionCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'index', alias?: string  } 
-  | { name: 'skill', alias?: string  } 
-  
-export interface SkillCreateOneInput {
-  create?: SkillCreateInput | null
-  connect?: SkillWhereUniqueInput | null
-}
-export type SkillCreateOneInputInputObject =
-  | Extract<keyof SkillCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface SkillCreateInput {
-  id?: string | null
-  skillId?: number
-  cast_time?: string
-  cost?: string
-  effect_1?: string
-  effect_2?: string | null
-  icon?: string | null
-  name?: string
-  parent?: number | null
-  pts?: number | null
-  range?: string | null
-  skillline?: number
-  slug?: string
-  target?: string | null
-  type?: number
-  unlocks_at?: number | null
-}
-export type SkillCreateInputInputObject =
-  | Extract<keyof SkillCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'skillId', alias?: string  } 
-  | { name: 'cast_time', alias?: string  } 
-  | { name: 'cost', alias?: string  } 
-  | { name: 'effect_1', alias?: string  } 
-  | { name: 'effect_2', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'parent', alias?: string  } 
-  | { name: 'pts', alias?: string  } 
-  | { name: 'range', alias?: string  } 
-  | { name: 'skillline', alias?: string  } 
-  | { name: 'slug', alias?: string  } 
-  | { name: 'target', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'unlocks_at', alias?: string  } 
-  
-export interface SkillSelectionUpdateInput {
-  index?: number | null
-  skill?: SkillUpdateOneInput | null
-}
-export type SkillSelectionUpdateInputInputObject =
-  | Extract<keyof SkillSelectionUpdateInput, string>
-  | { name: 'index', alias?: string  } 
-  | { name: 'skill', alias?: string  } 
-  
-export interface SkillUpdateOneInput {
-  create?: SkillCreateInput | null
-  update?: SkillUpdateDataInput | null
-  upsert?: SkillUpsertNestedInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: SkillWhereUniqueInput | null
-}
-export type SkillUpdateOneInputInputObject =
-  | Extract<keyof SkillUpdateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface SkillUpdateDataInput {
-  skillId?: number | null
-  cast_time?: string | null
-  cost?: string | null
-  effect_1?: string | null
-  effect_2?: string | null
-  icon?: string | null
-  name?: string | null
-  parent?: number | null
-  pts?: number | null
-  range?: string | null
-  skillline?: number | null
-  slug?: string | null
-  target?: string | null
-  type?: number | null
-  unlocks_at?: number | null
-}
-export type SkillUpdateDataInputInputObject =
-  | Extract<keyof SkillUpdateDataInput, string>
-  | { name: 'skillId', alias?: string  } 
-  | { name: 'cast_time', alias?: string  } 
-  | { name: 'cost', alias?: string  } 
-  | { name: 'effect_1', alias?: string  } 
-  | { name: 'effect_2', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'parent', alias?: string  } 
-  | { name: 'pts', alias?: string  } 
-  | { name: 'range', alias?: string  } 
-  | { name: 'skillline', alias?: string  } 
-  | { name: 'slug', alias?: string  } 
-  | { name: 'target', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'unlocks_at', alias?: string  } 
-  
-export interface SkillUpsertNestedInput {
-  update?: SkillUpdateDataInput
-  create?: SkillCreateInput
-}
-export type SkillUpsertNestedInputInputObject =
-  | Extract<keyof SkillUpsertNestedInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface SkillSelectionUpdateManyMutationInput {
-  index?: number | null
-}
-export type SkillSelectionUpdateManyMutationInputInputObject =
-  | Extract<keyof SkillSelectionUpdateManyMutationInput, string>
-  | { name: 'index', alias?: string  } 
-  
-export interface SkillUpdateInput {
-  skillId?: number | null
-  cast_time?: string | null
-  cost?: string | null
-  effect_1?: string | null
-  effect_2?: string | null
-  icon?: string | null
-  name?: string | null
-  parent?: number | null
-  pts?: number | null
-  range?: string | null
-  skillline?: number | null
-  slug?: string | null
-  target?: string | null
-  type?: number | null
-  unlocks_at?: number | null
-}
-export type SkillUpdateInputInputObject =
-  | Extract<keyof SkillUpdateInput, string>
-  | { name: 'skillId', alias?: string  } 
-  | { name: 'cast_time', alias?: string  } 
-  | { name: 'cost', alias?: string  } 
-  | { name: 'effect_1', alias?: string  } 
-  | { name: 'effect_2', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'parent', alias?: string  } 
-  | { name: 'pts', alias?: string  } 
-  | { name: 'range', alias?: string  } 
-  | { name: 'skillline', alias?: string  } 
-  | { name: 'slug', alias?: string  } 
-  | { name: 'target', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'unlocks_at', alias?: string  } 
-  
-export interface SkillUpdateManyMutationInput {
-  skillId?: number | null
-  cast_time?: string | null
-  cost?: string | null
-  effect_1?: string | null
-  effect_2?: string | null
-  icon?: string | null
-  name?: string | null
-  parent?: number | null
-  pts?: number | null
-  range?: string | null
-  skillline?: number | null
-  slug?: string | null
-  target?: string | null
-  type?: number | null
-  unlocks_at?: number | null
-}
-export type SkillUpdateManyMutationInputInputObject =
-  | Extract<keyof SkillUpdateManyMutationInput, string>
-  | { name: 'skillId', alias?: string  } 
-  | { name: 'cast_time', alias?: string  } 
-  | { name: 'cost', alias?: string  } 
-  | { name: 'effect_1', alias?: string  } 
-  | { name: 'effect_2', alias?: string  } 
-  | { name: 'icon', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'parent', alias?: string  } 
-  | { name: 'pts', alias?: string  } 
-  | { name: 'range', alias?: string  } 
-  | { name: 'skillline', alias?: string  } 
-  | { name: 'slug', alias?: string  } 
-  | { name: 'target', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'unlocks_at', alias?: string  } 
-  
-export interface BuildCreateInput {
-  id?: string | null
-  name?: string | null
-  race?: string | null
-  class?: string | null
-  bigPieceSelection?: SetSelectionCreateManyInput | null
-  smallPieceSelection?: SetSelectionCreateManyInput | null
-  jewelrySelection?: SetSelectionCreateManyInput | null
-  frontbarSelection?: SetSelectionCreateManyInput | null
-  backbarSelection?: SetSelectionCreateManyInput | null
-  newBarOne?: SkillSelectionCreateManyInput | null
-  newBarTwo?: SkillSelectionCreateManyInput | null
-  ultimateOne?: SkillCreateOneInput | null
-  ultimateTwo?: SkillCreateOneInput | null
-  mundus?: MundusCreateOneInput | null
-  buff?: SpecialBuffCreateOneInput | null
-}
-export type BuildCreateInputInputObject =
-  | Extract<keyof BuildCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'race', alias?: string  } 
-  | { name: 'class', alias?: string  } 
-  | { name: 'bigPieceSelection', alias?: string  } 
-  | { name: 'smallPieceSelection', alias?: string  } 
-  | { name: 'jewelrySelection', alias?: string  } 
-  | { name: 'frontbarSelection', alias?: string  } 
-  | { name: 'backbarSelection', alias?: string  } 
-  | { name: 'newBarOne', alias?: string  } 
-  | { name: 'newBarTwo', alias?: string  } 
-  | { name: 'ultimateOne', alias?: string  } 
-  | { name: 'ultimateTwo', alias?: string  } 
-  | { name: 'mundus', alias?: string  } 
-  | { name: 'buff', alias?: string  } 
-  
-export interface SetSelectionCreateManyInput {
-  create?: SetSelectionCreateInput[]
-  connect?: SetSelectionWhereUniqueInput[]
-}
-export type SetSelectionCreateManyInputInputObject =
-  | Extract<keyof SetSelectionCreateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface SkillSelectionCreateManyInput {
-  create?: SkillSelectionCreateInput[]
-  connect?: SkillSelectionWhereUniqueInput[]
-}
-export type SkillSelectionCreateManyInputInputObject =
-  | Extract<keyof SkillSelectionCreateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface MundusCreateOneInput {
-  create?: MundusCreateInput | null
-  connect?: MundusWhereUniqueInput | null
-}
-export type MundusCreateOneInputInputObject =
-  | Extract<keyof MundusCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface SpecialBuffCreateOneInput {
-  create?: SpecialBuffCreateInput | null
-  connect?: SpecialBuffWhereUniqueInput | null
-}
-export type SpecialBuffCreateOneInputInputObject =
-  | Extract<keyof SpecialBuffCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface BuildUpdateInput {
-  name?: string | null
-  race?: string | null
-  class?: string | null
-  bigPieceSelection?: SetSelectionUpdateManyInput | null
-  smallPieceSelection?: SetSelectionUpdateManyInput | null
-  jewelrySelection?: SetSelectionUpdateManyInput | null
-  frontbarSelection?: SetSelectionUpdateManyInput | null
-  backbarSelection?: SetSelectionUpdateManyInput | null
-  newBarOne?: SkillSelectionUpdateManyInput | null
-  newBarTwo?: SkillSelectionUpdateManyInput | null
-  ultimateOne?: SkillUpdateOneInput | null
-  ultimateTwo?: SkillUpdateOneInput | null
-  mundus?: MundusUpdateOneInput | null
-  buff?: SpecialBuffUpdateOneInput | null
-}
-export type BuildUpdateInputInputObject =
-  | Extract<keyof BuildUpdateInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'race', alias?: string  } 
-  | { name: 'class', alias?: string  } 
-  | { name: 'bigPieceSelection', alias?: string  } 
-  | { name: 'smallPieceSelection', alias?: string  } 
-  | { name: 'jewelrySelection', alias?: string  } 
-  | { name: 'frontbarSelection', alias?: string  } 
-  | { name: 'backbarSelection', alias?: string  } 
-  | { name: 'newBarOne', alias?: string  } 
-  | { name: 'newBarTwo', alias?: string  } 
-  | { name: 'ultimateOne', alias?: string  } 
-  | { name: 'ultimateTwo', alias?: string  } 
-  | { name: 'mundus', alias?: string  } 
-  | { name: 'buff', alias?: string  } 
-  
-export interface SetSelectionUpdateManyInput {
-  create?: SetSelectionCreateInput[]
-  update?: SetSelectionUpdateWithWhereUniqueNestedInput[]
-  upsert?: SetSelectionUpsertWithWhereUniqueNestedInput[]
-  delete?: SetSelectionWhereUniqueInput[]
-  connect?: SetSelectionWhereUniqueInput[]
-  set?: SetSelectionWhereUniqueInput[]
-  disconnect?: SetSelectionWhereUniqueInput[]
-  deleteMany?: SetSelectionScalarWhereInput[]
-  updateMany?: SetSelectionUpdateManyWithWhereNestedInput[]
-}
-export type SetSelectionUpdateManyInputInputObject =
-  | Extract<keyof SetSelectionUpdateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface SetSelectionUpdateWithWhereUniqueNestedInput {
-  where?: SetSelectionWhereUniqueInput
-  data?: SetSelectionUpdateDataInput
-}
-export type SetSelectionUpdateWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof SetSelectionUpdateWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface SetSelectionUpdateDataInput {
-  icon?: string | null
-  slot?: string | null
-  selectedSet?: SetUpdateOneInput | null
-  trait?: ModificationUpdateOneInput | null
-  glyph?: ModificationUpdateOneInput | null
-}
-export type SetSelectionUpdateDataInputInputObject =
-  | Extract<keyof SetSelectionUpdateDataInput, string>
-  | { name: 'icon', alias?: string  } 
-  | { name: 'slot', alias?: string  } 
-  | { name: 'selectedSet', alias?: string  } 
-  | { name: 'trait', alias?: string  } 
-  | { name: 'glyph', alias?: string  } 
   
 export interface SetSelectionUpsertWithWhereUniqueNestedInput {
   where?: SetSelectionWhereUniqueInput
@@ -10310,6 +9796,67 @@ export type SkillSelectionUpdateDataInputInputObject =
   | { name: 'index', alias?: string  } 
   | { name: 'skill', alias?: string  } 
   
+export interface SkillUpdateOneInput {
+  create?: SkillCreateInput | null
+  update?: SkillUpdateDataInput | null
+  upsert?: SkillUpsertNestedInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: SkillWhereUniqueInput | null
+}
+export type SkillUpdateOneInputInputObject =
+  | Extract<keyof SkillUpdateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface SkillUpdateDataInput {
+  skillId?: number | null
+  cast_time?: string | null
+  cost?: string | null
+  effect_1?: string | null
+  effect_2?: string | null
+  icon?: string | null
+  name?: string | null
+  parent?: number | null
+  pts?: number | null
+  range?: string | null
+  skillline?: number | null
+  slug?: string | null
+  target?: string | null
+  type?: number | null
+  unlocks_at?: number | null
+}
+export type SkillUpdateDataInputInputObject =
+  | Extract<keyof SkillUpdateDataInput, string>
+  | { name: 'skillId', alias?: string  } 
+  | { name: 'cast_time', alias?: string  } 
+  | { name: 'cost', alias?: string  } 
+  | { name: 'effect_1', alias?: string  } 
+  | { name: 'effect_2', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'parent', alias?: string  } 
+  | { name: 'pts', alias?: string  } 
+  | { name: 'range', alias?: string  } 
+  | { name: 'skillline', alias?: string  } 
+  | { name: 'slug', alias?: string  } 
+  | { name: 'target', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'unlocks_at', alias?: string  } 
+  
+export interface SkillUpsertNestedInput {
+  update?: SkillUpdateDataInput
+  create?: SkillCreateInput
+}
+export type SkillUpsertNestedInputInputObject =
+  | Extract<keyof SkillUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
 export interface SkillSelectionUpsertWithWhereUniqueNestedInput {
   where?: SkillSelectionWhereUniqueInput
   update?: SkillSelectionUpdateDataInput
@@ -10424,6 +9971,43 @@ export type MundusUpdateDataInputInputObject =
   | { name: 'value', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   
+export interface LocationUpdateOneInput {
+  create?: LocationCreateInput | null
+  update?: LocationUpdateDataInput | null
+  upsert?: LocationUpsertNestedInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: LocationWhereUniqueInput | null
+}
+export type LocationUpdateOneInputInputObject =
+  | Extract<keyof LocationUpdateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface LocationUpdateDataInput {
+  aldmeri?: string | null
+  daggerfall?: string | null
+  ebonheart?: string | null
+}
+export type LocationUpdateDataInputInputObject =
+  | Extract<keyof LocationUpdateDataInput, string>
+  | { name: 'aldmeri', alias?: string  } 
+  | { name: 'daggerfall', alias?: string  } 
+  | { name: 'ebonheart', alias?: string  } 
+  
+export interface LocationUpsertNestedInput {
+  update?: LocationUpdateDataInput
+  create?: LocationCreateInput
+}
+export type LocationUpsertNestedInputInputObject =
+  | Extract<keyof LocationUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
 export interface MundusUpsertNestedInput {
   update?: MundusUpdateDataInput
   create?: MundusCreateInput
@@ -10480,16 +10064,695 @@ export type SpecialBuffUpsertNestedInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
+export interface BuildUpsertWithWhereUniqueWithoutOwnerInput {
+  where?: BuildWhereUniqueInput
+  update?: BuildUpdateWithoutOwnerDataInput
+  create?: BuildCreateWithoutOwnerInput
+}
+export type BuildUpsertWithWhereUniqueWithoutOwnerInputInputObject =
+  | Extract<keyof BuildUpsertWithWhereUniqueWithoutOwnerInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface BuildScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  race?: string | null
+  race_not?: string | null
+  race_in?: string[]
+  race_not_in?: string[]
+  race_lt?: string | null
+  race_lte?: string | null
+  race_gt?: string | null
+  race_gte?: string | null
+  race_contains?: string | null
+  race_not_contains?: string | null
+  race_starts_with?: string | null
+  race_not_starts_with?: string | null
+  race_ends_with?: string | null
+  race_not_ends_with?: string | null
+  esoClass?: string | null
+  esoClass_not?: string | null
+  esoClass_in?: string[]
+  esoClass_not_in?: string[]
+  esoClass_lt?: string | null
+  esoClass_lte?: string | null
+  esoClass_gt?: string | null
+  esoClass_gte?: string | null
+  esoClass_contains?: string | null
+  esoClass_not_contains?: string | null
+  esoClass_starts_with?: string | null
+  esoClass_not_starts_with?: string | null
+  esoClass_ends_with?: string | null
+  esoClass_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  published?: boolean | null
+  published_not?: boolean | null
+  AND?: BuildScalarWhereInput[]
+  OR?: BuildScalarWhereInput[]
+  NOT?: BuildScalarWhereInput[]
+}
+export type BuildScalarWhereInputInputObject =
+  | Extract<keyof BuildScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'race', alias?: string  } 
+  | { name: 'race_not', alias?: string  } 
+  | { name: 'race_in', alias?: string  } 
+  | { name: 'race_not_in', alias?: string  } 
+  | { name: 'race_lt', alias?: string  } 
+  | { name: 'race_lte', alias?: string  } 
+  | { name: 'race_gt', alias?: string  } 
+  | { name: 'race_gte', alias?: string  } 
+  | { name: 'race_contains', alias?: string  } 
+  | { name: 'race_not_contains', alias?: string  } 
+  | { name: 'race_starts_with', alias?: string  } 
+  | { name: 'race_not_starts_with', alias?: string  } 
+  | { name: 'race_ends_with', alias?: string  } 
+  | { name: 'race_not_ends_with', alias?: string  } 
+  | { name: 'esoClass', alias?: string  } 
+  | { name: 'esoClass_not', alias?: string  } 
+  | { name: 'esoClass_in', alias?: string  } 
+  | { name: 'esoClass_not_in', alias?: string  } 
+  | { name: 'esoClass_lt', alias?: string  } 
+  | { name: 'esoClass_lte', alias?: string  } 
+  | { name: 'esoClass_gt', alias?: string  } 
+  | { name: 'esoClass_gte', alias?: string  } 
+  | { name: 'esoClass_contains', alias?: string  } 
+  | { name: 'esoClass_not_contains', alias?: string  } 
+  | { name: 'esoClass_starts_with', alias?: string  } 
+  | { name: 'esoClass_not_starts_with', alias?: string  } 
+  | { name: 'esoClass_ends_with', alias?: string  } 
+  | { name: 'esoClass_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  | { name: 'published_not', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface BuildUpdateManyWithWhereNestedInput {
+  where?: BuildScalarWhereInput
+  data?: BuildUpdateManyDataInput
+}
+export type BuildUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof BuildUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface BuildUpdateManyDataInput {
+  name?: string | null
+  race?: string | null
+  esoClass?: string | null
+  published?: boolean | null
+}
+export type BuildUpdateManyDataInputInputObject =
+  | Extract<keyof BuildUpdateManyDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'race', alias?: string  } 
+  | { name: 'esoClass', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  
+export interface UserUpsertNestedInput {
+  update?: UserUpdateDataInput
+  create?: UserCreateInput
+}
+export type UserUpsertNestedInputInputObject =
+  | Extract<keyof UserUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface PostUpdateManyMutationInput {
+  published?: boolean | null
+  title?: string | null
+  content?: string | null
+}
+export type PostUpdateManyMutationInputInputObject =
+  | Extract<keyof PostUpdateManyMutationInput, string>
+  | { name: 'published', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  
+export interface UserUpdateInput {
+  email?: string | null
+  password?: string | null
+  name?: string | null
+  builds?: BuildUpdateManyWithoutOwnerInput | null
+}
+export type UserUpdateInputInputObject =
+  | Extract<keyof UserUpdateInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'builds', alias?: string  } 
+  
+export interface UserUpdateManyMutationInput {
+  email?: string | null
+  password?: string | null
+  name?: string | null
+}
+export type UserUpdateManyMutationInputInputObject =
+  | Extract<keyof UserUpdateManyMutationInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  
+export interface LocationUpdateInput {
+  aldmeri?: string | null
+  daggerfall?: string | null
+  ebonheart?: string | null
+}
+export type LocationUpdateInputInputObject =
+  | Extract<keyof LocationUpdateInput, string>
+  | { name: 'aldmeri', alias?: string  } 
+  | { name: 'daggerfall', alias?: string  } 
+  | { name: 'ebonheart', alias?: string  } 
+  
+export interface LocationUpdateManyMutationInput {
+  aldmeri?: string | null
+  daggerfall?: string | null
+  ebonheart?: string | null
+}
+export type LocationUpdateManyMutationInputInputObject =
+  | Extract<keyof LocationUpdateManyMutationInput, string>
+  | { name: 'aldmeri', alias?: string  } 
+  | { name: 'daggerfall', alias?: string  } 
+  | { name: 'ebonheart', alias?: string  } 
+  
+export interface MundusUpdateInput {
+  name?: string | null
+  location?: LocationUpdateOneInput | null
+  effect?: string | null
+  value?: string | null
+  icon?: string | null
+}
+export type MundusUpdateInputInputObject =
+  | Extract<keyof MundusUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'location', alias?: string  } 
+  | { name: 'effect', alias?: string  } 
+  | { name: 'value', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  
+export interface MundusUpdateManyMutationInput {
+  name?: string | null
+  effect?: string | null
+  value?: string | null
+  icon?: string | null
+}
+export type MundusUpdateManyMutationInputInputObject =
+  | Extract<keyof MundusUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'effect', alias?: string  } 
+  | { name: 'value', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  
+export interface SpecialBuffUpdateInput {
+  name?: string | null
+  buffDescription?: string | null
+  description?: string | null
+  duration?: number | null
+  notes?: string | null
+  icon?: string | null
+  type?: string | null
+  quality?: number | null
+}
+export type SpecialBuffUpdateInputInputObject =
+  | Extract<keyof SpecialBuffUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'buffDescription', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'duration', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'quality', alias?: string  } 
+  
+export interface SpecialBuffUpdateManyMutationInput {
+  name?: string | null
+  buffDescription?: string | null
+  description?: string | null
+  duration?: number | null
+  notes?: string | null
+  icon?: string | null
+  type?: string | null
+  quality?: number | null
+}
+export type SpecialBuffUpdateManyMutationInputInputObject =
+  | Extract<keyof SpecialBuffUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'buffDescription', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'duration', alias?: string  } 
+  | { name: 'notes', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'quality', alias?: string  } 
+  
+export interface SetSelectionUpdateInput {
+  icon?: string | null
+  slot?: string | null
+  selectedSet?: SetUpdateOneInput | null
+  trait?: ModificationUpdateOneInput | null
+  glyph?: ModificationUpdateOneInput | null
+}
+export type SetSelectionUpdateInputInputObject =
+  | Extract<keyof SetSelectionUpdateInput, string>
+  | { name: 'icon', alias?: string  } 
+  | { name: 'slot', alias?: string  } 
+  | { name: 'selectedSet', alias?: string  } 
+  | { name: 'trait', alias?: string  } 
+  | { name: 'glyph', alias?: string  } 
+  
+export interface SetSelectionUpdateManyMutationInput {
+  icon?: string | null
+  slot?: string | null
+}
+export type SetSelectionUpdateManyMutationInputInputObject =
+  | Extract<keyof SetSelectionUpdateManyMutationInput, string>
+  | { name: 'icon', alias?: string  } 
+  | { name: 'slot', alias?: string  } 
+  
+export interface SetUpdateInput {
+  setId?: number | null
+  name?: string | null
+  location?: string | null
+  type?: string | null
+  slug?: string | null
+  bonus_item_1?: string | null
+  bonus_item_2?: string | null
+  bonus_item_3?: string | null
+  bonus_item_4?: string | null
+  bonus_item_5?: string | null
+  has_jewels?: number | null
+  has_weapons?: number | null
+  has_heavy_armor?: number | null
+  has_light_armor?: number | null
+  has_medium_armor?: number | null
+  traits_needed?: number | null
+  pts?: number | null
+  eso_id?: number | null
+}
+export type SetUpdateInputInputObject =
+  | Extract<keyof SetUpdateInput, string>
+  | { name: 'setId', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'location', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'slug', alias?: string  } 
+  | { name: 'bonus_item_1', alias?: string  } 
+  | { name: 'bonus_item_2', alias?: string  } 
+  | { name: 'bonus_item_3', alias?: string  } 
+  | { name: 'bonus_item_4', alias?: string  } 
+  | { name: 'bonus_item_5', alias?: string  } 
+  | { name: 'has_jewels', alias?: string  } 
+  | { name: 'has_weapons', alias?: string  } 
+  | { name: 'has_heavy_armor', alias?: string  } 
+  | { name: 'has_light_armor', alias?: string  } 
+  | { name: 'has_medium_armor', alias?: string  } 
+  | { name: 'traits_needed', alias?: string  } 
+  | { name: 'pts', alias?: string  } 
+  | { name: 'eso_id', alias?: string  } 
+  
+export interface SetUpdateManyMutationInput {
+  setId?: number | null
+  name?: string | null
+  location?: string | null
+  type?: string | null
+  slug?: string | null
+  bonus_item_1?: string | null
+  bonus_item_2?: string | null
+  bonus_item_3?: string | null
+  bonus_item_4?: string | null
+  bonus_item_5?: string | null
+  has_jewels?: number | null
+  has_weapons?: number | null
+  has_heavy_armor?: number | null
+  has_light_armor?: number | null
+  has_medium_armor?: number | null
+  traits_needed?: number | null
+  pts?: number | null
+  eso_id?: number | null
+}
+export type SetUpdateManyMutationInputInputObject =
+  | Extract<keyof SetUpdateManyMutationInput, string>
+  | { name: 'setId', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'location', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'slug', alias?: string  } 
+  | { name: 'bonus_item_1', alias?: string  } 
+  | { name: 'bonus_item_2', alias?: string  } 
+  | { name: 'bonus_item_3', alias?: string  } 
+  | { name: 'bonus_item_4', alias?: string  } 
+  | { name: 'bonus_item_5', alias?: string  } 
+  | { name: 'has_jewels', alias?: string  } 
+  | { name: 'has_weapons', alias?: string  } 
+  | { name: 'has_heavy_armor', alias?: string  } 
+  | { name: 'has_light_armor', alias?: string  } 
+  | { name: 'has_medium_armor', alias?: string  } 
+  | { name: 'traits_needed', alias?: string  } 
+  | { name: 'pts', alias?: string  } 
+  | { name: 'eso_id', alias?: string  } 
+  
+export interface ModificationUpdateInput {
+  type?: string | null
+  description?: string | null
+  icon?: string | null
+}
+export type ModificationUpdateInputInputObject =
+  | Extract<keyof ModificationUpdateInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  
+export interface ModificationUpdateManyMutationInput {
+  type?: string | null
+  description?: string | null
+  icon?: string | null
+}
+export type ModificationUpdateManyMutationInputInputObject =
+  | Extract<keyof ModificationUpdateManyMutationInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  
+export interface SkillSelectionUpdateInput {
+  index?: number | null
+  skill?: SkillUpdateOneInput | null
+}
+export type SkillSelectionUpdateInputInputObject =
+  | Extract<keyof SkillSelectionUpdateInput, string>
+  | { name: 'index', alias?: string  } 
+  | { name: 'skill', alias?: string  } 
+  
+export interface SkillSelectionUpdateManyMutationInput {
+  index?: number | null
+}
+export type SkillSelectionUpdateManyMutationInputInputObject =
+  | Extract<keyof SkillSelectionUpdateManyMutationInput, string>
+  | { name: 'index', alias?: string  } 
+  
+export interface SkillUpdateInput {
+  skillId?: number | null
+  cast_time?: string | null
+  cost?: string | null
+  effect_1?: string | null
+  effect_2?: string | null
+  icon?: string | null
+  name?: string | null
+  parent?: number | null
+  pts?: number | null
+  range?: string | null
+  skillline?: number | null
+  slug?: string | null
+  target?: string | null
+  type?: number | null
+  unlocks_at?: number | null
+}
+export type SkillUpdateInputInputObject =
+  | Extract<keyof SkillUpdateInput, string>
+  | { name: 'skillId', alias?: string  } 
+  | { name: 'cast_time', alias?: string  } 
+  | { name: 'cost', alias?: string  } 
+  | { name: 'effect_1', alias?: string  } 
+  | { name: 'effect_2', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'parent', alias?: string  } 
+  | { name: 'pts', alias?: string  } 
+  | { name: 'range', alias?: string  } 
+  | { name: 'skillline', alias?: string  } 
+  | { name: 'slug', alias?: string  } 
+  | { name: 'target', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'unlocks_at', alias?: string  } 
+  
+export interface SkillUpdateManyMutationInput {
+  skillId?: number | null
+  cast_time?: string | null
+  cost?: string | null
+  effect_1?: string | null
+  effect_2?: string | null
+  icon?: string | null
+  name?: string | null
+  parent?: number | null
+  pts?: number | null
+  range?: string | null
+  skillline?: number | null
+  slug?: string | null
+  target?: string | null
+  type?: number | null
+  unlocks_at?: number | null
+}
+export type SkillUpdateManyMutationInputInputObject =
+  | Extract<keyof SkillUpdateManyMutationInput, string>
+  | { name: 'skillId', alias?: string  } 
+  | { name: 'cast_time', alias?: string  } 
+  | { name: 'cost', alias?: string  } 
+  | { name: 'effect_1', alias?: string  } 
+  | { name: 'effect_2', alias?: string  } 
+  | { name: 'icon', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'parent', alias?: string  } 
+  | { name: 'pts', alias?: string  } 
+  | { name: 'range', alias?: string  } 
+  | { name: 'skillline', alias?: string  } 
+  | { name: 'slug', alias?: string  } 
+  | { name: 'target', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'unlocks_at', alias?: string  } 
+  
+export interface BuildCreateInput {
+  id?: string | null
+  owner?: UserCreateOneWithoutBuildsInput | null
+  name?: string | null
+  race?: string | null
+  esoClass?: string | null
+  published?: boolean | null
+  bigPieceSelection?: SetSelectionCreateManyInput | null
+  smallPieceSelection?: SetSelectionCreateManyInput | null
+  jewelrySelection?: SetSelectionCreateManyInput | null
+  frontbarSelection?: SetSelectionCreateManyInput | null
+  backbarSelection?: SetSelectionCreateManyInput | null
+  newBarOne?: SkillSelectionCreateManyInput | null
+  newBarTwo?: SkillSelectionCreateManyInput | null
+  ultimateOne?: SkillCreateOneInput | null
+  ultimateTwo?: SkillCreateOneInput | null
+  mundus?: MundusCreateOneInput | null
+  buff?: SpecialBuffCreateOneInput | null
+}
+export type BuildCreateInputInputObject =
+  | Extract<keyof BuildCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'owner', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'race', alias?: string  } 
+  | { name: 'esoClass', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  | { name: 'bigPieceSelection', alias?: string  } 
+  | { name: 'smallPieceSelection', alias?: string  } 
+  | { name: 'jewelrySelection', alias?: string  } 
+  | { name: 'frontbarSelection', alias?: string  } 
+  | { name: 'backbarSelection', alias?: string  } 
+  | { name: 'newBarOne', alias?: string  } 
+  | { name: 'newBarTwo', alias?: string  } 
+  | { name: 'ultimateOne', alias?: string  } 
+  | { name: 'ultimateTwo', alias?: string  } 
+  | { name: 'mundus', alias?: string  } 
+  | { name: 'buff', alias?: string  } 
+  
+export interface UserCreateOneWithoutBuildsInput {
+  create?: UserCreateWithoutBuildsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneWithoutBuildsInputInputObject =
+  | Extract<keyof UserCreateOneWithoutBuildsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateWithoutBuildsInput {
+  id?: string | null
+  email?: string
+  password?: string
+  name?: string | null
+}
+export type UserCreateWithoutBuildsInputInputObject =
+  | Extract<keyof UserCreateWithoutBuildsInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  
+export interface BuildUpdateInput {
+  owner?: UserUpdateOneWithoutBuildsInput | null
+  name?: string | null
+  race?: string | null
+  esoClass?: string | null
+  published?: boolean | null
+  bigPieceSelection?: SetSelectionUpdateManyInput | null
+  smallPieceSelection?: SetSelectionUpdateManyInput | null
+  jewelrySelection?: SetSelectionUpdateManyInput | null
+  frontbarSelection?: SetSelectionUpdateManyInput | null
+  backbarSelection?: SetSelectionUpdateManyInput | null
+  newBarOne?: SkillSelectionUpdateManyInput | null
+  newBarTwo?: SkillSelectionUpdateManyInput | null
+  ultimateOne?: SkillUpdateOneInput | null
+  ultimateTwo?: SkillUpdateOneInput | null
+  mundus?: MundusUpdateOneInput | null
+  buff?: SpecialBuffUpdateOneInput | null
+}
+export type BuildUpdateInputInputObject =
+  | Extract<keyof BuildUpdateInput, string>
+  | { name: 'owner', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'race', alias?: string  } 
+  | { name: 'esoClass', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  | { name: 'bigPieceSelection', alias?: string  } 
+  | { name: 'smallPieceSelection', alias?: string  } 
+  | { name: 'jewelrySelection', alias?: string  } 
+  | { name: 'frontbarSelection', alias?: string  } 
+  | { name: 'backbarSelection', alias?: string  } 
+  | { name: 'newBarOne', alias?: string  } 
+  | { name: 'newBarTwo', alias?: string  } 
+  | { name: 'ultimateOne', alias?: string  } 
+  | { name: 'ultimateTwo', alias?: string  } 
+  | { name: 'mundus', alias?: string  } 
+  | { name: 'buff', alias?: string  } 
+  
+export interface UserUpdateOneWithoutBuildsInput {
+  create?: UserCreateWithoutBuildsInput | null
+  update?: UserUpdateWithoutBuildsDataInput | null
+  upsert?: UserUpsertWithoutBuildsInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneWithoutBuildsInputInputObject =
+  | Extract<keyof UserUpdateOneWithoutBuildsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateWithoutBuildsDataInput {
+  email?: string | null
+  password?: string | null
+  name?: string | null
+}
+export type UserUpdateWithoutBuildsDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutBuildsDataInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  
+export interface UserUpsertWithoutBuildsInput {
+  update?: UserUpdateWithoutBuildsDataInput
+  create?: UserCreateWithoutBuildsInput
+}
+export type UserUpsertWithoutBuildsInputInputObject =
+  | Extract<keyof UserUpsertWithoutBuildsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
 export interface BuildUpdateManyMutationInput {
   name?: string | null
   race?: string | null
-  class?: string | null
+  esoClass?: string | null
+  published?: boolean | null
 }
 export type BuildUpdateManyMutationInputInputObject =
   | Extract<keyof BuildUpdateManyMutationInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'race', alias?: string  } 
-  | { name: 'class', alias?: string  } 
+  | { name: 'esoClass', alias?: string  } 
+  | { name: 'published', alias?: string  } 
   
 export interface PostSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
@@ -10723,6 +10986,44 @@ export type BuildSubscriptionWhereInputInputObject =
   | { name: 'NOT', alias?: string  } 
   
 
+export type BuildOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'race_ASC'
+  | 'race_DESC'
+  | 'esoClass_ASC'
+  | 'esoClass_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'published_ASC'
+  | 'published_DESC'
+  
+export type SetSelectionOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'icon_ASC'
+  | 'icon_DESC'
+  | 'slot_ASC'
+  | 'slot_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type SkillSelectionOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'index_ASC'
+  | 'index_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
 export type PostOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
@@ -10805,18 +11106,6 @@ export type SpecialBuffOrderByInputValues =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
-export type SetSelectionOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'icon_ASC'
-  | 'icon_DESC'
-  | 'slot_ASC'
-  | 'slot_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
 export type SetOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
@@ -10875,16 +11164,6 @@ export type ModificationOrderByInputValues =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
-export type SkillSelectionOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'index_ASC'
-  | 'index_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
 export type SkillOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
@@ -10918,20 +11197,6 @@ export type SkillOrderByInputValues =
   | 'type_DESC'
   | 'unlocks_at_ASC'
   | 'unlocks_at_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
-export type BuildOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'name_ASC'
-  | 'name_DESC'
-  | 'race_ASC'
-  | 'race_DESC'
-  | 'class_ASC'
-  | 'class_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

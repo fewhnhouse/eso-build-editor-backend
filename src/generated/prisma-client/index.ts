@@ -515,6 +515,22 @@ export interface ClientConstructor<T> {
  * Types
  */
 
+export type BuildOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "race_ASC"
+  | "race_DESC"
+  | "esoClass_ASC"
+  | "esoClass_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "published_ASC"
+  | "published_DESC";
+
 export type SetSelectionOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -528,16 +544,6 @@ export type SkillSelectionOrderByInput =
   | "id_DESC"
   | "index_ASC"
   | "index_DESC";
-
-export type BuildOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "race_ASC"
-  | "race_DESC"
-  | "class_ASC"
-  | "class_DESC";
 
 export type LocationOrderByInput =
   | "id_ASC"
@@ -694,6 +700,177 @@ export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 export type BuildWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
+
+export interface BuildWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  owner?: Maybe<UserWhereInput>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  race?: Maybe<String>;
+  race_not?: Maybe<String>;
+  race_in?: Maybe<String[] | String>;
+  race_not_in?: Maybe<String[] | String>;
+  race_lt?: Maybe<String>;
+  race_lte?: Maybe<String>;
+  race_gt?: Maybe<String>;
+  race_gte?: Maybe<String>;
+  race_contains?: Maybe<String>;
+  race_not_contains?: Maybe<String>;
+  race_starts_with?: Maybe<String>;
+  race_not_starts_with?: Maybe<String>;
+  race_ends_with?: Maybe<String>;
+  race_not_ends_with?: Maybe<String>;
+  esoClass?: Maybe<String>;
+  esoClass_not?: Maybe<String>;
+  esoClass_in?: Maybe<String[] | String>;
+  esoClass_not_in?: Maybe<String[] | String>;
+  esoClass_lt?: Maybe<String>;
+  esoClass_lte?: Maybe<String>;
+  esoClass_gt?: Maybe<String>;
+  esoClass_gte?: Maybe<String>;
+  esoClass_contains?: Maybe<String>;
+  esoClass_not_contains?: Maybe<String>;
+  esoClass_starts_with?: Maybe<String>;
+  esoClass_not_starts_with?: Maybe<String>;
+  esoClass_ends_with?: Maybe<String>;
+  esoClass_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  published?: Maybe<Boolean>;
+  published_not?: Maybe<Boolean>;
+  bigPieceSelection_every?: Maybe<SetSelectionWhereInput>;
+  bigPieceSelection_some?: Maybe<SetSelectionWhereInput>;
+  bigPieceSelection_none?: Maybe<SetSelectionWhereInput>;
+  smallPieceSelection_every?: Maybe<SetSelectionWhereInput>;
+  smallPieceSelection_some?: Maybe<SetSelectionWhereInput>;
+  smallPieceSelection_none?: Maybe<SetSelectionWhereInput>;
+  jewelrySelection_every?: Maybe<SetSelectionWhereInput>;
+  jewelrySelection_some?: Maybe<SetSelectionWhereInput>;
+  jewelrySelection_none?: Maybe<SetSelectionWhereInput>;
+  frontbarSelection_every?: Maybe<SetSelectionWhereInput>;
+  frontbarSelection_some?: Maybe<SetSelectionWhereInput>;
+  frontbarSelection_none?: Maybe<SetSelectionWhereInput>;
+  backbarSelection_every?: Maybe<SetSelectionWhereInput>;
+  backbarSelection_some?: Maybe<SetSelectionWhereInput>;
+  backbarSelection_none?: Maybe<SetSelectionWhereInput>;
+  newBarOne_every?: Maybe<SkillSelectionWhereInput>;
+  newBarOne_some?: Maybe<SkillSelectionWhereInput>;
+  newBarOne_none?: Maybe<SkillSelectionWhereInput>;
+  newBarTwo_every?: Maybe<SkillSelectionWhereInput>;
+  newBarTwo_some?: Maybe<SkillSelectionWhereInput>;
+  newBarTwo_none?: Maybe<SkillSelectionWhereInput>;
+  ultimateOne?: Maybe<SkillWhereInput>;
+  ultimateTwo?: Maybe<SkillWhereInput>;
+  mundus?: Maybe<MundusWhereInput>;
+  buff?: Maybe<SpecialBuffWhereInput>;
+  AND?: Maybe<BuildWhereInput[] | BuildWhereInput>;
+  OR?: Maybe<BuildWhereInput[] | BuildWhereInput>;
+  NOT?: Maybe<BuildWhereInput[] | BuildWhereInput>;
+}
+
+export interface UserWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
+  password?: Maybe<String>;
+  password_not?: Maybe<String>;
+  password_in?: Maybe<String[] | String>;
+  password_not_in?: Maybe<String[] | String>;
+  password_lt?: Maybe<String>;
+  password_lte?: Maybe<String>;
+  password_gt?: Maybe<String>;
+  password_gte?: Maybe<String>;
+  password_contains?: Maybe<String>;
+  password_not_contains?: Maybe<String>;
+  password_starts_with?: Maybe<String>;
+  password_not_starts_with?: Maybe<String>;
+  password_ends_with?: Maybe<String>;
+  password_not_ends_with?: Maybe<String>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  builds_every?: Maybe<BuildWhereInput>;
+  builds_some?: Maybe<BuildWhereInput>;
+  builds_none?: Maybe<BuildWhereInput>;
+  AND?: Maybe<UserWhereInput[] | UserWhereInput>;
+  OR?: Maybe<UserWhereInput[] | UserWhereInput>;
+  NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
+}
 
 export interface SetSelectionWhereInput {
   id?: Maybe<ID_Input>;
@@ -1249,93 +1426,6 @@ export interface SkillWhereInput {
   NOT?: Maybe<SkillWhereInput[] | SkillWhereInput>;
 }
 
-export interface BuildWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  race?: Maybe<String>;
-  race_not?: Maybe<String>;
-  race_in?: Maybe<String[] | String>;
-  race_not_in?: Maybe<String[] | String>;
-  race_lt?: Maybe<String>;
-  race_lte?: Maybe<String>;
-  race_gt?: Maybe<String>;
-  race_gte?: Maybe<String>;
-  race_contains?: Maybe<String>;
-  race_not_contains?: Maybe<String>;
-  race_starts_with?: Maybe<String>;
-  race_not_starts_with?: Maybe<String>;
-  race_ends_with?: Maybe<String>;
-  race_not_ends_with?: Maybe<String>;
-  class?: Maybe<String>;
-  class_not?: Maybe<String>;
-  class_in?: Maybe<String[] | String>;
-  class_not_in?: Maybe<String[] | String>;
-  class_lt?: Maybe<String>;
-  class_lte?: Maybe<String>;
-  class_gt?: Maybe<String>;
-  class_gte?: Maybe<String>;
-  class_contains?: Maybe<String>;
-  class_not_contains?: Maybe<String>;
-  class_starts_with?: Maybe<String>;
-  class_not_starts_with?: Maybe<String>;
-  class_ends_with?: Maybe<String>;
-  class_not_ends_with?: Maybe<String>;
-  bigPieceSelection_every?: Maybe<SetSelectionWhereInput>;
-  bigPieceSelection_some?: Maybe<SetSelectionWhereInput>;
-  bigPieceSelection_none?: Maybe<SetSelectionWhereInput>;
-  smallPieceSelection_every?: Maybe<SetSelectionWhereInput>;
-  smallPieceSelection_some?: Maybe<SetSelectionWhereInput>;
-  smallPieceSelection_none?: Maybe<SetSelectionWhereInput>;
-  jewelrySelection_every?: Maybe<SetSelectionWhereInput>;
-  jewelrySelection_some?: Maybe<SetSelectionWhereInput>;
-  jewelrySelection_none?: Maybe<SetSelectionWhereInput>;
-  frontbarSelection_every?: Maybe<SetSelectionWhereInput>;
-  frontbarSelection_some?: Maybe<SetSelectionWhereInput>;
-  frontbarSelection_none?: Maybe<SetSelectionWhereInput>;
-  backbarSelection_every?: Maybe<SetSelectionWhereInput>;
-  backbarSelection_some?: Maybe<SetSelectionWhereInput>;
-  backbarSelection_none?: Maybe<SetSelectionWhereInput>;
-  newBarOne_every?: Maybe<SkillSelectionWhereInput>;
-  newBarOne_some?: Maybe<SkillSelectionWhereInput>;
-  newBarOne_none?: Maybe<SkillSelectionWhereInput>;
-  newBarTwo_every?: Maybe<SkillSelectionWhereInput>;
-  newBarTwo_some?: Maybe<SkillSelectionWhereInput>;
-  newBarTwo_none?: Maybe<SkillSelectionWhereInput>;
-  ultimateOne?: Maybe<SkillWhereInput>;
-  ultimateTwo?: Maybe<SkillWhereInput>;
-  mundus?: Maybe<MundusWhereInput>;
-  buff?: Maybe<SpecialBuffWhereInput>;
-  AND?: Maybe<BuildWhereInput[] | BuildWhereInput>;
-  OR?: Maybe<BuildWhereInput[] | BuildWhereInput>;
-  NOT?: Maybe<BuildWhereInput[] | BuildWhereInput>;
-}
-
 export interface MundusWhereInput {
   name?: Maybe<String>;
   name_not?: Maybe<String>;
@@ -1595,10 +1685,12 @@ export type LocationWhereUniqueInput = AtLeastOne<{
 
 export type ModificationWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  type?: Maybe<String>;
 }>;
 
 export type MundusWhereUniqueInput = AtLeastOne<{
-  id: Maybe<Int>;
+  name: Maybe<String>;
+  id?: Maybe<Int>;
 }>;
 
 export type PostWhereUniqueInput = AtLeastOne<{
@@ -1672,73 +1764,9 @@ export interface PostWhereInput {
   NOT?: Maybe<PostWhereInput[] | PostWhereInput>;
 }
 
-export interface UserWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  email?: Maybe<String>;
-  email_not?: Maybe<String>;
-  email_in?: Maybe<String[] | String>;
-  email_not_in?: Maybe<String[] | String>;
-  email_lt?: Maybe<String>;
-  email_lte?: Maybe<String>;
-  email_gt?: Maybe<String>;
-  email_gte?: Maybe<String>;
-  email_contains?: Maybe<String>;
-  email_not_contains?: Maybe<String>;
-  email_starts_with?: Maybe<String>;
-  email_not_starts_with?: Maybe<String>;
-  email_ends_with?: Maybe<String>;
-  email_not_ends_with?: Maybe<String>;
-  password?: Maybe<String>;
-  password_not?: Maybe<String>;
-  password_in?: Maybe<String[] | String>;
-  password_not_in?: Maybe<String[] | String>;
-  password_lt?: Maybe<String>;
-  password_lte?: Maybe<String>;
-  password_gt?: Maybe<String>;
-  password_gte?: Maybe<String>;
-  password_contains?: Maybe<String>;
-  password_not_contains?: Maybe<String>;
-  password_starts_with?: Maybe<String>;
-  password_not_starts_with?: Maybe<String>;
-  password_ends_with?: Maybe<String>;
-  password_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  posts_every?: Maybe<PostWhereInput>;
-  posts_some?: Maybe<PostWhereInput>;
-  posts_none?: Maybe<PostWhereInput>;
-  AND?: Maybe<UserWhereInput[] | UserWhereInput>;
-  OR?: Maybe<UserWhereInput[] | UserWhereInput>;
-  NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
-}
-
 export type SetWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  setId?: Maybe<Int>;
 }>;
 
 export type SetSelectionWhereUniqueInput = AtLeastOne<{
@@ -1747,6 +1775,7 @@ export type SetSelectionWhereUniqueInput = AtLeastOne<{
 
 export type SkillWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  skillId?: Maybe<Int>;
 }>;
 
 export type SkillSelectionWhereUniqueInput = AtLeastOne<{
@@ -1755,6 +1784,7 @@ export type SkillSelectionWhereUniqueInput = AtLeastOne<{
 
 export type SpecialBuffWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  name?: Maybe<String>;
 }>;
 
 export type UserWhereUniqueInput = AtLeastOne<{
@@ -1764,9 +1794,11 @@ export type UserWhereUniqueInput = AtLeastOne<{
 
 export interface BuildCreateInput {
   id?: Maybe<ID_Input>;
+  owner?: Maybe<UserCreateOneWithoutBuildsInput>;
   name?: Maybe<String>;
   race?: Maybe<String>;
-  class?: Maybe<String>;
+  esoClass?: Maybe<String>;
+  published?: Maybe<Boolean>;
   bigPieceSelection?: Maybe<SetSelectionCreateManyInput>;
   smallPieceSelection?: Maybe<SetSelectionCreateManyInput>;
   jewelrySelection?: Maybe<SetSelectionCreateManyInput>;
@@ -1778,6 +1810,18 @@ export interface BuildCreateInput {
   ultimateTwo?: Maybe<SkillCreateOneInput>;
   mundus?: Maybe<MundusCreateOneInput>;
   buff?: Maybe<SpecialBuffCreateOneInput>;
+}
+
+export interface UserCreateOneWithoutBuildsInput {
+  create?: Maybe<UserCreateWithoutBuildsInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateWithoutBuildsInput {
+  id?: Maybe<ID_Input>;
+  email: String;
+  password: String;
+  name?: Maybe<String>;
 }
 
 export interface SetSelectionCreateManyInput {
@@ -1916,9 +1960,11 @@ export interface SpecialBuffCreateInput {
 }
 
 export interface BuildUpdateInput {
+  owner?: Maybe<UserUpdateOneWithoutBuildsInput>;
   name?: Maybe<String>;
   race?: Maybe<String>;
-  class?: Maybe<String>;
+  esoClass?: Maybe<String>;
+  published?: Maybe<Boolean>;
   bigPieceSelection?: Maybe<SetSelectionUpdateManyInput>;
   smallPieceSelection?: Maybe<SetSelectionUpdateManyInput>;
   jewelrySelection?: Maybe<SetSelectionUpdateManyInput>;
@@ -1930,6 +1976,26 @@ export interface BuildUpdateInput {
   ultimateTwo?: Maybe<SkillUpdateOneInput>;
   mundus?: Maybe<MundusUpdateOneInput>;
   buff?: Maybe<SpecialBuffUpdateOneInput>;
+}
+
+export interface UserUpdateOneWithoutBuildsInput {
+  create?: Maybe<UserCreateWithoutBuildsInput>;
+  update?: Maybe<UserUpdateWithoutBuildsDataInput>;
+  upsert?: Maybe<UserUpsertWithoutBuildsInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateWithoutBuildsDataInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  name?: Maybe<String>;
+}
+
+export interface UserUpsertWithoutBuildsInput {
+  update: UserUpdateWithoutBuildsDataInput;
+  create: UserCreateWithoutBuildsInput;
 }
 
 export interface SetSelectionUpdateManyInput {
@@ -2281,7 +2347,8 @@ export interface SpecialBuffUpsertNestedInput {
 export interface BuildUpdateManyMutationInput {
   name?: Maybe<String>;
   race?: Maybe<String>;
-  class?: Maybe<String>;
+  esoClass?: Maybe<String>;
+  published?: Maybe<Boolean>;
 }
 
 export interface LocationUpdateInput {
@@ -2328,44 +2395,211 @@ export interface PostCreateInput {
   published?: Maybe<Boolean>;
   title: String;
   content?: Maybe<String>;
-  author: UserCreateOneWithoutPostsInput;
+  author: UserCreateOneInput;
 }
 
-export interface UserCreateOneWithoutPostsInput {
-  create?: Maybe<UserCreateWithoutPostsInput>;
+export interface UserCreateOneInput {
+  create?: Maybe<UserCreateInput>;
   connect?: Maybe<UserWhereUniqueInput>;
 }
 
-export interface UserCreateWithoutPostsInput {
+export interface UserCreateInput {
   id?: Maybe<ID_Input>;
   email: String;
   password: String;
   name?: Maybe<String>;
+  builds?: Maybe<BuildCreateManyWithoutOwnerInput>;
+}
+
+export interface BuildCreateManyWithoutOwnerInput {
+  create?: Maybe<BuildCreateWithoutOwnerInput[] | BuildCreateWithoutOwnerInput>;
+  connect?: Maybe<BuildWhereUniqueInput[] | BuildWhereUniqueInput>;
+}
+
+export interface BuildCreateWithoutOwnerInput {
+  id?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  race?: Maybe<String>;
+  esoClass?: Maybe<String>;
+  published?: Maybe<Boolean>;
+  bigPieceSelection?: Maybe<SetSelectionCreateManyInput>;
+  smallPieceSelection?: Maybe<SetSelectionCreateManyInput>;
+  jewelrySelection?: Maybe<SetSelectionCreateManyInput>;
+  frontbarSelection?: Maybe<SetSelectionCreateManyInput>;
+  backbarSelection?: Maybe<SetSelectionCreateManyInput>;
+  newBarOne?: Maybe<SkillSelectionCreateManyInput>;
+  newBarTwo?: Maybe<SkillSelectionCreateManyInput>;
+  ultimateOne?: Maybe<SkillCreateOneInput>;
+  ultimateTwo?: Maybe<SkillCreateOneInput>;
+  mundus?: Maybe<MundusCreateOneInput>;
+  buff?: Maybe<SpecialBuffCreateOneInput>;
 }
 
 export interface PostUpdateInput {
   published?: Maybe<Boolean>;
   title?: Maybe<String>;
   content?: Maybe<String>;
-  author?: Maybe<UserUpdateOneRequiredWithoutPostsInput>;
+  author?: Maybe<UserUpdateOneRequiredInput>;
 }
 
-export interface UserUpdateOneRequiredWithoutPostsInput {
-  create?: Maybe<UserCreateWithoutPostsInput>;
-  update?: Maybe<UserUpdateWithoutPostsDataInput>;
-  upsert?: Maybe<UserUpsertWithoutPostsInput>;
+export interface UserUpdateOneRequiredInput {
+  create?: Maybe<UserCreateInput>;
+  update?: Maybe<UserUpdateDataInput>;
+  upsert?: Maybe<UserUpsertNestedInput>;
   connect?: Maybe<UserWhereUniqueInput>;
 }
 
-export interface UserUpdateWithoutPostsDataInput {
+export interface UserUpdateDataInput {
   email?: Maybe<String>;
   password?: Maybe<String>;
   name?: Maybe<String>;
+  builds?: Maybe<BuildUpdateManyWithoutOwnerInput>;
 }
 
-export interface UserUpsertWithoutPostsInput {
-  update: UserUpdateWithoutPostsDataInput;
-  create: UserCreateWithoutPostsInput;
+export interface BuildUpdateManyWithoutOwnerInput {
+  create?: Maybe<BuildCreateWithoutOwnerInput[] | BuildCreateWithoutOwnerInput>;
+  delete?: Maybe<BuildWhereUniqueInput[] | BuildWhereUniqueInput>;
+  connect?: Maybe<BuildWhereUniqueInput[] | BuildWhereUniqueInput>;
+  set?: Maybe<BuildWhereUniqueInput[] | BuildWhereUniqueInput>;
+  disconnect?: Maybe<BuildWhereUniqueInput[] | BuildWhereUniqueInput>;
+  update?: Maybe<
+    | BuildUpdateWithWhereUniqueWithoutOwnerInput[]
+    | BuildUpdateWithWhereUniqueWithoutOwnerInput
+  >;
+  upsert?: Maybe<
+    | BuildUpsertWithWhereUniqueWithoutOwnerInput[]
+    | BuildUpsertWithWhereUniqueWithoutOwnerInput
+  >;
+  deleteMany?: Maybe<BuildScalarWhereInput[] | BuildScalarWhereInput>;
+  updateMany?: Maybe<
+    BuildUpdateManyWithWhereNestedInput[] | BuildUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface BuildUpdateWithWhereUniqueWithoutOwnerInput {
+  where: BuildWhereUniqueInput;
+  data: BuildUpdateWithoutOwnerDataInput;
+}
+
+export interface BuildUpdateWithoutOwnerDataInput {
+  name?: Maybe<String>;
+  race?: Maybe<String>;
+  esoClass?: Maybe<String>;
+  published?: Maybe<Boolean>;
+  bigPieceSelection?: Maybe<SetSelectionUpdateManyInput>;
+  smallPieceSelection?: Maybe<SetSelectionUpdateManyInput>;
+  jewelrySelection?: Maybe<SetSelectionUpdateManyInput>;
+  frontbarSelection?: Maybe<SetSelectionUpdateManyInput>;
+  backbarSelection?: Maybe<SetSelectionUpdateManyInput>;
+  newBarOne?: Maybe<SkillSelectionUpdateManyInput>;
+  newBarTwo?: Maybe<SkillSelectionUpdateManyInput>;
+  ultimateOne?: Maybe<SkillUpdateOneInput>;
+  ultimateTwo?: Maybe<SkillUpdateOneInput>;
+  mundus?: Maybe<MundusUpdateOneInput>;
+  buff?: Maybe<SpecialBuffUpdateOneInput>;
+}
+
+export interface BuildUpsertWithWhereUniqueWithoutOwnerInput {
+  where: BuildWhereUniqueInput;
+  update: BuildUpdateWithoutOwnerDataInput;
+  create: BuildCreateWithoutOwnerInput;
+}
+
+export interface BuildScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  race?: Maybe<String>;
+  race_not?: Maybe<String>;
+  race_in?: Maybe<String[] | String>;
+  race_not_in?: Maybe<String[] | String>;
+  race_lt?: Maybe<String>;
+  race_lte?: Maybe<String>;
+  race_gt?: Maybe<String>;
+  race_gte?: Maybe<String>;
+  race_contains?: Maybe<String>;
+  race_not_contains?: Maybe<String>;
+  race_starts_with?: Maybe<String>;
+  race_not_starts_with?: Maybe<String>;
+  race_ends_with?: Maybe<String>;
+  race_not_ends_with?: Maybe<String>;
+  esoClass?: Maybe<String>;
+  esoClass_not?: Maybe<String>;
+  esoClass_in?: Maybe<String[] | String>;
+  esoClass_not_in?: Maybe<String[] | String>;
+  esoClass_lt?: Maybe<String>;
+  esoClass_lte?: Maybe<String>;
+  esoClass_gt?: Maybe<String>;
+  esoClass_gte?: Maybe<String>;
+  esoClass_contains?: Maybe<String>;
+  esoClass_not_contains?: Maybe<String>;
+  esoClass_starts_with?: Maybe<String>;
+  esoClass_not_starts_with?: Maybe<String>;
+  esoClass_ends_with?: Maybe<String>;
+  esoClass_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  published?: Maybe<Boolean>;
+  published_not?: Maybe<Boolean>;
+  AND?: Maybe<BuildScalarWhereInput[] | BuildScalarWhereInput>;
+  OR?: Maybe<BuildScalarWhereInput[] | BuildScalarWhereInput>;
+  NOT?: Maybe<BuildScalarWhereInput[] | BuildScalarWhereInput>;
+}
+
+export interface BuildUpdateManyWithWhereNestedInput {
+  where: BuildScalarWhereInput;
+  data: BuildUpdateManyDataInput;
+}
+
+export interface BuildUpdateManyDataInput {
+  name?: Maybe<String>;
+  race?: Maybe<String>;
+  esoClass?: Maybe<String>;
+  published?: Maybe<Boolean>;
+}
+
+export interface UserUpsertNestedInput {
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
 }
 
 export interface PostUpdateManyMutationInput {
@@ -2496,145 +2730,11 @@ export interface SpecialBuffUpdateManyMutationInput {
   quality?: Maybe<Int>;
 }
 
-export interface UserCreateInput {
-  id?: Maybe<ID_Input>;
-  email: String;
-  password: String;
-  name?: Maybe<String>;
-  posts?: Maybe<PostCreateManyWithoutAuthorInput>;
-}
-
-export interface PostCreateManyWithoutAuthorInput {
-  create?: Maybe<PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput>;
-  connect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-}
-
-export interface PostCreateWithoutAuthorInput {
-  id?: Maybe<ID_Input>;
-  published?: Maybe<Boolean>;
-  title: String;
-  content?: Maybe<String>;
-}
-
 export interface UserUpdateInput {
   email?: Maybe<String>;
   password?: Maybe<String>;
   name?: Maybe<String>;
-  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
-}
-
-export interface PostUpdateManyWithoutAuthorInput {
-  create?: Maybe<PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput>;
-  delete?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  connect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  set?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  disconnect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  update?: Maybe<
-    | PostUpdateWithWhereUniqueWithoutAuthorInput[]
-    | PostUpdateWithWhereUniqueWithoutAuthorInput
-  >;
-  upsert?: Maybe<
-    | PostUpsertWithWhereUniqueWithoutAuthorInput[]
-    | PostUpsertWithWhereUniqueWithoutAuthorInput
-  >;
-  deleteMany?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
-  updateMany?: Maybe<
-    PostUpdateManyWithWhereNestedInput[] | PostUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput;
-  data: PostUpdateWithoutAuthorDataInput;
-}
-
-export interface PostUpdateWithoutAuthorDataInput {
-  published?: Maybe<Boolean>;
-  title?: Maybe<String>;
-  content?: Maybe<String>;
-}
-
-export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput;
-  update: PostUpdateWithoutAuthorDataInput;
-  create: PostCreateWithoutAuthorInput;
-}
-
-export interface PostScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  published?: Maybe<Boolean>;
-  published_not?: Maybe<Boolean>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  content?: Maybe<String>;
-  content_not?: Maybe<String>;
-  content_in?: Maybe<String[] | String>;
-  content_not_in?: Maybe<String[] | String>;
-  content_lt?: Maybe<String>;
-  content_lte?: Maybe<String>;
-  content_gt?: Maybe<String>;
-  content_gte?: Maybe<String>;
-  content_contains?: Maybe<String>;
-  content_not_contains?: Maybe<String>;
-  content_starts_with?: Maybe<String>;
-  content_not_starts_with?: Maybe<String>;
-  content_ends_with?: Maybe<String>;
-  content_not_ends_with?: Maybe<String>;
-  AND?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
-  OR?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
-  NOT?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
-}
-
-export interface PostUpdateManyWithWhereNestedInput {
-  where: PostScalarWhereInput;
-  data: PostUpdateManyDataInput;
-}
-
-export interface PostUpdateManyDataInput {
-  published?: Maybe<Boolean>;
-  title?: Maybe<String>;
-  content?: Maybe<String>;
+  builds?: Maybe<BuildUpdateManyWithoutOwnerInput>;
 }
 
 export interface UserUpdateManyMutationInput {
@@ -2803,14 +2903,21 @@ export interface Build {
   id: ID_Output;
   name?: String;
   race?: String;
-  class?: String;
+  esoClass?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  published: Boolean;
 }
 
 export interface BuildPromise extends Promise<Build>, Fragmentable {
   id: () => Promise<ID_Output>;
+  owner: <T = UserPromise>() => T;
   name: () => Promise<String>;
   race: () => Promise<String>;
-  class: () => Promise<String>;
+  esoClass: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  published: () => Promise<Boolean>;
   bigPieceSelection: <T = FragmentableArray<SetSelection>>(args?: {
     where?: SetSelectionWhereInput;
     orderBy?: SetSelectionOrderByInput;
@@ -2884,9 +2991,13 @@ export interface BuildSubscription
   extends Promise<AsyncIterator<Build>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  owner: <T = UserSubscription>() => T;
   name: () => Promise<AsyncIterator<String>>;
   race: () => Promise<AsyncIterator<String>>;
-  class: () => Promise<AsyncIterator<String>>;
+  esoClass: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  published: () => Promise<AsyncIterator<Boolean>>;
   bigPieceSelection: <
     T = Promise<AsyncIterator<SetSelectionSubscription>>
   >(args?: {
@@ -2970,9 +3081,13 @@ export interface BuildNullablePromise
   extends Promise<Build | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  owner: <T = UserPromise>() => T;
   name: () => Promise<String>;
   race: () => Promise<String>;
-  class: () => Promise<String>;
+  esoClass: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  published: () => Promise<Boolean>;
   bigPieceSelection: <T = FragmentableArray<SetSelection>>(args?: {
     where?: SetSelectionWhereInput;
     orderBy?: SetSelectionOrderByInput;
@@ -3040,6 +3155,65 @@ export interface BuildNullablePromise
   ultimateTwo: <T = SkillPromise>() => T;
   mundus: <T = MundusPromise>() => T;
   buff: <T = SpecialBuffPromise>() => T;
+}
+
+export interface User {
+  id: ID_Output;
+  email: String;
+  password: String;
+  name?: String;
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  name: () => Promise<String>;
+  builds: <T = FragmentableArray<Build>>(args?: {
+    where?: BuildWhereInput;
+    orderBy?: BuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  builds: <T = Promise<AsyncIterator<BuildSubscription>>>(args?: {
+    where?: BuildWhereInput;
+    orderBy?: BuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface UserNullablePromise
+  extends Promise<User | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  name: () => Promise<String>;
+  builds: <T = FragmentableArray<Build>>(args?: {
+    where?: BuildWhereInput;
+    orderBy?: BuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
 export interface SetSelection {
@@ -3723,65 +3897,6 @@ export interface PostNullablePromise
   author: <T = UserPromise>() => T;
 }
 
-export interface User {
-  id: ID_Output;
-  email: String;
-  password: String;
-  name?: String;
-}
-
-export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  password: () => Promise<String>;
-  name: () => Promise<String>;
-  posts: <T = FragmentableArray<Post>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  email: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
-  posts: <T = Promise<AsyncIterator<PostSubscription>>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface UserNullablePromise
-  extends Promise<User | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  password: () => Promise<String>;
-  name: () => Promise<String>;
-  posts: <T = FragmentableArray<Post>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
 export interface PostConnection {
   pageInfo: PageInfo;
   edges: PostEdge[];
@@ -4211,7 +4326,10 @@ export interface BuildPreviousValues {
   id: ID_Output;
   name?: String;
   race?: String;
-  class?: String;
+  esoClass?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  published: Boolean;
 }
 
 export interface BuildPreviousValuesPromise
@@ -4220,7 +4338,10 @@ export interface BuildPreviousValuesPromise
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   race: () => Promise<String>;
-  class: () => Promise<String>;
+  esoClass: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  published: () => Promise<Boolean>;
 }
 
 export interface BuildPreviousValuesSubscription
@@ -4229,7 +4350,10 @@ export interface BuildPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
   race: () => Promise<AsyncIterator<String>>;
-  class: () => Promise<AsyncIterator<String>>;
+  esoClass: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  published: () => Promise<AsyncIterator<Boolean>>;
 }
 
 export interface LocationSubscriptionPayload {
@@ -4840,16 +4964,6 @@ The `String` scalar type represents textual data, represented as UTF-8 character
 export type String = string;
 
 /*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
-*/
-export type Int = number;
-
-/*
-The `Boolean` scalar type represents `true` or `false`.
-*/
-export type Boolean = boolean;
-
-/*
 DateTime scalar input type, allowing Date
 */
 export type DateTimeInput = Date | string;
@@ -4858,6 +4972,16 @@ export type DateTimeInput = Date | string;
 DateTime scalar output type, which is always a string
 */
 export type DateTimeOutput = string;
+
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
+
+/*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
+*/
+export type Int = number;
 
 export type Long = string;
 

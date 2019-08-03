@@ -1,4 +1,4 @@
-import { stringArg, idArg, mutationType } from 'nexus'
+import { stringArg, idArg, mutationType, arg } from 'nexus'
 import { hash, compare } from 'bcrypt'
 import { APP_SECRET, getUserId } from '../utils'
 import { sign } from 'jsonwebtoken'
@@ -48,6 +48,41 @@ export const Mutation = mutationType({
       },
     })
 
+    t.field('draftBuild', {
+      type: 'Build',
+      args: {
+        name: stringArg(),
+        race: stringArg(),
+        esoClass: stringArg(),
+      },
+      resolve: (parent, { name, race, esoClass }, ctx) => {
+        const userId = getUserId(ctx)
+        return ctx.prisma.createBuild({
+          name,
+          race,
+          esoClass,
+        })
+      },
+    })
+
+    t.field('createBuild', {
+      type: 'Build',
+      args: {
+        name: stringArg({ nullable: true }),
+        race: stringArg({ nullable: true }),
+        esoClass: stringArg({ nullable: true }),
+      },
+      resolve: (parent, { name, race, esoClass }, ctx) => {
+        const userId = getUserId(ctx)
+        return ctx.prisma.createBuild({
+          name,
+          race,
+          esoClass,
+          owner: { connect: { id: userId } },
+        })
+      },
+    })
+
     t.field('createDraft', {
       type: 'Post',
       args: {
@@ -64,21 +99,21 @@ export const Mutation = mutationType({
       },
     })
 
-    t.field('deletePost', {
-      type: 'Post',
+    t.field('deleteBuild', {
+      type: 'Build',
       nullable: true,
       args: { id: idArg() },
       resolve: (parent, { id }, ctx) => {
-        return ctx.prisma.deletePost({ id })
+        return ctx.prisma.deleteBuild({ id })
       },
     })
 
-    t.field('publish', {
-      type: 'Post',
+    t.field('publishBuild', {
+      type: 'Build',
       nullable: true,
       args: { id: idArg() },
       resolve: (parent, { id }, ctx) => {
-        return ctx.prisma.updatePost({
+        return ctx.prisma.updateBuild({
           where: { id },
           data: { published: true },
         })
