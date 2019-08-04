@@ -17,7 +17,7 @@ export const permissions = shield({
   Query: {
     me: rules.isAuthenticatedUser,
     publishedBuilds: rules.isAuthenticatedUser,
-    filterBuilds: rules.isAuthenticatedUser,
+    builds: rules.isAuthenticatedUser,
     build: rules.isAuthenticatedUser,
   },
   Mutation: {

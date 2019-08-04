@@ -7,16 +7,190 @@ type AuthPayload {
   user: User
 }
 
+type Buff {
+  buffDescription: String!
+  buffType: String
+  description: String
+  duration: Int!
+  icon: String
+  id: ID!
+  name: String!
+  notes: String
+  quality: Int!
+  type: String
+}
+
+enum BuffOrderByInput {
+  buffDescription_ASC
+  buffDescription_DESC
+  buffType_ASC
+  buffType_DESC
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  duration_ASC
+  duration_DESC
+  icon_ASC
+  icon_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  notes_ASC
+  notes_DESC
+  quality_ASC
+  quality_DESC
+  type_ASC
+  type_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input BuffWhereInput {
+  AND: [BuffWhereInput!]
+  buffDescription: String
+  buffDescription_contains: String
+  buffDescription_ends_with: String
+  buffDescription_gt: String
+  buffDescription_gte: String
+  buffDescription_in: [String!]
+  buffDescription_lt: String
+  buffDescription_lte: String
+  buffDescription_not: String
+  buffDescription_not_contains: String
+  buffDescription_not_ends_with: String
+  buffDescription_not_in: [String!]
+  buffDescription_not_starts_with: String
+  buffDescription_starts_with: String
+  buffType: String
+  buffType_contains: String
+  buffType_ends_with: String
+  buffType_gt: String
+  buffType_gte: String
+  buffType_in: [String!]
+  buffType_lt: String
+  buffType_lte: String
+  buffType_not: String
+  buffType_not_contains: String
+  buffType_not_ends_with: String
+  buffType_not_in: [String!]
+  buffType_not_starts_with: String
+  buffType_starts_with: String
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  duration: Int
+  duration_gt: Int
+  duration_gte: Int
+  duration_in: [Int!]
+  duration_lt: Int
+  duration_lte: Int
+  duration_not: Int
+  duration_not_in: [Int!]
+  icon: String
+  icon_contains: String
+  icon_ends_with: String
+  icon_gt: String
+  icon_gte: String
+  icon_in: [String!]
+  icon_lt: String
+  icon_lte: String
+  icon_not: String
+  icon_not_contains: String
+  icon_not_ends_with: String
+  icon_not_in: [String!]
+  icon_not_starts_with: String
+  icon_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [BuffWhereInput!]
+  notes: String
+  notes_contains: String
+  notes_ends_with: String
+  notes_gt: String
+  notes_gte: String
+  notes_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_not: String
+  notes_not_contains: String
+  notes_not_ends_with: String
+  notes_not_in: [String!]
+  notes_not_starts_with: String
+  notes_starts_with: String
+  OR: [BuffWhereInput!]
+  quality: Int
+  quality_gt: Int
+  quality_gte: Int
+  quality_in: [Int!]
+  quality_lt: Int
+  quality_lte: Int
+  quality_not: Int
+  quality_not_in: [Int!]
+  type: String
+  type_contains: String
+  type_ends_with: String
+  type_gt: String
+  type_gte: String
+  type_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_not: String
+  type_not_contains: String
+  type_not_ends_with: String
+  type_not_in: [String!]
+  type_not_starts_with: String
+  type_starts_with: String
+}
+
 type Build {
   backbarSelection(after: String, before: String, first: Int, last: Int, orderBy: SetSelectionOrderByInput, skip: Int, where: SetSelectionWhereInput): [SetSelection!]
   bigPieceSelection(after: String, before: String, first: Int, last: Int, orderBy: SetSelectionOrderByInput, skip: Int, where: SetSelectionWhereInput): [SetSelection!]
-  buff: SpecialBuff
+  buff: Buff
   createdAt: DateTime!
   esoClass: String
   frontbarSelection(after: String, before: String, first: Int, last: Int, orderBy: SetSelectionOrderByInput, skip: Int, where: SetSelectionWhereInput): [SetSelection!]
   id: ID!
   jewelrySelection(after: String, before: String, first: Int, last: Int, orderBy: SetSelectionOrderByInput, skip: Int, where: SetSelectionWhereInput): [SetSelection!]
-  mundus: Mundus
+  mundusStone: MundusStone
   name: String
   newBarOne(after: String, before: String, first: Int, last: Int, orderBy: SkillSelectionOrderByInput, skip: Int, where: SkillSelectionWhereInput): [SkillSelection!]
   newBarTwo(after: String, before: String, first: Int, last: Int, orderBy: SkillSelectionOrderByInput, skip: Int, where: SkillSelectionWhereInput): [SkillSelection!]
@@ -54,7 +228,7 @@ input BuildWhereInput {
   bigPieceSelection_every: SetSelectionWhereInput
   bigPieceSelection_none: SetSelectionWhereInput
   bigPieceSelection_some: SetSelectionWhereInput
-  buff: SpecialBuffWhereInput
+  buff: BuffWhereInput
   createdAt: DateTime
   createdAt_gt: DateTime
   createdAt_gte: DateTime
@@ -97,7 +271,7 @@ input BuildWhereInput {
   jewelrySelection_every: SetSelectionWhereInput
   jewelrySelection_none: SetSelectionWhereInput
   jewelrySelection_some: SetSelectionWhereInput
-  mundus: MundusWhereInput
+  mundusStone: MundusStoneWhereInput
   name: String
   name_contains: String
   name_ends_with: String
@@ -154,79 +328,12 @@ input BuildWhereInput {
 
 scalar DateTime
 
-type Location {
-  aldmeri: String
-  daggerfall: String
-  ebonheart: String
-  id: ID!
-}
-
-input LocationWhereInput {
-  aldmeri: String
-  aldmeri_contains: String
-  aldmeri_ends_with: String
-  aldmeri_gt: String
-  aldmeri_gte: String
-  aldmeri_in: [String!]
-  aldmeri_lt: String
-  aldmeri_lte: String
-  aldmeri_not: String
-  aldmeri_not_contains: String
-  aldmeri_not_ends_with: String
-  aldmeri_not_in: [String!]
-  aldmeri_not_starts_with: String
-  aldmeri_starts_with: String
-  AND: [LocationWhereInput!]
-  daggerfall: String
-  daggerfall_contains: String
-  daggerfall_ends_with: String
-  daggerfall_gt: String
-  daggerfall_gte: String
-  daggerfall_in: [String!]
-  daggerfall_lt: String
-  daggerfall_lte: String
-  daggerfall_not: String
-  daggerfall_not_contains: String
-  daggerfall_not_ends_with: String
-  daggerfall_not_in: [String!]
-  daggerfall_not_starts_with: String
-  daggerfall_starts_with: String
-  ebonheart: String
-  ebonheart_contains: String
-  ebonheart_ends_with: String
-  ebonheart_gt: String
-  ebonheart_gte: String
-  ebonheart_in: [String!]
-  ebonheart_lt: String
-  ebonheart_lte: String
-  ebonheart_not: String
-  ebonheart_not_contains: String
-  ebonheart_not_ends_with: String
-  ebonheart_not_in: [String!]
-  ebonheart_not_starts_with: String
-  ebonheart_starts_with: String
-  id: ID
-  id_contains: ID
-  id_ends_with: ID
-  id_gt: ID
-  id_gte: ID
-  id_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_not: ID
-  id_not_contains: ID
-  id_not_ends_with: ID
-  id_not_in: [ID!]
-  id_not_starts_with: ID
-  id_starts_with: ID
-  NOT: [LocationWhereInput!]
-  OR: [LocationWhereInput!]
-}
-
 type Modification {
   description: String!
   icon: String
   id: ID!
+  itemType: String!
+  modificationType: String!
   type: String!
 }
 
@@ -274,6 +381,34 @@ input ModificationWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
+  itemType: String
+  itemType_contains: String
+  itemType_ends_with: String
+  itemType_gt: String
+  itemType_gte: String
+  itemType_in: [String!]
+  itemType_lt: String
+  itemType_lte: String
+  itemType_not: String
+  itemType_not_contains: String
+  itemType_not_ends_with: String
+  itemType_not_in: [String!]
+  itemType_not_starts_with: String
+  itemType_starts_with: String
+  modificationType: String
+  modificationType_contains: String
+  modificationType_ends_with: String
+  modificationType_gt: String
+  modificationType_gte: String
+  modificationType_in: [String!]
+  modificationType_lt: String
+  modificationType_lte: String
+  modificationType_not: String
+  modificationType_not_contains: String
+  modificationType_not_ends_with: String
+  modificationType_not_in: [String!]
+  modificationType_not_starts_with: String
+  modificationType_starts_with: String
   NOT: [ModificationWhereInput!]
   OR: [ModificationWhereInput!]
   type: String
@@ -292,17 +427,84 @@ input ModificationWhereInput {
   type_starts_with: String
 }
 
-type Mundus {
+type MundusStone {
+  aldmeri: String
+  daggerfall: String
+  ebonheart: String
   effect: String!
   icon: String
-  id: Int!
-  location: Location
+  id: ID!
   name: String!
   value: String!
 }
 
-input MundusWhereInput {
-  AND: [MundusWhereInput!]
+enum MundusStoneOrderByInput {
+  aldmeri_ASC
+  aldmeri_DESC
+  createdAt_ASC
+  createdAt_DESC
+  daggerfall_ASC
+  daggerfall_DESC
+  ebonheart_ASC
+  ebonheart_DESC
+  effect_ASC
+  effect_DESC
+  icon_ASC
+  icon_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  value_ASC
+  value_DESC
+}
+
+input MundusStoneWhereInput {
+  aldmeri: String
+  aldmeri_contains: String
+  aldmeri_ends_with: String
+  aldmeri_gt: String
+  aldmeri_gte: String
+  aldmeri_in: [String!]
+  aldmeri_lt: String
+  aldmeri_lte: String
+  aldmeri_not: String
+  aldmeri_not_contains: String
+  aldmeri_not_ends_with: String
+  aldmeri_not_in: [String!]
+  aldmeri_not_starts_with: String
+  aldmeri_starts_with: String
+  AND: [MundusStoneWhereInput!]
+  daggerfall: String
+  daggerfall_contains: String
+  daggerfall_ends_with: String
+  daggerfall_gt: String
+  daggerfall_gte: String
+  daggerfall_in: [String!]
+  daggerfall_lt: String
+  daggerfall_lte: String
+  daggerfall_not: String
+  daggerfall_not_contains: String
+  daggerfall_not_ends_with: String
+  daggerfall_not_in: [String!]
+  daggerfall_not_starts_with: String
+  daggerfall_starts_with: String
+  ebonheart: String
+  ebonheart_contains: String
+  ebonheart_ends_with: String
+  ebonheart_gt: String
+  ebonheart_gte: String
+  ebonheart_in: [String!]
+  ebonheart_lt: String
+  ebonheart_lte: String
+  ebonheart_not: String
+  ebonheart_not_contains: String
+  ebonheart_not_ends_with: String
+  ebonheart_not_in: [String!]
+  ebonheart_not_starts_with: String
+  ebonheart_starts_with: String
   effect: String
   effect_contains: String
   effect_ends_with: String
@@ -331,15 +533,20 @@ input MundusWhereInput {
   icon_not_in: [String!]
   icon_not_starts_with: String
   icon_starts_with: String
-  id: Int
-  id_gt: Int
-  id_gte: Int
-  id_in: [Int!]
-  id_lt: Int
-  id_lte: Int
-  id_not: Int
-  id_not_in: [Int!]
-  location: LocationWhereInput
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
   name: String
   name_contains: String
   name_ends_with: String
@@ -354,8 +561,8 @@ input MundusWhereInput {
   name_not_in: [String!]
   name_not_starts_with: String
   name_starts_with: String
-  NOT: [MundusWhereInput!]
-  OR: [MundusWhereInput!]
+  NOT: [MundusStoneWhereInput!]
+  OR: [MundusStoneWhereInput!]
   value: String
   value_contains: String
   value_ends_with: String
@@ -393,10 +600,17 @@ type Post {
 }
 
 type Query {
+  buffs(after: String, before: String, first: Int, last: Int, orderBy: BuffOrderByInput, skip: Int, where: BuffWhereInput): [Buff!]
   build(id: ID): Build
-  filterBuilds(searchString: String): [Build!]
+  builds(after: String, before: String, first: Int, last: Int, orderBy: BuildOrderByInput, skip: Int, where: BuildWhereInput): [Build!]
+  buildsByUser(id: ID): [Build!]
   me: User
-  publishedBuilds: [Post!]
+  mundusStones(after: String, before: String, first: Int, last: Int, orderBy: MundusStoneOrderByInput, skip: Int, where: MundusStoneWhereInput): [MundusStone!]
+  publishedBuilds: [Build!]
+  set(id: ID, setId: Int): [Set!]
+  sets(after: String, before: String, first: Int, last: Int, orderBy: SetOrderByInput, skip: Int, where: SetWhereInput): [Set!]
+  skill(id: ID, skillId: Int): [Skill!]
+  skills(after: String, before: String, first: Int, last: Int, orderBy: SkillOrderByInput, skip: Int, where: SkillWhereInput): [Skill!]
 }
 
 type Set {
@@ -419,6 +633,51 @@ type Set {
   slug: String!
   traits_needed: Int
   type: String!
+}
+
+enum SetOrderByInput {
+  bonus_item_1_ASC
+  bonus_item_1_DESC
+  bonus_item_2_ASC
+  bonus_item_2_DESC
+  bonus_item_3_ASC
+  bonus_item_3_DESC
+  bonus_item_4_ASC
+  bonus_item_4_DESC
+  bonus_item_5_ASC
+  bonus_item_5_DESC
+  createdAt_ASC
+  createdAt_DESC
+  eso_id_ASC
+  eso_id_DESC
+  has_heavy_armor_ASC
+  has_heavy_armor_DESC
+  has_jewels_ASC
+  has_jewels_DESC
+  has_light_armor_ASC
+  has_light_armor_DESC
+  has_medium_armor_ASC
+  has_medium_armor_DESC
+  has_weapons_ASC
+  has_weapons_DESC
+  id_ASC
+  id_DESC
+  location_ASC
+  location_DESC
+  name_ASC
+  name_DESC
+  pts_ASC
+  pts_DESC
+  setId_ASC
+  setId_DESC
+  slug_ASC
+  slug_DESC
+  traits_needed_ASC
+  traits_needed_DESC
+  type_ASC
+  type_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type SetSelection {
@@ -731,6 +990,45 @@ type Skill {
   unlocks_at: Int
 }
 
+enum SkillOrderByInput {
+  cast_time_ASC
+  cast_time_DESC
+  cost_ASC
+  cost_DESC
+  createdAt_ASC
+  createdAt_DESC
+  effect_1_ASC
+  effect_1_DESC
+  effect_2_ASC
+  effect_2_DESC
+  icon_ASC
+  icon_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  parent_ASC
+  parent_DESC
+  pts_ASC
+  pts_DESC
+  range_ASC
+  range_DESC
+  skillId_ASC
+  skillId_DESC
+  skillline_ASC
+  skillline_DESC
+  slug_ASC
+  slug_DESC
+  target_ASC
+  target_DESC
+  type_ASC
+  type_DESC
+  unlocks_at_ASC
+  unlocks_at_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
 type SkillSelection {
   id: ID!
   index: Int!
@@ -969,138 +1267,6 @@ input SkillWhereInput {
   unlocks_at_lte: Int
   unlocks_at_not: Int
   unlocks_at_not_in: [Int!]
-}
-
-type SpecialBuff {
-  buffDescription: String!
-  description: String
-  duration: Int!
-  icon: String
-  id: ID!
-  name: String!
-  notes: String
-  quality: Int!
-  type: String
-}
-
-input SpecialBuffWhereInput {
-  AND: [SpecialBuffWhereInput!]
-  buffDescription: String
-  buffDescription_contains: String
-  buffDescription_ends_with: String
-  buffDescription_gt: String
-  buffDescription_gte: String
-  buffDescription_in: [String!]
-  buffDescription_lt: String
-  buffDescription_lte: String
-  buffDescription_not: String
-  buffDescription_not_contains: String
-  buffDescription_not_ends_with: String
-  buffDescription_not_in: [String!]
-  buffDescription_not_starts_with: String
-  buffDescription_starts_with: String
-  description: String
-  description_contains: String
-  description_ends_with: String
-  description_gt: String
-  description_gte: String
-  description_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_not: String
-  description_not_contains: String
-  description_not_ends_with: String
-  description_not_in: [String!]
-  description_not_starts_with: String
-  description_starts_with: String
-  duration: Int
-  duration_gt: Int
-  duration_gte: Int
-  duration_in: [Int!]
-  duration_lt: Int
-  duration_lte: Int
-  duration_not: Int
-  duration_not_in: [Int!]
-  icon: String
-  icon_contains: String
-  icon_ends_with: String
-  icon_gt: String
-  icon_gte: String
-  icon_in: [String!]
-  icon_lt: String
-  icon_lte: String
-  icon_not: String
-  icon_not_contains: String
-  icon_not_ends_with: String
-  icon_not_in: [String!]
-  icon_not_starts_with: String
-  icon_starts_with: String
-  id: ID
-  id_contains: ID
-  id_ends_with: ID
-  id_gt: ID
-  id_gte: ID
-  id_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_not: ID
-  id_not_contains: ID
-  id_not_ends_with: ID
-  id_not_in: [ID!]
-  id_not_starts_with: ID
-  id_starts_with: ID
-  name: String
-  name_contains: String
-  name_ends_with: String
-  name_gt: String
-  name_gte: String
-  name_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_not: String
-  name_not_contains: String
-  name_not_ends_with: String
-  name_not_in: [String!]
-  name_not_starts_with: String
-  name_starts_with: String
-  NOT: [SpecialBuffWhereInput!]
-  notes: String
-  notes_contains: String
-  notes_ends_with: String
-  notes_gt: String
-  notes_gte: String
-  notes_in: [String!]
-  notes_lt: String
-  notes_lte: String
-  notes_not: String
-  notes_not_contains: String
-  notes_not_ends_with: String
-  notes_not_in: [String!]
-  notes_not_starts_with: String
-  notes_starts_with: String
-  OR: [SpecialBuffWhereInput!]
-  quality: Int
-  quality_gt: Int
-  quality_gte: Int
-  quality_in: [Int!]
-  quality_lt: Int
-  quality_lte: Int
-  quality_not: Int
-  quality_not_in: [Int!]
-  type: String
-  type_contains: String
-  type_ends_with: String
-  type_gt: String
-  type_gte: String
-  type_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_not: String
-  type_not_contains: String
-  type_not_ends_with: String
-  type_not_in: [String!]
-  type_not_starts_with: String
-  type_starts_with: String
 }
 
 type User {

@@ -11,6 +11,139 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  BuffWhereInput: { // input type
+    AND?: NexusGenInputs['BuffWhereInput'][] | null; // [BuffWhereInput!]
+    buffDescription?: string | null; // String
+    buffDescription_contains?: string | null; // String
+    buffDescription_ends_with?: string | null; // String
+    buffDescription_gt?: string | null; // String
+    buffDescription_gte?: string | null; // String
+    buffDescription_in?: string[] | null; // [String!]
+    buffDescription_lt?: string | null; // String
+    buffDescription_lte?: string | null; // String
+    buffDescription_not?: string | null; // String
+    buffDescription_not_contains?: string | null; // String
+    buffDescription_not_ends_with?: string | null; // String
+    buffDescription_not_in?: string[] | null; // [String!]
+    buffDescription_not_starts_with?: string | null; // String
+    buffDescription_starts_with?: string | null; // String
+    buffType?: string | null; // String
+    buffType_contains?: string | null; // String
+    buffType_ends_with?: string | null; // String
+    buffType_gt?: string | null; // String
+    buffType_gte?: string | null; // String
+    buffType_in?: string[] | null; // [String!]
+    buffType_lt?: string | null; // String
+    buffType_lte?: string | null; // String
+    buffType_not?: string | null; // String
+    buffType_not_contains?: string | null; // String
+    buffType_not_ends_with?: string | null; // String
+    buffType_not_in?: string[] | null; // [String!]
+    buffType_not_starts_with?: string | null; // String
+    buffType_starts_with?: string | null; // String
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    duration?: number | null; // Int
+    duration_gt?: number | null; // Int
+    duration_gte?: number | null; // Int
+    duration_in?: number[] | null; // [Int!]
+    duration_lt?: number | null; // Int
+    duration_lte?: number | null; // Int
+    duration_not?: number | null; // Int
+    duration_not_in?: number[] | null; // [Int!]
+    icon?: string | null; // String
+    icon_contains?: string | null; // String
+    icon_ends_with?: string | null; // String
+    icon_gt?: string | null; // String
+    icon_gte?: string | null; // String
+    icon_in?: string[] | null; // [String!]
+    icon_lt?: string | null; // String
+    icon_lte?: string | null; // String
+    icon_not?: string | null; // String
+    icon_not_contains?: string | null; // String
+    icon_not_ends_with?: string | null; // String
+    icon_not_in?: string[] | null; // [String!]
+    icon_not_starts_with?: string | null; // String
+    icon_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['BuffWhereInput'][] | null; // [BuffWhereInput!]
+    notes?: string | null; // String
+    notes_contains?: string | null; // String
+    notes_ends_with?: string | null; // String
+    notes_gt?: string | null; // String
+    notes_gte?: string | null; // String
+    notes_in?: string[] | null; // [String!]
+    notes_lt?: string | null; // String
+    notes_lte?: string | null; // String
+    notes_not?: string | null; // String
+    notes_not_contains?: string | null; // String
+    notes_not_ends_with?: string | null; // String
+    notes_not_in?: string[] | null; // [String!]
+    notes_not_starts_with?: string | null; // String
+    notes_starts_with?: string | null; // String
+    OR?: NexusGenInputs['BuffWhereInput'][] | null; // [BuffWhereInput!]
+    quality?: number | null; // Int
+    quality_gt?: number | null; // Int
+    quality_gte?: number | null; // Int
+    quality_in?: number[] | null; // [Int!]
+    quality_lt?: number | null; // Int
+    quality_lte?: number | null; // Int
+    quality_not?: number | null; // Int
+    quality_not_in?: number[] | null; // [Int!]
+    type?: string | null; // String
+    type_contains?: string | null; // String
+    type_ends_with?: string | null; // String
+    type_gt?: string | null; // String
+    type_gte?: string | null; // String
+    type_in?: string[] | null; // [String!]
+    type_lt?: string | null; // String
+    type_lte?: string | null; // String
+    type_not?: string | null; // String
+    type_not_contains?: string | null; // String
+    type_not_ends_with?: string | null; // String
+    type_not_in?: string[] | null; // [String!]
+    type_not_starts_with?: string | null; // String
+    type_starts_with?: string | null; // String
+  }
   BuildWhereInput: { // input type
     AND?: NexusGenInputs['BuildWhereInput'][] | null; // [BuildWhereInput!]
     backbarSelection_every?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
@@ -19,7 +152,7 @@ export interface NexusGenInputs {
     bigPieceSelection_every?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
     bigPieceSelection_none?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
     bigPieceSelection_some?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
-    buff?: NexusGenInputs['SpecialBuffWhereInput'] | null; // SpecialBuffWhereInput
+    buff?: NexusGenInputs['BuffWhereInput'] | null; // BuffWhereInput
     createdAt?: any | null; // DateTime
     createdAt_gt?: any | null; // DateTime
     createdAt_gte?: any | null; // DateTime
@@ -62,7 +195,7 @@ export interface NexusGenInputs {
     jewelrySelection_every?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
     jewelrySelection_none?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
     jewelrySelection_some?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
-    mundus?: NexusGenInputs['MundusWhereInput'] | null; // MundusWhereInput
+    mundusStone?: NexusGenInputs['MundusStoneWhereInput'] | null; // MundusStoneWhereInput
     name?: string | null; // String
     name_contains?: string | null; // String
     name_ends_with?: string | null; // String
@@ -116,67 +249,6 @@ export interface NexusGenInputs {
     updatedAt_not?: any | null; // DateTime
     updatedAt_not_in?: any[] | null; // [DateTime!]
   }
-  LocationWhereInput: { // input type
-    aldmeri?: string | null; // String
-    aldmeri_contains?: string | null; // String
-    aldmeri_ends_with?: string | null; // String
-    aldmeri_gt?: string | null; // String
-    aldmeri_gte?: string | null; // String
-    aldmeri_in?: string[] | null; // [String!]
-    aldmeri_lt?: string | null; // String
-    aldmeri_lte?: string | null; // String
-    aldmeri_not?: string | null; // String
-    aldmeri_not_contains?: string | null; // String
-    aldmeri_not_ends_with?: string | null; // String
-    aldmeri_not_in?: string[] | null; // [String!]
-    aldmeri_not_starts_with?: string | null; // String
-    aldmeri_starts_with?: string | null; // String
-    AND?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
-    daggerfall?: string | null; // String
-    daggerfall_contains?: string | null; // String
-    daggerfall_ends_with?: string | null; // String
-    daggerfall_gt?: string | null; // String
-    daggerfall_gte?: string | null; // String
-    daggerfall_in?: string[] | null; // [String!]
-    daggerfall_lt?: string | null; // String
-    daggerfall_lte?: string | null; // String
-    daggerfall_not?: string | null; // String
-    daggerfall_not_contains?: string | null; // String
-    daggerfall_not_ends_with?: string | null; // String
-    daggerfall_not_in?: string[] | null; // [String!]
-    daggerfall_not_starts_with?: string | null; // String
-    daggerfall_starts_with?: string | null; // String
-    ebonheart?: string | null; // String
-    ebonheart_contains?: string | null; // String
-    ebonheart_ends_with?: string | null; // String
-    ebonheart_gt?: string | null; // String
-    ebonheart_gte?: string | null; // String
-    ebonheart_in?: string[] | null; // [String!]
-    ebonheart_lt?: string | null; // String
-    ebonheart_lte?: string | null; // String
-    ebonheart_not?: string | null; // String
-    ebonheart_not_contains?: string | null; // String
-    ebonheart_not_ends_with?: string | null; // String
-    ebonheart_not_in?: string[] | null; // [String!]
-    ebonheart_not_starts_with?: string | null; // String
-    ebonheart_starts_with?: string | null; // String
-    id?: string | null; // ID
-    id_contains?: string | null; // ID
-    id_ends_with?: string | null; // ID
-    id_gt?: string | null; // ID
-    id_gte?: string | null; // ID
-    id_in?: string[] | null; // [ID!]
-    id_lt?: string | null; // ID
-    id_lte?: string | null; // ID
-    id_not?: string | null; // ID
-    id_not_contains?: string | null; // ID
-    id_not_ends_with?: string | null; // ID
-    id_not_in?: string[] | null; // [ID!]
-    id_not_starts_with?: string | null; // ID
-    id_starts_with?: string | null; // ID
-    NOT?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
-    OR?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
-  }
   ModificationWhereInput: { // input type
     AND?: NexusGenInputs['ModificationWhereInput'][] | null; // [ModificationWhereInput!]
     description?: string | null; // String
@@ -221,6 +293,34 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
+    itemType?: string | null; // String
+    itemType_contains?: string | null; // String
+    itemType_ends_with?: string | null; // String
+    itemType_gt?: string | null; // String
+    itemType_gte?: string | null; // String
+    itemType_in?: string[] | null; // [String!]
+    itemType_lt?: string | null; // String
+    itemType_lte?: string | null; // String
+    itemType_not?: string | null; // String
+    itemType_not_contains?: string | null; // String
+    itemType_not_ends_with?: string | null; // String
+    itemType_not_in?: string[] | null; // [String!]
+    itemType_not_starts_with?: string | null; // String
+    itemType_starts_with?: string | null; // String
+    modificationType?: string | null; // String
+    modificationType_contains?: string | null; // String
+    modificationType_ends_with?: string | null; // String
+    modificationType_gt?: string | null; // String
+    modificationType_gte?: string | null; // String
+    modificationType_in?: string[] | null; // [String!]
+    modificationType_lt?: string | null; // String
+    modificationType_lte?: string | null; // String
+    modificationType_not?: string | null; // String
+    modificationType_not_contains?: string | null; // String
+    modificationType_not_ends_with?: string | null; // String
+    modificationType_not_in?: string[] | null; // [String!]
+    modificationType_not_starts_with?: string | null; // String
+    modificationType_starts_with?: string | null; // String
     NOT?: NexusGenInputs['ModificationWhereInput'][] | null; // [ModificationWhereInput!]
     OR?: NexusGenInputs['ModificationWhereInput'][] | null; // [ModificationWhereInput!]
     type?: string | null; // String
@@ -238,8 +338,50 @@ export interface NexusGenInputs {
     type_not_starts_with?: string | null; // String
     type_starts_with?: string | null; // String
   }
-  MundusWhereInput: { // input type
-    AND?: NexusGenInputs['MundusWhereInput'][] | null; // [MundusWhereInput!]
+  MundusStoneWhereInput: { // input type
+    aldmeri?: string | null; // String
+    aldmeri_contains?: string | null; // String
+    aldmeri_ends_with?: string | null; // String
+    aldmeri_gt?: string | null; // String
+    aldmeri_gte?: string | null; // String
+    aldmeri_in?: string[] | null; // [String!]
+    aldmeri_lt?: string | null; // String
+    aldmeri_lte?: string | null; // String
+    aldmeri_not?: string | null; // String
+    aldmeri_not_contains?: string | null; // String
+    aldmeri_not_ends_with?: string | null; // String
+    aldmeri_not_in?: string[] | null; // [String!]
+    aldmeri_not_starts_with?: string | null; // String
+    aldmeri_starts_with?: string | null; // String
+    AND?: NexusGenInputs['MundusStoneWhereInput'][] | null; // [MundusStoneWhereInput!]
+    daggerfall?: string | null; // String
+    daggerfall_contains?: string | null; // String
+    daggerfall_ends_with?: string | null; // String
+    daggerfall_gt?: string | null; // String
+    daggerfall_gte?: string | null; // String
+    daggerfall_in?: string[] | null; // [String!]
+    daggerfall_lt?: string | null; // String
+    daggerfall_lte?: string | null; // String
+    daggerfall_not?: string | null; // String
+    daggerfall_not_contains?: string | null; // String
+    daggerfall_not_ends_with?: string | null; // String
+    daggerfall_not_in?: string[] | null; // [String!]
+    daggerfall_not_starts_with?: string | null; // String
+    daggerfall_starts_with?: string | null; // String
+    ebonheart?: string | null; // String
+    ebonheart_contains?: string | null; // String
+    ebonheart_ends_with?: string | null; // String
+    ebonheart_gt?: string | null; // String
+    ebonheart_gte?: string | null; // String
+    ebonheart_in?: string[] | null; // [String!]
+    ebonheart_lt?: string | null; // String
+    ebonheart_lte?: string | null; // String
+    ebonheart_not?: string | null; // String
+    ebonheart_not_contains?: string | null; // String
+    ebonheart_not_ends_with?: string | null; // String
+    ebonheart_not_in?: string[] | null; // [String!]
+    ebonheart_not_starts_with?: string | null; // String
+    ebonheart_starts_with?: string | null; // String
     effect?: string | null; // String
     effect_contains?: string | null; // String
     effect_ends_with?: string | null; // String
@@ -268,15 +410,20 @@ export interface NexusGenInputs {
     icon_not_in?: string[] | null; // [String!]
     icon_not_starts_with?: string | null; // String
     icon_starts_with?: string | null; // String
-    id?: number | null; // Int
-    id_gt?: number | null; // Int
-    id_gte?: number | null; // Int
-    id_in?: number[] | null; // [Int!]
-    id_lt?: number | null; // Int
-    id_lte?: number | null; // Int
-    id_not?: number | null; // Int
-    id_not_in?: number[] | null; // [Int!]
-    location?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
     name?: string | null; // String
     name_contains?: string | null; // String
     name_ends_with?: string | null; // String
@@ -291,8 +438,8 @@ export interface NexusGenInputs {
     name_not_in?: string[] | null; // [String!]
     name_not_starts_with?: string | null; // String
     name_starts_with?: string | null; // String
-    NOT?: NexusGenInputs['MundusWhereInput'][] | null; // [MundusWhereInput!]
-    OR?: NexusGenInputs['MundusWhereInput'][] | null; // [MundusWhereInput!]
+    NOT?: NexusGenInputs['MundusStoneWhereInput'][] | null; // [MundusStoneWhereInput!]
+    OR?: NexusGenInputs['MundusStoneWhereInput'][] | null; // [MundusStoneWhereInput!]
     value?: string | null; // String
     value_contains?: string | null; // String
     value_ends_with?: string | null; // String
@@ -796,125 +943,6 @@ export interface NexusGenInputs {
     unlocks_at_not?: number | null; // Int
     unlocks_at_not_in?: number[] | null; // [Int!]
   }
-  SpecialBuffWhereInput: { // input type
-    AND?: NexusGenInputs['SpecialBuffWhereInput'][] | null; // [SpecialBuffWhereInput!]
-    buffDescription?: string | null; // String
-    buffDescription_contains?: string | null; // String
-    buffDescription_ends_with?: string | null; // String
-    buffDescription_gt?: string | null; // String
-    buffDescription_gte?: string | null; // String
-    buffDescription_in?: string[] | null; // [String!]
-    buffDescription_lt?: string | null; // String
-    buffDescription_lte?: string | null; // String
-    buffDescription_not?: string | null; // String
-    buffDescription_not_contains?: string | null; // String
-    buffDescription_not_ends_with?: string | null; // String
-    buffDescription_not_in?: string[] | null; // [String!]
-    buffDescription_not_starts_with?: string | null; // String
-    buffDescription_starts_with?: string | null; // String
-    description?: string | null; // String
-    description_contains?: string | null; // String
-    description_ends_with?: string | null; // String
-    description_gt?: string | null; // String
-    description_gte?: string | null; // String
-    description_in?: string[] | null; // [String!]
-    description_lt?: string | null; // String
-    description_lte?: string | null; // String
-    description_not?: string | null; // String
-    description_not_contains?: string | null; // String
-    description_not_ends_with?: string | null; // String
-    description_not_in?: string[] | null; // [String!]
-    description_not_starts_with?: string | null; // String
-    description_starts_with?: string | null; // String
-    duration?: number | null; // Int
-    duration_gt?: number | null; // Int
-    duration_gte?: number | null; // Int
-    duration_in?: number[] | null; // [Int!]
-    duration_lt?: number | null; // Int
-    duration_lte?: number | null; // Int
-    duration_not?: number | null; // Int
-    duration_not_in?: number[] | null; // [Int!]
-    icon?: string | null; // String
-    icon_contains?: string | null; // String
-    icon_ends_with?: string | null; // String
-    icon_gt?: string | null; // String
-    icon_gte?: string | null; // String
-    icon_in?: string[] | null; // [String!]
-    icon_lt?: string | null; // String
-    icon_lte?: string | null; // String
-    icon_not?: string | null; // String
-    icon_not_contains?: string | null; // String
-    icon_not_ends_with?: string | null; // String
-    icon_not_in?: string[] | null; // [String!]
-    icon_not_starts_with?: string | null; // String
-    icon_starts_with?: string | null; // String
-    id?: string | null; // ID
-    id_contains?: string | null; // ID
-    id_ends_with?: string | null; // ID
-    id_gt?: string | null; // ID
-    id_gte?: string | null; // ID
-    id_in?: string[] | null; // [ID!]
-    id_lt?: string | null; // ID
-    id_lte?: string | null; // ID
-    id_not?: string | null; // ID
-    id_not_contains?: string | null; // ID
-    id_not_ends_with?: string | null; // ID
-    id_not_in?: string[] | null; // [ID!]
-    id_not_starts_with?: string | null; // ID
-    id_starts_with?: string | null; // ID
-    name?: string | null; // String
-    name_contains?: string | null; // String
-    name_ends_with?: string | null; // String
-    name_gt?: string | null; // String
-    name_gte?: string | null; // String
-    name_in?: string[] | null; // [String!]
-    name_lt?: string | null; // String
-    name_lte?: string | null; // String
-    name_not?: string | null; // String
-    name_not_contains?: string | null; // String
-    name_not_ends_with?: string | null; // String
-    name_not_in?: string[] | null; // [String!]
-    name_not_starts_with?: string | null; // String
-    name_starts_with?: string | null; // String
-    NOT?: NexusGenInputs['SpecialBuffWhereInput'][] | null; // [SpecialBuffWhereInput!]
-    notes?: string | null; // String
-    notes_contains?: string | null; // String
-    notes_ends_with?: string | null; // String
-    notes_gt?: string | null; // String
-    notes_gte?: string | null; // String
-    notes_in?: string[] | null; // [String!]
-    notes_lt?: string | null; // String
-    notes_lte?: string | null; // String
-    notes_not?: string | null; // String
-    notes_not_contains?: string | null; // String
-    notes_not_ends_with?: string | null; // String
-    notes_not_in?: string[] | null; // [String!]
-    notes_not_starts_with?: string | null; // String
-    notes_starts_with?: string | null; // String
-    OR?: NexusGenInputs['SpecialBuffWhereInput'][] | null; // [SpecialBuffWhereInput!]
-    quality?: number | null; // Int
-    quality_gt?: number | null; // Int
-    quality_gte?: number | null; // Int
-    quality_in?: number[] | null; // [Int!]
-    quality_lt?: number | null; // Int
-    quality_lte?: number | null; // Int
-    quality_not?: number | null; // Int
-    quality_not_in?: number[] | null; // [Int!]
-    type?: string | null; // String
-    type_contains?: string | null; // String
-    type_ends_with?: string | null; // String
-    type_gt?: string | null; // String
-    type_gte?: string | null; // String
-    type_in?: string[] | null; // [String!]
-    type_lt?: string | null; // String
-    type_lte?: string | null; // String
-    type_not?: string | null; // String
-    type_not_contains?: string | null; // String
-    type_not_ends_with?: string | null; // String
-    type_not_in?: string[] | null; // [String!]
-    type_not_starts_with?: string | null; // String
-    type_starts_with?: string | null; // String
-  }
   UserWhereInput: { // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
     builds_every?: NexusGenInputs['BuildWhereInput'] | null; // BuildWhereInput
@@ -982,8 +1010,12 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
+  BuffOrderByInput: "buffDescription_ASC" | "buffDescription_DESC" | "buffType_ASC" | "buffType_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "duration_ASC" | "duration_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "notes_ASC" | "notes_DESC" | "quality_ASC" | "quality_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   BuildOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "esoClass_ASC" | "esoClass_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "published_ASC" | "published_DESC" | "race_ASC" | "race_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  MundusStoneOrderByInput: "aldmeri_ASC" | "aldmeri_DESC" | "createdAt_ASC" | "createdAt_DESC" | "daggerfall_ASC" | "daggerfall_DESC" | "ebonheart_ASC" | "ebonheart_DESC" | "effect_ASC" | "effect_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "value_ASC" | "value_DESC"
+  SetOrderByInput: "bonus_item_1_ASC" | "bonus_item_1_DESC" | "bonus_item_2_ASC" | "bonus_item_2_DESC" | "bonus_item_3_ASC" | "bonus_item_3_DESC" | "bonus_item_4_ASC" | "bonus_item_4_DESC" | "bonus_item_5_ASC" | "bonus_item_5_DESC" | "createdAt_ASC" | "createdAt_DESC" | "eso_id_ASC" | "eso_id_DESC" | "has_heavy_armor_ASC" | "has_heavy_armor_DESC" | "has_jewels_ASC" | "has_jewels_DESC" | "has_light_armor_ASC" | "has_light_armor_DESC" | "has_medium_armor_ASC" | "has_medium_armor_DESC" | "has_weapons_ASC" | "has_weapons_DESC" | "id_ASC" | "id_DESC" | "location_ASC" | "location_DESC" | "name_ASC" | "name_DESC" | "pts_ASC" | "pts_DESC" | "setId_ASC" | "setId_DESC" | "slug_ASC" | "slug_DESC" | "traits_needed_ASC" | "traits_needed_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   SetSelectionOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "slot_ASC" | "slot_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  SkillOrderByInput: "cast_time_ASC" | "cast_time_DESC" | "cost_ASC" | "cost_DESC" | "createdAt_ASC" | "createdAt_DESC" | "effect_1_ASC" | "effect_1_DESC" | "effect_2_ASC" | "effect_2_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "parent_ASC" | "parent_DESC" | "pts_ASC" | "pts_DESC" | "range_ASC" | "range_DESC" | "skillId_ASC" | "skillId_DESC" | "skillline_ASC" | "skillline_DESC" | "slug_ASC" | "slug_DESC" | "target_ASC" | "target_DESC" | "type_ASC" | "type_DESC" | "unlocks_at_ASC" | "unlocks_at_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   SkillSelectionOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "index_ASC" | "index_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
@@ -991,6 +1023,18 @@ export interface NexusGenRootTypes {
   AuthPayload: { // root type
     token?: string | null; // String
     user?: NexusGenRootTypes['User'] | null; // User
+  }
+  Buff: { // root type
+    buffDescription: string; // String!
+    buffType?: string | null; // String
+    description?: string | null; // String
+    duration: number; // Int!
+    icon?: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+    notes?: string | null; // String
+    quality: number; // Int!
+    type?: string | null; // String
   }
   Build: { // root type
     createdAt: any; // DateTime!
@@ -1001,22 +1045,21 @@ export interface NexusGenRootTypes {
     race?: string | null; // String
     updatedAt: any; // DateTime!
   }
-  Location: { // root type
-    aldmeri?: string | null; // String
-    daggerfall?: string | null; // String
-    ebonheart?: string | null; // String
-    id: string; // ID!
-  }
   Modification: { // root type
     description: string; // String!
     icon?: string | null; // String
     id: string; // ID!
+    itemType: string; // String!
+    modificationType: string; // String!
     type: string; // String!
   }
-  Mundus: { // root type
+  MundusStone: { // root type
+    aldmeri?: string | null; // String
+    daggerfall?: string | null; // String
+    ebonheart?: string | null; // String
     effect: string; // String!
     icon?: string | null; // String
-    id: number; // Int!
+    id: string; // ID!
     name: string; // String!
     value: string; // String!
   }
@@ -1078,17 +1121,6 @@ export interface NexusGenRootTypes {
     id: string; // ID!
     index: number; // Int!
   }
-  SpecialBuff: { // root type
-    buffDescription: string; // String!
-    description?: string | null; // String
-    duration: number; // Int!
-    icon?: string | null; // String
-    id: string; // ID!
-    name: string; // String!
-    notes?: string | null; // String
-    quality: number; // Int!
-    type?: string | null; // String
-  }
   User: { // root type
     email: string; // String!
     id: string; // ID!
@@ -1103,18 +1135,21 @@ export interface NexusGenRootTypes {
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
+  BuffWhereInput: NexusGenInputs['BuffWhereInput'];
   BuildWhereInput: NexusGenInputs['BuildWhereInput'];
-  LocationWhereInput: NexusGenInputs['LocationWhereInput'];
   ModificationWhereInput: NexusGenInputs['ModificationWhereInput'];
-  MundusWhereInput: NexusGenInputs['MundusWhereInput'];
+  MundusStoneWhereInput: NexusGenInputs['MundusStoneWhereInput'];
   SetSelectionWhereInput: NexusGenInputs['SetSelectionWhereInput'];
   SetWhereInput: NexusGenInputs['SetWhereInput'];
   SkillSelectionWhereInput: NexusGenInputs['SkillSelectionWhereInput'];
   SkillWhereInput: NexusGenInputs['SkillWhereInput'];
-  SpecialBuffWhereInput: NexusGenInputs['SpecialBuffWhereInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
+  BuffOrderByInput: NexusGenEnums['BuffOrderByInput'];
   BuildOrderByInput: NexusGenEnums['BuildOrderByInput'];
+  MundusStoneOrderByInput: NexusGenEnums['MundusStoneOrderByInput'];
+  SetOrderByInput: NexusGenEnums['SetOrderByInput'];
   SetSelectionOrderByInput: NexusGenEnums['SetSelectionOrderByInput'];
+  SkillOrderByInput: NexusGenEnums['SkillOrderByInput'];
   SkillSelectionOrderByInput: NexusGenEnums['SkillSelectionOrderByInput'];
 }
 
@@ -1123,16 +1158,28 @@ export interface NexusGenFieldTypes {
     token: string | null; // String
     user: NexusGenRootTypes['User'] | null; // User
   }
+  Buff: { // field return type
+    buffDescription: string; // String!
+    buffType: string | null; // String
+    description: string | null; // String
+    duration: number; // Int!
+    icon: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+    notes: string | null; // String
+    quality: number; // Int!
+    type: string | null; // String
+  }
   Build: { // field return type
     backbarSelection: NexusGenRootTypes['SetSelection'][] | null; // [SetSelection!]
     bigPieceSelection: NexusGenRootTypes['SetSelection'][] | null; // [SetSelection!]
-    buff: NexusGenRootTypes['SpecialBuff'] | null; // SpecialBuff
+    buff: NexusGenRootTypes['Buff'] | null; // Buff
     createdAt: any; // DateTime!
     esoClass: string | null; // String
     frontbarSelection: NexusGenRootTypes['SetSelection'][] | null; // [SetSelection!]
     id: string; // ID!
     jewelrySelection: NexusGenRootTypes['SetSelection'][] | null; // [SetSelection!]
-    mundus: NexusGenRootTypes['Mundus'] | null; // Mundus
+    mundusStone: NexusGenRootTypes['MundusStone'] | null; // MundusStone
     name: string | null; // String
     newBarOne: NexusGenRootTypes['SkillSelection'][] | null; // [SkillSelection!]
     newBarTwo: NexusGenRootTypes['SkillSelection'][] | null; // [SkillSelection!]
@@ -1144,23 +1191,21 @@ export interface NexusGenFieldTypes {
     ultimateTwo: NexusGenRootTypes['Skill'] | null; // Skill
     updatedAt: any; // DateTime!
   }
-  Location: { // field return type
-    aldmeri: string | null; // String
-    daggerfall: string | null; // String
-    ebonheart: string | null; // String
-    id: string; // ID!
-  }
   Modification: { // field return type
     description: string; // String!
     icon: string | null; // String
     id: string; // ID!
+    itemType: string; // String!
+    modificationType: string; // String!
     type: string; // String!
   }
-  Mundus: { // field return type
+  MundusStone: { // field return type
+    aldmeri: string | null; // String
+    daggerfall: string | null; // String
+    ebonheart: string | null; // String
     effect: string; // String!
     icon: string | null; // String
-    id: number; // Int!
-    location: NexusGenRootTypes['Location'] | null; // Location
+    id: string; // ID!
     name: string; // String!
     value: string; // String!
   }
@@ -1183,10 +1228,17 @@ export interface NexusGenFieldTypes {
     updatedAt: any; // DateTime!
   }
   Query: { // field return type
+    buffs: NexusGenRootTypes['Buff'][] | null; // [Buff!]
     build: NexusGenRootTypes['Build'] | null; // Build
-    filterBuilds: NexusGenRootTypes['Build'][] | null; // [Build!]
+    builds: NexusGenRootTypes['Build'][] | null; // [Build!]
+    buildsByUser: NexusGenRootTypes['Build'][] | null; // [Build!]
     me: NexusGenRootTypes['User'] | null; // User
-    publishedBuilds: NexusGenRootTypes['Post'][] | null; // [Post!]
+    mundusStones: NexusGenRootTypes['MundusStone'][] | null; // [MundusStone!]
+    publishedBuilds: NexusGenRootTypes['Build'][] | null; // [Build!]
+    set: NexusGenRootTypes['Set'][] | null; // [Set!]
+    sets: NexusGenRootTypes['Set'][] | null; // [Set!]
+    skill: NexusGenRootTypes['Skill'][] | null; // [Skill!]
+    skills: NexusGenRootTypes['Skill'][] | null; // [Skill!]
   }
   Set: { // field return type
     bonus_item_1: string | null; // String
@@ -1239,17 +1291,6 @@ export interface NexusGenFieldTypes {
     id: string; // ID!
     index: number; // Int!
     skill: NexusGenRootTypes['Skill'] | null; // Skill
-  }
-  SpecialBuff: { // field return type
-    buffDescription: string; // String!
-    description: string | null; // String
-    duration: number; // Int!
-    icon: string | null; // String
-    id: string; // ID!
-    name: string; // String!
-    notes: string | null; // String
-    quality: number; // Int!
-    type: string | null; // String
   }
   User: { // field return type
     builds: NexusGenRootTypes['Build'][] | null; // [Build!]
@@ -1365,11 +1406,64 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    buffs: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['BuffOrderByInput'] | null; // BuffOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['BuffWhereInput'] | null; // BuffWhereInput
+    }
     build: { // args
       id?: string | null; // ID
     }
-    filterBuilds: { // args
-      searchString?: string | null; // String
+    builds: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['BuildOrderByInput'] | null; // BuildOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['BuildWhereInput'] | null; // BuildWhereInput
+    }
+    buildsByUser: { // args
+      id?: string | null; // ID
+    }
+    mundusStones: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['MundusStoneOrderByInput'] | null; // MundusStoneOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['MundusStoneWhereInput'] | null; // MundusStoneWhereInput
+    }
+    set: { // args
+      id?: string | null; // ID
+      setId?: number | null; // Int
+    }
+    sets: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['SetOrderByInput'] | null; // SetOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['SetWhereInput'] | null; // SetWhereInput
+    }
+    skill: { // args
+      id?: string | null; // ID
+      skillId?: number | null; // Int
+    }
+    skills: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['SkillOrderByInput'] | null; // SkillOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['SkillWhereInput'] | null; // SkillWhereInput
     }
   }
   User: {
@@ -1390,11 +1484,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AuthPayload" | "Build" | "Location" | "Modification" | "Mundus" | "Mutation" | "Post" | "Query" | "Set" | "SetSelection" | "Skill" | "SkillSelection" | "SpecialBuff" | "User";
+export type NexusGenObjectNames = "AuthPayload" | "Buff" | "Build" | "Modification" | "MundusStone" | "Mutation" | "Post" | "Query" | "Set" | "SetSelection" | "Skill" | "SkillSelection" | "User";
 
-export type NexusGenInputNames = "BuildWhereInput" | "LocationWhereInput" | "ModificationWhereInput" | "MundusWhereInput" | "SetSelectionWhereInput" | "SetWhereInput" | "SkillSelectionWhereInput" | "SkillWhereInput" | "SpecialBuffWhereInput" | "UserWhereInput";
+export type NexusGenInputNames = "BuffWhereInput" | "BuildWhereInput" | "ModificationWhereInput" | "MundusStoneWhereInput" | "SetSelectionWhereInput" | "SetWhereInput" | "SkillSelectionWhereInput" | "SkillWhereInput" | "UserWhereInput";
 
-export type NexusGenEnumNames = "BuildOrderByInput" | "SetSelectionOrderByInput" | "SkillSelectionOrderByInput";
+export type NexusGenEnumNames = "BuffOrderByInput" | "BuildOrderByInput" | "MundusStoneOrderByInput" | "SetOrderByInput" | "SetSelectionOrderByInput" | "SkillOrderByInput" | "SkillSelectionOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 
