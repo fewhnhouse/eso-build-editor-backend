@@ -373,10 +373,10 @@ input MundusWhereInput {
 }
 
 type Mutation {
-  createBuild(esoClass: String, name: String, race: String): Build
+  createBuild(esoClass: String, frontBar: SetSelectionWhereInput, name: String, race: String, ultimateOneId: Int, ultimateTwoId: Int): Build
   createDraft(content: String, title: String): Post
   deleteBuild(id: ID): Build
-  draftBuild(esoClass: String, name: String, race: String): Build
+  draftBuild(backBarIds: [Int!], bigPieceIds: [Int!], esoClass: String, frontBarIds: [Int!], name: String, race: String, ultimateOneId: Int, ultimateTwoId: Int): Build
   login(email: String, password: String): AuthPayload
   publishBuild(id: ID): Build
   signup(email: String, name: String, password: String): AuthPayload

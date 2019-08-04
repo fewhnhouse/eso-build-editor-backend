@@ -1,4 +1,4 @@
-import { stringArg, idArg, mutationType, arg } from 'nexus'
+import { stringArg, idArg, mutationType, arg, intArg } from 'nexus'
 import { hash, compare } from 'bcrypt'
 import { APP_SECRET, getUserId } from '../utils'
 import { sign } from 'jsonwebtoken'
@@ -54,6 +54,11 @@ export const Mutation = mutationType({
         name: stringArg(),
         race: stringArg(),
         esoClass: stringArg(),
+        ultimateOneId: intArg(),
+        ultimateTwoId: intArg(),
+        frontBarIds: intArg({ list: true }),
+        backBarIds: intArg({ list: true }),
+        bigPieceIds:intArg({ list: true }),
       },
       resolve: (parent, { name, race, esoClass }, ctx) => {
         const userId = getUserId(ctx)
@@ -71,6 +76,9 @@ export const Mutation = mutationType({
         name: stringArg({ nullable: true }),
         race: stringArg({ nullable: true }),
         esoClass: stringArg({ nullable: true }),
+        ultimateOneId: intArg(),
+        ultimateTwoId: intArg(),
+        frontBar: arg({ type: 'SetSelectionWhereInput' }),
       },
       resolve: (parent, { name, race, esoClass }, ctx) => {
         const userId = getUserId(ctx)

@@ -1328,8 +1328,11 @@ export interface NexusGenArgTypes {
   Mutation: {
     createBuild: { // args
       esoClass?: string | null; // String
+      frontBar?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
       name?: string | null; // String
       race?: string | null; // String
+      ultimateOneId?: number | null; // Int
+      ultimateTwoId?: number | null; // Int
     }
     createDraft: { // args
       content?: string | null; // String
@@ -1339,9 +1342,14 @@ export interface NexusGenArgTypes {
       id?: string | null; // ID
     }
     draftBuild: { // args
+      backBarIds?: number[] | null; // [Int!]
+      bigPieceIds?: number[] | null; // [Int!]
       esoClass?: string | null; // String
+      frontBarIds?: number[] | null; // [Int!]
       name?: string | null; // String
       race?: string | null; // String
+      ultimateOneId?: number | null; // Int
+      ultimateTwoId?: number | null; // Int
     }
     login: { // args
       email?: string | null; // String
