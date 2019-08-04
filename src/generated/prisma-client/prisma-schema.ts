@@ -2,11 +2,11 @@
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-export const typeDefs = /* GraphQL */ `type AggregateBuild {
+export const typeDefs = /* GraphQL */ `type AggregateBuff {
   count: Int!
 }
 
-type AggregateLocation {
+type AggregateBuild {
   count: Int!
 }
 
@@ -14,7 +14,7 @@ type AggregateModification {
   count: Int!
 }
 
-type AggregateMundus {
+type AggregateMundusStone {
   count: Int!
 }
 
@@ -38,16 +38,297 @@ type AggregateSkillSelection {
   count: Int!
 }
 
-type AggregateSpecialBuff {
-  count: Int!
-}
-
 type AggregateUser {
   count: Int!
 }
 
 type BatchPayload {
   count: Long!
+}
+
+type Buff {
+  id: ID!
+  name: String!
+  buffDescription: String!
+  description: String
+  duration: Int!
+  notes: String
+  icon: String
+  type: String
+  buffType: String
+  quality: Int!
+}
+
+type BuffConnection {
+  pageInfo: PageInfo!
+  edges: [BuffEdge]!
+  aggregate: AggregateBuff!
+}
+
+input BuffCreateInput {
+  id: ID
+  name: String!
+  buffDescription: String!
+  description: String
+  duration: Int!
+  notes: String
+  icon: String
+  type: String
+  buffType: String
+  quality: Int!
+}
+
+input BuffCreateOneInput {
+  create: BuffCreateInput
+  connect: BuffWhereUniqueInput
+}
+
+type BuffEdge {
+  node: Buff!
+  cursor: String!
+}
+
+enum BuffOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  buffDescription_ASC
+  buffDescription_DESC
+  description_ASC
+  description_DESC
+  duration_ASC
+  duration_DESC
+  notes_ASC
+  notes_DESC
+  icon_ASC
+  icon_DESC
+  type_ASC
+  type_DESC
+  buffType_ASC
+  buffType_DESC
+  quality_ASC
+  quality_DESC
+}
+
+type BuffPreviousValues {
+  id: ID!
+  name: String!
+  buffDescription: String!
+  description: String
+  duration: Int!
+  notes: String
+  icon: String
+  type: String
+  buffType: String
+  quality: Int!
+}
+
+type BuffSubscriptionPayload {
+  mutation: MutationType!
+  node: Buff
+  updatedFields: [String!]
+  previousValues: BuffPreviousValues
+}
+
+input BuffSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: BuffWhereInput
+  AND: [BuffSubscriptionWhereInput!]
+  OR: [BuffSubscriptionWhereInput!]
+  NOT: [BuffSubscriptionWhereInput!]
+}
+
+input BuffUpdateDataInput {
+  name: String
+  buffDescription: String
+  description: String
+  duration: Int
+  notes: String
+  icon: String
+  type: String
+  buffType: String
+  quality: Int
+}
+
+input BuffUpdateInput {
+  name: String
+  buffDescription: String
+  description: String
+  duration: Int
+  notes: String
+  icon: String
+  type: String
+  buffType: String
+  quality: Int
+}
+
+input BuffUpdateManyMutationInput {
+  name: String
+  buffDescription: String
+  description: String
+  duration: Int
+  notes: String
+  icon: String
+  type: String
+  buffType: String
+  quality: Int
+}
+
+input BuffUpdateOneInput {
+  create: BuffCreateInput
+  update: BuffUpdateDataInput
+  upsert: BuffUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: BuffWhereUniqueInput
+}
+
+input BuffUpsertNestedInput {
+  update: BuffUpdateDataInput!
+  create: BuffCreateInput!
+}
+
+input BuffWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  buffDescription: String
+  buffDescription_not: String
+  buffDescription_in: [String!]
+  buffDescription_not_in: [String!]
+  buffDescription_lt: String
+  buffDescription_lte: String
+  buffDescription_gt: String
+  buffDescription_gte: String
+  buffDescription_contains: String
+  buffDescription_not_contains: String
+  buffDescription_starts_with: String
+  buffDescription_not_starts_with: String
+  buffDescription_ends_with: String
+  buffDescription_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  duration: Int
+  duration_not: Int
+  duration_in: [Int!]
+  duration_not_in: [Int!]
+  duration_lt: Int
+  duration_lte: Int
+  duration_gt: Int
+  duration_gte: Int
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  icon: String
+  icon_not: String
+  icon_in: [String!]
+  icon_not_in: [String!]
+  icon_lt: String
+  icon_lte: String
+  icon_gt: String
+  icon_gte: String
+  icon_contains: String
+  icon_not_contains: String
+  icon_starts_with: String
+  icon_not_starts_with: String
+  icon_ends_with: String
+  icon_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  buffType: String
+  buffType_not: String
+  buffType_in: [String!]
+  buffType_not_in: [String!]
+  buffType_lt: String
+  buffType_lte: String
+  buffType_gt: String
+  buffType_gte: String
+  buffType_contains: String
+  buffType_not_contains: String
+  buffType_starts_with: String
+  buffType_not_starts_with: String
+  buffType_ends_with: String
+  buffType_not_ends_with: String
+  quality: Int
+  quality_not: Int
+  quality_in: [Int!]
+  quality_not_in: [Int!]
+  quality_lt: Int
+  quality_lte: Int
+  quality_gt: Int
+  quality_gte: Int
+  AND: [BuffWhereInput!]
+  OR: [BuffWhereInput!]
+  NOT: [BuffWhereInput!]
+}
+
+input BuffWhereUniqueInput {
+  id: ID
+  name: String
 }
 
 type Build {
@@ -68,8 +349,8 @@ type Build {
   newBarTwo(where: SkillSelectionWhereInput, orderBy: SkillSelectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SkillSelection!]
   ultimateOne: Skill
   ultimateTwo: Skill
-  mundus: Mundus
-  buff: SpecialBuff
+  mundusStone: MundusStone
+  buff: Buff
 }
 
 type BuildConnection {
@@ -94,8 +375,8 @@ input BuildCreateInput {
   newBarTwo: SkillSelectionCreateManyInput
   ultimateOne: SkillCreateOneInput
   ultimateTwo: SkillCreateOneInput
-  mundus: MundusCreateOneInput
-  buff: SpecialBuffCreateOneInput
+  mundusStone: MundusStoneCreateOneInput
+  buff: BuffCreateOneInput
 }
 
 input BuildCreateManyWithoutOwnerInput {
@@ -118,8 +399,8 @@ input BuildCreateWithoutOwnerInput {
   newBarTwo: SkillSelectionCreateManyInput
   ultimateOne: SkillCreateOneInput
   ultimateTwo: SkillCreateOneInput
-  mundus: MundusCreateOneInput
-  buff: SpecialBuffCreateOneInput
+  mundusStone: MundusStoneCreateOneInput
+  buff: BuffCreateOneInput
 }
 
 type BuildEdge {
@@ -267,8 +548,8 @@ input BuildUpdateInput {
   newBarTwo: SkillSelectionUpdateManyInput
   ultimateOne: SkillUpdateOneInput
   ultimateTwo: SkillUpdateOneInput
-  mundus: MundusUpdateOneInput
-  buff: SpecialBuffUpdateOneInput
+  mundusStone: MundusStoneUpdateOneInput
+  buff: BuffUpdateOneInput
 }
 
 input BuildUpdateManyDataInput {
@@ -316,8 +597,8 @@ input BuildUpdateWithoutOwnerDataInput {
   newBarTwo: SkillSelectionUpdateManyInput
   ultimateOne: SkillUpdateOneInput
   ultimateTwo: SkillUpdateOneInput
-  mundus: MundusUpdateOneInput
-  buff: SpecialBuffUpdateOneInput
+  mundusStone: MundusStoneUpdateOneInput
+  buff: BuffUpdateOneInput
 }
 
 input BuildUpdateWithWhereUniqueWithoutOwnerInput {
@@ -430,8 +711,8 @@ input BuildWhereInput {
   newBarTwo_none: SkillSelectionWhereInput
   ultimateOne: SkillWhereInput
   ultimateTwo: SkillWhereInput
-  mundus: MundusWhereInput
-  buff: SpecialBuffWhereInput
+  mundusStone: MundusStoneWhereInput
+  buff: BuffWhereInput
   AND: [BuildWhereInput!]
   OR: [BuildWhereInput!]
   NOT: [BuildWhereInput!]
@@ -443,175 +724,13 @@ input BuildWhereUniqueInput {
 
 scalar DateTime
 
-type Location {
-  id: ID!
-  aldmeri: String
-  daggerfall: String
-  ebonheart: String
-}
-
-type LocationConnection {
-  pageInfo: PageInfo!
-  edges: [LocationEdge]!
-  aggregate: AggregateLocation!
-}
-
-input LocationCreateInput {
-  id: ID
-  aldmeri: String
-  daggerfall: String
-  ebonheart: String
-}
-
-input LocationCreateOneInput {
-  create: LocationCreateInput
-  connect: LocationWhereUniqueInput
-}
-
-type LocationEdge {
-  node: Location!
-  cursor: String!
-}
-
-enum LocationOrderByInput {
-  id_ASC
-  id_DESC
-  aldmeri_ASC
-  aldmeri_DESC
-  daggerfall_ASC
-  daggerfall_DESC
-  ebonheart_ASC
-  ebonheart_DESC
-}
-
-type LocationPreviousValues {
-  id: ID!
-  aldmeri: String
-  daggerfall: String
-  ebonheart: String
-}
-
-type LocationSubscriptionPayload {
-  mutation: MutationType!
-  node: Location
-  updatedFields: [String!]
-  previousValues: LocationPreviousValues
-}
-
-input LocationSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: LocationWhereInput
-  AND: [LocationSubscriptionWhereInput!]
-  OR: [LocationSubscriptionWhereInput!]
-  NOT: [LocationSubscriptionWhereInput!]
-}
-
-input LocationUpdateDataInput {
-  aldmeri: String
-  daggerfall: String
-  ebonheart: String
-}
-
-input LocationUpdateInput {
-  aldmeri: String
-  daggerfall: String
-  ebonheart: String
-}
-
-input LocationUpdateManyMutationInput {
-  aldmeri: String
-  daggerfall: String
-  ebonheart: String
-}
-
-input LocationUpdateOneInput {
-  create: LocationCreateInput
-  update: LocationUpdateDataInput
-  upsert: LocationUpsertNestedInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: LocationWhereUniqueInput
-}
-
-input LocationUpsertNestedInput {
-  update: LocationUpdateDataInput!
-  create: LocationCreateInput!
-}
-
-input LocationWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  aldmeri: String
-  aldmeri_not: String
-  aldmeri_in: [String!]
-  aldmeri_not_in: [String!]
-  aldmeri_lt: String
-  aldmeri_lte: String
-  aldmeri_gt: String
-  aldmeri_gte: String
-  aldmeri_contains: String
-  aldmeri_not_contains: String
-  aldmeri_starts_with: String
-  aldmeri_not_starts_with: String
-  aldmeri_ends_with: String
-  aldmeri_not_ends_with: String
-  daggerfall: String
-  daggerfall_not: String
-  daggerfall_in: [String!]
-  daggerfall_not_in: [String!]
-  daggerfall_lt: String
-  daggerfall_lte: String
-  daggerfall_gt: String
-  daggerfall_gte: String
-  daggerfall_contains: String
-  daggerfall_not_contains: String
-  daggerfall_starts_with: String
-  daggerfall_not_starts_with: String
-  daggerfall_ends_with: String
-  daggerfall_not_ends_with: String
-  ebonheart: String
-  ebonheart_not: String
-  ebonheart_in: [String!]
-  ebonheart_not_in: [String!]
-  ebonheart_lt: String
-  ebonheart_lte: String
-  ebonheart_gt: String
-  ebonheart_gte: String
-  ebonheart_contains: String
-  ebonheart_not_contains: String
-  ebonheart_starts_with: String
-  ebonheart_not_starts_with: String
-  ebonheart_ends_with: String
-  ebonheart_not_ends_with: String
-  AND: [LocationWhereInput!]
-  OR: [LocationWhereInput!]
-  NOT: [LocationWhereInput!]
-}
-
-input LocationWhereUniqueInput {
-  id: ID
-}
-
 scalar Long
 
 type Modification {
   id: ID!
   type: String!
+  itemType: String!
+  modificationType: String!
   description: String!
   icon: String
 }
@@ -625,6 +744,8 @@ type ModificationConnection {
 input ModificationCreateInput {
   id: ID
   type: String!
+  itemType: String!
+  modificationType: String!
   description: String!
   icon: String
 }
@@ -644,6 +765,10 @@ enum ModificationOrderByInput {
   id_DESC
   type_ASC
   type_DESC
+  itemType_ASC
+  itemType_DESC
+  modificationType_ASC
+  modificationType_DESC
   description_ASC
   description_DESC
   icon_ASC
@@ -653,6 +778,8 @@ enum ModificationOrderByInput {
 type ModificationPreviousValues {
   id: ID!
   type: String!
+  itemType: String!
+  modificationType: String!
   description: String!
   icon: String
 }
@@ -677,18 +804,24 @@ input ModificationSubscriptionWhereInput {
 
 input ModificationUpdateDataInput {
   type: String
+  itemType: String
+  modificationType: String
   description: String
   icon: String
 }
 
 input ModificationUpdateInput {
   type: String
+  itemType: String
+  modificationType: String
   description: String
   icon: String
 }
 
 input ModificationUpdateManyMutationInput {
   type: String
+  itemType: String
+  modificationType: String
   description: String
   icon: String
 }
@@ -736,6 +869,34 @@ input ModificationWhereInput {
   type_not_starts_with: String
   type_ends_with: String
   type_not_ends_with: String
+  itemType: String
+  itemType_not: String
+  itemType_in: [String!]
+  itemType_not_in: [String!]
+  itemType_lt: String
+  itemType_lte: String
+  itemType_gt: String
+  itemType_gte: String
+  itemType_contains: String
+  itemType_not_contains: String
+  itemType_starts_with: String
+  itemType_not_starts_with: String
+  itemType_ends_with: String
+  itemType_not_ends_with: String
+  modificationType: String
+  modificationType_not: String
+  modificationType_in: [String!]
+  modificationType_not_in: [String!]
+  modificationType_lt: String
+  modificationType_lte: String
+  modificationType_gt: String
+  modificationType_gte: String
+  modificationType_contains: String
+  modificationType_not_contains: String
+  modificationType_starts_with: String
+  modificationType_not_starts_with: String
+  modificationType_ends_with: String
+  modificationType_not_ends_with: String
   description: String
   description_not: String
   description_in: [String!]
@@ -771,46 +932,56 @@ input ModificationWhereInput {
 
 input ModificationWhereUniqueInput {
   id: ID
-  type: String
+  description: String
 }
 
-type Mundus {
+type MundusStone {
   name: String!
-  location: Location
+  aldmeri: String
+  daggerfall: String
+  ebonheart: String
   effect: String!
   value: String!
   icon: String
-  id: Int!
+  id: ID!
 }
 
-type MundusConnection {
+type MundusStoneConnection {
   pageInfo: PageInfo!
-  edges: [MundusEdge]!
-  aggregate: AggregateMundus!
+  edges: [MundusStoneEdge]!
+  aggregate: AggregateMundusStone!
 }
 
-input MundusCreateInput {
+input MundusStoneCreateInput {
   name: String!
-  location: LocationCreateOneInput
+  aldmeri: String
+  daggerfall: String
+  ebonheart: String
   effect: String!
   value: String!
   icon: String
-  id: Int
+  id: ID
 }
 
-input MundusCreateOneInput {
-  create: MundusCreateInput
-  connect: MundusWhereUniqueInput
+input MundusStoneCreateOneInput {
+  create: MundusStoneCreateInput
+  connect: MundusStoneWhereUniqueInput
 }
 
-type MundusEdge {
-  node: Mundus!
+type MundusStoneEdge {
+  node: MundusStone!
   cursor: String!
 }
 
-enum MundusOrderByInput {
+enum MundusStoneOrderByInput {
   name_ASC
   name_DESC
+  aldmeri_ASC
+  aldmeri_DESC
+  daggerfall_ASC
+  daggerfall_DESC
+  ebonheart_ASC
+  ebonheart_DESC
   effect_ASC
   effect_DESC
   value_ASC
@@ -821,70 +992,80 @@ enum MundusOrderByInput {
   id_DESC
 }
 
-type MundusPreviousValues {
+type MundusStonePreviousValues {
   name: String!
+  aldmeri: String
+  daggerfall: String
+  ebonheart: String
   effect: String!
   value: String!
   icon: String
-  id: Int!
+  id: ID!
 }
 
-type MundusSubscriptionPayload {
+type MundusStoneSubscriptionPayload {
   mutation: MutationType!
-  node: Mundus
+  node: MundusStone
   updatedFields: [String!]
-  previousValues: MundusPreviousValues
+  previousValues: MundusStonePreviousValues
 }
 
-input MundusSubscriptionWhereInput {
+input MundusStoneSubscriptionWhereInput {
   mutation_in: [MutationType!]
   updatedFields_contains: String
   updatedFields_contains_every: [String!]
   updatedFields_contains_some: [String!]
-  node: MundusWhereInput
-  AND: [MundusSubscriptionWhereInput!]
-  OR: [MundusSubscriptionWhereInput!]
-  NOT: [MundusSubscriptionWhereInput!]
+  node: MundusStoneWhereInput
+  AND: [MundusStoneSubscriptionWhereInput!]
+  OR: [MundusStoneSubscriptionWhereInput!]
+  NOT: [MundusStoneSubscriptionWhereInput!]
 }
 
-input MundusUpdateDataInput {
+input MundusStoneUpdateDataInput {
   name: String
-  location: LocationUpdateOneInput
+  aldmeri: String
+  daggerfall: String
+  ebonheart: String
   effect: String
   value: String
   icon: String
 }
 
-input MundusUpdateInput {
+input MundusStoneUpdateInput {
   name: String
-  location: LocationUpdateOneInput
+  aldmeri: String
+  daggerfall: String
+  ebonheart: String
   effect: String
   value: String
   icon: String
 }
 
-input MundusUpdateManyMutationInput {
+input MundusStoneUpdateManyMutationInput {
   name: String
+  aldmeri: String
+  daggerfall: String
+  ebonheart: String
   effect: String
   value: String
   icon: String
 }
 
-input MundusUpdateOneInput {
-  create: MundusCreateInput
-  update: MundusUpdateDataInput
-  upsert: MundusUpsertNestedInput
+input MundusStoneUpdateOneInput {
+  create: MundusStoneCreateInput
+  update: MundusStoneUpdateDataInput
+  upsert: MundusStoneUpsertNestedInput
   delete: Boolean
   disconnect: Boolean
-  connect: MundusWhereUniqueInput
+  connect: MundusStoneWhereUniqueInput
 }
 
-input MundusUpsertNestedInput {
-  update: MundusUpdateDataInput!
-  create: MundusCreateInput!
+input MundusStoneUpsertNestedInput {
+  update: MundusStoneUpdateDataInput!
+  create: MundusStoneCreateInput!
 }
 
-input MundusWhereInput {
+input MundusStoneWhereInput {
   name: String
   name_not: String
   name_in: [String!]
@@ -899,7 +1080,48 @@ input MundusWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
-  location: LocationWhereInput
+  aldmeri: String
+  aldmeri_not: String
+  aldmeri_in: [String!]
+  aldmeri_not_in: [String!]
+  aldmeri_lt: String
+  aldmeri_lte: String
+  aldmeri_gt: String
+  aldmeri_gte: String
+  aldmeri_contains: String
+  aldmeri_not_contains: String
+  aldmeri_starts_with: String
+  aldmeri_not_starts_with: String
+  aldmeri_ends_with: String
+  aldmeri_not_ends_with: String
+  daggerfall: String
+  daggerfall_not: String
+  daggerfall_in: [String!]
+  daggerfall_not_in: [String!]
+  daggerfall_lt: String
+  daggerfall_lte: String
+  daggerfall_gt: String
+  daggerfall_gte: String
+  daggerfall_contains: String
+  daggerfall_not_contains: String
+  daggerfall_starts_with: String
+  daggerfall_not_starts_with: String
+  daggerfall_ends_with: String
+  daggerfall_not_ends_with: String
+  ebonheart: String
+  ebonheart_not: String
+  ebonheart_in: [String!]
+  ebonheart_not_in: [String!]
+  ebonheart_lt: String
+  ebonheart_lte: String
+  ebonheart_gt: String
+  ebonheart_gte: String
+  ebonheart_contains: String
+  ebonheart_not_contains: String
+  ebonheart_starts_with: String
+  ebonheart_not_starts_with: String
+  ebonheart_ends_with: String
+  ebonheart_not_ends_with: String
   effect: String
   effect_not: String
   effect_in: [String!]
@@ -942,49 +1164,55 @@ input MundusWhereInput {
   icon_not_starts_with: String
   icon_ends_with: String
   icon_not_ends_with: String
-  id: Int
-  id_not: Int
-  id_in: [Int!]
-  id_not_in: [Int!]
-  id_lt: Int
-  id_lte: Int
-  id_gt: Int
-  id_gte: Int
-  AND: [MundusWhereInput!]
-  OR: [MundusWhereInput!]
-  NOT: [MundusWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [MundusStoneWhereInput!]
+  OR: [MundusStoneWhereInput!]
+  NOT: [MundusStoneWhereInput!]
 }
 
-input MundusWhereUniqueInput {
+input MundusStoneWhereUniqueInput {
   name: String
-  id: Int
+  id: ID
 }
 
 type Mutation {
+  createBuff(data: BuffCreateInput!): Buff!
+  updateBuff(data: BuffUpdateInput!, where: BuffWhereUniqueInput!): Buff
+  updateManyBuffs(data: BuffUpdateManyMutationInput!, where: BuffWhereInput): BatchPayload!
+  upsertBuff(where: BuffWhereUniqueInput!, create: BuffCreateInput!, update: BuffUpdateInput!): Buff!
+  deleteBuff(where: BuffWhereUniqueInput!): Buff
+  deleteManyBuffs(where: BuffWhereInput): BatchPayload!
   createBuild(data: BuildCreateInput!): Build!
   updateBuild(data: BuildUpdateInput!, where: BuildWhereUniqueInput!): Build
   updateManyBuilds(data: BuildUpdateManyMutationInput!, where: BuildWhereInput): BatchPayload!
   upsertBuild(where: BuildWhereUniqueInput!, create: BuildCreateInput!, update: BuildUpdateInput!): Build!
   deleteBuild(where: BuildWhereUniqueInput!): Build
   deleteManyBuilds(where: BuildWhereInput): BatchPayload!
-  createLocation(data: LocationCreateInput!): Location!
-  updateLocation(data: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location
-  updateManyLocations(data: LocationUpdateManyMutationInput!, where: LocationWhereInput): BatchPayload!
-  upsertLocation(where: LocationWhereUniqueInput!, create: LocationCreateInput!, update: LocationUpdateInput!): Location!
-  deleteLocation(where: LocationWhereUniqueInput!): Location
-  deleteManyLocations(where: LocationWhereInput): BatchPayload!
   createModification(data: ModificationCreateInput!): Modification!
   updateModification(data: ModificationUpdateInput!, where: ModificationWhereUniqueInput!): Modification
   updateManyModifications(data: ModificationUpdateManyMutationInput!, where: ModificationWhereInput): BatchPayload!
   upsertModification(where: ModificationWhereUniqueInput!, create: ModificationCreateInput!, update: ModificationUpdateInput!): Modification!
   deleteModification(where: ModificationWhereUniqueInput!): Modification
   deleteManyModifications(where: ModificationWhereInput): BatchPayload!
-  createMundus(data: MundusCreateInput!): Mundus!
-  updateMundus(data: MundusUpdateInput!, where: MundusWhereUniqueInput!): Mundus
-  updateManyMunduses(data: MundusUpdateManyMutationInput!, where: MundusWhereInput): BatchPayload!
-  upsertMundus(where: MundusWhereUniqueInput!, create: MundusCreateInput!, update: MundusUpdateInput!): Mundus!
-  deleteMundus(where: MundusWhereUniqueInput!): Mundus
-  deleteManyMunduses(where: MundusWhereInput): BatchPayload!
+  createMundusStone(data: MundusStoneCreateInput!): MundusStone!
+  updateMundusStone(data: MundusStoneUpdateInput!, where: MundusStoneWhereUniqueInput!): MundusStone
+  updateManyMundusStones(data: MundusStoneUpdateManyMutationInput!, where: MundusStoneWhereInput): BatchPayload!
+  upsertMundusStone(where: MundusStoneWhereUniqueInput!, create: MundusStoneCreateInput!, update: MundusStoneUpdateInput!): MundusStone!
+  deleteMundusStone(where: MundusStoneWhereUniqueInput!): MundusStone
+  deleteManyMundusStones(where: MundusStoneWhereInput): BatchPayload!
   createPost(data: PostCreateInput!): Post!
   updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
   updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
@@ -1015,12 +1243,6 @@ type Mutation {
   upsertSkillSelection(where: SkillSelectionWhereUniqueInput!, create: SkillSelectionCreateInput!, update: SkillSelectionUpdateInput!): SkillSelection!
   deleteSkillSelection(where: SkillSelectionWhereUniqueInput!): SkillSelection
   deleteManySkillSelections(where: SkillSelectionWhereInput): BatchPayload!
-  createSpecialBuff(data: SpecialBuffCreateInput!): SpecialBuff!
-  updateSpecialBuff(data: SpecialBuffUpdateInput!, where: SpecialBuffWhereUniqueInput!): SpecialBuff
-  updateManySpecialBuffs(data: SpecialBuffUpdateManyMutationInput!, where: SpecialBuffWhereInput): BatchPayload!
-  upsertSpecialBuff(where: SpecialBuffWhereUniqueInput!, create: SpecialBuffCreateInput!, update: SpecialBuffUpdateInput!): SpecialBuff!
-  deleteSpecialBuff(where: SpecialBuffWhereUniqueInput!): SpecialBuff
-  deleteManySpecialBuffs(where: SpecialBuffWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -1202,18 +1424,18 @@ input PostWhereUniqueInput {
 }
 
 type Query {
+  buff(where: BuffWhereUniqueInput!): Buff
+  buffs(where: BuffWhereInput, orderBy: BuffOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Buff]!
+  buffsConnection(where: BuffWhereInput, orderBy: BuffOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BuffConnection!
   build(where: BuildWhereUniqueInput!): Build
   builds(where: BuildWhereInput, orderBy: BuildOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Build]!
   buildsConnection(where: BuildWhereInput, orderBy: BuildOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BuildConnection!
-  location(where: LocationWhereUniqueInput!): Location
-  locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location]!
-  locationsConnection(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LocationConnection!
   modification(where: ModificationWhereUniqueInput!): Modification
   modifications(where: ModificationWhereInput, orderBy: ModificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Modification]!
   modificationsConnection(where: ModificationWhereInput, orderBy: ModificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ModificationConnection!
-  mundus(where: MundusWhereUniqueInput!): Mundus
-  munduses(where: MundusWhereInput, orderBy: MundusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Mundus]!
-  mundusesConnection(where: MundusWhereInput, orderBy: MundusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MundusConnection!
+  mundusStone(where: MundusStoneWhereUniqueInput!): MundusStone
+  mundusStones(where: MundusStoneWhereInput, orderBy: MundusStoneOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [MundusStone]!
+  mundusStonesConnection(where: MundusStoneWhereInput, orderBy: MundusStoneOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MundusStoneConnection!
   post(where: PostWhereUniqueInput!): Post
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
   postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
@@ -1229,9 +1451,6 @@ type Query {
   skillSelection(where: SkillSelectionWhereUniqueInput!): SkillSelection
   skillSelections(where: SkillSelectionWhereInput, orderBy: SkillSelectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SkillSelection]!
   skillSelectionsConnection(where: SkillSelectionWhereInput, orderBy: SkillSelectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SkillSelectionConnection!
-  specialBuff(where: SpecialBuffWhereUniqueInput!): SpecialBuff
-  specialBuffs(where: SpecialBuffWhereInput, orderBy: SpecialBuffOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SpecialBuff]!
-  specialBuffsConnection(where: SpecialBuffWhereInput, orderBy: SpecialBuffOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SpecialBuffConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
@@ -2461,280 +2680,16 @@ input SkillWhereUniqueInput {
   skillId: Int
 }
 
-type SpecialBuff {
-  id: ID!
-  name: String!
-  buffDescription: String!
-  description: String
-  duration: Int!
-  notes: String
-  icon: String
-  type: String
-  quality: Int!
-}
-
-type SpecialBuffConnection {
-  pageInfo: PageInfo!
-  edges: [SpecialBuffEdge]!
-  aggregate: AggregateSpecialBuff!
-}
-
-input SpecialBuffCreateInput {
-  id: ID
-  name: String!
-  buffDescription: String!
-  description: String
-  duration: Int!
-  notes: String
-  icon: String
-  type: String
-  quality: Int!
-}
-
-input SpecialBuffCreateOneInput {
-  create: SpecialBuffCreateInput
-  connect: SpecialBuffWhereUniqueInput
-}
-
-type SpecialBuffEdge {
-  node: SpecialBuff!
-  cursor: String!
-}
-
-enum SpecialBuffOrderByInput {
-  id_ASC
-  id_DESC
-  name_ASC
-  name_DESC
-  buffDescription_ASC
-  buffDescription_DESC
-  description_ASC
-  description_DESC
-  duration_ASC
-  duration_DESC
-  notes_ASC
-  notes_DESC
-  icon_ASC
-  icon_DESC
-  type_ASC
-  type_DESC
-  quality_ASC
-  quality_DESC
-}
-
-type SpecialBuffPreviousValues {
-  id: ID!
-  name: String!
-  buffDescription: String!
-  description: String
-  duration: Int!
-  notes: String
-  icon: String
-  type: String
-  quality: Int!
-}
-
-type SpecialBuffSubscriptionPayload {
-  mutation: MutationType!
-  node: SpecialBuff
-  updatedFields: [String!]
-  previousValues: SpecialBuffPreviousValues
-}
-
-input SpecialBuffSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: SpecialBuffWhereInput
-  AND: [SpecialBuffSubscriptionWhereInput!]
-  OR: [SpecialBuffSubscriptionWhereInput!]
-  NOT: [SpecialBuffSubscriptionWhereInput!]
-}
-
-input SpecialBuffUpdateDataInput {
-  name: String
-  buffDescription: String
-  description: String
-  duration: Int
-  notes: String
-  icon: String
-  type: String
-  quality: Int
-}
-
-input SpecialBuffUpdateInput {
-  name: String
-  buffDescription: String
-  description: String
-  duration: Int
-  notes: String
-  icon: String
-  type: String
-  quality: Int
-}
-
-input SpecialBuffUpdateManyMutationInput {
-  name: String
-  buffDescription: String
-  description: String
-  duration: Int
-  notes: String
-  icon: String
-  type: String
-  quality: Int
-}
-
-input SpecialBuffUpdateOneInput {
-  create: SpecialBuffCreateInput
-  update: SpecialBuffUpdateDataInput
-  upsert: SpecialBuffUpsertNestedInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: SpecialBuffWhereUniqueInput
-}
-
-input SpecialBuffUpsertNestedInput {
-  update: SpecialBuffUpdateDataInput!
-  create: SpecialBuffCreateInput!
-}
-
-input SpecialBuffWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  buffDescription: String
-  buffDescription_not: String
-  buffDescription_in: [String!]
-  buffDescription_not_in: [String!]
-  buffDescription_lt: String
-  buffDescription_lte: String
-  buffDescription_gt: String
-  buffDescription_gte: String
-  buffDescription_contains: String
-  buffDescription_not_contains: String
-  buffDescription_starts_with: String
-  buffDescription_not_starts_with: String
-  buffDescription_ends_with: String
-  buffDescription_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
-  duration: Int
-  duration_not: Int
-  duration_in: [Int!]
-  duration_not_in: [Int!]
-  duration_lt: Int
-  duration_lte: Int
-  duration_gt: Int
-  duration_gte: Int
-  notes: String
-  notes_not: String
-  notes_in: [String!]
-  notes_not_in: [String!]
-  notes_lt: String
-  notes_lte: String
-  notes_gt: String
-  notes_gte: String
-  notes_contains: String
-  notes_not_contains: String
-  notes_starts_with: String
-  notes_not_starts_with: String
-  notes_ends_with: String
-  notes_not_ends_with: String
-  icon: String
-  icon_not: String
-  icon_in: [String!]
-  icon_not_in: [String!]
-  icon_lt: String
-  icon_lte: String
-  icon_gt: String
-  icon_gte: String
-  icon_contains: String
-  icon_not_contains: String
-  icon_starts_with: String
-  icon_not_starts_with: String
-  icon_ends_with: String
-  icon_not_ends_with: String
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
-  quality: Int
-  quality_not: Int
-  quality_in: [Int!]
-  quality_not_in: [Int!]
-  quality_lt: Int
-  quality_lte: Int
-  quality_gt: Int
-  quality_gte: Int
-  AND: [SpecialBuffWhereInput!]
-  OR: [SpecialBuffWhereInput!]
-  NOT: [SpecialBuffWhereInput!]
-}
-
-input SpecialBuffWhereUniqueInput {
-  id: ID
-  name: String
-}
-
 type Subscription {
+  buff(where: BuffSubscriptionWhereInput): BuffSubscriptionPayload
   build(where: BuildSubscriptionWhereInput): BuildSubscriptionPayload
-  location(where: LocationSubscriptionWhereInput): LocationSubscriptionPayload
   modification(where: ModificationSubscriptionWhereInput): ModificationSubscriptionPayload
-  mundus(where: MundusSubscriptionWhereInput): MundusSubscriptionPayload
+  mundusStone(where: MundusStoneSubscriptionWhereInput): MundusStoneSubscriptionPayload
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   set(where: SetSubscriptionWhereInput): SetSubscriptionPayload
   setSelection(where: SetSelectionSubscriptionWhereInput): SetSelectionSubscriptionPayload
   skill(where: SkillSubscriptionWhereInput): SkillSubscriptionPayload
   skillSelection(where: SkillSelectionSubscriptionWhereInput): SkillSelectionSubscriptionPayload
-  specialBuff(where: SpecialBuffSubscriptionWhereInput): SpecialBuffSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
 }
 

@@ -23,9 +23,8 @@ export interface NexusPrismaTypes {
       Modification: ModificationObject
       SkillSelection: SkillSelectionObject
       Skill: SkillObject
-      Mundus: MundusObject
-      Location: LocationObject
-      SpecialBuff: SpecialBuffObject
+      MundusStone: MundusStoneObject
+      Buff: BuffObject
       PostConnection: PostConnectionObject
       PageInfo: PageInfoObject
       PostEdge: PostEdgeObject
@@ -33,15 +32,12 @@ export interface NexusPrismaTypes {
       UserConnection: UserConnectionObject
       UserEdge: UserEdgeObject
       AggregateUser: AggregateUserObject
-      LocationConnection: LocationConnectionObject
-      LocationEdge: LocationEdgeObject
-      AggregateLocation: AggregateLocationObject
-      MundusConnection: MundusConnectionObject
-      MundusEdge: MundusEdgeObject
-      AggregateMundus: AggregateMundusObject
-      SpecialBuffConnection: SpecialBuffConnectionObject
-      SpecialBuffEdge: SpecialBuffEdgeObject
-      AggregateSpecialBuff: AggregateSpecialBuffObject
+      MundusStoneConnection: MundusStoneConnectionObject
+      MundusStoneEdge: MundusStoneEdgeObject
+      AggregateMundusStone: AggregateMundusStoneObject
+      BuffConnection: BuffConnectionObject
+      BuffEdge: BuffEdgeObject
+      AggregateBuff: AggregateBuffObject
       SetSelectionConnection: SetSelectionConnectionObject
       SetSelectionEdge: SetSelectionEdgeObject
       AggregateSetSelection: AggregateSetSelectionObject
@@ -67,12 +63,10 @@ export interface NexusPrismaTypes {
       PostPreviousValues: PostPreviousValuesObject
       UserSubscriptionPayload: UserSubscriptionPayloadObject
       UserPreviousValues: UserPreviousValuesObject
-      LocationSubscriptionPayload: LocationSubscriptionPayloadObject
-      LocationPreviousValues: LocationPreviousValuesObject
-      MundusSubscriptionPayload: MundusSubscriptionPayloadObject
-      MundusPreviousValues: MundusPreviousValuesObject
-      SpecialBuffSubscriptionPayload: SpecialBuffSubscriptionPayloadObject
-      SpecialBuffPreviousValues: SpecialBuffPreviousValuesObject
+      MundusStoneSubscriptionPayload: MundusStoneSubscriptionPayloadObject
+      MundusStonePreviousValues: MundusStonePreviousValuesObject
+      BuffSubscriptionPayload: BuffSubscriptionPayloadObject
+      BuffPreviousValues: BuffPreviousValuesObject
       SetSelectionSubscriptionPayload: SetSelectionSubscriptionPayloadObject
       SetSelectionPreviousValues: SetSelectionPreviousValuesObject
       SetSubscriptionPayload: SetSubscriptionPayloadObject
@@ -96,9 +90,8 @@ export interface NexusPrismaTypes {
       Modification: ModificationFieldDetails
       SkillSelection: SkillSelectionFieldDetails
       Skill: SkillFieldDetails
-      Mundus: MundusFieldDetails
-      Location: LocationFieldDetails
-      SpecialBuff: SpecialBuffFieldDetails
+      MundusStone: MundusStoneFieldDetails
+      Buff: BuffFieldDetails
       PostConnection: PostConnectionFieldDetails
       PageInfo: PageInfoFieldDetails
       PostEdge: PostEdgeFieldDetails
@@ -106,15 +99,12 @@ export interface NexusPrismaTypes {
       UserConnection: UserConnectionFieldDetails
       UserEdge: UserEdgeFieldDetails
       AggregateUser: AggregateUserFieldDetails
-      LocationConnection: LocationConnectionFieldDetails
-      LocationEdge: LocationEdgeFieldDetails
-      AggregateLocation: AggregateLocationFieldDetails
-      MundusConnection: MundusConnectionFieldDetails
-      MundusEdge: MundusEdgeFieldDetails
-      AggregateMundus: AggregateMundusFieldDetails
-      SpecialBuffConnection: SpecialBuffConnectionFieldDetails
-      SpecialBuffEdge: SpecialBuffEdgeFieldDetails
-      AggregateSpecialBuff: AggregateSpecialBuffFieldDetails
+      MundusStoneConnection: MundusStoneConnectionFieldDetails
+      MundusStoneEdge: MundusStoneEdgeFieldDetails
+      AggregateMundusStone: AggregateMundusStoneFieldDetails
+      BuffConnection: BuffConnectionFieldDetails
+      BuffEdge: BuffEdgeFieldDetails
+      AggregateBuff: AggregateBuffFieldDetails
       SetSelectionConnection: SetSelectionConnectionFieldDetails
       SetSelectionEdge: SetSelectionEdgeFieldDetails
       AggregateSetSelection: AggregateSetSelectionFieldDetails
@@ -140,12 +130,10 @@ export interface NexusPrismaTypes {
       PostPreviousValues: PostPreviousValuesFieldDetails
       UserSubscriptionPayload: UserSubscriptionPayloadFieldDetails
       UserPreviousValues: UserPreviousValuesFieldDetails
-      LocationSubscriptionPayload: LocationSubscriptionPayloadFieldDetails
-      LocationPreviousValues: LocationPreviousValuesFieldDetails
-      MundusSubscriptionPayload: MundusSubscriptionPayloadFieldDetails
-      MundusPreviousValues: MundusPreviousValuesFieldDetails
-      SpecialBuffSubscriptionPayload: SpecialBuffSubscriptionPayloadFieldDetails
-      SpecialBuffPreviousValues: SpecialBuffPreviousValuesFieldDetails
+      MundusStoneSubscriptionPayload: MundusStoneSubscriptionPayloadFieldDetails
+      MundusStonePreviousValues: MundusStonePreviousValuesFieldDetails
+      BuffSubscriptionPayload: BuffSubscriptionPayloadFieldDetails
+      BuffPreviousValues: BuffPreviousValuesFieldDetails
       SetSelectionSubscriptionPayload: SetSelectionSubscriptionPayloadFieldDetails
       SetSelectionPreviousValues: SetSelectionPreviousValuesFieldDetails
       SetSubscriptionPayload: SetSubscriptionPayloadFieldDetails
@@ -170,14 +158,12 @@ export interface NexusPrismaTypes {
       ModificationWhereInput: ModificationWhereInputInputObject
       SkillSelectionWhereInput: SkillSelectionWhereInputInputObject
       SkillWhereInput: SkillWhereInputInputObject
-      MundusWhereInput: MundusWhereInputInputObject
-      LocationWhereInput: LocationWhereInputInputObject
-      SpecialBuffWhereInput: SpecialBuffWhereInputInputObject
+      MundusStoneWhereInput: MundusStoneWhereInputInputObject
+      BuffWhereInput: BuffWhereInputInputObject
       PostWhereInput: PostWhereInputInputObject
       UserWhereUniqueInput: UserWhereUniqueInputInputObject
-      LocationWhereUniqueInput: LocationWhereUniqueInputInputObject
-      MundusWhereUniqueInput: MundusWhereUniqueInputInputObject
-      SpecialBuffWhereUniqueInput: SpecialBuffWhereUniqueInputInputObject
+      MundusStoneWhereUniqueInput: MundusStoneWhereUniqueInputInputObject
+      BuffWhereUniqueInput: BuffWhereUniqueInputInputObject
       SetSelectionWhereUniqueInput: SetSelectionWhereUniqueInputInputObject
       SetWhereUniqueInput: SetWhereUniqueInputInputObject
       ModificationWhereUniqueInput: ModificationWhereUniqueInputInputObject
@@ -199,12 +185,10 @@ export interface NexusPrismaTypes {
       SkillSelectionCreateInput: SkillSelectionCreateInputInputObject
       SkillCreateOneInput: SkillCreateOneInputInputObject
       SkillCreateInput: SkillCreateInputInputObject
-      MundusCreateOneInput: MundusCreateOneInputInputObject
-      MundusCreateInput: MundusCreateInputInputObject
-      LocationCreateOneInput: LocationCreateOneInputInputObject
-      LocationCreateInput: LocationCreateInputInputObject
-      SpecialBuffCreateOneInput: SpecialBuffCreateOneInputInputObject
-      SpecialBuffCreateInput: SpecialBuffCreateInputInputObject
+      MundusStoneCreateOneInput: MundusStoneCreateOneInputInputObject
+      MundusStoneCreateInput: MundusStoneCreateInputInputObject
+      BuffCreateOneInput: BuffCreateOneInputInputObject
+      BuffCreateInput: BuffCreateInputInputObject
       PostUpdateInput: PostUpdateInputInputObject
       UserUpdateOneRequiredInput: UserUpdateOneRequiredInputInputObject
       UserUpdateDataInput: UserUpdateDataInputInputObject
@@ -234,15 +218,12 @@ export interface NexusPrismaTypes {
       SkillSelectionScalarWhereInput: SkillSelectionScalarWhereInputInputObject
       SkillSelectionUpdateManyWithWhereNestedInput: SkillSelectionUpdateManyWithWhereNestedInputInputObject
       SkillSelectionUpdateManyDataInput: SkillSelectionUpdateManyDataInputInputObject
-      MundusUpdateOneInput: MundusUpdateOneInputInputObject
-      MundusUpdateDataInput: MundusUpdateDataInputInputObject
-      LocationUpdateOneInput: LocationUpdateOneInputInputObject
-      LocationUpdateDataInput: LocationUpdateDataInputInputObject
-      LocationUpsertNestedInput: LocationUpsertNestedInputInputObject
-      MundusUpsertNestedInput: MundusUpsertNestedInputInputObject
-      SpecialBuffUpdateOneInput: SpecialBuffUpdateOneInputInputObject
-      SpecialBuffUpdateDataInput: SpecialBuffUpdateDataInputInputObject
-      SpecialBuffUpsertNestedInput: SpecialBuffUpsertNestedInputInputObject
+      MundusStoneUpdateOneInput: MundusStoneUpdateOneInputInputObject
+      MundusStoneUpdateDataInput: MundusStoneUpdateDataInputInputObject
+      MundusStoneUpsertNestedInput: MundusStoneUpsertNestedInputInputObject
+      BuffUpdateOneInput: BuffUpdateOneInputInputObject
+      BuffUpdateDataInput: BuffUpdateDataInputInputObject
+      BuffUpsertNestedInput: BuffUpsertNestedInputInputObject
       BuildUpsertWithWhereUniqueWithoutOwnerInput: BuildUpsertWithWhereUniqueWithoutOwnerInputInputObject
       BuildScalarWhereInput: BuildScalarWhereInputInputObject
       BuildUpdateManyWithWhereNestedInput: BuildUpdateManyWithWhereNestedInputInputObject
@@ -251,12 +232,10 @@ export interface NexusPrismaTypes {
       PostUpdateManyMutationInput: PostUpdateManyMutationInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
       UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
-      LocationUpdateInput: LocationUpdateInputInputObject
-      LocationUpdateManyMutationInput: LocationUpdateManyMutationInputInputObject
-      MundusUpdateInput: MundusUpdateInputInputObject
-      MundusUpdateManyMutationInput: MundusUpdateManyMutationInputInputObject
-      SpecialBuffUpdateInput: SpecialBuffUpdateInputInputObject
-      SpecialBuffUpdateManyMutationInput: SpecialBuffUpdateManyMutationInputInputObject
+      MundusStoneUpdateInput: MundusStoneUpdateInputInputObject
+      MundusStoneUpdateManyMutationInput: MundusStoneUpdateManyMutationInputInputObject
+      BuffUpdateInput: BuffUpdateInputInputObject
+      BuffUpdateManyMutationInput: BuffUpdateManyMutationInputInputObject
       SetSelectionUpdateInput: SetSelectionUpdateInputInputObject
       SetSelectionUpdateManyMutationInput: SetSelectionUpdateManyMutationInputInputObject
       SetUpdateInput: SetUpdateInputInputObject
@@ -277,9 +256,8 @@ export interface NexusPrismaTypes {
       BuildUpdateManyMutationInput: BuildUpdateManyMutationInputInputObject
       PostSubscriptionWhereInput: PostSubscriptionWhereInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
-      LocationSubscriptionWhereInput: LocationSubscriptionWhereInputInputObject
-      MundusSubscriptionWhereInput: MundusSubscriptionWhereInputInputObject
-      SpecialBuffSubscriptionWhereInput: SpecialBuffSubscriptionWhereInputInputObject
+      MundusStoneSubscriptionWhereInput: MundusStoneSubscriptionWhereInputInputObject
+      BuffSubscriptionWhereInput: BuffSubscriptionWhereInputInputObject
       SetSelectionSubscriptionWhereInput: SetSelectionSubscriptionWhereInputInputObject
       SetSubscriptionWhereInput: SetSubscriptionWhereInputInputObject
       ModificationSubscriptionWhereInput: ModificationSubscriptionWhereInputInputObject
@@ -294,9 +272,8 @@ export interface NexusPrismaTypes {
     SkillSelectionOrderByInput: SkillSelectionOrderByInputValues,
     PostOrderByInput: PostOrderByInputValues,
     UserOrderByInput: UserOrderByInputValues,
-    LocationOrderByInput: LocationOrderByInputValues,
-    MundusOrderByInput: MundusOrderByInputValues,
-    SpecialBuffOrderByInput: SpecialBuffOrderByInputValues,
+    MundusStoneOrderByInput: MundusStoneOrderByInputValues,
+    BuffOrderByInput: BuffOrderByInputValues,
     SetOrderByInput: SetOrderByInputValues,
     ModificationOrderByInput: ModificationOrderByInputValues,
     SkillOrderByInput: SkillOrderByInputValues,
@@ -314,15 +291,12 @@ type QueryObject =
   | { name: 'user', args?: QueryUserArgs[] | false, alias?: string  } 
   | { name: 'users', args?: QueryUsersArgs[] | false, alias?: string  } 
   | { name: 'usersConnection', args?: QueryUsersConnectionArgs[] | false, alias?: string  } 
-  | { name: 'location', args?: QueryLocationArgs[] | false, alias?: string  } 
-  | { name: 'locations', args?: QueryLocationsArgs[] | false, alias?: string  } 
-  | { name: 'locationsConnection', args?: QueryLocationsConnectionArgs[] | false, alias?: string  } 
-  | { name: 'mundus', args?: QueryMundusArgs[] | false, alias?: string  } 
-  | { name: 'munduses', args?: QueryMundusesArgs[] | false, alias?: string  } 
-  | { name: 'mundusesConnection', args?: QueryMundusesConnectionArgs[] | false, alias?: string  } 
-  | { name: 'specialBuff', args?: QuerySpecialBuffArgs[] | false, alias?: string  } 
-  | { name: 'specialBuffs', args?: QuerySpecialBuffsArgs[] | false, alias?: string  } 
-  | { name: 'specialBuffsConnection', args?: QuerySpecialBuffsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'mundusStone', args?: QueryMundusStoneArgs[] | false, alias?: string  } 
+  | { name: 'mundusStones', args?: QueryMundusStonesArgs[] | false, alias?: string  } 
+  | { name: 'mundusStonesConnection', args?: QueryMundusStonesConnectionArgs[] | false, alias?: string  } 
+  | { name: 'buff', args?: QueryBuffArgs[] | false, alias?: string  } 
+  | { name: 'buffs', args?: QueryBuffsArgs[] | false, alias?: string  } 
+  | { name: 'buffsConnection', args?: QueryBuffsConnectionArgs[] | false, alias?: string  } 
   | { name: 'setSelection', args?: QuerySetSelectionArgs[] | false, alias?: string  } 
   | { name: 'setSelections', args?: QuerySetSelectionsArgs[] | false, alias?: string  } 
   | { name: 'setSelectionsConnection', args?: QuerySetSelectionsConnectionArgs[] | false, alias?: string  } 
@@ -349,15 +323,12 @@ type QueryFields =
   | 'user'
   | 'users'
   | 'usersConnection'
-  | 'location'
-  | 'locations'
-  | 'locationsConnection'
-  | 'mundus'
-  | 'munduses'
-  | 'mundusesConnection'
-  | 'specialBuff'
-  | 'specialBuffs'
-  | 'specialBuffsConnection'
+  | 'mundusStone'
+  | 'mundusStones'
+  | 'mundusStonesConnection'
+  | 'buff'
+  | 'buffs'
+  | 'buffsConnection'
   | 'setSelection'
   | 'setSelections'
   | 'setSelectionsConnection'
@@ -414,17 +385,9 @@ type QueryUsersConnectionArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryLocationArgs =
+type QueryMundusStoneArgs =
   | 'where'
-type QueryLocationsArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryLocationsConnectionArgs =
+type QueryMundusStonesArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -432,9 +395,7 @@ type QueryLocationsConnectionArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryMundusArgs =
-  | 'where'
-type QueryMundusesArgs =
+type QueryMundusStonesConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -442,7 +403,9 @@ type QueryMundusesArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryMundusesConnectionArgs =
+type QueryBuffArgs =
+  | 'where'
+type QueryBuffsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -450,17 +413,7 @@ type QueryMundusesConnectionArgs =
   | 'before'
   | 'first'
   | 'last'
-type QuerySpecialBuffArgs =
-  | 'where'
-type QuerySpecialBuffsArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QuerySpecialBuffsConnectionArgs =
+type QueryBuffsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -657,122 +610,83 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserConnection> | prisma.UserConnection
   }
-  location: {
-    type: 'Location'
-    args: Record<QueryLocationArgs, core.NexusArgDef<string>>
+  mundusStone: {
+    type: 'MundusStone'
+    args: Record<QueryMundusStoneArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where: LocationWhereUniqueInput }  ,
+      args: { where: MundusStoneWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location | null> | prisma.Location | null
+    ) => Promise<prisma.MundusStone | null> | prisma.MundusStone | null
   }
-  locations: {
-    type: 'Location'
-    args: Record<QueryLocationsArgs, core.NexusArgDef<string>>
+  mundusStones: {
+    type: 'MundusStone'
+    args: Record<QueryMundusStonesArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: LocationWhereInput | null, orderBy?: prisma.LocationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: MundusStoneWhereInput | null, orderBy?: prisma.MundusStoneOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location[]> | prisma.Location[]
+    ) => Promise<prisma.MundusStone[]> | prisma.MundusStone[]
   }
-  locationsConnection: {
-    type: 'LocationConnection'
-    args: Record<QueryLocationsConnectionArgs, core.NexusArgDef<string>>
+  mundusStonesConnection: {
+    type: 'MundusStoneConnection'
+    args: Record<QueryMundusStonesConnectionArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: LocationWhereInput | null, orderBy?: prisma.LocationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: MundusStoneWhereInput | null, orderBy?: prisma.MundusStoneOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.LocationConnection> | prisma.LocationConnection
+    ) => Promise<prisma.MundusStoneConnection> | prisma.MundusStoneConnection
   }
-  mundus: {
-    type: 'Mundus'
-    args: Record<QueryMundusArgs, core.NexusArgDef<string>>
+  buff: {
+    type: 'Buff'
+    args: Record<QueryBuffArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where: MundusWhereUniqueInput }  ,
+      args: { where: BuffWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Mundus | null> | prisma.Mundus | null
+    ) => Promise<prisma.Buff | null> | prisma.Buff | null
   }
-  munduses: {
-    type: 'Mundus'
-    args: Record<QueryMundusesArgs, core.NexusArgDef<string>>
+  buffs: {
+    type: 'Buff'
+    args: Record<QueryBuffsArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: MundusWhereInput | null, orderBy?: prisma.MundusOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: BuffWhereInput | null, orderBy?: prisma.BuffOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Mundus[]> | prisma.Mundus[]
+    ) => Promise<prisma.Buff[]> | prisma.Buff[]
   }
-  mundusesConnection: {
-    type: 'MundusConnection'
-    args: Record<QueryMundusesConnectionArgs, core.NexusArgDef<string>>
+  buffsConnection: {
+    type: 'BuffConnection'
+    args: Record<QueryBuffsConnectionArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: MundusWhereInput | null, orderBy?: prisma.MundusOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: BuffWhereInput | null, orderBy?: prisma.BuffOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.MundusConnection> | prisma.MundusConnection
-  }
-  specialBuff: {
-    type: 'SpecialBuff'
-    args: Record<QuerySpecialBuffArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where: SpecialBuffWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuff | null> | prisma.SpecialBuff | null
-  }
-  specialBuffs: {
-    type: 'SpecialBuff'
-    args: Record<QuerySpecialBuffsArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: SpecialBuffWhereInput | null, orderBy?: prisma.SpecialBuffOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuff[]> | prisma.SpecialBuff[]
-  }
-  specialBuffsConnection: {
-    type: 'SpecialBuffConnection'
-    args: Record<QuerySpecialBuffsConnectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: SpecialBuffWhereInput | null, orderBy?: prisma.SpecialBuffOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuffConnection> | prisma.SpecialBuffConnection
+    ) => Promise<prisma.BuffConnection> | prisma.BuffConnection
   }
   setSelection: {
     type: 'SetSelection'
@@ -1199,7 +1113,7 @@ type BuildObject =
   | { name: 'newBarTwo', args?: BuildNewBarTwoArgs[] | false, alias?: string  } 
   | { name: 'ultimateOne', args?: [] | false, alias?: string  } 
   | { name: 'ultimateTwo', args?: [] | false, alias?: string  } 
-  | { name: 'mundus', args?: [] | false, alias?: string  } 
+  | { name: 'mundusStone', args?: [] | false, alias?: string  } 
   | { name: 'buff', args?: [] | false, alias?: string  } 
 
 type BuildFields =
@@ -1220,7 +1134,7 @@ type BuildFields =
   | 'newBarTwo'
   | 'ultimateOne'
   | 'ultimateTwo'
-  | 'mundus'
+  | 'mundusStone'
   | 'buff'
 
 
@@ -1469,8 +1383,8 @@ export interface BuildFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Skill | null> | prisma.Skill | null
   }
-  mundus: {
-    type: 'Mundus'
+  mundusStone: {
+    type: 'MundusStone'
     args: {}
     description: string
     list: undefined
@@ -1480,10 +1394,10 @@ export interface BuildFieldDetails {
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Mundus | null> | prisma.Mundus | null
+    ) => Promise<prisma.MundusStone | null> | prisma.MundusStone | null
   }
   buff: {
-    type: 'SpecialBuff'
+    type: 'Buff'
     args: {}
     description: string
     list: undefined
@@ -1493,7 +1407,7 @@ export interface BuildFieldDetails {
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuff | null> | prisma.SpecialBuff | null
+    ) => Promise<prisma.Buff | null> | prisma.Buff | null
   }
 }
   
@@ -1799,12 +1713,16 @@ type ModificationObject =
   | ModificationFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'itemType', args?: [] | false, alias?: string  } 
+  | { name: 'modificationType', args?: [] | false, alias?: string  } 
   | { name: 'description', args?: [] | false, alias?: string  } 
   | { name: 'icon', args?: [] | false, alias?: string  } 
 
 type ModificationFields =
   | 'id'
   | 'type'
+  | 'itemType'
+  | 'modificationType'
   | 'description'
   | 'icon'
 
@@ -1822,6 +1740,22 @@ export interface ModificationFieldDetails {
     resolve: undefined
   }
   type: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  itemType: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  modificationType: {
     type: 'String'
     args: {}
     description: string
@@ -2073,20 +2007,24 @@ export interface SkillFieldDetails {
 }
   
 
-// Types for Mundus
+// Types for MundusStone
 
-type MundusObject =
-  | MundusFields
+type MundusStoneObject =
+  | MundusStoneFields
   | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'location', args?: [] | false, alias?: string  } 
+  | { name: 'aldmeri', args?: [] | false, alias?: string  } 
+  | { name: 'daggerfall', args?: [] | false, alias?: string  } 
+  | { name: 'ebonheart', args?: [] | false, alias?: string  } 
   | { name: 'effect', args?: [] | false, alias?: string  } 
   | { name: 'value', args?: [] | false, alias?: string  } 
   | { name: 'icon', args?: [] | false, alias?: string  } 
   | { name: 'id', args?: [] | false, alias?: string  } 
 
-type MundusFields =
+type MundusStoneFields =
   | 'name'
-  | 'location'
+  | 'aldmeri'
+  | 'daggerfall'
+  | 'ebonheart'
   | 'effect'
   | 'value'
   | 'icon'
@@ -2096,85 +2034,9 @@ type MundusFields =
 
   
 
-export interface MundusFieldDetails {
+export interface MundusStoneFieldDetails {
   name: {
     type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  location: {
-    type: 'Location'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mundus">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location | null> | prisma.Location | null
-  }
-  effect: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  value: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  icon: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  id: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for Location
-
-type LocationObject =
-  | LocationFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'aldmeri', args?: [] | false, alias?: string  } 
-  | { name: 'daggerfall', args?: [] | false, alias?: string  } 
-  | { name: 'ebonheart', args?: [] | false, alias?: string  } 
-
-type LocationFields =
-  | 'id'
-  | 'aldmeri'
-  | 'daggerfall'
-  | 'ebonheart'
-
-
-
-  
-
-export interface LocationFieldDetails {
-  id: {
-    type: 'ID'
     args: {}
     description: string
     list: undefined
@@ -2205,13 +2067,45 @@ export interface LocationFieldDetails {
     nullable: true
     resolve: undefined
   }
+  effect: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  value: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  icon: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
 }
   
 
-// Types for SpecialBuff
+// Types for Buff
 
-type SpecialBuffObject =
-  | SpecialBuffFields
+type BuffObject =
+  | BuffFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'buffDescription', args?: [] | false, alias?: string  } 
@@ -2220,9 +2114,10 @@ type SpecialBuffObject =
   | { name: 'notes', args?: [] | false, alias?: string  } 
   | { name: 'icon', args?: [] | false, alias?: string  } 
   | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'buffType', args?: [] | false, alias?: string  } 
   | { name: 'quality', args?: [] | false, alias?: string  } 
 
-type SpecialBuffFields =
+type BuffFields =
   | 'id'
   | 'name'
   | 'buffDescription'
@@ -2231,13 +2126,14 @@ type SpecialBuffFields =
   | 'notes'
   | 'icon'
   | 'type'
+  | 'buffType'
   | 'quality'
 
 
 
   
 
-export interface SpecialBuffFieldDetails {
+export interface BuffFieldDetails {
   id: {
     type: 'ID'
     args: {}
@@ -2295,6 +2191,14 @@ export interface SpecialBuffFieldDetails {
     resolve: undefined
   }
   type: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  buffType: {
     type: 'String'
     args: {}
     description: string
@@ -2618,15 +2522,15 @@ export interface AggregateUserFieldDetails {
 }
   
 
-// Types for LocationConnection
+// Types for MundusStoneConnection
 
-type LocationConnectionObject =
-  | LocationConnectionFields
+type MundusStoneConnectionObject =
+  | MundusStoneConnectionFields
   | { name: 'pageInfo', args?: [] | false, alias?: string  } 
   | { name: 'edges', args?: [] | false, alias?: string  } 
   | { name: 'aggregate', args?: [] | false, alias?: string  } 
 
-type LocationConnectionFields =
+type MundusStoneConnectionFields =
   | 'pageInfo'
   | 'edges'
   | 'aggregate'
@@ -2635,7 +2539,7 @@ type LocationConnectionFields =
 
   
 
-export interface LocationConnectionFieldDetails {
+export interface MundusStoneConnectionFieldDetails {
   pageInfo: {
     type: 'PageInfo'
     args: {}
@@ -2643,49 +2547,49 @@ export interface LocationConnectionFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"LocationConnection">,
+      root: core.RootValue<"MundusStoneConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PageInfo> | prisma.PageInfo
   }
   edges: {
-    type: 'LocationEdge'
+    type: 'MundusStoneEdge'
     args: {}
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"LocationConnection">,
+      root: core.RootValue<"MundusStoneConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.LocationEdge[]> | prisma.LocationEdge[]
+    ) => Promise<prisma.MundusStoneEdge[]> | prisma.MundusStoneEdge[]
   }
   aggregate: {
-    type: 'AggregateLocation'
+    type: 'AggregateMundusStone'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"LocationConnection">,
+      root: core.RootValue<"MundusStoneConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateLocation> | prisma.AggregateLocation
+    ) => Promise<prisma.AggregateMundusStone> | prisma.AggregateMundusStone
   }
 }
   
 
-// Types for LocationEdge
+// Types for MundusStoneEdge
 
-type LocationEdgeObject =
-  | LocationEdgeFields
+type MundusStoneEdgeObject =
+  | MundusStoneEdgeFields
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'cursor', args?: [] | false, alias?: string  } 
 
-type LocationEdgeFields =
+type MundusStoneEdgeFields =
   | 'node'
   | 'cursor'
 
@@ -2693,19 +2597,19 @@ type LocationEdgeFields =
 
   
 
-export interface LocationEdgeFieldDetails {
+export interface MundusStoneEdgeFieldDetails {
   node: {
-    type: 'Location'
+    type: 'MundusStone'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"LocationEdge">,
+      root: core.RootValue<"MundusStoneEdge">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location> | prisma.Location
+    ) => Promise<prisma.MundusStone> | prisma.MundusStone
   }
   cursor: {
     type: 'String'
@@ -2718,20 +2622,20 @@ export interface LocationEdgeFieldDetails {
 }
   
 
-// Types for AggregateLocation
+// Types for AggregateMundusStone
 
-type AggregateLocationObject =
-  | AggregateLocationFields
+type AggregateMundusStoneObject =
+  | AggregateMundusStoneFields
   | { name: 'count', args?: [] | false, alias?: string  } 
 
-type AggregateLocationFields =
+type AggregateMundusStoneFields =
   | 'count'
 
 
 
   
 
-export interface AggregateLocationFieldDetails {
+export interface AggregateMundusStoneFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -2743,15 +2647,15 @@ export interface AggregateLocationFieldDetails {
 }
   
 
-// Types for MundusConnection
+// Types for BuffConnection
 
-type MundusConnectionObject =
-  | MundusConnectionFields
+type BuffConnectionObject =
+  | BuffConnectionFields
   | { name: 'pageInfo', args?: [] | false, alias?: string  } 
   | { name: 'edges', args?: [] | false, alias?: string  } 
   | { name: 'aggregate', args?: [] | false, alias?: string  } 
 
-type MundusConnectionFields =
+type BuffConnectionFields =
   | 'pageInfo'
   | 'edges'
   | 'aggregate'
@@ -2760,7 +2664,7 @@ type MundusConnectionFields =
 
   
 
-export interface MundusConnectionFieldDetails {
+export interface BuffConnectionFieldDetails {
   pageInfo: {
     type: 'PageInfo'
     args: {}
@@ -2768,49 +2672,49 @@ export interface MundusConnectionFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"MundusConnection">,
+      root: core.RootValue<"BuffConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PageInfo> | prisma.PageInfo
   }
   edges: {
-    type: 'MundusEdge'
+    type: 'BuffEdge'
     args: {}
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"MundusConnection">,
+      root: core.RootValue<"BuffConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.MundusEdge[]> | prisma.MundusEdge[]
+    ) => Promise<prisma.BuffEdge[]> | prisma.BuffEdge[]
   }
   aggregate: {
-    type: 'AggregateMundus'
+    type: 'AggregateBuff'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"MundusConnection">,
+      root: core.RootValue<"BuffConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateMundus> | prisma.AggregateMundus
+    ) => Promise<prisma.AggregateBuff> | prisma.AggregateBuff
   }
 }
   
 
-// Types for MundusEdge
+// Types for BuffEdge
 
-type MundusEdgeObject =
-  | MundusEdgeFields
+type BuffEdgeObject =
+  | BuffEdgeFields
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'cursor', args?: [] | false, alias?: string  } 
 
-type MundusEdgeFields =
+type BuffEdgeFields =
   | 'node'
   | 'cursor'
 
@@ -2818,19 +2722,19 @@ type MundusEdgeFields =
 
   
 
-export interface MundusEdgeFieldDetails {
+export interface BuffEdgeFieldDetails {
   node: {
-    type: 'Mundus'
+    type: 'Buff'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"MundusEdge">,
+      root: core.RootValue<"BuffEdge">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Mundus> | prisma.Mundus
+    ) => Promise<prisma.Buff> | prisma.Buff
   }
   cursor: {
     type: 'String'
@@ -2843,145 +2747,20 @@ export interface MundusEdgeFieldDetails {
 }
   
 
-// Types for AggregateMundus
+// Types for AggregateBuff
 
-type AggregateMundusObject =
-  | AggregateMundusFields
+type AggregateBuffObject =
+  | AggregateBuffFields
   | { name: 'count', args?: [] | false, alias?: string  } 
 
-type AggregateMundusFields =
+type AggregateBuffFields =
   | 'count'
 
 
 
   
 
-export interface AggregateMundusFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for SpecialBuffConnection
-
-type SpecialBuffConnectionObject =
-  | SpecialBuffConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type SpecialBuffConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface SpecialBuffConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"SpecialBuffConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'SpecialBuffEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"SpecialBuffConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuffEdge[]> | prisma.SpecialBuffEdge[]
-  }
-  aggregate: {
-    type: 'AggregateSpecialBuff'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"SpecialBuffConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateSpecialBuff> | prisma.AggregateSpecialBuff
-  }
-}
-  
-
-// Types for SpecialBuffEdge
-
-type SpecialBuffEdgeObject =
-  | SpecialBuffEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type SpecialBuffEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface SpecialBuffEdgeFieldDetails {
-  node: {
-    type: 'SpecialBuff'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"SpecialBuffEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuff> | prisma.SpecialBuff
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateSpecialBuff
-
-type AggregateSpecialBuffObject =
-  | AggregateSpecialBuffFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateSpecialBuffFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateSpecialBuffFieldDetails {
+export interface AggregateBuffFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -3759,24 +3538,18 @@ type MutationObject =
   | { name: 'upsertUser', args?: MutationUpsertUserArgs[] | false, alias?: string  } 
   | { name: 'deleteUser', args?: MutationDeleteUserArgs[] | false, alias?: string  } 
   | { name: 'deleteManyUsers', args?: MutationDeleteManyUsersArgs[] | false, alias?: string  } 
-  | { name: 'createLocation', args?: MutationCreateLocationArgs[] | false, alias?: string  } 
-  | { name: 'updateLocation', args?: MutationUpdateLocationArgs[] | false, alias?: string  } 
-  | { name: 'updateManyLocations', args?: MutationUpdateManyLocationsArgs[] | false, alias?: string  } 
-  | { name: 'upsertLocation', args?: MutationUpsertLocationArgs[] | false, alias?: string  } 
-  | { name: 'deleteLocation', args?: MutationDeleteLocationArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyLocations', args?: MutationDeleteManyLocationsArgs[] | false, alias?: string  } 
-  | { name: 'createMundus', args?: MutationCreateMundusArgs[] | false, alias?: string  } 
-  | { name: 'updateMundus', args?: MutationUpdateMundusArgs[] | false, alias?: string  } 
-  | { name: 'updateManyMunduses', args?: MutationUpdateManyMundusesArgs[] | false, alias?: string  } 
-  | { name: 'upsertMundus', args?: MutationUpsertMundusArgs[] | false, alias?: string  } 
-  | { name: 'deleteMundus', args?: MutationDeleteMundusArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyMunduses', args?: MutationDeleteManyMundusesArgs[] | false, alias?: string  } 
-  | { name: 'createSpecialBuff', args?: MutationCreateSpecialBuffArgs[] | false, alias?: string  } 
-  | { name: 'updateSpecialBuff', args?: MutationUpdateSpecialBuffArgs[] | false, alias?: string  } 
-  | { name: 'updateManySpecialBuffs', args?: MutationUpdateManySpecialBuffsArgs[] | false, alias?: string  } 
-  | { name: 'upsertSpecialBuff', args?: MutationUpsertSpecialBuffArgs[] | false, alias?: string  } 
-  | { name: 'deleteSpecialBuff', args?: MutationDeleteSpecialBuffArgs[] | false, alias?: string  } 
-  | { name: 'deleteManySpecialBuffs', args?: MutationDeleteManySpecialBuffsArgs[] | false, alias?: string  } 
+  | { name: 'createMundusStone', args?: MutationCreateMundusStoneArgs[] | false, alias?: string  } 
+  | { name: 'updateMundusStone', args?: MutationUpdateMundusStoneArgs[] | false, alias?: string  } 
+  | { name: 'updateManyMundusStones', args?: MutationUpdateManyMundusStonesArgs[] | false, alias?: string  } 
+  | { name: 'upsertMundusStone', args?: MutationUpsertMundusStoneArgs[] | false, alias?: string  } 
+  | { name: 'deleteMundusStone', args?: MutationDeleteMundusStoneArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyMundusStones', args?: MutationDeleteManyMundusStonesArgs[] | false, alias?: string  } 
+  | { name: 'createBuff', args?: MutationCreateBuffArgs[] | false, alias?: string  } 
+  | { name: 'updateBuff', args?: MutationUpdateBuffArgs[] | false, alias?: string  } 
+  | { name: 'updateManyBuffs', args?: MutationUpdateManyBuffsArgs[] | false, alias?: string  } 
+  | { name: 'upsertBuff', args?: MutationUpsertBuffArgs[] | false, alias?: string  } 
+  | { name: 'deleteBuff', args?: MutationDeleteBuffArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyBuffs', args?: MutationDeleteManyBuffsArgs[] | false, alias?: string  } 
   | { name: 'createSetSelection', args?: MutationCreateSetSelectionArgs[] | false, alias?: string  } 
   | { name: 'updateSetSelection', args?: MutationUpdateSetSelectionArgs[] | false, alias?: string  } 
   | { name: 'updateManySetSelections', args?: MutationUpdateManySetSelectionsArgs[] | false, alias?: string  } 
@@ -3827,24 +3600,18 @@ type MutationFields =
   | 'upsertUser'
   | 'deleteUser'
   | 'deleteManyUsers'
-  | 'createLocation'
-  | 'updateLocation'
-  | 'updateManyLocations'
-  | 'upsertLocation'
-  | 'deleteLocation'
-  | 'deleteManyLocations'
-  | 'createMundus'
-  | 'updateMundus'
-  | 'updateManyMunduses'
-  | 'upsertMundus'
-  | 'deleteMundus'
-  | 'deleteManyMunduses'
-  | 'createSpecialBuff'
-  | 'updateSpecialBuff'
-  | 'updateManySpecialBuffs'
-  | 'upsertSpecialBuff'
-  | 'deleteSpecialBuff'
-  | 'deleteManySpecialBuffs'
+  | 'createMundusStone'
+  | 'updateMundusStone'
+  | 'updateManyMundusStones'
+  | 'upsertMundusStone'
+  | 'deleteMundusStone'
+  | 'deleteManyMundusStones'
+  | 'createBuff'
+  | 'updateBuff'
+  | 'updateManyBuffs'
+  | 'upsertBuff'
+  | 'deleteBuff'
+  | 'deleteManyBuffs'
   | 'createSetSelection'
   | 'updateSetSelection'
   | 'updateManySetSelections'
@@ -3915,53 +3682,37 @@ type MutationDeleteUserArgs =
   | 'where'
 type MutationDeleteManyUsersArgs =
   | 'where'
-type MutationCreateLocationArgs =
+type MutationCreateMundusStoneArgs =
   | 'data'
-type MutationUpdateLocationArgs =
-  | 'data'
-  | 'where'
-type MutationUpdateManyLocationsArgs =
+type MutationUpdateMundusStoneArgs =
   | 'data'
   | 'where'
-type MutationUpsertLocationArgs =
+type MutationUpdateManyMundusStonesArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertMundusStoneArgs =
   | 'where'
   | 'create'
   | 'update'
-type MutationDeleteLocationArgs =
+type MutationDeleteMundusStoneArgs =
   | 'where'
-type MutationDeleteManyLocationsArgs =
+type MutationDeleteManyMundusStonesArgs =
   | 'where'
-type MutationCreateMundusArgs =
+type MutationCreateBuffArgs =
   | 'data'
-type MutationUpdateMundusArgs =
-  | 'data'
-  | 'where'
-type MutationUpdateManyMundusesArgs =
+type MutationUpdateBuffArgs =
   | 'data'
   | 'where'
-type MutationUpsertMundusArgs =
+type MutationUpdateManyBuffsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertBuffArgs =
   | 'where'
   | 'create'
   | 'update'
-type MutationDeleteMundusArgs =
+type MutationDeleteBuffArgs =
   | 'where'
-type MutationDeleteManyMundusesArgs =
-  | 'where'
-type MutationCreateSpecialBuffArgs =
-  | 'data'
-type MutationUpdateSpecialBuffArgs =
-  | 'data'
-  | 'where'
-type MutationUpdateManySpecialBuffsArgs =
-  | 'data'
-  | 'where'
-type MutationUpsertSpecialBuffArgs =
-  | 'where'
-  | 'create'
-  | 'update'
-type MutationDeleteSpecialBuffArgs =
-  | 'where'
-type MutationDeleteManySpecialBuffsArgs =
+type MutationDeleteManyBuffsArgs =
   | 'where'
 type MutationCreateSetSelectionArgs =
   | 'data'
@@ -4218,236 +3969,158 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  createLocation: {
-    type: 'Location'
-    args: Record<MutationCreateLocationArgs, core.NexusArgDef<string>>
+  createMundusStone: {
+    type: 'MundusStone'
+    args: Record<MutationCreateMundusStoneArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: LocationCreateInput }  ,
+      args: { data: MundusStoneCreateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location> | prisma.Location
+    ) => Promise<prisma.MundusStone> | prisma.MundusStone
   }
-  updateLocation: {
-    type: 'Location'
-    args: Record<MutationUpdateLocationArgs, core.NexusArgDef<string>>
+  updateMundusStone: {
+    type: 'MundusStone'
+    args: Record<MutationUpdateMundusStoneArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: LocationUpdateInput, where: LocationWhereUniqueInput }  ,
+      args: { data: MundusStoneUpdateInput, where: MundusStoneWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location | null> | prisma.Location | null
+    ) => Promise<prisma.MundusStone | null> | prisma.MundusStone | null
   }
-  updateManyLocations: {
+  updateManyMundusStones: {
     type: 'BatchPayload'
-    args: Record<MutationUpdateManyLocationsArgs, core.NexusArgDef<string>>
+    args: Record<MutationUpdateManyMundusStonesArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: LocationUpdateManyMutationInput, where?: LocationWhereInput | null }  ,
+      args: { data: MundusStoneUpdateManyMutationInput, where?: MundusStoneWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  upsertLocation: {
-    type: 'Location'
-    args: Record<MutationUpsertLocationArgs, core.NexusArgDef<string>>
+  upsertMundusStone: {
+    type: 'MundusStone'
+    args: Record<MutationUpsertMundusStoneArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: LocationWhereUniqueInput, create: LocationCreateInput, update: LocationUpdateInput }  ,
+      args: { where: MundusStoneWhereUniqueInput, create: MundusStoneCreateInput, update: MundusStoneUpdateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location> | prisma.Location
+    ) => Promise<prisma.MundusStone> | prisma.MundusStone
   }
-  deleteLocation: {
-    type: 'Location'
-    args: Record<MutationDeleteLocationArgs, core.NexusArgDef<string>>
+  deleteMundusStone: {
+    type: 'MundusStone'
+    args: Record<MutationDeleteMundusStoneArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: LocationWhereUniqueInput }  ,
+      args: { where: MundusStoneWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location | null> | prisma.Location | null
+    ) => Promise<prisma.MundusStone | null> | prisma.MundusStone | null
   }
-  deleteManyLocations: {
+  deleteManyMundusStones: {
     type: 'BatchPayload'
-    args: Record<MutationDeleteManyLocationsArgs, core.NexusArgDef<string>>
+    args: Record<MutationDeleteManyMundusStonesArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where?: LocationWhereInput | null }  ,
+      args: { where?: MundusStoneWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  createMundus: {
-    type: 'Mundus'
-    args: Record<MutationCreateMundusArgs, core.NexusArgDef<string>>
+  createBuff: {
+    type: 'Buff'
+    args: Record<MutationCreateBuffArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: MundusCreateInput }  ,
+      args: { data: BuffCreateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Mundus> | prisma.Mundus
+    ) => Promise<prisma.Buff> | prisma.Buff
   }
-  updateMundus: {
-    type: 'Mundus'
-    args: Record<MutationUpdateMundusArgs, core.NexusArgDef<string>>
+  updateBuff: {
+    type: 'Buff'
+    args: Record<MutationUpdateBuffArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: MundusUpdateInput, where: MundusWhereUniqueInput }  ,
+      args: { data: BuffUpdateInput, where: BuffWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Mundus | null> | prisma.Mundus | null
+    ) => Promise<prisma.Buff | null> | prisma.Buff | null
   }
-  updateManyMunduses: {
+  updateManyBuffs: {
     type: 'BatchPayload'
-    args: Record<MutationUpdateManyMundusesArgs, core.NexusArgDef<string>>
+    args: Record<MutationUpdateManyBuffsArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: MundusUpdateManyMutationInput, where?: MundusWhereInput | null }  ,
+      args: { data: BuffUpdateManyMutationInput, where?: BuffWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  upsertMundus: {
-    type: 'Mundus'
-    args: Record<MutationUpsertMundusArgs, core.NexusArgDef<string>>
+  upsertBuff: {
+    type: 'Buff'
+    args: Record<MutationUpsertBuffArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: MundusWhereUniqueInput, create: MundusCreateInput, update: MundusUpdateInput }  ,
+      args: { where: BuffWhereUniqueInput, create: BuffCreateInput, update: BuffUpdateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Mundus> | prisma.Mundus
+    ) => Promise<prisma.Buff> | prisma.Buff
   }
-  deleteMundus: {
-    type: 'Mundus'
-    args: Record<MutationDeleteMundusArgs, core.NexusArgDef<string>>
+  deleteBuff: {
+    type: 'Buff'
+    args: Record<MutationDeleteBuffArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: MundusWhereUniqueInput }  ,
+      args: { where: BuffWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Mundus | null> | prisma.Mundus | null
+    ) => Promise<prisma.Buff | null> | prisma.Buff | null
   }
-  deleteManyMunduses: {
+  deleteManyBuffs: {
     type: 'BatchPayload'
-    args: Record<MutationDeleteManyMundusesArgs, core.NexusArgDef<string>>
+    args: Record<MutationDeleteManyBuffsArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where?: MundusWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
-  createSpecialBuff: {
-    type: 'SpecialBuff'
-    args: Record<MutationCreateSpecialBuffArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: SpecialBuffCreateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuff> | prisma.SpecialBuff
-  }
-  updateSpecialBuff: {
-    type: 'SpecialBuff'
-    args: Record<MutationUpdateSpecialBuffArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: SpecialBuffUpdateInput, where: SpecialBuffWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuff | null> | prisma.SpecialBuff | null
-  }
-  updateManySpecialBuffs: {
-    type: 'BatchPayload'
-    args: Record<MutationUpdateManySpecialBuffsArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: SpecialBuffUpdateManyMutationInput, where?: SpecialBuffWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
-  upsertSpecialBuff: {
-    type: 'SpecialBuff'
-    args: Record<MutationUpsertSpecialBuffArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: SpecialBuffWhereUniqueInput, create: SpecialBuffCreateInput, update: SpecialBuffUpdateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuff> | prisma.SpecialBuff
-  }
-  deleteSpecialBuff: {
-    type: 'SpecialBuff'
-    args: Record<MutationDeleteSpecialBuffArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: SpecialBuffWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuff | null> | prisma.SpecialBuff | null
-  }
-  deleteManySpecialBuffs: {
-    type: 'BatchPayload'
-    args: Record<MutationDeleteManySpecialBuffsArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where?: SpecialBuffWhereInput | null }  ,
+      args: { where?: BuffWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -4954,9 +4627,8 @@ type SubscriptionObject =
   | SubscriptionFields
   | { name: 'post', args?: SubscriptionPostArgs[] | false, alias?: string  } 
   | { name: 'user', args?: SubscriptionUserArgs[] | false, alias?: string  } 
-  | { name: 'location', args?: SubscriptionLocationArgs[] | false, alias?: string  } 
-  | { name: 'mundus', args?: SubscriptionMundusArgs[] | false, alias?: string  } 
-  | { name: 'specialBuff', args?: SubscriptionSpecialBuffArgs[] | false, alias?: string  } 
+  | { name: 'mundusStone', args?: SubscriptionMundusStoneArgs[] | false, alias?: string  } 
+  | { name: 'buff', args?: SubscriptionBuffArgs[] | false, alias?: string  } 
   | { name: 'setSelection', args?: SubscriptionSetSelectionArgs[] | false, alias?: string  } 
   | { name: 'set', args?: SubscriptionSetArgs[] | false, alias?: string  } 
   | { name: 'modification', args?: SubscriptionModificationArgs[] | false, alias?: string  } 
@@ -4967,9 +4639,8 @@ type SubscriptionObject =
 type SubscriptionFields =
   | 'post'
   | 'user'
-  | 'location'
-  | 'mundus'
-  | 'specialBuff'
+  | 'mundusStone'
+  | 'buff'
   | 'setSelection'
   | 'set'
   | 'modification'
@@ -4982,11 +4653,9 @@ type SubscriptionPostArgs =
   | 'where'
 type SubscriptionUserArgs =
   | 'where'
-type SubscriptionLocationArgs =
+type SubscriptionMundusStoneArgs =
   | 'where'
-type SubscriptionMundusArgs =
-  | 'where'
-type SubscriptionSpecialBuffArgs =
+type SubscriptionBuffArgs =
   | 'where'
 type SubscriptionSetSelectionArgs =
   | 'where'
@@ -5029,44 +4698,31 @@ export interface SubscriptionFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserSubscriptionPayload | null> | prisma.UserSubscriptionPayload | null
   }
-  location: {
-    type: 'LocationSubscriptionPayload'
-    args: Record<SubscriptionLocationArgs, core.NexusArgDef<string>>
+  mundusStone: {
+    type: 'MundusStoneSubscriptionPayload'
+    args: Record<SubscriptionMundusStoneArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Subscription">,
-      args: { where?: LocationSubscriptionWhereInput | null }  ,
+      args: { where?: MundusStoneSubscriptionWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.LocationSubscriptionPayload | null> | prisma.LocationSubscriptionPayload | null
+    ) => Promise<prisma.MundusStoneSubscriptionPayload | null> | prisma.MundusStoneSubscriptionPayload | null
   }
-  mundus: {
-    type: 'MundusSubscriptionPayload'
-    args: Record<SubscriptionMundusArgs, core.NexusArgDef<string>>
+  buff: {
+    type: 'BuffSubscriptionPayload'
+    args: Record<SubscriptionBuffArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Subscription">,
-      args: { where?: MundusSubscriptionWhereInput | null }  ,
+      args: { where?: BuffSubscriptionWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.MundusSubscriptionPayload | null> | prisma.MundusSubscriptionPayload | null
-  }
-  specialBuff: {
-    type: 'SpecialBuffSubscriptionPayload'
-    args: Record<SubscriptionSpecialBuffArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Subscription">,
-      args: { where?: SpecialBuffSubscriptionWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuffSubscriptionPayload | null> | prisma.SpecialBuffSubscriptionPayload | null
+    ) => Promise<prisma.BuffSubscriptionPayload | null> | prisma.BuffSubscriptionPayload | null
   }
   setSelection: {
     type: 'SetSelectionSubscriptionPayload'
@@ -5419,16 +5075,16 @@ export interface UserPreviousValuesFieldDetails {
 }
   
 
-// Types for LocationSubscriptionPayload
+// Types for MundusStoneSubscriptionPayload
 
-type LocationSubscriptionPayloadObject =
-  | LocationSubscriptionPayloadFields
+type MundusStoneSubscriptionPayloadObject =
+  | MundusStoneSubscriptionPayloadFields
   | { name: 'mutation', args?: [] | false, alias?: string  } 
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'updatedFields', args?: [] | false, alias?: string  } 
   | { name: 'previousValues', args?: [] | false, alias?: string  } 
 
-type LocationSubscriptionPayloadFields =
+type MundusStoneSubscriptionPayloadFields =
   | 'mutation'
   | 'node'
   | 'updatedFields'
@@ -5438,7 +5094,7 @@ type LocationSubscriptionPayloadFields =
 
   
 
-export interface LocationSubscriptionPayloadFieldDetails {
+export interface MundusStoneSubscriptionPayloadFieldDetails {
   mutation: {
     type: 'MutationType'
     args: {}
@@ -5446,24 +5102,24 @@ export interface LocationSubscriptionPayloadFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"LocationSubscriptionPayload">,
+      root: core.RootValue<"MundusStoneSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.MutationType> | prisma.MutationType
   }
   node: {
-    type: 'Location'
+    type: 'MundusStone'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"LocationSubscriptionPayload">,
+      root: core.RootValue<"MundusStoneSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location | null> | prisma.Location | null
+    ) => Promise<prisma.MundusStone | null> | prisma.MundusStone | null
   }
   updatedFields: {
     type: 'String'
@@ -5474,43 +5130,51 @@ export interface LocationSubscriptionPayloadFieldDetails {
     resolve: undefined
   }
   previousValues: {
-    type: 'LocationPreviousValues'
+    type: 'MundusStonePreviousValues'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"LocationSubscriptionPayload">,
+      root: core.RootValue<"MundusStoneSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.LocationPreviousValues | null> | prisma.LocationPreviousValues | null
+    ) => Promise<prisma.MundusStonePreviousValues | null> | prisma.MundusStonePreviousValues | null
   }
 }
   
 
-// Types for LocationPreviousValues
+// Types for MundusStonePreviousValues
 
-type LocationPreviousValuesObject =
-  | LocationPreviousValuesFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
+type MundusStonePreviousValuesObject =
+  | MundusStonePreviousValuesFields
+  | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'aldmeri', args?: [] | false, alias?: string  } 
   | { name: 'daggerfall', args?: [] | false, alias?: string  } 
   | { name: 'ebonheart', args?: [] | false, alias?: string  } 
+  | { name: 'effect', args?: [] | false, alias?: string  } 
+  | { name: 'value', args?: [] | false, alias?: string  } 
+  | { name: 'icon', args?: [] | false, alias?: string  } 
+  | { name: 'id', args?: [] | false, alias?: string  } 
 
-type LocationPreviousValuesFields =
-  | 'id'
+type MundusStonePreviousValuesFields =
+  | 'name'
   | 'aldmeri'
   | 'daggerfall'
   | 'ebonheart'
+  | 'effect'
+  | 'value'
+  | 'icon'
+  | 'id'
 
 
 
   
 
-export interface LocationPreviousValuesFieldDetails {
-  id: {
-    type: 'ID'
+export interface MundusStonePreviousValuesFieldDetails {
+  name: {
+    type: 'String'
     args: {}
     description: string
     list: undefined
@@ -5541,109 +5205,6 @@ export interface LocationPreviousValuesFieldDetails {
     nullable: true
     resolve: undefined
   }
-}
-  
-
-// Types for MundusSubscriptionPayload
-
-type MundusSubscriptionPayloadObject =
-  | MundusSubscriptionPayloadFields
-  | { name: 'mutation', args?: [] | false, alias?: string  } 
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
-  | { name: 'previousValues', args?: [] | false, alias?: string  } 
-
-type MundusSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-  | 'previousValues'
-
-
-
-  
-
-export interface MundusSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"MundusSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MutationType> | prisma.MutationType
-  }
-  node: {
-    type: 'Mundus'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"MundusSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Mundus | null> | prisma.Mundus | null
-  }
-  updatedFields: {
-    type: 'String'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: undefined
-  }
-  previousValues: {
-    type: 'MundusPreviousValues'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"MundusSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MundusPreviousValues | null> | prisma.MundusPreviousValues | null
-  }
-}
-  
-
-// Types for MundusPreviousValues
-
-type MundusPreviousValuesObject =
-  | MundusPreviousValuesFields
-  | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'effect', args?: [] | false, alias?: string  } 
-  | { name: 'value', args?: [] | false, alias?: string  } 
-  | { name: 'icon', args?: [] | false, alias?: string  } 
-  | { name: 'id', args?: [] | false, alias?: string  } 
-
-type MundusPreviousValuesFields =
-  | 'name'
-  | 'effect'
-  | 'value'
-  | 'icon'
-  | 'id'
-
-
-
-  
-
-export interface MundusPreviousValuesFieldDetails {
-  name: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
   effect: {
     type: 'String'
     args: {}
@@ -5669,7 +5230,7 @@ export interface MundusPreviousValuesFieldDetails {
     resolve: undefined
   }
   id: {
-    type: 'Int'
+    type: 'ID'
     args: {}
     description: string
     list: undefined
@@ -5679,16 +5240,16 @@ export interface MundusPreviousValuesFieldDetails {
 }
   
 
-// Types for SpecialBuffSubscriptionPayload
+// Types for BuffSubscriptionPayload
 
-type SpecialBuffSubscriptionPayloadObject =
-  | SpecialBuffSubscriptionPayloadFields
+type BuffSubscriptionPayloadObject =
+  | BuffSubscriptionPayloadFields
   | { name: 'mutation', args?: [] | false, alias?: string  } 
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'updatedFields', args?: [] | false, alias?: string  } 
   | { name: 'previousValues', args?: [] | false, alias?: string  } 
 
-type SpecialBuffSubscriptionPayloadFields =
+type BuffSubscriptionPayloadFields =
   | 'mutation'
   | 'node'
   | 'updatedFields'
@@ -5698,7 +5259,7 @@ type SpecialBuffSubscriptionPayloadFields =
 
   
 
-export interface SpecialBuffSubscriptionPayloadFieldDetails {
+export interface BuffSubscriptionPayloadFieldDetails {
   mutation: {
     type: 'MutationType'
     args: {}
@@ -5706,24 +5267,24 @@ export interface SpecialBuffSubscriptionPayloadFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"SpecialBuffSubscriptionPayload">,
+      root: core.RootValue<"BuffSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.MutationType> | prisma.MutationType
   }
   node: {
-    type: 'SpecialBuff'
+    type: 'Buff'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"SpecialBuffSubscriptionPayload">,
+      root: core.RootValue<"BuffSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuff | null> | prisma.SpecialBuff | null
+    ) => Promise<prisma.Buff | null> | prisma.Buff | null
   }
   updatedFields: {
     type: 'String'
@@ -5734,25 +5295,25 @@ export interface SpecialBuffSubscriptionPayloadFieldDetails {
     resolve: undefined
   }
   previousValues: {
-    type: 'SpecialBuffPreviousValues'
+    type: 'BuffPreviousValues'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"SpecialBuffSubscriptionPayload">,
+      root: core.RootValue<"BuffSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.SpecialBuffPreviousValues | null> | prisma.SpecialBuffPreviousValues | null
+    ) => Promise<prisma.BuffPreviousValues | null> | prisma.BuffPreviousValues | null
   }
 }
   
 
-// Types for SpecialBuffPreviousValues
+// Types for BuffPreviousValues
 
-type SpecialBuffPreviousValuesObject =
-  | SpecialBuffPreviousValuesFields
+type BuffPreviousValuesObject =
+  | BuffPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'buffDescription', args?: [] | false, alias?: string  } 
@@ -5761,9 +5322,10 @@ type SpecialBuffPreviousValuesObject =
   | { name: 'notes', args?: [] | false, alias?: string  } 
   | { name: 'icon', args?: [] | false, alias?: string  } 
   | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'buffType', args?: [] | false, alias?: string  } 
   | { name: 'quality', args?: [] | false, alias?: string  } 
 
-type SpecialBuffPreviousValuesFields =
+type BuffPreviousValuesFields =
   | 'id'
   | 'name'
   | 'buffDescription'
@@ -5772,13 +5334,14 @@ type SpecialBuffPreviousValuesFields =
   | 'notes'
   | 'icon'
   | 'type'
+  | 'buffType'
   | 'quality'
 
 
 
   
 
-export interface SpecialBuffPreviousValuesFieldDetails {
+export interface BuffPreviousValuesFieldDetails {
   id: {
     type: 'ID'
     args: {}
@@ -5836,6 +5399,14 @@ export interface SpecialBuffPreviousValuesFieldDetails {
     resolve: undefined
   }
   type: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  buffType: {
     type: 'String'
     args: {}
     description: string
@@ -6320,12 +5891,16 @@ type ModificationPreviousValuesObject =
   | ModificationPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'itemType', args?: [] | false, alias?: string  } 
+  | { name: 'modificationType', args?: [] | false, alias?: string  } 
   | { name: 'description', args?: [] | false, alias?: string  } 
   | { name: 'icon', args?: [] | false, alias?: string  } 
 
 type ModificationPreviousValuesFields =
   | 'id'
   | 'type'
+  | 'itemType'
+  | 'modificationType'
   | 'description'
   | 'icon'
 
@@ -6343,6 +5918,22 @@ export interface ModificationPreviousValuesFieldDetails {
     resolve: undefined
   }
   type: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  itemType: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  modificationType: {
     type: 'String'
     args: {}
     description: string
@@ -6981,8 +6572,8 @@ export interface BuildWhereInput {
   newBarTwo_none?: SkillSelectionWhereInput | null
   ultimateOne?: SkillWhereInput | null
   ultimateTwo?: SkillWhereInput | null
-  mundus?: MundusWhereInput | null
-  buff?: SpecialBuffWhereInput | null
+  mundusStone?: MundusStoneWhereInput | null
+  buff?: BuffWhereInput | null
   AND?: BuildWhereInput[]
   OR?: BuildWhereInput[]
   NOT?: BuildWhereInput[]
@@ -7087,7 +6678,7 @@ export type BuildWhereInputInputObject =
   | { name: 'newBarTwo_none', alias?: string  } 
   | { name: 'ultimateOne', alias?: string  } 
   | { name: 'ultimateTwo', alias?: string  } 
-  | { name: 'mundus', alias?: string  } 
+  | { name: 'mundusStone', alias?: string  } 
   | { name: 'buff', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
@@ -7787,6 +7378,34 @@ export interface ModificationWhereInput {
   type_not_starts_with?: string | null
   type_ends_with?: string | null
   type_not_ends_with?: string | null
+  itemType?: string | null
+  itemType_not?: string | null
+  itemType_in?: string[]
+  itemType_not_in?: string[]
+  itemType_lt?: string | null
+  itemType_lte?: string | null
+  itemType_gt?: string | null
+  itemType_gte?: string | null
+  itemType_contains?: string | null
+  itemType_not_contains?: string | null
+  itemType_starts_with?: string | null
+  itemType_not_starts_with?: string | null
+  itemType_ends_with?: string | null
+  itemType_not_ends_with?: string | null
+  modificationType?: string | null
+  modificationType_not?: string | null
+  modificationType_in?: string[]
+  modificationType_not_in?: string[]
+  modificationType_lt?: string | null
+  modificationType_lte?: string | null
+  modificationType_gt?: string | null
+  modificationType_gte?: string | null
+  modificationType_contains?: string | null
+  modificationType_not_contains?: string | null
+  modificationType_starts_with?: string | null
+  modificationType_not_starts_with?: string | null
+  modificationType_ends_with?: string | null
+  modificationType_not_ends_with?: string | null
   description?: string | null
   description_not?: string | null
   description_in?: string[]
@@ -7849,6 +7468,34 @@ export type ModificationWhereInputInputObject =
   | { name: 'type_not_starts_with', alias?: string  } 
   | { name: 'type_ends_with', alias?: string  } 
   | { name: 'type_not_ends_with', alias?: string  } 
+  | { name: 'itemType', alias?: string  } 
+  | { name: 'itemType_not', alias?: string  } 
+  | { name: 'itemType_in', alias?: string  } 
+  | { name: 'itemType_not_in', alias?: string  } 
+  | { name: 'itemType_lt', alias?: string  } 
+  | { name: 'itemType_lte', alias?: string  } 
+  | { name: 'itemType_gt', alias?: string  } 
+  | { name: 'itemType_gte', alias?: string  } 
+  | { name: 'itemType_contains', alias?: string  } 
+  | { name: 'itemType_not_contains', alias?: string  } 
+  | { name: 'itemType_starts_with', alias?: string  } 
+  | { name: 'itemType_not_starts_with', alias?: string  } 
+  | { name: 'itemType_ends_with', alias?: string  } 
+  | { name: 'itemType_not_ends_with', alias?: string  } 
+  | { name: 'modificationType', alias?: string  } 
+  | { name: 'modificationType_not', alias?: string  } 
+  | { name: 'modificationType_in', alias?: string  } 
+  | { name: 'modificationType_not_in', alias?: string  } 
+  | { name: 'modificationType_lt', alias?: string  } 
+  | { name: 'modificationType_lte', alias?: string  } 
+  | { name: 'modificationType_gt', alias?: string  } 
+  | { name: 'modificationType_gte', alias?: string  } 
+  | { name: 'modificationType_contains', alias?: string  } 
+  | { name: 'modificationType_not_contains', alias?: string  } 
+  | { name: 'modificationType_starts_with', alias?: string  } 
+  | { name: 'modificationType_not_starts_with', alias?: string  } 
+  | { name: 'modificationType_ends_with', alias?: string  } 
+  | { name: 'modificationType_not_ends_with', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'description_not', alias?: string  } 
   | { name: 'description_in', alias?: string  } 
@@ -8325,7 +7972,7 @@ export type SkillWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface MundusWhereInput {
+export interface MundusStoneWhereInput {
   name?: string | null
   name_not?: string | null
   name_in?: string[]
@@ -8340,7 +7987,48 @@ export interface MundusWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
-  location?: LocationWhereInput | null
+  aldmeri?: string | null
+  aldmeri_not?: string | null
+  aldmeri_in?: string[]
+  aldmeri_not_in?: string[]
+  aldmeri_lt?: string | null
+  aldmeri_lte?: string | null
+  aldmeri_gt?: string | null
+  aldmeri_gte?: string | null
+  aldmeri_contains?: string | null
+  aldmeri_not_contains?: string | null
+  aldmeri_starts_with?: string | null
+  aldmeri_not_starts_with?: string | null
+  aldmeri_ends_with?: string | null
+  aldmeri_not_ends_with?: string | null
+  daggerfall?: string | null
+  daggerfall_not?: string | null
+  daggerfall_in?: string[]
+  daggerfall_not_in?: string[]
+  daggerfall_lt?: string | null
+  daggerfall_lte?: string | null
+  daggerfall_gt?: string | null
+  daggerfall_gte?: string | null
+  daggerfall_contains?: string | null
+  daggerfall_not_contains?: string | null
+  daggerfall_starts_with?: string | null
+  daggerfall_not_starts_with?: string | null
+  daggerfall_ends_with?: string | null
+  daggerfall_not_ends_with?: string | null
+  ebonheart?: string | null
+  ebonheart_not?: string | null
+  ebonheart_in?: string[]
+  ebonheart_not_in?: string[]
+  ebonheart_lt?: string | null
+  ebonheart_lte?: string | null
+  ebonheart_gt?: string | null
+  ebonheart_gte?: string | null
+  ebonheart_contains?: string | null
+  ebonheart_not_contains?: string | null
+  ebonheart_starts_with?: string | null
+  ebonheart_not_starts_with?: string | null
+  ebonheart_ends_with?: string | null
+  ebonheart_not_ends_with?: string | null
   effect?: string | null
   effect_not?: string | null
   effect_in?: string[]
@@ -8383,20 +8071,26 @@ export interface MundusWhereInput {
   icon_not_starts_with?: string | null
   icon_ends_with?: string | null
   icon_not_ends_with?: string | null
-  id?: number | null
-  id_not?: number | null
-  id_in?: number[]
-  id_not_in?: number[]
-  id_lt?: number | null
-  id_lte?: number | null
-  id_gt?: number | null
-  id_gte?: number | null
-  AND?: MundusWhereInput[]
-  OR?: MundusWhereInput[]
-  NOT?: MundusWhereInput[]
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  AND?: MundusStoneWhereInput[]
+  OR?: MundusStoneWhereInput[]
+  NOT?: MundusStoneWhereInput[]
 }
-export type MundusWhereInputInputObject =
-  | Extract<keyof MundusWhereInput, string>
+export type MundusStoneWhereInputInputObject =
+  | Extract<keyof MundusStoneWhereInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'name_not', alias?: string  } 
   | { name: 'name_in', alias?: string  } 
@@ -8411,7 +8105,48 @@ export type MundusWhereInputInputObject =
   | { name: 'name_not_starts_with', alias?: string  } 
   | { name: 'name_ends_with', alias?: string  } 
   | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'location', alias?: string  } 
+  | { name: 'aldmeri', alias?: string  } 
+  | { name: 'aldmeri_not', alias?: string  } 
+  | { name: 'aldmeri_in', alias?: string  } 
+  | { name: 'aldmeri_not_in', alias?: string  } 
+  | { name: 'aldmeri_lt', alias?: string  } 
+  | { name: 'aldmeri_lte', alias?: string  } 
+  | { name: 'aldmeri_gt', alias?: string  } 
+  | { name: 'aldmeri_gte', alias?: string  } 
+  | { name: 'aldmeri_contains', alias?: string  } 
+  | { name: 'aldmeri_not_contains', alias?: string  } 
+  | { name: 'aldmeri_starts_with', alias?: string  } 
+  | { name: 'aldmeri_not_starts_with', alias?: string  } 
+  | { name: 'aldmeri_ends_with', alias?: string  } 
+  | { name: 'aldmeri_not_ends_with', alias?: string  } 
+  | { name: 'daggerfall', alias?: string  } 
+  | { name: 'daggerfall_not', alias?: string  } 
+  | { name: 'daggerfall_in', alias?: string  } 
+  | { name: 'daggerfall_not_in', alias?: string  } 
+  | { name: 'daggerfall_lt', alias?: string  } 
+  | { name: 'daggerfall_lte', alias?: string  } 
+  | { name: 'daggerfall_gt', alias?: string  } 
+  | { name: 'daggerfall_gte', alias?: string  } 
+  | { name: 'daggerfall_contains', alias?: string  } 
+  | { name: 'daggerfall_not_contains', alias?: string  } 
+  | { name: 'daggerfall_starts_with', alias?: string  } 
+  | { name: 'daggerfall_not_starts_with', alias?: string  } 
+  | { name: 'daggerfall_ends_with', alias?: string  } 
+  | { name: 'daggerfall_not_ends_with', alias?: string  } 
+  | { name: 'ebonheart', alias?: string  } 
+  | { name: 'ebonheart_not', alias?: string  } 
+  | { name: 'ebonheart_in', alias?: string  } 
+  | { name: 'ebonheart_not_in', alias?: string  } 
+  | { name: 'ebonheart_lt', alias?: string  } 
+  | { name: 'ebonheart_lte', alias?: string  } 
+  | { name: 'ebonheart_gt', alias?: string  } 
+  | { name: 'ebonheart_gte', alias?: string  } 
+  | { name: 'ebonheart_contains', alias?: string  } 
+  | { name: 'ebonheart_not_contains', alias?: string  } 
+  | { name: 'ebonheart_starts_with', alias?: string  } 
+  | { name: 'ebonheart_not_starts_with', alias?: string  } 
+  | { name: 'ebonheart_ends_with', alias?: string  } 
+  | { name: 'ebonheart_not_ends_with', alias?: string  } 
   | { name: 'effect', alias?: string  } 
   | { name: 'effect_not', alias?: string  } 
   | { name: 'effect_in', alias?: string  } 
@@ -8462,134 +8197,17 @@ export type MundusWhereInputInputObject =
   | { name: 'id_lte', alias?: string  } 
   | { name: 'id_gt', alias?: string  } 
   | { name: 'id_gte', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface LocationWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  aldmeri?: string | null
-  aldmeri_not?: string | null
-  aldmeri_in?: string[]
-  aldmeri_not_in?: string[]
-  aldmeri_lt?: string | null
-  aldmeri_lte?: string | null
-  aldmeri_gt?: string | null
-  aldmeri_gte?: string | null
-  aldmeri_contains?: string | null
-  aldmeri_not_contains?: string | null
-  aldmeri_starts_with?: string | null
-  aldmeri_not_starts_with?: string | null
-  aldmeri_ends_with?: string | null
-  aldmeri_not_ends_with?: string | null
-  daggerfall?: string | null
-  daggerfall_not?: string | null
-  daggerfall_in?: string[]
-  daggerfall_not_in?: string[]
-  daggerfall_lt?: string | null
-  daggerfall_lte?: string | null
-  daggerfall_gt?: string | null
-  daggerfall_gte?: string | null
-  daggerfall_contains?: string | null
-  daggerfall_not_contains?: string | null
-  daggerfall_starts_with?: string | null
-  daggerfall_not_starts_with?: string | null
-  daggerfall_ends_with?: string | null
-  daggerfall_not_ends_with?: string | null
-  ebonheart?: string | null
-  ebonheart_not?: string | null
-  ebonheart_in?: string[]
-  ebonheart_not_in?: string[]
-  ebonheart_lt?: string | null
-  ebonheart_lte?: string | null
-  ebonheart_gt?: string | null
-  ebonheart_gte?: string | null
-  ebonheart_contains?: string | null
-  ebonheart_not_contains?: string | null
-  ebonheart_starts_with?: string | null
-  ebonheart_not_starts_with?: string | null
-  ebonheart_ends_with?: string | null
-  ebonheart_not_ends_with?: string | null
-  AND?: LocationWhereInput[]
-  OR?: LocationWhereInput[]
-  NOT?: LocationWhereInput[]
-}
-export type LocationWhereInputInputObject =
-  | Extract<keyof LocationWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
   | { name: 'id_contains', alias?: string  } 
   | { name: 'id_not_contains', alias?: string  } 
   | { name: 'id_starts_with', alias?: string  } 
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'aldmeri', alias?: string  } 
-  | { name: 'aldmeri_not', alias?: string  } 
-  | { name: 'aldmeri_in', alias?: string  } 
-  | { name: 'aldmeri_not_in', alias?: string  } 
-  | { name: 'aldmeri_lt', alias?: string  } 
-  | { name: 'aldmeri_lte', alias?: string  } 
-  | { name: 'aldmeri_gt', alias?: string  } 
-  | { name: 'aldmeri_gte', alias?: string  } 
-  | { name: 'aldmeri_contains', alias?: string  } 
-  | { name: 'aldmeri_not_contains', alias?: string  } 
-  | { name: 'aldmeri_starts_with', alias?: string  } 
-  | { name: 'aldmeri_not_starts_with', alias?: string  } 
-  | { name: 'aldmeri_ends_with', alias?: string  } 
-  | { name: 'aldmeri_not_ends_with', alias?: string  } 
-  | { name: 'daggerfall', alias?: string  } 
-  | { name: 'daggerfall_not', alias?: string  } 
-  | { name: 'daggerfall_in', alias?: string  } 
-  | { name: 'daggerfall_not_in', alias?: string  } 
-  | { name: 'daggerfall_lt', alias?: string  } 
-  | { name: 'daggerfall_lte', alias?: string  } 
-  | { name: 'daggerfall_gt', alias?: string  } 
-  | { name: 'daggerfall_gte', alias?: string  } 
-  | { name: 'daggerfall_contains', alias?: string  } 
-  | { name: 'daggerfall_not_contains', alias?: string  } 
-  | { name: 'daggerfall_starts_with', alias?: string  } 
-  | { name: 'daggerfall_not_starts_with', alias?: string  } 
-  | { name: 'daggerfall_ends_with', alias?: string  } 
-  | { name: 'daggerfall_not_ends_with', alias?: string  } 
-  | { name: 'ebonheart', alias?: string  } 
-  | { name: 'ebonheart_not', alias?: string  } 
-  | { name: 'ebonheart_in', alias?: string  } 
-  | { name: 'ebonheart_not_in', alias?: string  } 
-  | { name: 'ebonheart_lt', alias?: string  } 
-  | { name: 'ebonheart_lte', alias?: string  } 
-  | { name: 'ebonheart_gt', alias?: string  } 
-  | { name: 'ebonheart_gte', alias?: string  } 
-  | { name: 'ebonheart_contains', alias?: string  } 
-  | { name: 'ebonheart_not_contains', alias?: string  } 
-  | { name: 'ebonheart_starts_with', alias?: string  } 
-  | { name: 'ebonheart_not_starts_with', alias?: string  } 
-  | { name: 'ebonheart_ends_with', alias?: string  } 
-  | { name: 'ebonheart_not_ends_with', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface SpecialBuffWhereInput {
+export interface BuffWhereInput {
   id?: string | null
   id_not?: string | null
   id_in?: string[]
@@ -8696,6 +8314,20 @@ export interface SpecialBuffWhereInput {
   type_not_starts_with?: string | null
   type_ends_with?: string | null
   type_not_ends_with?: string | null
+  buffType?: string | null
+  buffType_not?: string | null
+  buffType_in?: string[]
+  buffType_not_in?: string[]
+  buffType_lt?: string | null
+  buffType_lte?: string | null
+  buffType_gt?: string | null
+  buffType_gte?: string | null
+  buffType_contains?: string | null
+  buffType_not_contains?: string | null
+  buffType_starts_with?: string | null
+  buffType_not_starts_with?: string | null
+  buffType_ends_with?: string | null
+  buffType_not_ends_with?: string | null
   quality?: number | null
   quality_not?: number | null
   quality_in?: number[]
@@ -8704,12 +8336,12 @@ export interface SpecialBuffWhereInput {
   quality_lte?: number | null
   quality_gt?: number | null
   quality_gte?: number | null
-  AND?: SpecialBuffWhereInput[]
-  OR?: SpecialBuffWhereInput[]
-  NOT?: SpecialBuffWhereInput[]
+  AND?: BuffWhereInput[]
+  OR?: BuffWhereInput[]
+  NOT?: BuffWhereInput[]
 }
-export type SpecialBuffWhereInputInputObject =
-  | Extract<keyof SpecialBuffWhereInput, string>
+export type BuffWhereInputInputObject =
+  | Extract<keyof BuffWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -8816,6 +8448,20 @@ export type SpecialBuffWhereInputInputObject =
   | { name: 'type_not_starts_with', alias?: string  } 
   | { name: 'type_ends_with', alias?: string  } 
   | { name: 'type_not_ends_with', alias?: string  } 
+  | { name: 'buffType', alias?: string  } 
+  | { name: 'buffType_not', alias?: string  } 
+  | { name: 'buffType_in', alias?: string  } 
+  | { name: 'buffType_not_in', alias?: string  } 
+  | { name: 'buffType_lt', alias?: string  } 
+  | { name: 'buffType_lte', alias?: string  } 
+  | { name: 'buffType_gt', alias?: string  } 
+  | { name: 'buffType_gte', alias?: string  } 
+  | { name: 'buffType_contains', alias?: string  } 
+  | { name: 'buffType_not_contains', alias?: string  } 
+  | { name: 'buffType_starts_with', alias?: string  } 
+  | { name: 'buffType_not_starts_with', alias?: string  } 
+  | { name: 'buffType_ends_with', alias?: string  } 
+  | { name: 'buffType_not_ends_with', alias?: string  } 
   | { name: 'quality', alias?: string  } 
   | { name: 'quality_not', alias?: string  } 
   | { name: 'quality_in', alias?: string  } 
@@ -8970,28 +8616,21 @@ export type UserWhereUniqueInputInputObject =
   | { name: 'id', alias?: string  } 
   | { name: 'email', alias?: string  } 
   
-export interface LocationWhereUniqueInput {
+export interface MundusStoneWhereUniqueInput {
+  name?: string | null
   id?: string | null
 }
-export type LocationWhereUniqueInputInputObject =
-  | Extract<keyof LocationWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface MundusWhereUniqueInput {
-  name?: string | null
-  id?: number | null
-}
-export type MundusWhereUniqueInputInputObject =
-  | Extract<keyof MundusWhereUniqueInput, string>
+export type MundusStoneWhereUniqueInputInputObject =
+  | Extract<keyof MundusStoneWhereUniqueInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'id', alias?: string  } 
   
-export interface SpecialBuffWhereUniqueInput {
+export interface BuffWhereUniqueInput {
   id?: string | null
   name?: string | null
 }
-export type SpecialBuffWhereUniqueInputInputObject =
-  | Extract<keyof SpecialBuffWhereUniqueInput, string>
+export type BuffWhereUniqueInputInputObject =
+  | Extract<keyof BuffWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   
@@ -9013,12 +8652,12 @@ export type SetWhereUniqueInputInputObject =
   
 export interface ModificationWhereUniqueInput {
   id?: string | null
-  type?: string | null
+  description?: string | null
 }
 export type ModificationWhereUniqueInputInputObject =
   | Extract<keyof ModificationWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'type', alias?: string  } 
+  | { name: 'description', alias?: string  } 
   
 export interface SkillSelectionWhereUniqueInput {
   id?: string | null
@@ -9106,8 +8745,8 @@ export interface BuildCreateWithoutOwnerInput {
   newBarTwo?: SkillSelectionCreateManyInput | null
   ultimateOne?: SkillCreateOneInput | null
   ultimateTwo?: SkillCreateOneInput | null
-  mundus?: MundusCreateOneInput | null
-  buff?: SpecialBuffCreateOneInput | null
+  mundusStone?: MundusStoneCreateOneInput | null
+  buff?: BuffCreateOneInput | null
 }
 export type BuildCreateWithoutOwnerInputInputObject =
   | Extract<keyof BuildCreateWithoutOwnerInput, string>
@@ -9125,7 +8764,7 @@ export type BuildCreateWithoutOwnerInputInputObject =
   | { name: 'newBarTwo', alias?: string  } 
   | { name: 'ultimateOne', alias?: string  } 
   | { name: 'ultimateTwo', alias?: string  } 
-  | { name: 'mundus', alias?: string  } 
+  | { name: 'mundusStone', alias?: string  } 
   | { name: 'buff', alias?: string  } 
   
 export interface SetSelectionCreateManyInput {
@@ -9218,6 +8857,8 @@ export type ModificationCreateOneInputInputObject =
 export interface ModificationCreateInput {
   id?: string | null
   type?: string
+  itemType?: string
+  modificationType?: string
   description?: string
   icon?: string | null
 }
@@ -9225,6 +8866,8 @@ export type ModificationCreateInputInputObject =
   | Extract<keyof ModificationCreateInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  | { name: 'itemType', alias?: string  } 
+  | { name: 'modificationType', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   
@@ -9294,64 +8937,46 @@ export type SkillCreateInputInputObject =
   | { name: 'type', alias?: string  } 
   | { name: 'unlocks_at', alias?: string  } 
   
-export interface MundusCreateOneInput {
-  create?: MundusCreateInput | null
-  connect?: MundusWhereUniqueInput | null
+export interface MundusStoneCreateOneInput {
+  create?: MundusStoneCreateInput | null
+  connect?: MundusStoneWhereUniqueInput | null
 }
-export type MundusCreateOneInputInputObject =
-  | Extract<keyof MundusCreateOneInput, string>
+export type MundusStoneCreateOneInputInputObject =
+  | Extract<keyof MundusStoneCreateOneInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface MundusCreateInput {
+export interface MundusStoneCreateInput {
   name?: string
-  location?: LocationCreateOneInput | null
+  aldmeri?: string | null
+  daggerfall?: string | null
+  ebonheart?: string | null
   effect?: string
   value?: string
   icon?: string | null
-  id?: number | null
+  id?: string | null
 }
-export type MundusCreateInputInputObject =
-  | Extract<keyof MundusCreateInput, string>
+export type MundusStoneCreateInputInputObject =
+  | Extract<keyof MundusStoneCreateInput, string>
   | { name: 'name', alias?: string  } 
-  | { name: 'location', alias?: string  } 
+  | { name: 'aldmeri', alias?: string  } 
+  | { name: 'daggerfall', alias?: string  } 
+  | { name: 'ebonheart', alias?: string  } 
   | { name: 'effect', alias?: string  } 
   | { name: 'value', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   | { name: 'id', alias?: string  } 
   
-export interface LocationCreateOneInput {
-  create?: LocationCreateInput | null
-  connect?: LocationWhereUniqueInput | null
+export interface BuffCreateOneInput {
+  create?: BuffCreateInput | null
+  connect?: BuffWhereUniqueInput | null
 }
-export type LocationCreateOneInputInputObject =
-  | Extract<keyof LocationCreateOneInput, string>
+export type BuffCreateOneInputInputObject =
+  | Extract<keyof BuffCreateOneInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface LocationCreateInput {
-  id?: string | null
-  aldmeri?: string | null
-  daggerfall?: string | null
-  ebonheart?: string | null
-}
-export type LocationCreateInputInputObject =
-  | Extract<keyof LocationCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'aldmeri', alias?: string  } 
-  | { name: 'daggerfall', alias?: string  } 
-  | { name: 'ebonheart', alias?: string  } 
-  
-export interface SpecialBuffCreateOneInput {
-  create?: SpecialBuffCreateInput | null
-  connect?: SpecialBuffWhereUniqueInput | null
-}
-export type SpecialBuffCreateOneInputInputObject =
-  | Extract<keyof SpecialBuffCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface SpecialBuffCreateInput {
+export interface BuffCreateInput {
   id?: string | null
   name?: string
   buffDescription?: string
@@ -9360,10 +8985,11 @@ export interface SpecialBuffCreateInput {
   notes?: string | null
   icon?: string | null
   type?: string | null
+  buffType?: string | null
   quality?: number
 }
-export type SpecialBuffCreateInputInputObject =
-  | Extract<keyof SpecialBuffCreateInput, string>
+export type BuffCreateInputInputObject =
+  | Extract<keyof BuffCreateInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'buffDescription', alias?: string  } 
@@ -9372,6 +8998,7 @@ export type SpecialBuffCreateInputInputObject =
   | { name: 'notes', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  | { name: 'buffType', alias?: string  } 
   | { name: 'quality', alias?: string  } 
   
 export interface PostUpdateInput {
@@ -9459,8 +9086,8 @@ export interface BuildUpdateWithoutOwnerDataInput {
   newBarTwo?: SkillSelectionUpdateManyInput | null
   ultimateOne?: SkillUpdateOneInput | null
   ultimateTwo?: SkillUpdateOneInput | null
-  mundus?: MundusUpdateOneInput | null
-  buff?: SpecialBuffUpdateOneInput | null
+  mundusStone?: MundusStoneUpdateOneInput | null
+  buff?: BuffUpdateOneInput | null
 }
 export type BuildUpdateWithoutOwnerDataInputInputObject =
   | Extract<keyof BuildUpdateWithoutOwnerDataInput, string>
@@ -9477,7 +9104,7 @@ export type BuildUpdateWithoutOwnerDataInputInputObject =
   | { name: 'newBarTwo', alias?: string  } 
   | { name: 'ultimateOne', alias?: string  } 
   | { name: 'ultimateTwo', alias?: string  } 
-  | { name: 'mundus', alias?: string  } 
+  | { name: 'mundusStone', alias?: string  } 
   | { name: 'buff', alias?: string  } 
   
 export interface SetSelectionUpdateManyInput {
@@ -9613,12 +9240,16 @@ export type ModificationUpdateOneInputInputObject =
   
 export interface ModificationUpdateDataInput {
   type?: string | null
+  itemType?: string | null
+  modificationType?: string | null
   description?: string | null
   icon?: string | null
 }
 export type ModificationUpdateDataInputInputObject =
   | Extract<keyof ModificationUpdateDataInput, string>
   | { name: 'type', alias?: string  } 
+  | { name: 'itemType', alias?: string  } 
+  | { name: 'modificationType', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   
@@ -9939,16 +9570,16 @@ export type SkillSelectionUpdateManyDataInputInputObject =
   | Extract<keyof SkillSelectionUpdateManyDataInput, string>
   | { name: 'index', alias?: string  } 
   
-export interface MundusUpdateOneInput {
-  create?: MundusCreateInput | null
-  update?: MundusUpdateDataInput | null
-  upsert?: MundusUpsertNestedInput | null
+export interface MundusStoneUpdateOneInput {
+  create?: MundusStoneCreateInput | null
+  update?: MundusStoneUpdateDataInput | null
+  upsert?: MundusStoneUpsertNestedInput | null
   delete?: boolean | null
   disconnect?: boolean | null
-  connect?: MundusWhereUniqueInput | null
+  connect?: MundusStoneWhereUniqueInput | null
 }
-export type MundusUpdateOneInputInputObject =
-  | Extract<keyof MundusUpdateOneInput, string>
+export type MundusStoneUpdateOneInputInputObject =
+  | Extract<keyof MundusStoneUpdateOneInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
@@ -9956,31 +9587,44 @@ export type MundusUpdateOneInputInputObject =
   | { name: 'disconnect', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface MundusUpdateDataInput {
+export interface MundusStoneUpdateDataInput {
   name?: string | null
-  location?: LocationUpdateOneInput | null
+  aldmeri?: string | null
+  daggerfall?: string | null
+  ebonheart?: string | null
   effect?: string | null
   value?: string | null
   icon?: string | null
 }
-export type MundusUpdateDataInputInputObject =
-  | Extract<keyof MundusUpdateDataInput, string>
+export type MundusStoneUpdateDataInputInputObject =
+  | Extract<keyof MundusStoneUpdateDataInput, string>
   | { name: 'name', alias?: string  } 
-  | { name: 'location', alias?: string  } 
+  | { name: 'aldmeri', alias?: string  } 
+  | { name: 'daggerfall', alias?: string  } 
+  | { name: 'ebonheart', alias?: string  } 
   | { name: 'effect', alias?: string  } 
   | { name: 'value', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   
-export interface LocationUpdateOneInput {
-  create?: LocationCreateInput | null
-  update?: LocationUpdateDataInput | null
-  upsert?: LocationUpsertNestedInput | null
+export interface MundusStoneUpsertNestedInput {
+  update?: MundusStoneUpdateDataInput
+  create?: MundusStoneCreateInput
+}
+export type MundusStoneUpsertNestedInputInputObject =
+  | Extract<keyof MundusStoneUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface BuffUpdateOneInput {
+  create?: BuffCreateInput | null
+  update?: BuffUpdateDataInput | null
+  upsert?: BuffUpsertNestedInput | null
   delete?: boolean | null
   disconnect?: boolean | null
-  connect?: LocationWhereUniqueInput | null
+  connect?: BuffWhereUniqueInput | null
 }
-export type LocationUpdateOneInputInputObject =
-  | Extract<keyof LocationUpdateOneInput, string>
+export type BuffUpdateOneInputInputObject =
+  | Extract<keyof BuffUpdateOneInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
@@ -9988,53 +9632,7 @@ export type LocationUpdateOneInputInputObject =
   | { name: 'disconnect', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface LocationUpdateDataInput {
-  aldmeri?: string | null
-  daggerfall?: string | null
-  ebonheart?: string | null
-}
-export type LocationUpdateDataInputInputObject =
-  | Extract<keyof LocationUpdateDataInput, string>
-  | { name: 'aldmeri', alias?: string  } 
-  | { name: 'daggerfall', alias?: string  } 
-  | { name: 'ebonheart', alias?: string  } 
-  
-export interface LocationUpsertNestedInput {
-  update?: LocationUpdateDataInput
-  create?: LocationCreateInput
-}
-export type LocationUpsertNestedInputInputObject =
-  | Extract<keyof LocationUpsertNestedInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface MundusUpsertNestedInput {
-  update?: MundusUpdateDataInput
-  create?: MundusCreateInput
-}
-export type MundusUpsertNestedInputInputObject =
-  | Extract<keyof MundusUpsertNestedInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface SpecialBuffUpdateOneInput {
-  create?: SpecialBuffCreateInput | null
-  update?: SpecialBuffUpdateDataInput | null
-  upsert?: SpecialBuffUpsertNestedInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: SpecialBuffWhereUniqueInput | null
-}
-export type SpecialBuffUpdateOneInputInputObject =
-  | Extract<keyof SpecialBuffUpdateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface SpecialBuffUpdateDataInput {
+export interface BuffUpdateDataInput {
   name?: string | null
   buffDescription?: string | null
   description?: string | null
@@ -10042,10 +9640,11 @@ export interface SpecialBuffUpdateDataInput {
   notes?: string | null
   icon?: string | null
   type?: string | null
+  buffType?: string | null
   quality?: number | null
 }
-export type SpecialBuffUpdateDataInputInputObject =
-  | Extract<keyof SpecialBuffUpdateDataInput, string>
+export type BuffUpdateDataInputInputObject =
+  | Extract<keyof BuffUpdateDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'buffDescription', alias?: string  } 
   | { name: 'description', alias?: string  } 
@@ -10053,14 +9652,15 @@ export type SpecialBuffUpdateDataInputInputObject =
   | { name: 'notes', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  | { name: 'buffType', alias?: string  } 
   | { name: 'quality', alias?: string  } 
   
-export interface SpecialBuffUpsertNestedInput {
-  update?: SpecialBuffUpdateDataInput
-  create?: SpecialBuffCreateInput
+export interface BuffUpsertNestedInput {
+  update?: BuffUpdateDataInput
+  create?: BuffCreateInput
 }
-export type SpecialBuffUpsertNestedInputInputObject =
-  | Extract<keyof SpecialBuffUpsertNestedInput, string>
+export type BuffUpsertNestedInputInputObject =
+  | Extract<keyof BuffUpsertNestedInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
@@ -10300,57 +9900,45 @@ export type UserUpdateManyMutationInputInputObject =
   | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   
-export interface LocationUpdateInput {
-  aldmeri?: string | null
-  daggerfall?: string | null
-  ebonheart?: string | null
-}
-export type LocationUpdateInputInputObject =
-  | Extract<keyof LocationUpdateInput, string>
-  | { name: 'aldmeri', alias?: string  } 
-  | { name: 'daggerfall', alias?: string  } 
-  | { name: 'ebonheart', alias?: string  } 
-  
-export interface LocationUpdateManyMutationInput {
-  aldmeri?: string | null
-  daggerfall?: string | null
-  ebonheart?: string | null
-}
-export type LocationUpdateManyMutationInputInputObject =
-  | Extract<keyof LocationUpdateManyMutationInput, string>
-  | { name: 'aldmeri', alias?: string  } 
-  | { name: 'daggerfall', alias?: string  } 
-  | { name: 'ebonheart', alias?: string  } 
-  
-export interface MundusUpdateInput {
+export interface MundusStoneUpdateInput {
   name?: string | null
-  location?: LocationUpdateOneInput | null
+  aldmeri?: string | null
+  daggerfall?: string | null
+  ebonheart?: string | null
   effect?: string | null
   value?: string | null
   icon?: string | null
 }
-export type MundusUpdateInputInputObject =
-  | Extract<keyof MundusUpdateInput, string>
+export type MundusStoneUpdateInputInputObject =
+  | Extract<keyof MundusStoneUpdateInput, string>
   | { name: 'name', alias?: string  } 
-  | { name: 'location', alias?: string  } 
+  | { name: 'aldmeri', alias?: string  } 
+  | { name: 'daggerfall', alias?: string  } 
+  | { name: 'ebonheart', alias?: string  } 
   | { name: 'effect', alias?: string  } 
   | { name: 'value', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   
-export interface MundusUpdateManyMutationInput {
+export interface MundusStoneUpdateManyMutationInput {
   name?: string | null
+  aldmeri?: string | null
+  daggerfall?: string | null
+  ebonheart?: string | null
   effect?: string | null
   value?: string | null
   icon?: string | null
 }
-export type MundusUpdateManyMutationInputInputObject =
-  | Extract<keyof MundusUpdateManyMutationInput, string>
+export type MundusStoneUpdateManyMutationInputInputObject =
+  | Extract<keyof MundusStoneUpdateManyMutationInput, string>
   | { name: 'name', alias?: string  } 
+  | { name: 'aldmeri', alias?: string  } 
+  | { name: 'daggerfall', alias?: string  } 
+  | { name: 'ebonheart', alias?: string  } 
   | { name: 'effect', alias?: string  } 
   | { name: 'value', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   
-export interface SpecialBuffUpdateInput {
+export interface BuffUpdateInput {
   name?: string | null
   buffDescription?: string | null
   description?: string | null
@@ -10358,10 +9946,11 @@ export interface SpecialBuffUpdateInput {
   notes?: string | null
   icon?: string | null
   type?: string | null
+  buffType?: string | null
   quality?: number | null
 }
-export type SpecialBuffUpdateInputInputObject =
-  | Extract<keyof SpecialBuffUpdateInput, string>
+export type BuffUpdateInputInputObject =
+  | Extract<keyof BuffUpdateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'buffDescription', alias?: string  } 
   | { name: 'description', alias?: string  } 
@@ -10369,9 +9958,10 @@ export type SpecialBuffUpdateInputInputObject =
   | { name: 'notes', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  | { name: 'buffType', alias?: string  } 
   | { name: 'quality', alias?: string  } 
   
-export interface SpecialBuffUpdateManyMutationInput {
+export interface BuffUpdateManyMutationInput {
   name?: string | null
   buffDescription?: string | null
   description?: string | null
@@ -10379,10 +9969,11 @@ export interface SpecialBuffUpdateManyMutationInput {
   notes?: string | null
   icon?: string | null
   type?: string | null
+  buffType?: string | null
   quality?: number | null
 }
-export type SpecialBuffUpdateManyMutationInputInputObject =
-  | Extract<keyof SpecialBuffUpdateManyMutationInput, string>
+export type BuffUpdateManyMutationInputInputObject =
+  | Extract<keyof BuffUpdateManyMutationInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'buffDescription', alias?: string  } 
   | { name: 'description', alias?: string  } 
@@ -10390,6 +9981,7 @@ export type SpecialBuffUpdateManyMutationInputInputObject =
   | { name: 'notes', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  | { name: 'buffType', alias?: string  } 
   | { name: 'quality', alias?: string  } 
   
 export interface SetSelectionUpdateInput {
@@ -10500,23 +10092,31 @@ export type SetUpdateManyMutationInputInputObject =
   
 export interface ModificationUpdateInput {
   type?: string | null
+  itemType?: string | null
+  modificationType?: string | null
   description?: string | null
   icon?: string | null
 }
 export type ModificationUpdateInputInputObject =
   | Extract<keyof ModificationUpdateInput, string>
   | { name: 'type', alias?: string  } 
+  | { name: 'itemType', alias?: string  } 
+  | { name: 'modificationType', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   
 export interface ModificationUpdateManyMutationInput {
   type?: string | null
+  itemType?: string | null
+  modificationType?: string | null
   description?: string | null
   icon?: string | null
 }
 export type ModificationUpdateManyMutationInputInputObject =
   | Extract<keyof ModificationUpdateManyMutationInput, string>
   | { name: 'type', alias?: string  } 
+  | { name: 'itemType', alias?: string  } 
+  | { name: 'modificationType', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   
@@ -10622,8 +10222,8 @@ export interface BuildCreateInput {
   newBarTwo?: SkillSelectionCreateManyInput | null
   ultimateOne?: SkillCreateOneInput | null
   ultimateTwo?: SkillCreateOneInput | null
-  mundus?: MundusCreateOneInput | null
-  buff?: SpecialBuffCreateOneInput | null
+  mundusStone?: MundusStoneCreateOneInput | null
+  buff?: BuffCreateOneInput | null
 }
 export type BuildCreateInputInputObject =
   | Extract<keyof BuildCreateInput, string>
@@ -10642,7 +10242,7 @@ export type BuildCreateInputInputObject =
   | { name: 'newBarTwo', alias?: string  } 
   | { name: 'ultimateOne', alias?: string  } 
   | { name: 'ultimateTwo', alias?: string  } 
-  | { name: 'mundus', alias?: string  } 
+  | { name: 'mundusStone', alias?: string  } 
   | { name: 'buff', alias?: string  } 
   
 export interface UserCreateOneWithoutBuildsInput {
@@ -10682,8 +10282,8 @@ export interface BuildUpdateInput {
   newBarTwo?: SkillSelectionUpdateManyInput | null
   ultimateOne?: SkillUpdateOneInput | null
   ultimateTwo?: SkillUpdateOneInput | null
-  mundus?: MundusUpdateOneInput | null
-  buff?: SpecialBuffUpdateOneInput | null
+  mundusStone?: MundusStoneUpdateOneInput | null
+  buff?: BuffUpdateOneInput | null
 }
 export type BuildUpdateInputInputObject =
   | Extract<keyof BuildUpdateInput, string>
@@ -10701,7 +10301,7 @@ export type BuildUpdateInputInputObject =
   | { name: 'newBarTwo', alias?: string  } 
   | { name: 'ultimateOne', alias?: string  } 
   | { name: 'ultimateTwo', alias?: string  } 
-  | { name: 'mundus', alias?: string  } 
+  | { name: 'mundusStone', alias?: string  } 
   | { name: 'buff', alias?: string  } 
   
 export interface UserUpdateOneWithoutBuildsInput {
@@ -10796,18 +10396,18 @@ export type UserSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface LocationSubscriptionWhereInput {
+export interface MundusStoneSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
   updatedFields_contains_every?: string[]
   updatedFields_contains_some?: string[]
-  node?: LocationWhereInput | null
-  AND?: LocationSubscriptionWhereInput[]
-  OR?: LocationSubscriptionWhereInput[]
-  NOT?: LocationSubscriptionWhereInput[]
+  node?: MundusStoneWhereInput | null
+  AND?: MundusStoneSubscriptionWhereInput[]
+  OR?: MundusStoneSubscriptionWhereInput[]
+  NOT?: MundusStoneSubscriptionWhereInput[]
 }
-export type LocationSubscriptionWhereInputInputObject =
-  | Extract<keyof LocationSubscriptionWhereInput, string>
+export type MundusStoneSubscriptionWhereInputInputObject =
+  | Extract<keyof MundusStoneSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -10817,39 +10417,18 @@ export type LocationSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface MundusSubscriptionWhereInput {
+export interface BuffSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
   updatedFields_contains_every?: string[]
   updatedFields_contains_some?: string[]
-  node?: MundusWhereInput | null
-  AND?: MundusSubscriptionWhereInput[]
-  OR?: MundusSubscriptionWhereInput[]
-  NOT?: MundusSubscriptionWhereInput[]
+  node?: BuffWhereInput | null
+  AND?: BuffSubscriptionWhereInput[]
+  OR?: BuffSubscriptionWhereInput[]
+  NOT?: BuffSubscriptionWhereInput[]
 }
-export type MundusSubscriptionWhereInputInputObject =
-  | Extract<keyof MundusSubscriptionWhereInput, string>
-  | { name: 'mutation_in', alias?: string  } 
-  | { name: 'updatedFields_contains', alias?: string  } 
-  | { name: 'updatedFields_contains_every', alias?: string  } 
-  | { name: 'updatedFields_contains_some', alias?: string  } 
-  | { name: 'node', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface SpecialBuffSubscriptionWhereInput {
-  mutation_in?: prisma.MutationType[]
-  updatedFields_contains?: string | null
-  updatedFields_contains_every?: string[]
-  updatedFields_contains_some?: string[]
-  node?: SpecialBuffWhereInput | null
-  AND?: SpecialBuffSubscriptionWhereInput[]
-  OR?: SpecialBuffSubscriptionWhereInput[]
-  NOT?: SpecialBuffSubscriptionWhereInput[]
-}
-export type SpecialBuffSubscriptionWhereInputInputObject =
-  | Extract<keyof SpecialBuffSubscriptionWhereInput, string>
+export type BuffSubscriptionWhereInputInputObject =
+  | Extract<keyof BuffSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -11052,23 +10631,15 @@ export type UserOrderByInputValues =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
-export type LocationOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
+export type MundusStoneOrderByInputValues =
+  | 'name_ASC'
+  | 'name_DESC'
   | 'aldmeri_ASC'
   | 'aldmeri_DESC'
   | 'daggerfall_ASC'
   | 'daggerfall_DESC'
   | 'ebonheart_ASC'
   | 'ebonheart_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
-export type MundusOrderByInputValues =
-  | 'name_ASC'
-  | 'name_DESC'
   | 'effect_ASC'
   | 'effect_DESC'
   | 'value_ASC'
@@ -11082,7 +10653,7 @@ export type MundusOrderByInputValues =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
-export type SpecialBuffOrderByInputValues =
+export type BuffOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
   | 'name_ASC'
@@ -11099,6 +10670,8 @@ export type SpecialBuffOrderByInputValues =
   | 'icon_DESC'
   | 'type_ASC'
   | 'type_DESC'
+  | 'buffType_ASC'
+  | 'buffType_DESC'
   | 'quality_ASC'
   | 'quality_DESC'
   | 'createdAt_ASC'
@@ -11155,6 +10728,10 @@ export type ModificationOrderByInputValues =
   | 'id_DESC'
   | 'type_ASC'
   | 'type_DESC'
+  | 'itemType_ASC'
+  | 'itemType_DESC'
+  | 'modificationType_ASC'
+  | 'modificationType_DESC'
   | 'description_ASC'
   | 'description_DESC'
   | 'icon_ASC'

@@ -16,24 +16,18 @@ type User {
   builds: [Build!]!
 }
 
-
-
-type Location {
-  id: ID! @id
+type MundusStone {
+  name: String! @unique
   aldmeri: String
   daggerfall: String
   ebonheart: String
-}
-type Mundus {
-  name: String! @unique
-  location: Location
   effect: String!
   value: String!
   icon: String
-  id: Int! @id
+  id: ID! @id
 }
 
-type SpecialBuff {
+type Buff {
   id: ID! @id
   name: String! @unique
   buffDescription: String!
@@ -42,6 +36,7 @@ type SpecialBuff {
   notes: String
   icon: String
   type: String
+  buffType: String
   quality: Int!
 }
 
@@ -78,8 +73,10 @@ type Set {
 
 type Modification {
   id: ID! @id
-  type: String! @unique
-  description: String!
+  type: String! 
+  itemType: String!
+  modificationType: String!
+  description: String! @unique
   icon: String
 }
 
@@ -127,6 +124,6 @@ type Build {
   newBarTwo: [SkillSelection!]! @relation(name: "NewBarTwo")
   ultimateOne: Skill @relation(name: "UltimateOne")
   ultimateTwo: Skill @relation(name: "UltimateTwo")
-  mundus: Mundus
-  buff: SpecialBuff
+  mundusStone: MundusStone
+  buff: Buff
 }

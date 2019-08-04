@@ -16,16 +16,15 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
 export type Maybe<T> = T | undefined | null;
 
 export interface Exists {
+  buff: (where?: BuffWhereInput) => Promise<boolean>;
   build: (where?: BuildWhereInput) => Promise<boolean>;
-  location: (where?: LocationWhereInput) => Promise<boolean>;
   modification: (where?: ModificationWhereInput) => Promise<boolean>;
-  mundus: (where?: MundusWhereInput) => Promise<boolean>;
+  mundusStone: (where?: MundusStoneWhereInput) => Promise<boolean>;
   post: (where?: PostWhereInput) => Promise<boolean>;
   set: (where?: SetWhereInput) => Promise<boolean>;
   setSelection: (where?: SetSelectionWhereInput) => Promise<boolean>;
   skill: (where?: SkillWhereInput) => Promise<boolean>;
   skillSelection: (where?: SkillSelectionWhereInput) => Promise<boolean>;
-  specialBuff: (where?: SpecialBuffWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
 }
 
@@ -48,6 +47,25 @@ export interface Prisma {
    * Queries
    */
 
+  buff: (where: BuffWhereUniqueInput) => BuffNullablePromise;
+  buffs: (args?: {
+    where?: BuffWhereInput;
+    orderBy?: BuffOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Buff>;
+  buffsConnection: (args?: {
+    where?: BuffWhereInput;
+    orderBy?: BuffOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => BuffConnectionPromise;
   build: (where: BuildWhereUniqueInput) => BuildNullablePromise;
   builds: (args?: {
     where?: BuildWhereInput;
@@ -67,25 +85,6 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => BuildConnectionPromise;
-  location: (where: LocationWhereUniqueInput) => LocationNullablePromise;
-  locations: (args?: {
-    where?: LocationWhereInput;
-    orderBy?: LocationOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => FragmentableArray<Location>;
-  locationsConnection: (args?: {
-    where?: LocationWhereInput;
-    orderBy?: LocationOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => LocationConnectionPromise;
   modification: (
     where: ModificationWhereUniqueInput
   ) => ModificationNullablePromise;
@@ -107,25 +106,27 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => ModificationConnectionPromise;
-  mundus: (where: MundusWhereUniqueInput) => MundusNullablePromise;
-  munduses: (args?: {
-    where?: MundusWhereInput;
-    orderBy?: MundusOrderByInput;
+  mundusStone: (
+    where: MundusStoneWhereUniqueInput
+  ) => MundusStoneNullablePromise;
+  mundusStones: (args?: {
+    where?: MundusStoneWhereInput;
+    orderBy?: MundusStoneOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => FragmentableArray<Mundus>;
-  mundusesConnection: (args?: {
-    where?: MundusWhereInput;
-    orderBy?: MundusOrderByInput;
+  }) => FragmentableArray<MundusStone>;
+  mundusStonesConnection: (args?: {
+    where?: MundusStoneWhereInput;
+    orderBy?: MundusStoneOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => MundusConnectionPromise;
+  }) => MundusStoneConnectionPromise;
   post: (where: PostWhereUniqueInput) => PostNullablePromise;
   posts: (args?: {
     where?: PostWhereInput;
@@ -225,27 +226,6 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => SkillSelectionConnectionPromise;
-  specialBuff: (
-    where: SpecialBuffWhereUniqueInput
-  ) => SpecialBuffNullablePromise;
-  specialBuffs: (args?: {
-    where?: SpecialBuffWhereInput;
-    orderBy?: SpecialBuffOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => FragmentableArray<SpecialBuff>;
-  specialBuffsConnection: (args?: {
-    where?: SpecialBuffWhereInput;
-    orderBy?: SpecialBuffOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => SpecialBuffConnectionPromise;
   user: (where: UserWhereUniqueInput) => UserNullablePromise;
   users: (args?: {
     where?: UserWhereInput;
@@ -271,6 +251,22 @@ export interface Prisma {
    * Mutations
    */
 
+  createBuff: (data: BuffCreateInput) => BuffPromise;
+  updateBuff: (args: {
+    data: BuffUpdateInput;
+    where: BuffWhereUniqueInput;
+  }) => BuffPromise;
+  updateManyBuffs: (args: {
+    data: BuffUpdateManyMutationInput;
+    where?: BuffWhereInput;
+  }) => BatchPayloadPromise;
+  upsertBuff: (args: {
+    where: BuffWhereUniqueInput;
+    create: BuffCreateInput;
+    update: BuffUpdateInput;
+  }) => BuffPromise;
+  deleteBuff: (where: BuffWhereUniqueInput) => BuffPromise;
+  deleteManyBuffs: (where?: BuffWhereInput) => BatchPayloadPromise;
   createBuild: (data: BuildCreateInput) => BuildPromise;
   updateBuild: (args: {
     data: BuildUpdateInput;
@@ -287,22 +283,6 @@ export interface Prisma {
   }) => BuildPromise;
   deleteBuild: (where: BuildWhereUniqueInput) => BuildPromise;
   deleteManyBuilds: (where?: BuildWhereInput) => BatchPayloadPromise;
-  createLocation: (data: LocationCreateInput) => LocationPromise;
-  updateLocation: (args: {
-    data: LocationUpdateInput;
-    where: LocationWhereUniqueInput;
-  }) => LocationPromise;
-  updateManyLocations: (args: {
-    data: LocationUpdateManyMutationInput;
-    where?: LocationWhereInput;
-  }) => BatchPayloadPromise;
-  upsertLocation: (args: {
-    where: LocationWhereUniqueInput;
-    create: LocationCreateInput;
-    update: LocationUpdateInput;
-  }) => LocationPromise;
-  deleteLocation: (where: LocationWhereUniqueInput) => LocationPromise;
-  deleteManyLocations: (where?: LocationWhereInput) => BatchPayloadPromise;
   createModification: (data: ModificationCreateInput) => ModificationPromise;
   updateModification: (args: {
     data: ModificationUpdateInput;
@@ -323,22 +303,24 @@ export interface Prisma {
   deleteManyModifications: (
     where?: ModificationWhereInput
   ) => BatchPayloadPromise;
-  createMundus: (data: MundusCreateInput) => MundusPromise;
-  updateMundus: (args: {
-    data: MundusUpdateInput;
-    where: MundusWhereUniqueInput;
-  }) => MundusPromise;
-  updateManyMunduses: (args: {
-    data: MundusUpdateManyMutationInput;
-    where?: MundusWhereInput;
+  createMundusStone: (data: MundusStoneCreateInput) => MundusStonePromise;
+  updateMundusStone: (args: {
+    data: MundusStoneUpdateInput;
+    where: MundusStoneWhereUniqueInput;
+  }) => MundusStonePromise;
+  updateManyMundusStones: (args: {
+    data: MundusStoneUpdateManyMutationInput;
+    where?: MundusStoneWhereInput;
   }) => BatchPayloadPromise;
-  upsertMundus: (args: {
-    where: MundusWhereUniqueInput;
-    create: MundusCreateInput;
-    update: MundusUpdateInput;
-  }) => MundusPromise;
-  deleteMundus: (where: MundusWhereUniqueInput) => MundusPromise;
-  deleteManyMunduses: (where?: MundusWhereInput) => BatchPayloadPromise;
+  upsertMundusStone: (args: {
+    where: MundusStoneWhereUniqueInput;
+    create: MundusStoneCreateInput;
+    update: MundusStoneUpdateInput;
+  }) => MundusStonePromise;
+  deleteMundusStone: (where: MundusStoneWhereUniqueInput) => MundusStonePromise;
+  deleteManyMundusStones: (
+    where?: MundusStoneWhereInput
+  ) => BatchPayloadPromise;
   createPost: (data: PostCreateInput) => PostPromise;
   updatePost: (args: {
     data: PostUpdateInput;
@@ -429,24 +411,6 @@ export interface Prisma {
   deleteManySkillSelections: (
     where?: SkillSelectionWhereInput
   ) => BatchPayloadPromise;
-  createSpecialBuff: (data: SpecialBuffCreateInput) => SpecialBuffPromise;
-  updateSpecialBuff: (args: {
-    data: SpecialBuffUpdateInput;
-    where: SpecialBuffWhereUniqueInput;
-  }) => SpecialBuffPromise;
-  updateManySpecialBuffs: (args: {
-    data: SpecialBuffUpdateManyMutationInput;
-    where?: SpecialBuffWhereInput;
-  }) => BatchPayloadPromise;
-  upsertSpecialBuff: (args: {
-    where: SpecialBuffWhereUniqueInput;
-    create: SpecialBuffCreateInput;
-    update: SpecialBuffUpdateInput;
-  }) => SpecialBuffPromise;
-  deleteSpecialBuff: (where: SpecialBuffWhereUniqueInput) => SpecialBuffPromise;
-  deleteManySpecialBuffs: (
-    where?: SpecialBuffWhereInput
-  ) => BatchPayloadPromise;
   createUser: (data: UserCreateInput) => UserPromise;
   updateUser: (args: {
     data: UserUpdateInput;
@@ -472,18 +436,18 @@ export interface Prisma {
 }
 
 export interface Subscription {
+  buff: (
+    where?: BuffSubscriptionWhereInput
+  ) => BuffSubscriptionPayloadSubscription;
   build: (
     where?: BuildSubscriptionWhereInput
   ) => BuildSubscriptionPayloadSubscription;
-  location: (
-    where?: LocationSubscriptionWhereInput
-  ) => LocationSubscriptionPayloadSubscription;
   modification: (
     where?: ModificationSubscriptionWhereInput
   ) => ModificationSubscriptionPayloadSubscription;
-  mundus: (
-    where?: MundusSubscriptionWhereInput
-  ) => MundusSubscriptionPayloadSubscription;
+  mundusStone: (
+    where?: MundusStoneSubscriptionWhereInput
+  ) => MundusStoneSubscriptionPayloadSubscription;
   post: (
     where?: PostSubscriptionWhereInput
   ) => PostSubscriptionPayloadSubscription;
@@ -499,9 +463,6 @@ export interface Subscription {
   skillSelection: (
     where?: SkillSelectionSubscriptionWhereInput
   ) => SkillSelectionSubscriptionPayloadSubscription;
-  specialBuff: (
-    where?: SpecialBuffSubscriptionWhereInput
-  ) => SpecialBuffSubscriptionPayloadSubscription;
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
@@ -514,6 +475,28 @@ export interface ClientConstructor<T> {
 /**
  * Types
  */
+
+export type BuffOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "buffDescription_ASC"
+  | "buffDescription_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "duration_ASC"
+  | "duration_DESC"
+  | "notes_ASC"
+  | "notes_DESC"
+  | "icon_ASC"
+  | "icon_DESC"
+  | "type_ASC"
+  | "type_DESC"
+  | "buffType_ASC"
+  | "buffType_DESC"
+  | "quality_ASC"
+  | "quality_DESC";
 
 export type BuildOrderByInput =
   | "id_ASC"
@@ -545,29 +528,29 @@ export type SkillSelectionOrderByInput =
   | "index_ASC"
   | "index_DESC";
 
-export type LocationOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "aldmeri_ASC"
-  | "aldmeri_DESC"
-  | "daggerfall_ASC"
-  | "daggerfall_DESC"
-  | "ebonheart_ASC"
-  | "ebonheart_DESC";
-
 export type ModificationOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "type_ASC"
   | "type_DESC"
+  | "itemType_ASC"
+  | "itemType_DESC"
+  | "modificationType_ASC"
+  | "modificationType_DESC"
   | "description_ASC"
   | "description_DESC"
   | "icon_ASC"
   | "icon_DESC";
 
-export type MundusOrderByInput =
+export type MundusStoneOrderByInput =
   | "name_ASC"
   | "name_DESC"
+  | "aldmeri_ASC"
+  | "aldmeri_DESC"
+  | "daggerfall_ASC"
+  | "daggerfall_DESC"
+  | "ebonheart_ASC"
+  | "ebonheart_DESC"
   | "effect_ASC"
   | "effect_DESC"
   | "value_ASC"
@@ -665,26 +648,6 @@ export type SkillOrderByInput =
   | "unlocks_at_ASC"
   | "unlocks_at_DESC";
 
-export type SpecialBuffOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "buffDescription_ASC"
-  | "buffDescription_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "duration_ASC"
-  | "duration_DESC"
-  | "notes_ASC"
-  | "notes_DESC"
-  | "icon_ASC"
-  | "icon_DESC"
-  | "type_ASC"
-  | "type_DESC"
-  | "quality_ASC"
-  | "quality_DESC";
-
 export type UserOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -696,6 +659,145 @@ export type UserOrderByInput =
   | "name_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
+
+export type BuffWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  name?: Maybe<String>;
+}>;
+
+export interface BuffWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  buffDescription?: Maybe<String>;
+  buffDescription_not?: Maybe<String>;
+  buffDescription_in?: Maybe<String[] | String>;
+  buffDescription_not_in?: Maybe<String[] | String>;
+  buffDescription_lt?: Maybe<String>;
+  buffDescription_lte?: Maybe<String>;
+  buffDescription_gt?: Maybe<String>;
+  buffDescription_gte?: Maybe<String>;
+  buffDescription_contains?: Maybe<String>;
+  buffDescription_not_contains?: Maybe<String>;
+  buffDescription_starts_with?: Maybe<String>;
+  buffDescription_not_starts_with?: Maybe<String>;
+  buffDescription_ends_with?: Maybe<String>;
+  buffDescription_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  duration?: Maybe<Int>;
+  duration_not?: Maybe<Int>;
+  duration_in?: Maybe<Int[] | Int>;
+  duration_not_in?: Maybe<Int[] | Int>;
+  duration_lt?: Maybe<Int>;
+  duration_lte?: Maybe<Int>;
+  duration_gt?: Maybe<Int>;
+  duration_gte?: Maybe<Int>;
+  notes?: Maybe<String>;
+  notes_not?: Maybe<String>;
+  notes_in?: Maybe<String[] | String>;
+  notes_not_in?: Maybe<String[] | String>;
+  notes_lt?: Maybe<String>;
+  notes_lte?: Maybe<String>;
+  notes_gt?: Maybe<String>;
+  notes_gte?: Maybe<String>;
+  notes_contains?: Maybe<String>;
+  notes_not_contains?: Maybe<String>;
+  notes_starts_with?: Maybe<String>;
+  notes_not_starts_with?: Maybe<String>;
+  notes_ends_with?: Maybe<String>;
+  notes_not_ends_with?: Maybe<String>;
+  icon?: Maybe<String>;
+  icon_not?: Maybe<String>;
+  icon_in?: Maybe<String[] | String>;
+  icon_not_in?: Maybe<String[] | String>;
+  icon_lt?: Maybe<String>;
+  icon_lte?: Maybe<String>;
+  icon_gt?: Maybe<String>;
+  icon_gte?: Maybe<String>;
+  icon_contains?: Maybe<String>;
+  icon_not_contains?: Maybe<String>;
+  icon_starts_with?: Maybe<String>;
+  icon_not_starts_with?: Maybe<String>;
+  icon_ends_with?: Maybe<String>;
+  icon_not_ends_with?: Maybe<String>;
+  type?: Maybe<String>;
+  type_not?: Maybe<String>;
+  type_in?: Maybe<String[] | String>;
+  type_not_in?: Maybe<String[] | String>;
+  type_lt?: Maybe<String>;
+  type_lte?: Maybe<String>;
+  type_gt?: Maybe<String>;
+  type_gte?: Maybe<String>;
+  type_contains?: Maybe<String>;
+  type_not_contains?: Maybe<String>;
+  type_starts_with?: Maybe<String>;
+  type_not_starts_with?: Maybe<String>;
+  type_ends_with?: Maybe<String>;
+  type_not_ends_with?: Maybe<String>;
+  buffType?: Maybe<String>;
+  buffType_not?: Maybe<String>;
+  buffType_in?: Maybe<String[] | String>;
+  buffType_not_in?: Maybe<String[] | String>;
+  buffType_lt?: Maybe<String>;
+  buffType_lte?: Maybe<String>;
+  buffType_gt?: Maybe<String>;
+  buffType_gte?: Maybe<String>;
+  buffType_contains?: Maybe<String>;
+  buffType_not_contains?: Maybe<String>;
+  buffType_starts_with?: Maybe<String>;
+  buffType_not_starts_with?: Maybe<String>;
+  buffType_ends_with?: Maybe<String>;
+  buffType_not_ends_with?: Maybe<String>;
+  quality?: Maybe<Int>;
+  quality_not?: Maybe<Int>;
+  quality_in?: Maybe<Int[] | Int>;
+  quality_not_in?: Maybe<Int[] | Int>;
+  quality_lt?: Maybe<Int>;
+  quality_lte?: Maybe<Int>;
+  quality_gt?: Maybe<Int>;
+  quality_gte?: Maybe<Int>;
+  AND?: Maybe<BuffWhereInput[] | BuffWhereInput>;
+  OR?: Maybe<BuffWhereInput[] | BuffWhereInput>;
+  NOT?: Maybe<BuffWhereInput[] | BuffWhereInput>;
+}
 
 export type BuildWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
@@ -800,8 +902,8 @@ export interface BuildWhereInput {
   newBarTwo_none?: Maybe<SkillSelectionWhereInput>;
   ultimateOne?: Maybe<SkillWhereInput>;
   ultimateTwo?: Maybe<SkillWhereInput>;
-  mundus?: Maybe<MundusWhereInput>;
-  buff?: Maybe<SpecialBuffWhereInput>;
+  mundusStone?: Maybe<MundusStoneWhereInput>;
+  buff?: Maybe<BuffWhereInput>;
   AND?: Maybe<BuildWhereInput[] | BuildWhereInput>;
   OR?: Maybe<BuildWhereInput[] | BuildWhereInput>;
   NOT?: Maybe<BuildWhereInput[] | BuildWhereInput>;
@@ -1170,6 +1272,34 @@ export interface ModificationWhereInput {
   type_not_starts_with?: Maybe<String>;
   type_ends_with?: Maybe<String>;
   type_not_ends_with?: Maybe<String>;
+  itemType?: Maybe<String>;
+  itemType_not?: Maybe<String>;
+  itemType_in?: Maybe<String[] | String>;
+  itemType_not_in?: Maybe<String[] | String>;
+  itemType_lt?: Maybe<String>;
+  itemType_lte?: Maybe<String>;
+  itemType_gt?: Maybe<String>;
+  itemType_gte?: Maybe<String>;
+  itemType_contains?: Maybe<String>;
+  itemType_not_contains?: Maybe<String>;
+  itemType_starts_with?: Maybe<String>;
+  itemType_not_starts_with?: Maybe<String>;
+  itemType_ends_with?: Maybe<String>;
+  itemType_not_ends_with?: Maybe<String>;
+  modificationType?: Maybe<String>;
+  modificationType_not?: Maybe<String>;
+  modificationType_in?: Maybe<String[] | String>;
+  modificationType_not_in?: Maybe<String[] | String>;
+  modificationType_lt?: Maybe<String>;
+  modificationType_lte?: Maybe<String>;
+  modificationType_gt?: Maybe<String>;
+  modificationType_gte?: Maybe<String>;
+  modificationType_contains?: Maybe<String>;
+  modificationType_not_contains?: Maybe<String>;
+  modificationType_starts_with?: Maybe<String>;
+  modificationType_not_starts_with?: Maybe<String>;
+  modificationType_ends_with?: Maybe<String>;
+  modificationType_not_ends_with?: Maybe<String>;
   description?: Maybe<String>;
   description_not?: Maybe<String>;
   description_in?: Maybe<String[] | String>;
@@ -1426,7 +1556,7 @@ export interface SkillWhereInput {
   NOT?: Maybe<SkillWhereInput[] | SkillWhereInput>;
 }
 
-export interface MundusWhereInput {
+export interface MundusStoneWhereInput {
   name?: Maybe<String>;
   name_not?: Maybe<String>;
   name_in?: Maybe<String[] | String>;
@@ -1441,77 +1571,6 @@ export interface MundusWhereInput {
   name_not_starts_with?: Maybe<String>;
   name_ends_with?: Maybe<String>;
   name_not_ends_with?: Maybe<String>;
-  location?: Maybe<LocationWhereInput>;
-  effect?: Maybe<String>;
-  effect_not?: Maybe<String>;
-  effect_in?: Maybe<String[] | String>;
-  effect_not_in?: Maybe<String[] | String>;
-  effect_lt?: Maybe<String>;
-  effect_lte?: Maybe<String>;
-  effect_gt?: Maybe<String>;
-  effect_gte?: Maybe<String>;
-  effect_contains?: Maybe<String>;
-  effect_not_contains?: Maybe<String>;
-  effect_starts_with?: Maybe<String>;
-  effect_not_starts_with?: Maybe<String>;
-  effect_ends_with?: Maybe<String>;
-  effect_not_ends_with?: Maybe<String>;
-  value?: Maybe<String>;
-  value_not?: Maybe<String>;
-  value_in?: Maybe<String[] | String>;
-  value_not_in?: Maybe<String[] | String>;
-  value_lt?: Maybe<String>;
-  value_lte?: Maybe<String>;
-  value_gt?: Maybe<String>;
-  value_gte?: Maybe<String>;
-  value_contains?: Maybe<String>;
-  value_not_contains?: Maybe<String>;
-  value_starts_with?: Maybe<String>;
-  value_not_starts_with?: Maybe<String>;
-  value_ends_with?: Maybe<String>;
-  value_not_ends_with?: Maybe<String>;
-  icon?: Maybe<String>;
-  icon_not?: Maybe<String>;
-  icon_in?: Maybe<String[] | String>;
-  icon_not_in?: Maybe<String[] | String>;
-  icon_lt?: Maybe<String>;
-  icon_lte?: Maybe<String>;
-  icon_gt?: Maybe<String>;
-  icon_gte?: Maybe<String>;
-  icon_contains?: Maybe<String>;
-  icon_not_contains?: Maybe<String>;
-  icon_starts_with?: Maybe<String>;
-  icon_not_starts_with?: Maybe<String>;
-  icon_ends_with?: Maybe<String>;
-  icon_not_ends_with?: Maybe<String>;
-  id?: Maybe<Int>;
-  id_not?: Maybe<Int>;
-  id_in?: Maybe<Int[] | Int>;
-  id_not_in?: Maybe<Int[] | Int>;
-  id_lt?: Maybe<Int>;
-  id_lte?: Maybe<Int>;
-  id_gt?: Maybe<Int>;
-  id_gte?: Maybe<Int>;
-  AND?: Maybe<MundusWhereInput[] | MundusWhereInput>;
-  OR?: Maybe<MundusWhereInput[] | MundusWhereInput>;
-  NOT?: Maybe<MundusWhereInput[] | MundusWhereInput>;
-}
-
-export interface LocationWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
   aldmeri?: Maybe<String>;
   aldmeri_not?: Maybe<String>;
   aldmeri_in?: Maybe<String[] | String>;
@@ -1554,90 +1613,34 @@ export interface LocationWhereInput {
   ebonheart_not_starts_with?: Maybe<String>;
   ebonheart_ends_with?: Maybe<String>;
   ebonheart_not_ends_with?: Maybe<String>;
-  AND?: Maybe<LocationWhereInput[] | LocationWhereInput>;
-  OR?: Maybe<LocationWhereInput[] | LocationWhereInput>;
-  NOT?: Maybe<LocationWhereInput[] | LocationWhereInput>;
-}
-
-export interface SpecialBuffWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  buffDescription?: Maybe<String>;
-  buffDescription_not?: Maybe<String>;
-  buffDescription_in?: Maybe<String[] | String>;
-  buffDescription_not_in?: Maybe<String[] | String>;
-  buffDescription_lt?: Maybe<String>;
-  buffDescription_lte?: Maybe<String>;
-  buffDescription_gt?: Maybe<String>;
-  buffDescription_gte?: Maybe<String>;
-  buffDescription_contains?: Maybe<String>;
-  buffDescription_not_contains?: Maybe<String>;
-  buffDescription_starts_with?: Maybe<String>;
-  buffDescription_not_starts_with?: Maybe<String>;
-  buffDescription_ends_with?: Maybe<String>;
-  buffDescription_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  duration?: Maybe<Int>;
-  duration_not?: Maybe<Int>;
-  duration_in?: Maybe<Int[] | Int>;
-  duration_not_in?: Maybe<Int[] | Int>;
-  duration_lt?: Maybe<Int>;
-  duration_lte?: Maybe<Int>;
-  duration_gt?: Maybe<Int>;
-  duration_gte?: Maybe<Int>;
-  notes?: Maybe<String>;
-  notes_not?: Maybe<String>;
-  notes_in?: Maybe<String[] | String>;
-  notes_not_in?: Maybe<String[] | String>;
-  notes_lt?: Maybe<String>;
-  notes_lte?: Maybe<String>;
-  notes_gt?: Maybe<String>;
-  notes_gte?: Maybe<String>;
-  notes_contains?: Maybe<String>;
-  notes_not_contains?: Maybe<String>;
-  notes_starts_with?: Maybe<String>;
-  notes_not_starts_with?: Maybe<String>;
-  notes_ends_with?: Maybe<String>;
-  notes_not_ends_with?: Maybe<String>;
+  effect?: Maybe<String>;
+  effect_not?: Maybe<String>;
+  effect_in?: Maybe<String[] | String>;
+  effect_not_in?: Maybe<String[] | String>;
+  effect_lt?: Maybe<String>;
+  effect_lte?: Maybe<String>;
+  effect_gt?: Maybe<String>;
+  effect_gte?: Maybe<String>;
+  effect_contains?: Maybe<String>;
+  effect_not_contains?: Maybe<String>;
+  effect_starts_with?: Maybe<String>;
+  effect_not_starts_with?: Maybe<String>;
+  effect_ends_with?: Maybe<String>;
+  effect_not_ends_with?: Maybe<String>;
+  value?: Maybe<String>;
+  value_not?: Maybe<String>;
+  value_in?: Maybe<String[] | String>;
+  value_not_in?: Maybe<String[] | String>;
+  value_lt?: Maybe<String>;
+  value_lte?: Maybe<String>;
+  value_gt?: Maybe<String>;
+  value_gte?: Maybe<String>;
+  value_contains?: Maybe<String>;
+  value_not_contains?: Maybe<String>;
+  value_starts_with?: Maybe<String>;
+  value_not_starts_with?: Maybe<String>;
+  value_ends_with?: Maybe<String>;
+  value_not_ends_with?: Maybe<String>;
   icon?: Maybe<String>;
   icon_not?: Maybe<String>;
   icon_in?: Maybe<String[] | String>;
@@ -1652,45 +1655,33 @@ export interface SpecialBuffWhereInput {
   icon_not_starts_with?: Maybe<String>;
   icon_ends_with?: Maybe<String>;
   icon_not_ends_with?: Maybe<String>;
-  type?: Maybe<String>;
-  type_not?: Maybe<String>;
-  type_in?: Maybe<String[] | String>;
-  type_not_in?: Maybe<String[] | String>;
-  type_lt?: Maybe<String>;
-  type_lte?: Maybe<String>;
-  type_gt?: Maybe<String>;
-  type_gte?: Maybe<String>;
-  type_contains?: Maybe<String>;
-  type_not_contains?: Maybe<String>;
-  type_starts_with?: Maybe<String>;
-  type_not_starts_with?: Maybe<String>;
-  type_ends_with?: Maybe<String>;
-  type_not_ends_with?: Maybe<String>;
-  quality?: Maybe<Int>;
-  quality_not?: Maybe<Int>;
-  quality_in?: Maybe<Int[] | Int>;
-  quality_not_in?: Maybe<Int[] | Int>;
-  quality_lt?: Maybe<Int>;
-  quality_lte?: Maybe<Int>;
-  quality_gt?: Maybe<Int>;
-  quality_gte?: Maybe<Int>;
-  AND?: Maybe<SpecialBuffWhereInput[] | SpecialBuffWhereInput>;
-  OR?: Maybe<SpecialBuffWhereInput[] | SpecialBuffWhereInput>;
-  NOT?: Maybe<SpecialBuffWhereInput[] | SpecialBuffWhereInput>;
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  AND?: Maybe<MundusStoneWhereInput[] | MundusStoneWhereInput>;
+  OR?: Maybe<MundusStoneWhereInput[] | MundusStoneWhereInput>;
+  NOT?: Maybe<MundusStoneWhereInput[] | MundusStoneWhereInput>;
 }
-
-export type LocationWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
 
 export type ModificationWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
-  type?: Maybe<String>;
+  description?: Maybe<String>;
 }>;
 
-export type MundusWhereUniqueInput = AtLeastOne<{
+export type MundusStoneWhereUniqueInput = AtLeastOne<{
   name: Maybe<String>;
-  id?: Maybe<Int>;
+  id?: Maybe<ID_Input>;
 }>;
 
 export type PostWhereUniqueInput = AtLeastOne<{
@@ -1782,15 +1773,47 @@ export type SkillSelectionWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-export type SpecialBuffWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  name?: Maybe<String>;
-}>;
-
 export type UserWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   email?: Maybe<String>;
 }>;
+
+export interface BuffCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  buffDescription: String;
+  description?: Maybe<String>;
+  duration: Int;
+  notes?: Maybe<String>;
+  icon?: Maybe<String>;
+  type?: Maybe<String>;
+  buffType?: Maybe<String>;
+  quality: Int;
+}
+
+export interface BuffUpdateInput {
+  name?: Maybe<String>;
+  buffDescription?: Maybe<String>;
+  description?: Maybe<String>;
+  duration?: Maybe<Int>;
+  notes?: Maybe<String>;
+  icon?: Maybe<String>;
+  type?: Maybe<String>;
+  buffType?: Maybe<String>;
+  quality?: Maybe<Int>;
+}
+
+export interface BuffUpdateManyMutationInput {
+  name?: Maybe<String>;
+  buffDescription?: Maybe<String>;
+  description?: Maybe<String>;
+  duration?: Maybe<Int>;
+  notes?: Maybe<String>;
+  icon?: Maybe<String>;
+  type?: Maybe<String>;
+  buffType?: Maybe<String>;
+  quality?: Maybe<Int>;
+}
 
 export interface BuildCreateInput {
   id?: Maybe<ID_Input>;
@@ -1808,8 +1831,8 @@ export interface BuildCreateInput {
   newBarTwo?: Maybe<SkillSelectionCreateManyInput>;
   ultimateOne?: Maybe<SkillCreateOneInput>;
   ultimateTwo?: Maybe<SkillCreateOneInput>;
-  mundus?: Maybe<MundusCreateOneInput>;
-  buff?: Maybe<SpecialBuffCreateOneInput>;
+  mundusStone?: Maybe<MundusStoneCreateOneInput>;
+  buff?: Maybe<BuffCreateOneInput>;
 }
 
 export interface UserCreateOneWithoutBuildsInput {
@@ -1875,6 +1898,8 @@ export interface ModificationCreateOneInput {
 export interface ModificationCreateInput {
   id?: Maybe<ID_Input>;
   type: String;
+  itemType: String;
+  modificationType: String;
   description: String;
   icon?: Maybe<String>;
 }
@@ -1916,47 +1941,25 @@ export interface SkillCreateInput {
   unlocks_at?: Maybe<Int>;
 }
 
-export interface MundusCreateOneInput {
-  create?: Maybe<MundusCreateInput>;
-  connect?: Maybe<MundusWhereUniqueInput>;
+export interface MundusStoneCreateOneInput {
+  create?: Maybe<MundusStoneCreateInput>;
+  connect?: Maybe<MundusStoneWhereUniqueInput>;
 }
 
-export interface MundusCreateInput {
+export interface MundusStoneCreateInput {
   name: String;
-  location?: Maybe<LocationCreateOneInput>;
-  effect: String;
-  value: String;
-  icon?: Maybe<String>;
-  id?: Maybe<Int>;
-}
-
-export interface LocationCreateOneInput {
-  create?: Maybe<LocationCreateInput>;
-  connect?: Maybe<LocationWhereUniqueInput>;
-}
-
-export interface LocationCreateInput {
-  id?: Maybe<ID_Input>;
   aldmeri?: Maybe<String>;
   daggerfall?: Maybe<String>;
   ebonheart?: Maybe<String>;
-}
-
-export interface SpecialBuffCreateOneInput {
-  create?: Maybe<SpecialBuffCreateInput>;
-  connect?: Maybe<SpecialBuffWhereUniqueInput>;
-}
-
-export interface SpecialBuffCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  buffDescription: String;
-  description?: Maybe<String>;
-  duration: Int;
-  notes?: Maybe<String>;
+  effect: String;
+  value: String;
   icon?: Maybe<String>;
-  type?: Maybe<String>;
-  quality: Int;
+  id?: Maybe<ID_Input>;
+}
+
+export interface BuffCreateOneInput {
+  create?: Maybe<BuffCreateInput>;
+  connect?: Maybe<BuffWhereUniqueInput>;
 }
 
 export interface BuildUpdateInput {
@@ -1974,8 +1977,8 @@ export interface BuildUpdateInput {
   newBarTwo?: Maybe<SkillSelectionUpdateManyInput>;
   ultimateOne?: Maybe<SkillUpdateOneInput>;
   ultimateTwo?: Maybe<SkillUpdateOneInput>;
-  mundus?: Maybe<MundusUpdateOneInput>;
-  buff?: Maybe<SpecialBuffUpdateOneInput>;
+  mundusStone?: Maybe<MundusStoneUpdateOneInput>;
+  buff?: Maybe<BuffUpdateOneInput>;
 }
 
 export interface UserUpdateOneWithoutBuildsInput {
@@ -2084,6 +2087,8 @@ export interface ModificationUpdateOneInput {
 
 export interface ModificationUpdateDataInput {
   type?: Maybe<String>;
+  itemType?: Maybe<String>;
+  modificationType?: Maybe<String>;
   description?: Maybe<String>;
   icon?: Maybe<String>;
 }
@@ -2277,58 +2282,40 @@ export interface SkillSelectionUpdateManyDataInput {
   index?: Maybe<Int>;
 }
 
-export interface MundusUpdateOneInput {
-  create?: Maybe<MundusCreateInput>;
-  update?: Maybe<MundusUpdateDataInput>;
-  upsert?: Maybe<MundusUpsertNestedInput>;
+export interface MundusStoneUpdateOneInput {
+  create?: Maybe<MundusStoneCreateInput>;
+  update?: Maybe<MundusStoneUpdateDataInput>;
+  upsert?: Maybe<MundusStoneUpsertNestedInput>;
   delete?: Maybe<Boolean>;
   disconnect?: Maybe<Boolean>;
-  connect?: Maybe<MundusWhereUniqueInput>;
+  connect?: Maybe<MundusStoneWhereUniqueInput>;
 }
 
-export interface MundusUpdateDataInput {
+export interface MundusStoneUpdateDataInput {
   name?: Maybe<String>;
-  location?: Maybe<LocationUpdateOneInput>;
+  aldmeri?: Maybe<String>;
+  daggerfall?: Maybe<String>;
+  ebonheart?: Maybe<String>;
   effect?: Maybe<String>;
   value?: Maybe<String>;
   icon?: Maybe<String>;
 }
 
-export interface LocationUpdateOneInput {
-  create?: Maybe<LocationCreateInput>;
-  update?: Maybe<LocationUpdateDataInput>;
-  upsert?: Maybe<LocationUpsertNestedInput>;
+export interface MundusStoneUpsertNestedInput {
+  update: MundusStoneUpdateDataInput;
+  create: MundusStoneCreateInput;
+}
+
+export interface BuffUpdateOneInput {
+  create?: Maybe<BuffCreateInput>;
+  update?: Maybe<BuffUpdateDataInput>;
+  upsert?: Maybe<BuffUpsertNestedInput>;
   delete?: Maybe<Boolean>;
   disconnect?: Maybe<Boolean>;
-  connect?: Maybe<LocationWhereUniqueInput>;
+  connect?: Maybe<BuffWhereUniqueInput>;
 }
 
-export interface LocationUpdateDataInput {
-  aldmeri?: Maybe<String>;
-  daggerfall?: Maybe<String>;
-  ebonheart?: Maybe<String>;
-}
-
-export interface LocationUpsertNestedInput {
-  update: LocationUpdateDataInput;
-  create: LocationCreateInput;
-}
-
-export interface MundusUpsertNestedInput {
-  update: MundusUpdateDataInput;
-  create: MundusCreateInput;
-}
-
-export interface SpecialBuffUpdateOneInput {
-  create?: Maybe<SpecialBuffCreateInput>;
-  update?: Maybe<SpecialBuffUpdateDataInput>;
-  upsert?: Maybe<SpecialBuffUpsertNestedInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<SpecialBuffWhereUniqueInput>;
-}
-
-export interface SpecialBuffUpdateDataInput {
+export interface BuffUpdateDataInput {
   name?: Maybe<String>;
   buffDescription?: Maybe<String>;
   description?: Maybe<String>;
@@ -2336,12 +2323,13 @@ export interface SpecialBuffUpdateDataInput {
   notes?: Maybe<String>;
   icon?: Maybe<String>;
   type?: Maybe<String>;
+  buffType?: Maybe<String>;
   quality?: Maybe<Int>;
 }
 
-export interface SpecialBuffUpsertNestedInput {
-  update: SpecialBuffUpdateDataInput;
-  create: SpecialBuffCreateInput;
+export interface BuffUpsertNestedInput {
+  update: BuffUpdateDataInput;
+  create: BuffCreateInput;
 }
 
 export interface BuildUpdateManyMutationInput {
@@ -2351,40 +2339,37 @@ export interface BuildUpdateManyMutationInput {
   published?: Maybe<Boolean>;
 }
 
-export interface LocationUpdateInput {
-  aldmeri?: Maybe<String>;
-  daggerfall?: Maybe<String>;
-  ebonheart?: Maybe<String>;
-}
-
-export interface LocationUpdateManyMutationInput {
-  aldmeri?: Maybe<String>;
-  daggerfall?: Maybe<String>;
-  ebonheart?: Maybe<String>;
-}
-
 export interface ModificationUpdateInput {
   type?: Maybe<String>;
+  itemType?: Maybe<String>;
+  modificationType?: Maybe<String>;
   description?: Maybe<String>;
   icon?: Maybe<String>;
 }
 
 export interface ModificationUpdateManyMutationInput {
   type?: Maybe<String>;
+  itemType?: Maybe<String>;
+  modificationType?: Maybe<String>;
   description?: Maybe<String>;
   icon?: Maybe<String>;
 }
 
-export interface MundusUpdateInput {
+export interface MundusStoneUpdateInput {
   name?: Maybe<String>;
-  location?: Maybe<LocationUpdateOneInput>;
+  aldmeri?: Maybe<String>;
+  daggerfall?: Maybe<String>;
+  ebonheart?: Maybe<String>;
   effect?: Maybe<String>;
   value?: Maybe<String>;
   icon?: Maybe<String>;
 }
 
-export interface MundusUpdateManyMutationInput {
+export interface MundusStoneUpdateManyMutationInput {
   name?: Maybe<String>;
+  aldmeri?: Maybe<String>;
+  daggerfall?: Maybe<String>;
+  ebonheart?: Maybe<String>;
   effect?: Maybe<String>;
   value?: Maybe<String>;
   icon?: Maybe<String>;
@@ -2431,8 +2416,8 @@ export interface BuildCreateWithoutOwnerInput {
   newBarTwo?: Maybe<SkillSelectionCreateManyInput>;
   ultimateOne?: Maybe<SkillCreateOneInput>;
   ultimateTwo?: Maybe<SkillCreateOneInput>;
-  mundus?: Maybe<MundusCreateOneInput>;
-  buff?: Maybe<SpecialBuffCreateOneInput>;
+  mundusStone?: Maybe<MundusStoneCreateOneInput>;
+  buff?: Maybe<BuffCreateOneInput>;
 }
 
 export interface PostUpdateInput {
@@ -2495,8 +2480,8 @@ export interface BuildUpdateWithoutOwnerDataInput {
   newBarTwo?: Maybe<SkillSelectionUpdateManyInput>;
   ultimateOne?: Maybe<SkillUpdateOneInput>;
   ultimateTwo?: Maybe<SkillUpdateOneInput>;
-  mundus?: Maybe<MundusUpdateOneInput>;
-  buff?: Maybe<SpecialBuffUpdateOneInput>;
+  mundusStone?: Maybe<MundusStoneUpdateOneInput>;
+  buff?: Maybe<BuffUpdateOneInput>;
 }
 
 export interface BuildUpsertWithWhereUniqueWithoutOwnerInput {
@@ -2708,28 +2693,6 @@ export interface SkillSelectionUpdateManyMutationInput {
   index?: Maybe<Int>;
 }
 
-export interface SpecialBuffUpdateInput {
-  name?: Maybe<String>;
-  buffDescription?: Maybe<String>;
-  description?: Maybe<String>;
-  duration?: Maybe<Int>;
-  notes?: Maybe<String>;
-  icon?: Maybe<String>;
-  type?: Maybe<String>;
-  quality?: Maybe<Int>;
-}
-
-export interface SpecialBuffUpdateManyMutationInput {
-  name?: Maybe<String>;
-  buffDescription?: Maybe<String>;
-  description?: Maybe<String>;
-  duration?: Maybe<Int>;
-  notes?: Maybe<String>;
-  icon?: Maybe<String>;
-  type?: Maybe<String>;
-  quality?: Maybe<Int>;
-}
-
 export interface UserUpdateInput {
   email?: Maybe<String>;
   password?: Maybe<String>;
@@ -2743,6 +2706,17 @@ export interface UserUpdateManyMutationInput {
   name?: Maybe<String>;
 }
 
+export interface BuffSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<BuffWhereInput>;
+  AND?: Maybe<BuffSubscriptionWhereInput[] | BuffSubscriptionWhereInput>;
+  OR?: Maybe<BuffSubscriptionWhereInput[] | BuffSubscriptionWhereInput>;
+  NOT?: Maybe<BuffSubscriptionWhereInput[] | BuffSubscriptionWhereInput>;
+}
+
 export interface BuildSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
@@ -2752,21 +2726,6 @@ export interface BuildSubscriptionWhereInput {
   AND?: Maybe<BuildSubscriptionWhereInput[] | BuildSubscriptionWhereInput>;
   OR?: Maybe<BuildSubscriptionWhereInput[] | BuildSubscriptionWhereInput>;
   NOT?: Maybe<BuildSubscriptionWhereInput[] | BuildSubscriptionWhereInput>;
-}
-
-export interface LocationSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<LocationWhereInput>;
-  AND?: Maybe<
-    LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
-  >;
-  OR?: Maybe<LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput>;
-  NOT?: Maybe<
-    LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
-  >;
 }
 
 export interface ModificationSubscriptionWhereInput {
@@ -2786,15 +2745,21 @@ export interface ModificationSubscriptionWhereInput {
   >;
 }
 
-export interface MundusSubscriptionWhereInput {
+export interface MundusStoneSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<MundusWhereInput>;
-  AND?: Maybe<MundusSubscriptionWhereInput[] | MundusSubscriptionWhereInput>;
-  OR?: Maybe<MundusSubscriptionWhereInput[] | MundusSubscriptionWhereInput>;
-  NOT?: Maybe<MundusSubscriptionWhereInput[] | MundusSubscriptionWhereInput>;
+  node?: Maybe<MundusStoneWhereInput>;
+  AND?: Maybe<
+    MundusStoneSubscriptionWhereInput[] | MundusStoneSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    MundusStoneSubscriptionWhereInput[] | MundusStoneSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    MundusStoneSubscriptionWhereInput[] | MundusStoneSubscriptionWhereInput
+  >;
 }
 
 export interface PostSubscriptionWhereInput {
@@ -2867,23 +2832,6 @@ export interface SkillSelectionSubscriptionWhereInput {
   >;
 }
 
-export interface SpecialBuffSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<SpecialBuffWhereInput>;
-  AND?: Maybe<
-    SpecialBuffSubscriptionWhereInput[] | SpecialBuffSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    SpecialBuffSubscriptionWhereInput[] | SpecialBuffSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    SpecialBuffSubscriptionWhereInput[] | SpecialBuffSubscriptionWhereInput
-  >;
-}
-
 export interface UserSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
@@ -2897,6 +2845,139 @@ export interface UserSubscriptionWhereInput {
 
 export interface NodeNode {
   id: ID_Output;
+}
+
+export interface Buff {
+  id: ID_Output;
+  name: String;
+  buffDescription: String;
+  description?: String;
+  duration: Int;
+  notes?: String;
+  icon?: String;
+  type?: String;
+  buffType?: String;
+  quality: Int;
+}
+
+export interface BuffPromise extends Promise<Buff>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  buffDescription: () => Promise<String>;
+  description: () => Promise<String>;
+  duration: () => Promise<Int>;
+  notes: () => Promise<String>;
+  icon: () => Promise<String>;
+  type: () => Promise<String>;
+  buffType: () => Promise<String>;
+  quality: () => Promise<Int>;
+}
+
+export interface BuffSubscription
+  extends Promise<AsyncIterator<Buff>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  buffDescription: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  duration: () => Promise<AsyncIterator<Int>>;
+  notes: () => Promise<AsyncIterator<String>>;
+  icon: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<String>>;
+  buffType: () => Promise<AsyncIterator<String>>;
+  quality: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface BuffNullablePromise
+  extends Promise<Buff | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  buffDescription: () => Promise<String>;
+  description: () => Promise<String>;
+  duration: () => Promise<Int>;
+  notes: () => Promise<String>;
+  icon: () => Promise<String>;
+  type: () => Promise<String>;
+  buffType: () => Promise<String>;
+  quality: () => Promise<Int>;
+}
+
+export interface BuffConnection {
+  pageInfo: PageInfo;
+  edges: BuffEdge[];
+}
+
+export interface BuffConnectionPromise
+  extends Promise<BuffConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<BuffEdge>>() => T;
+  aggregate: <T = AggregateBuffPromise>() => T;
+}
+
+export interface BuffConnectionSubscription
+  extends Promise<AsyncIterator<BuffConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<BuffEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateBuffSubscription>() => T;
+}
+
+export interface PageInfo {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
+}
+
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
+}
+
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
+    Fragmentable {
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface BuffEdge {
+  node: Buff;
+  cursor: String;
+}
+
+export interface BuffEdgePromise extends Promise<BuffEdge>, Fragmentable {
+  node: <T = BuffPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface BuffEdgeSubscription
+  extends Promise<AsyncIterator<BuffEdge>>,
+    Fragmentable {
+  node: <T = BuffSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateBuff {
+  count: Int;
+}
+
+export interface AggregateBuffPromise
+  extends Promise<AggregateBuff>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateBuffSubscription
+  extends Promise<AsyncIterator<AggregateBuff>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface Build {
@@ -2983,8 +3064,8 @@ export interface BuildPromise extends Promise<Build>, Fragmentable {
   }) => T;
   ultimateOne: <T = SkillPromise>() => T;
   ultimateTwo: <T = SkillPromise>() => T;
-  mundus: <T = MundusPromise>() => T;
-  buff: <T = SpecialBuffPromise>() => T;
+  mundusStone: <T = MundusStonePromise>() => T;
+  buff: <T = BuffPromise>() => T;
 }
 
 export interface BuildSubscription
@@ -3073,8 +3154,8 @@ export interface BuildSubscription
   }) => T;
   ultimateOne: <T = SkillSubscription>() => T;
   ultimateTwo: <T = SkillSubscription>() => T;
-  mundus: <T = MundusSubscription>() => T;
-  buff: <T = SpecialBuffSubscription>() => T;
+  mundusStone: <T = MundusStoneSubscription>() => T;
+  buff: <T = BuffSubscription>() => T;
 }
 
 export interface BuildNullablePromise
@@ -3153,8 +3234,8 @@ export interface BuildNullablePromise
   }) => T;
   ultimateOne: <T = SkillPromise>() => T;
   ultimateTwo: <T = SkillPromise>() => T;
-  mundus: <T = MundusPromise>() => T;
-  buff: <T = SpecialBuffPromise>() => T;
+  mundusStone: <T = MundusStonePromise>() => T;
+  buff: <T = BuffPromise>() => T;
 }
 
 export interface User {
@@ -3348,6 +3429,8 @@ export interface SetNullablePromise extends Promise<Set | null>, Fragmentable {
 export interface Modification {
   id: ID_Output;
   type: String;
+  itemType: String;
+  modificationType: String;
   description: String;
   icon?: String;
 }
@@ -3357,6 +3440,8 @@ export interface ModificationPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
+  itemType: () => Promise<String>;
+  modificationType: () => Promise<String>;
   description: () => Promise<String>;
   icon: () => Promise<String>;
 }
@@ -3366,6 +3451,8 @@ export interface ModificationSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
+  itemType: () => Promise<AsyncIterator<String>>;
+  modificationType: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
   icon: () => Promise<AsyncIterator<String>>;
 }
@@ -3375,6 +3462,8 @@ export interface ModificationNullablePromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
+  itemType: () => Promise<String>;
+  modificationType: () => Promise<String>;
   description: () => Promise<String>;
   icon: () => Promise<String>;
 }
@@ -3488,127 +3577,52 @@ export interface SkillNullablePromise
   unlocks_at: () => Promise<Int>;
 }
 
-export interface Mundus {
+export interface MundusStone {
   name: String;
-  effect: String;
-  value: String;
-  icon?: String;
-  id: Int;
-}
-
-export interface MundusPromise extends Promise<Mundus>, Fragmentable {
-  name: () => Promise<String>;
-  location: <T = LocationPromise>() => T;
-  effect: () => Promise<String>;
-  value: () => Promise<String>;
-  icon: () => Promise<String>;
-  id: () => Promise<Int>;
-}
-
-export interface MundusSubscription
-  extends Promise<AsyncIterator<Mundus>>,
-    Fragmentable {
-  name: () => Promise<AsyncIterator<String>>;
-  location: <T = LocationSubscription>() => T;
-  effect: () => Promise<AsyncIterator<String>>;
-  value: () => Promise<AsyncIterator<String>>;
-  icon: () => Promise<AsyncIterator<String>>;
-  id: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface MundusNullablePromise
-  extends Promise<Mundus | null>,
-    Fragmentable {
-  name: () => Promise<String>;
-  location: <T = LocationPromise>() => T;
-  effect: () => Promise<String>;
-  value: () => Promise<String>;
-  icon: () => Promise<String>;
-  id: () => Promise<Int>;
-}
-
-export interface Location {
-  id: ID_Output;
   aldmeri?: String;
   daggerfall?: String;
   ebonheart?: String;
+  effect: String;
+  value: String;
+  icon?: String;
+  id: ID_Output;
 }
 
-export interface LocationPromise extends Promise<Location>, Fragmentable {
-  id: () => Promise<ID_Output>;
+export interface MundusStonePromise extends Promise<MundusStone>, Fragmentable {
+  name: () => Promise<String>;
   aldmeri: () => Promise<String>;
   daggerfall: () => Promise<String>;
   ebonheart: () => Promise<String>;
+  effect: () => Promise<String>;
+  value: () => Promise<String>;
+  icon: () => Promise<String>;
+  id: () => Promise<ID_Output>;
 }
 
-export interface LocationSubscription
-  extends Promise<AsyncIterator<Location>>,
+export interface MundusStoneSubscription
+  extends Promise<AsyncIterator<MundusStone>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
   aldmeri: () => Promise<AsyncIterator<String>>;
   daggerfall: () => Promise<AsyncIterator<String>>;
   ebonheart: () => Promise<AsyncIterator<String>>;
+  effect: () => Promise<AsyncIterator<String>>;
+  value: () => Promise<AsyncIterator<String>>;
+  icon: () => Promise<AsyncIterator<String>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
 }
 
-export interface LocationNullablePromise
-  extends Promise<Location | null>,
+export interface MundusStoneNullablePromise
+  extends Promise<MundusStone | null>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
   aldmeri: () => Promise<String>;
   daggerfall: () => Promise<String>;
   ebonheart: () => Promise<String>;
-}
-
-export interface SpecialBuff {
-  id: ID_Output;
-  name: String;
-  buffDescription: String;
-  description?: String;
-  duration: Int;
-  notes?: String;
-  icon?: String;
-  type?: String;
-  quality: Int;
-}
-
-export interface SpecialBuffPromise extends Promise<SpecialBuff>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  buffDescription: () => Promise<String>;
-  description: () => Promise<String>;
-  duration: () => Promise<Int>;
-  notes: () => Promise<String>;
+  effect: () => Promise<String>;
+  value: () => Promise<String>;
   icon: () => Promise<String>;
-  type: () => Promise<String>;
-  quality: () => Promise<Int>;
-}
-
-export interface SpecialBuffSubscription
-  extends Promise<AsyncIterator<SpecialBuff>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  buffDescription: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  duration: () => Promise<AsyncIterator<Int>>;
-  notes: () => Promise<AsyncIterator<String>>;
-  icon: () => Promise<AsyncIterator<String>>;
-  type: () => Promise<AsyncIterator<String>>;
-  quality: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface SpecialBuffNullablePromise
-  extends Promise<SpecialBuff | null>,
-    Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  buffDescription: () => Promise<String>;
-  description: () => Promise<String>;
-  duration: () => Promise<Int>;
-  notes: () => Promise<String>;
-  icon: () => Promise<String>;
-  type: () => Promise<String>;
-  quality: () => Promise<Int>;
 }
 
 export interface BuildConnection {
@@ -3630,29 +3644,6 @@ export interface BuildConnectionSubscription
   pageInfo: <T = PageInfoSubscription>() => T;
   edges: <T = Promise<AsyncIterator<BuildEdgeSubscription>>>() => T;
   aggregate: <T = AggregateBuildSubscription>() => T;
-}
-
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
-}
-
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
-    Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface BuildEdge {
@@ -3684,62 +3675,6 @@ export interface AggregateBuildPromise
 
 export interface AggregateBuildSubscription
   extends Promise<AsyncIterator<AggregateBuild>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface LocationConnection {
-  pageInfo: PageInfo;
-  edges: LocationEdge[];
-}
-
-export interface LocationConnectionPromise
-  extends Promise<LocationConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<LocationEdge>>() => T;
-  aggregate: <T = AggregateLocationPromise>() => T;
-}
-
-export interface LocationConnectionSubscription
-  extends Promise<AsyncIterator<LocationConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<LocationEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateLocationSubscription>() => T;
-}
-
-export interface LocationEdge {
-  node: Location;
-  cursor: String;
-}
-
-export interface LocationEdgePromise
-  extends Promise<LocationEdge>,
-    Fragmentable {
-  node: <T = LocationPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface LocationEdgeSubscription
-  extends Promise<AsyncIterator<LocationEdge>>,
-    Fragmentable {
-  node: <T = LocationSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateLocation {
-  count: Int;
-}
-
-export interface AggregateLocationPromise
-  extends Promise<AggregateLocation>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateLocationSubscription
-  extends Promise<AsyncIterator<AggregateLocation>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -3800,56 +3735,58 @@ export interface AggregateModificationSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface MundusConnection {
+export interface MundusStoneConnection {
   pageInfo: PageInfo;
-  edges: MundusEdge[];
+  edges: MundusStoneEdge[];
 }
 
-export interface MundusConnectionPromise
-  extends Promise<MundusConnection>,
+export interface MundusStoneConnectionPromise
+  extends Promise<MundusStoneConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<MundusEdge>>() => T;
-  aggregate: <T = AggregateMundusPromise>() => T;
+  edges: <T = FragmentableArray<MundusStoneEdge>>() => T;
+  aggregate: <T = AggregateMundusStonePromise>() => T;
 }
 
-export interface MundusConnectionSubscription
-  extends Promise<AsyncIterator<MundusConnection>>,
+export interface MundusStoneConnectionSubscription
+  extends Promise<AsyncIterator<MundusStoneConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<MundusEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateMundusSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<MundusStoneEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateMundusStoneSubscription>() => T;
 }
 
-export interface MundusEdge {
-  node: Mundus;
+export interface MundusStoneEdge {
+  node: MundusStone;
   cursor: String;
 }
 
-export interface MundusEdgePromise extends Promise<MundusEdge>, Fragmentable {
-  node: <T = MundusPromise>() => T;
+export interface MundusStoneEdgePromise
+  extends Promise<MundusStoneEdge>,
+    Fragmentable {
+  node: <T = MundusStonePromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface MundusEdgeSubscription
-  extends Promise<AsyncIterator<MundusEdge>>,
+export interface MundusStoneEdgeSubscription
+  extends Promise<AsyncIterator<MundusStoneEdge>>,
     Fragmentable {
-  node: <T = MundusSubscription>() => T;
+  node: <T = MundusStoneSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateMundus {
+export interface AggregateMundusStone {
   count: Int;
 }
 
-export interface AggregateMundusPromise
-  extends Promise<AggregateMundus>,
+export interface AggregateMundusStonePromise
+  extends Promise<AggregateMundusStone>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateMundusSubscription
-  extends Promise<AsyncIterator<AggregateMundus>>,
+export interface AggregateMundusStoneSubscription
+  extends Promise<AsyncIterator<AggregateMundusStone>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -4171,62 +4108,6 @@ export interface AggregateSkillSelectionSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface SpecialBuffConnection {
-  pageInfo: PageInfo;
-  edges: SpecialBuffEdge[];
-}
-
-export interface SpecialBuffConnectionPromise
-  extends Promise<SpecialBuffConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<SpecialBuffEdge>>() => T;
-  aggregate: <T = AggregateSpecialBuffPromise>() => T;
-}
-
-export interface SpecialBuffConnectionSubscription
-  extends Promise<AsyncIterator<SpecialBuffConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<SpecialBuffEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateSpecialBuffSubscription>() => T;
-}
-
-export interface SpecialBuffEdge {
-  node: SpecialBuff;
-  cursor: String;
-}
-
-export interface SpecialBuffEdgePromise
-  extends Promise<SpecialBuffEdge>,
-    Fragmentable {
-  node: <T = SpecialBuffPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface SpecialBuffEdgeSubscription
-  extends Promise<AsyncIterator<SpecialBuffEdge>>,
-    Fragmentable {
-  node: <T = SpecialBuffSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateSpecialBuff {
-  count: Int;
-}
-
-export interface AggregateSpecialBuffPromise
-  extends Promise<AggregateSpecialBuff>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateSpecialBuffSubscription
-  extends Promise<AsyncIterator<AggregateSpecialBuff>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
 export interface UserConnection {
   pageInfo: PageInfo;
   edges: UserEdge[];
@@ -4297,6 +4178,74 @@ export interface BatchPayloadSubscription
   count: () => Promise<AsyncIterator<Long>>;
 }
 
+export interface BuffSubscriptionPayload {
+  mutation: MutationType;
+  node: Buff;
+  updatedFields: String[];
+  previousValues: BuffPreviousValues;
+}
+
+export interface BuffSubscriptionPayloadPromise
+  extends Promise<BuffSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = BuffPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = BuffPreviousValuesPromise>() => T;
+}
+
+export interface BuffSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<BuffSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = BuffSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = BuffPreviousValuesSubscription>() => T;
+}
+
+export interface BuffPreviousValues {
+  id: ID_Output;
+  name: String;
+  buffDescription: String;
+  description?: String;
+  duration: Int;
+  notes?: String;
+  icon?: String;
+  type?: String;
+  buffType?: String;
+  quality: Int;
+}
+
+export interface BuffPreviousValuesPromise
+  extends Promise<BuffPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  buffDescription: () => Promise<String>;
+  description: () => Promise<String>;
+  duration: () => Promise<Int>;
+  notes: () => Promise<String>;
+  icon: () => Promise<String>;
+  type: () => Promise<String>;
+  buffType: () => Promise<String>;
+  quality: () => Promise<Int>;
+}
+
+export interface BuffPreviousValuesSubscription
+  extends Promise<AsyncIterator<BuffPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  buffDescription: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  duration: () => Promise<AsyncIterator<Int>>;
+  notes: () => Promise<AsyncIterator<String>>;
+  icon: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<String>>;
+  buffType: () => Promise<AsyncIterator<String>>;
+  quality: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface BuildSubscriptionPayload {
   mutation: MutationType;
   node: Build;
@@ -4356,56 +4305,6 @@ export interface BuildPreviousValuesSubscription
   published: () => Promise<AsyncIterator<Boolean>>;
 }
 
-export interface LocationSubscriptionPayload {
-  mutation: MutationType;
-  node: Location;
-  updatedFields: String[];
-  previousValues: LocationPreviousValues;
-}
-
-export interface LocationSubscriptionPayloadPromise
-  extends Promise<LocationSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = LocationPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = LocationPreviousValuesPromise>() => T;
-}
-
-export interface LocationSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<LocationSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = LocationSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = LocationPreviousValuesSubscription>() => T;
-}
-
-export interface LocationPreviousValues {
-  id: ID_Output;
-  aldmeri?: String;
-  daggerfall?: String;
-  ebonheart?: String;
-}
-
-export interface LocationPreviousValuesPromise
-  extends Promise<LocationPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  aldmeri: () => Promise<String>;
-  daggerfall: () => Promise<String>;
-  ebonheart: () => Promise<String>;
-}
-
-export interface LocationPreviousValuesSubscription
-  extends Promise<AsyncIterator<LocationPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  aldmeri: () => Promise<AsyncIterator<String>>;
-  daggerfall: () => Promise<AsyncIterator<String>>;
-  ebonheart: () => Promise<AsyncIterator<String>>;
-}
-
 export interface ModificationSubscriptionPayload {
   mutation: MutationType;
   node: Modification;
@@ -4434,6 +4333,8 @@ export interface ModificationSubscriptionPayloadSubscription
 export interface ModificationPreviousValues {
   id: ID_Output;
   type: String;
+  itemType: String;
+  modificationType: String;
   description: String;
   icon?: String;
 }
@@ -4443,6 +4344,8 @@ export interface ModificationPreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
+  itemType: () => Promise<String>;
+  modificationType: () => Promise<String>;
   description: () => Promise<String>;
   icon: () => Promise<String>;
 }
@@ -4452,61 +4355,72 @@ export interface ModificationPreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
+  itemType: () => Promise<AsyncIterator<String>>;
+  modificationType: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
   icon: () => Promise<AsyncIterator<String>>;
 }
 
-export interface MundusSubscriptionPayload {
+export interface MundusStoneSubscriptionPayload {
   mutation: MutationType;
-  node: Mundus;
+  node: MundusStone;
   updatedFields: String[];
-  previousValues: MundusPreviousValues;
+  previousValues: MundusStonePreviousValues;
 }
 
-export interface MundusSubscriptionPayloadPromise
-  extends Promise<MundusSubscriptionPayload>,
+export interface MundusStoneSubscriptionPayloadPromise
+  extends Promise<MundusStoneSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = MundusPromise>() => T;
+  node: <T = MundusStonePromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = MundusPreviousValuesPromise>() => T;
+  previousValues: <T = MundusStonePreviousValuesPromise>() => T;
 }
 
-export interface MundusSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<MundusSubscriptionPayload>>,
+export interface MundusStoneSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<MundusStoneSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = MundusSubscription>() => T;
+  node: <T = MundusStoneSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = MundusPreviousValuesSubscription>() => T;
+  previousValues: <T = MundusStonePreviousValuesSubscription>() => T;
 }
 
-export interface MundusPreviousValues {
+export interface MundusStonePreviousValues {
   name: String;
+  aldmeri?: String;
+  daggerfall?: String;
+  ebonheart?: String;
   effect: String;
   value: String;
   icon?: String;
-  id: Int;
+  id: ID_Output;
 }
 
-export interface MundusPreviousValuesPromise
-  extends Promise<MundusPreviousValues>,
+export interface MundusStonePreviousValuesPromise
+  extends Promise<MundusStonePreviousValues>,
     Fragmentable {
   name: () => Promise<String>;
+  aldmeri: () => Promise<String>;
+  daggerfall: () => Promise<String>;
+  ebonheart: () => Promise<String>;
   effect: () => Promise<String>;
   value: () => Promise<String>;
   icon: () => Promise<String>;
-  id: () => Promise<Int>;
+  id: () => Promise<ID_Output>;
 }
 
-export interface MundusPreviousValuesSubscription
-  extends Promise<AsyncIterator<MundusPreviousValues>>,
+export interface MundusStonePreviousValuesSubscription
+  extends Promise<AsyncIterator<MundusStonePreviousValues>>,
     Fragmentable {
   name: () => Promise<AsyncIterator<String>>;
+  aldmeri: () => Promise<AsyncIterator<String>>;
+  daggerfall: () => Promise<AsyncIterator<String>>;
+  ebonheart: () => Promise<AsyncIterator<String>>;
   effect: () => Promise<AsyncIterator<String>>;
   value: () => Promise<AsyncIterator<String>>;
   icon: () => Promise<AsyncIterator<String>>;
-  id: () => Promise<AsyncIterator<Int>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
 }
 
 export interface PostSubscriptionPayload {
@@ -4837,71 +4751,6 @@ export interface SkillSelectionPreviousValuesSubscription
   index: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface SpecialBuffSubscriptionPayload {
-  mutation: MutationType;
-  node: SpecialBuff;
-  updatedFields: String[];
-  previousValues: SpecialBuffPreviousValues;
-}
-
-export interface SpecialBuffSubscriptionPayloadPromise
-  extends Promise<SpecialBuffSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = SpecialBuffPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = SpecialBuffPreviousValuesPromise>() => T;
-}
-
-export interface SpecialBuffSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SpecialBuffSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = SpecialBuffSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = SpecialBuffPreviousValuesSubscription>() => T;
-}
-
-export interface SpecialBuffPreviousValues {
-  id: ID_Output;
-  name: String;
-  buffDescription: String;
-  description?: String;
-  duration: Int;
-  notes?: String;
-  icon?: String;
-  type?: String;
-  quality: Int;
-}
-
-export interface SpecialBuffPreviousValuesPromise
-  extends Promise<SpecialBuffPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  buffDescription: () => Promise<String>;
-  description: () => Promise<String>;
-  duration: () => Promise<Int>;
-  notes: () => Promise<String>;
-  icon: () => Promise<String>;
-  type: () => Promise<String>;
-  quality: () => Promise<Int>;
-}
-
-export interface SpecialBuffPreviousValuesSubscription
-  extends Promise<AsyncIterator<SpecialBuffPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  buffDescription: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  duration: () => Promise<AsyncIterator<Int>>;
-  notes: () => Promise<AsyncIterator<String>>;
-  icon: () => Promise<AsyncIterator<String>>;
-  type: () => Promise<AsyncIterator<String>>;
-  quality: () => Promise<AsyncIterator<Int>>;
-}
-
 export interface UserSubscriptionPayload {
   mutation: MutationType;
   node: User;
@@ -4964,6 +4813,16 @@ The `String` scalar type represents textual data, represented as UTF-8 character
 export type String = string;
 
 /*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
+*/
+export type Int = number;
+
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
+
+/*
 DateTime scalar input type, allowing Date
 */
 export type DateTimeInput = Date | string;
@@ -4972,16 +4831,6 @@ export type DateTimeInput = Date | string;
 DateTime scalar output type, which is always a string
 */
 export type DateTimeOutput = string;
-
-/*
-The `Boolean` scalar type represents `true` or `false`.
-*/
-export type Boolean = boolean;
-
-/*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
-*/
-export type Int = number;
 
 export type Long = string;
 
@@ -4999,15 +4848,11 @@ export const models: Model[] = [
     embedded: false
   },
   {
-    name: "Location",
+    name: "MundusStone",
     embedded: false
   },
   {
-    name: "Mundus",
-    embedded: false
-  },
-  {
-    name: "SpecialBuff",
+    name: "Buff",
     embedded: false
   },
   {
