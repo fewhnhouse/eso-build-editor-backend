@@ -1,6 +1,13 @@
 import { getUserId } from '../utils'
-import { stringArg, idArg, queryType, arg, intArg } from 'nexus'
+import { stringArg, idArg, queryType, arg, intArg, objectType } from 'nexus'
 
+const Data = objectType({
+  name: "Data",
+  definition(t) {
+    t.int("index");
+    t.int("skillId");
+  },
+});
 export const Query = queryType({
   definition(t) {
     t.field('me', {
@@ -44,7 +51,7 @@ export const Query = queryType({
       }
     })
 
-    t.list.field('skill', {
+    t.field('skill', {
       type: 'Skill',
       args: { id: idArg(), skillId: intArg() },
       resolve: (parent, { id, skillId }, ctx) => {
@@ -60,11 +67,27 @@ export const Query = queryType({
       }
     })
 
+    t.field('mundusStone', {
+      type: "MundusStone",
+      args: { name: stringArg() },
+      resolve: (parent, { name }, ctx) => {
+        return ctx.prisma.mundusStone({ name })
+      }
+    })
+
     t.list.field('buffs', {
       type: "Buff",
       args: { where: arg({ type: "BuffWhereInput" }), orderBy: arg({ type: "BuffOrderByInput" }), first: intArg(), last: intArg(), skip: intArg(), after: stringArg(), before: stringArg() },
       resolve: (parent, { where, orderBy, first, last, skip, after, before }, ctx) => {
         return ctx.prisma.buffs({ where, orderBy, first, last, skip, after, before })
+      }
+    })
+
+    t.field('buff', {
+      type: "Buff",
+      args: { name: stringArg() },
+      resolve: (parent, { name }, ctx) => {
+        return ctx.prisma.buff({ name })
       }
     })
 
@@ -89,6 +112,7 @@ export const Query = queryType({
         })
       },
     })
+
 
     t.field('build', {
       type: 'Build',

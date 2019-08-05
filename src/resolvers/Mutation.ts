@@ -58,7 +58,7 @@ export const Mutation = mutationType({
         ultimateTwoId: intArg(),
         frontBarIds: intArg({ list: true }),
         backBarIds: intArg({ list: true }),
-        bigPieceIds:intArg({ list: true }),
+        bigPieceIds: intArg({ list: true }),
       },
       resolve: (parent, { name, race, esoClass }, ctx) => {
         const userId = getUserId(ctx)
@@ -73,22 +73,48 @@ export const Mutation = mutationType({
     t.field('createBuild', {
       type: 'Build',
       args: {
-        name: stringArg({ nullable: true }),
-        race: stringArg({ nullable: true }),
-        esoClass: stringArg({ nullable: true }),
-        ultimateOneId: intArg(),
-        ultimateTwoId: intArg(),
-        frontBar: arg({ type: 'SetSelectionWhereInput' }),
+        data: arg({ type: "BuildCreateInput" })
       },
-      resolve: (parent, { name, race, esoClass }, ctx) => {
+      resolve: (parent, { data }, ctx) => {
         const userId = getUserId(ctx)
         return ctx.prisma.createBuild({
-          name,
-          race,
-          esoClass,
+          ...data,
           owner: { connect: { id: userId } },
         })
       },
+    })
+
+
+    t.list.field('createSkillSelections', {
+      type: 'SkillSelection',
+      args: {
+        indices: arg({ list: true, type: "Int" }),
+        skillIds: arg({ list: true, type: "Int" })
+      },
+      resolve: async (parent, { indices, skillIds }, ctx) => {
+        return await indices.map(async (index: number) => await ctx.prisma.createSkillSelection({
+          index,
+          skill: skillIds[index] !== 0 ? { connect: { skillId: skillIds[index] } } : undefined
+        }))
+      }
+    })
+
+    t.list.field('createSetSelections', {
+      type: 'SkillSelection',
+      args: {
+        slots: arg({ list: true, type: "String" }),
+        traitDescriptions: arg({ list: true, type: "String" }),
+        glyphDescriptions: arg({ list: true, type: "String" }),
+        setIds: arg({ list: true, type: "Int" })
+      },
+      resolve: async (parent, { slots, traitDescriptions, glyphDescriptions, setIds }, ctx) => {
+        return await slots.map(async (slot: string, index: number) => await ctx.prisma.createSetSelection({
+          slot,
+          trait: traitDescriptions[index] ? { connect: { description: traitDescriptions[index] } } : undefined,
+          glyph: glyphDescriptions[index] ? { connect: { description: glyphDescriptions[index] } } : undefined,
+          selectedSet: setIds[index] ? { connect: { setId: setIds[index] } } : undefined
+        }))
+      }
     })
 
     t.field('createDraft', {

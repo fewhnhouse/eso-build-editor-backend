@@ -20,6 +20,24 @@ type Buff {
   type: String
 }
 
+input BuffCreateInput {
+  buffDescription: String!
+  buffType: String
+  description: String
+  duration: Int!
+  icon: String
+  id: ID
+  name: String!
+  notes: String
+  quality: Int!
+  type: String
+}
+
+input BuffCreateOneInput {
+  connect: BuffWhereUniqueInput
+  create: BuffCreateInput
+}
+
 enum BuffOrderByInput {
   buffDescription_ASC
   buffDescription_DESC
@@ -181,6 +199,11 @@ input BuffWhereInput {
   type_starts_with: String
 }
 
+input BuffWhereUniqueInput {
+  id: ID
+  name: String
+}
+
 type Build {
   backbarSelection(after: String, before: String, first: Int, last: Int, orderBy: SetSelectionOrderByInput, skip: Int, where: SetSelectionWhereInput): [SetSelection!]
   bigPieceSelection(after: String, before: String, first: Int, last: Int, orderBy: SetSelectionOrderByInput, skip: Int, where: SetSelectionWhereInput): [SetSelection!]
@@ -201,6 +224,26 @@ type Build {
   ultimateOne: Skill
   ultimateTwo: Skill
   updatedAt: DateTime!
+}
+
+input BuildCreateInput {
+  backbarSelection: SetSelectionCreateManyInput
+  bigPieceSelection: SetSelectionCreateManyInput
+  buff: BuffCreateOneInput
+  esoClass: String
+  frontbarSelection: SetSelectionCreateManyInput
+  id: ID
+  jewelrySelection: SetSelectionCreateManyInput
+  mundusStone: MundusStoneCreateOneInput
+  name: String
+  newBarOne: SkillSelectionCreateManyInput
+  newBarTwo: SkillSelectionCreateManyInput
+  owner: UserCreateOneWithoutBuildsInput
+  published: Boolean
+  race: String
+  smallPieceSelection: SetSelectionCreateManyInput
+  ultimateOne: SkillCreateOneInput
+  ultimateTwo: SkillCreateOneInput
 }
 
 enum BuildOrderByInput {
@@ -337,6 +380,20 @@ type Modification {
   type: String!
 }
 
+input ModificationCreateInput {
+  description: String!
+  icon: String
+  id: ID
+  itemType: String!
+  modificationType: String!
+  type: String!
+}
+
+input ModificationCreateOneInput {
+  connect: ModificationWhereUniqueInput
+  create: ModificationCreateInput
+}
+
 input ModificationWhereInput {
   AND: [ModificationWhereInput!]
   description: String
@@ -427,6 +484,11 @@ input ModificationWhereInput {
   type_starts_with: String
 }
 
+input ModificationWhereUniqueInput {
+  description: String
+  id: ID
+}
+
 type MundusStone {
   aldmeri: String
   daggerfall: String
@@ -436,6 +498,22 @@ type MundusStone {
   id: ID!
   name: String!
   value: String!
+}
+
+input MundusStoneCreateInput {
+  aldmeri: String
+  daggerfall: String
+  ebonheart: String
+  effect: String!
+  icon: String
+  id: ID
+  name: String!
+  value: String!
+}
+
+input MundusStoneCreateOneInput {
+  connect: MundusStoneWhereUniqueInput
+  create: MundusStoneCreateInput
 }
 
 enum MundusStoneOrderByInput {
@@ -579,9 +657,16 @@ input MundusStoneWhereInput {
   value_starts_with: String
 }
 
+input MundusStoneWhereUniqueInput {
+  id: ID
+  name: String
+}
+
 type Mutation {
-  createBuild(esoClass: String, frontBar: SetSelectionWhereInput, name: String, race: String, ultimateOneId: Int, ultimateTwoId: Int): Build
+  createBuild(data: BuildCreateInput): Build
   createDraft(content: String, title: String): Post
+  createSetSelections(glyphDescriptions: [String!], setIds: [Int!], slots: [String!], traitDescriptions: [String!]): [SkillSelection!]
+  createSkillSelections(indices: [Int!], skillIds: [Int!]): [SkillSelection!]
   deleteBuild(id: ID): Build
   draftBuild(backBarIds: [Int!], bigPieceIds: [Int!], esoClass: String, frontBarIds: [Int!], name: String, race: String, ultimateOneId: Int, ultimateTwoId: Int): Build
   login(email: String, password: String): AuthPayload
@@ -600,16 +685,18 @@ type Post {
 }
 
 type Query {
+  buff(name: String): Buff
   buffs(after: String, before: String, first: Int, last: Int, orderBy: BuffOrderByInput, skip: Int, where: BuffWhereInput): [Buff!]
   build(id: ID): Build
   builds(after: String, before: String, first: Int, last: Int, orderBy: BuildOrderByInput, skip: Int, where: BuildWhereInput): [Build!]
   buildsByUser(id: ID): [Build!]
   me: User
+  mundusStone(name: String): MundusStone
   mundusStones(after: String, before: String, first: Int, last: Int, orderBy: MundusStoneOrderByInput, skip: Int, where: MundusStoneWhereInput): [MundusStone!]
   publishedBuilds: [Build!]
   set(id: ID, setId: Int): [Set!]
   sets(after: String, before: String, first: Int, last: Int, orderBy: SetOrderByInput, skip: Int, where: SetWhereInput): [Set!]
-  skill(id: ID, skillId: Int): [Skill!]
+  skill(id: ID, skillId: Int): Skill
   skills(after: String, before: String, first: Int, last: Int, orderBy: SkillOrderByInput, skip: Int, where: SkillWhereInput): [Skill!]
 }
 
@@ -633,6 +720,33 @@ type Set {
   slug: String!
   traits_needed: Int
   type: String!
+}
+
+input SetCreateInput {
+  bonus_item_1: String
+  bonus_item_2: String
+  bonus_item_3: String
+  bonus_item_4: String
+  bonus_item_5: String
+  eso_id: Int
+  has_heavy_armor: Int!
+  has_jewels: Int!
+  has_light_armor: Int!
+  has_medium_armor: Int!
+  has_weapons: Int!
+  id: ID
+  location: String!
+  name: String!
+  pts: Int
+  setId: Int!
+  slug: String!
+  traits_needed: Int
+  type: String!
+}
+
+input SetCreateOneInput {
+  connect: SetWhereUniqueInput
+  create: SetCreateInput
 }
 
 enum SetOrderByInput {
@@ -687,6 +801,20 @@ type SetSelection {
   selectedSet: Set
   slot: String
   trait: Modification
+}
+
+input SetSelectionCreateInput {
+  glyph: ModificationCreateOneInput
+  icon: String
+  id: ID
+  selectedSet: SetCreateOneInput
+  slot: String
+  trait: ModificationCreateOneInput
+}
+
+input SetSelectionCreateManyInput {
+  connect: [SetSelectionWhereUniqueInput!]
+  create: [SetSelectionCreateInput!]
 }
 
 enum SetSelectionOrderByInput {
@@ -751,6 +879,10 @@ input SetSelectionWhereInput {
   slot_not_starts_with: String
   slot_starts_with: String
   trait: ModificationWhereInput
+}
+
+input SetSelectionWhereUniqueInput {
+  id: ID
 }
 
 input SetWhereInput {
@@ -971,6 +1103,11 @@ input SetWhereInput {
   type_starts_with: String
 }
 
+input SetWhereUniqueInput {
+  id: ID
+  setId: Int
+}
+
 type Skill {
   cast_time: String!
   cost: String!
@@ -988,6 +1125,30 @@ type Skill {
   target: String
   type: Int!
   unlocks_at: Int
+}
+
+input SkillCreateInput {
+  cast_time: String!
+  cost: String!
+  effect_1: String!
+  effect_2: String
+  icon: String
+  id: ID
+  name: String!
+  parent: Int
+  pts: Int
+  range: String
+  skillId: Int!
+  skillline: Int!
+  slug: String!
+  target: String
+  type: Int!
+  unlocks_at: Int
+}
+
+input SkillCreateOneInput {
+  connect: SkillWhereUniqueInput
+  create: SkillCreateInput
 }
 
 enum SkillOrderByInput {
@@ -1035,6 +1196,17 @@ type SkillSelection {
   skill: Skill
 }
 
+input SkillSelectionCreateInput {
+  id: ID
+  index: Int!
+  skill: SkillCreateOneInput
+}
+
+input SkillSelectionCreateManyInput {
+  connect: [SkillSelectionWhereUniqueInput!]
+  create: [SkillSelectionCreateInput!]
+}
+
 enum SkillSelectionOrderByInput {
   createdAt_ASC
   createdAt_DESC
@@ -1073,6 +1245,10 @@ input SkillSelectionWhereInput {
   NOT: [SkillSelectionWhereInput!]
   OR: [SkillSelectionWhereInput!]
   skill: SkillWhereInput
+}
+
+input SkillSelectionWhereUniqueInput {
+  id: ID
 }
 
 input SkillWhereInput {
@@ -1269,11 +1445,28 @@ input SkillWhereInput {
   unlocks_at_not_in: [Int!]
 }
 
+input SkillWhereUniqueInput {
+  id: ID
+  skillId: Int
+}
+
 type User {
   builds(after: String, before: String, first: Int, last: Int, orderBy: BuildOrderByInput, skip: Int, where: BuildWhereInput): [Build!]
   email: String!
   id: ID!
   name: String
+}
+
+input UserCreateOneWithoutBuildsInput {
+  connect: UserWhereUniqueInput
+  create: UserCreateWithoutBuildsInput
+}
+
+input UserCreateWithoutBuildsInput {
+  email: String!
+  id: ID
+  name: String
+  password: String!
 }
 
 input UserWhereInput {
@@ -1339,4 +1532,9 @@ input UserWhereInput {
   password_not_in: [String!]
   password_not_starts_with: String
   password_starts_with: String
+}
+
+input UserWhereUniqueInput {
+  email: String
+  id: ID
 }

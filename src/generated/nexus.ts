@@ -11,6 +11,22 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  BuffCreateInput: { // input type
+    buffDescription: string; // String!
+    buffType?: string | null; // String
+    description?: string | null; // String
+    duration: number; // Int!
+    icon?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+    notes?: string | null; // String
+    quality: number; // Int!
+    type?: string | null; // String
+  }
+  BuffCreateOneInput: { // input type
+    connect?: NexusGenInputs['BuffWhereUniqueInput'] | null; // BuffWhereUniqueInput
+    create?: NexusGenInputs['BuffCreateInput'] | null; // BuffCreateInput
+  }
   BuffWhereInput: { // input type
     AND?: NexusGenInputs['BuffWhereInput'][] | null; // [BuffWhereInput!]
     buffDescription?: string | null; // String
@@ -144,6 +160,29 @@ export interface NexusGenInputs {
     type_not_starts_with?: string | null; // String
     type_starts_with?: string | null; // String
   }
+  BuffWhereUniqueInput: { // input type
+    id?: string | null; // ID
+    name?: string | null; // String
+  }
+  BuildCreateInput: { // input type
+    backbarSelection?: NexusGenInputs['SetSelectionCreateManyInput'] | null; // SetSelectionCreateManyInput
+    bigPieceSelection?: NexusGenInputs['SetSelectionCreateManyInput'] | null; // SetSelectionCreateManyInput
+    buff?: NexusGenInputs['BuffCreateOneInput'] | null; // BuffCreateOneInput
+    esoClass?: string | null; // String
+    frontbarSelection?: NexusGenInputs['SetSelectionCreateManyInput'] | null; // SetSelectionCreateManyInput
+    id?: string | null; // ID
+    jewelrySelection?: NexusGenInputs['SetSelectionCreateManyInput'] | null; // SetSelectionCreateManyInput
+    mundusStone?: NexusGenInputs['MundusStoneCreateOneInput'] | null; // MundusStoneCreateOneInput
+    name?: string | null; // String
+    newBarOne?: NexusGenInputs['SkillSelectionCreateManyInput'] | null; // SkillSelectionCreateManyInput
+    newBarTwo?: NexusGenInputs['SkillSelectionCreateManyInput'] | null; // SkillSelectionCreateManyInput
+    owner?: NexusGenInputs['UserCreateOneWithoutBuildsInput'] | null; // UserCreateOneWithoutBuildsInput
+    published?: boolean | null; // Boolean
+    race?: string | null; // String
+    smallPieceSelection?: NexusGenInputs['SetSelectionCreateManyInput'] | null; // SetSelectionCreateManyInput
+    ultimateOne?: NexusGenInputs['SkillCreateOneInput'] | null; // SkillCreateOneInput
+    ultimateTwo?: NexusGenInputs['SkillCreateOneInput'] | null; // SkillCreateOneInput
+  }
   BuildWhereInput: { // input type
     AND?: NexusGenInputs['BuildWhereInput'][] | null; // [BuildWhereInput!]
     backbarSelection_every?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
@@ -249,6 +288,18 @@ export interface NexusGenInputs {
     updatedAt_not?: any | null; // DateTime
     updatedAt_not_in?: any[] | null; // [DateTime!]
   }
+  ModificationCreateInput: { // input type
+    description: string; // String!
+    icon?: string | null; // String
+    id?: string | null; // ID
+    itemType: string; // String!
+    modificationType: string; // String!
+    type: string; // String!
+  }
+  ModificationCreateOneInput: { // input type
+    connect?: NexusGenInputs['ModificationWhereUniqueInput'] | null; // ModificationWhereUniqueInput
+    create?: NexusGenInputs['ModificationCreateInput'] | null; // ModificationCreateInput
+  }
   ModificationWhereInput: { // input type
     AND?: NexusGenInputs['ModificationWhereInput'][] | null; // [ModificationWhereInput!]
     description?: string | null; // String
@@ -337,6 +388,24 @@ export interface NexusGenInputs {
     type_not_in?: string[] | null; // [String!]
     type_not_starts_with?: string | null; // String
     type_starts_with?: string | null; // String
+  }
+  ModificationWhereUniqueInput: { // input type
+    description?: string | null; // String
+    id?: string | null; // ID
+  }
+  MundusStoneCreateInput: { // input type
+    aldmeri?: string | null; // String
+    daggerfall?: string | null; // String
+    ebonheart?: string | null; // String
+    effect: string; // String!
+    icon?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+    value: string; // String!
+  }
+  MundusStoneCreateOneInput: { // input type
+    connect?: NexusGenInputs['MundusStoneWhereUniqueInput'] | null; // MundusStoneWhereUniqueInput
+    create?: NexusGenInputs['MundusStoneCreateInput'] | null; // MundusStoneCreateInput
   }
   MundusStoneWhereInput: { // input type
     aldmeri?: string | null; // String
@@ -455,6 +524,47 @@ export interface NexusGenInputs {
     value_not_starts_with?: string | null; // String
     value_starts_with?: string | null; // String
   }
+  MundusStoneWhereUniqueInput: { // input type
+    id?: string | null; // ID
+    name?: string | null; // String
+  }
+  SetCreateInput: { // input type
+    bonus_item_1?: string | null; // String
+    bonus_item_2?: string | null; // String
+    bonus_item_3?: string | null; // String
+    bonus_item_4?: string | null; // String
+    bonus_item_5?: string | null; // String
+    eso_id?: number | null; // Int
+    has_heavy_armor: number; // Int!
+    has_jewels: number; // Int!
+    has_light_armor: number; // Int!
+    has_medium_armor: number; // Int!
+    has_weapons: number; // Int!
+    id?: string | null; // ID
+    location: string; // String!
+    name: string; // String!
+    pts?: number | null; // Int
+    setId: number; // Int!
+    slug: string; // String!
+    traits_needed?: number | null; // Int
+    type: string; // String!
+  }
+  SetCreateOneInput: { // input type
+    connect?: NexusGenInputs['SetWhereUniqueInput'] | null; // SetWhereUniqueInput
+    create?: NexusGenInputs['SetCreateInput'] | null; // SetCreateInput
+  }
+  SetSelectionCreateInput: { // input type
+    glyph?: NexusGenInputs['ModificationCreateOneInput'] | null; // ModificationCreateOneInput
+    icon?: string | null; // String
+    id?: string | null; // ID
+    selectedSet?: NexusGenInputs['SetCreateOneInput'] | null; // SetCreateOneInput
+    slot?: string | null; // String
+    trait?: NexusGenInputs['ModificationCreateOneInput'] | null; // ModificationCreateOneInput
+  }
+  SetSelectionCreateManyInput: { // input type
+    connect?: NexusGenInputs['SetSelectionWhereUniqueInput'][] | null; // [SetSelectionWhereUniqueInput!]
+    create?: NexusGenInputs['SetSelectionCreateInput'][] | null; // [SetSelectionCreateInput!]
+  }
   SetSelectionWhereInput: { // input type
     AND?: NexusGenInputs['SetSelectionWhereInput'][] | null; // [SetSelectionWhereInput!]
     glyph?: NexusGenInputs['ModificationWhereInput'] | null; // ModificationWhereInput
@@ -504,6 +614,9 @@ export interface NexusGenInputs {
     slot_not_starts_with?: string | null; // String
     slot_starts_with?: string | null; // String
     trait?: NexusGenInputs['ModificationWhereInput'] | null; // ModificationWhereInput
+  }
+  SetSelectionWhereUniqueInput: { // input type
+    id?: string | null; // ID
   }
   SetWhereInput: { // input type
     AND?: NexusGenInputs['SetWhereInput'][] | null; // [SetWhereInput!]
@@ -722,6 +835,41 @@ export interface NexusGenInputs {
     type_not_starts_with?: string | null; // String
     type_starts_with?: string | null; // String
   }
+  SetWhereUniqueInput: { // input type
+    id?: string | null; // ID
+    setId?: number | null; // Int
+  }
+  SkillCreateInput: { // input type
+    cast_time: string; // String!
+    cost: string; // String!
+    effect_1: string; // String!
+    effect_2?: string | null; // String
+    icon?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+    parent?: number | null; // Int
+    pts?: number | null; // Int
+    range?: string | null; // String
+    skillId: number; // Int!
+    skillline: number; // Int!
+    slug: string; // String!
+    target?: string | null; // String
+    type: number; // Int!
+    unlocks_at?: number | null; // Int
+  }
+  SkillCreateOneInput: { // input type
+    connect?: NexusGenInputs['SkillWhereUniqueInput'] | null; // SkillWhereUniqueInput
+    create?: NexusGenInputs['SkillCreateInput'] | null; // SkillCreateInput
+  }
+  SkillSelectionCreateInput: { // input type
+    id?: string | null; // ID
+    index: number; // Int!
+    skill?: NexusGenInputs['SkillCreateOneInput'] | null; // SkillCreateOneInput
+  }
+  SkillSelectionCreateManyInput: { // input type
+    connect?: NexusGenInputs['SkillSelectionWhereUniqueInput'][] | null; // [SkillSelectionWhereUniqueInput!]
+    create?: NexusGenInputs['SkillSelectionCreateInput'][] | null; // [SkillSelectionCreateInput!]
+  }
   SkillSelectionWhereInput: { // input type
     AND?: NexusGenInputs['SkillSelectionWhereInput'][] | null; // [SkillSelectionWhereInput!]
     id?: string | null; // ID
@@ -749,6 +897,9 @@ export interface NexusGenInputs {
     NOT?: NexusGenInputs['SkillSelectionWhereInput'][] | null; // [SkillSelectionWhereInput!]
     OR?: NexusGenInputs['SkillSelectionWhereInput'][] | null; // [SkillSelectionWhereInput!]
     skill?: NexusGenInputs['SkillWhereInput'] | null; // SkillWhereInput
+  }
+  SkillSelectionWhereUniqueInput: { // input type
+    id?: string | null; // ID
   }
   SkillWhereInput: { // input type
     AND?: NexusGenInputs['SkillWhereInput'][] | null; // [SkillWhereInput!]
@@ -943,6 +1094,20 @@ export interface NexusGenInputs {
     unlocks_at_not?: number | null; // Int
     unlocks_at_not_in?: number[] | null; // [Int!]
   }
+  SkillWhereUniqueInput: { // input type
+    id?: string | null; // ID
+    skillId?: number | null; // Int
+  }
+  UserCreateOneWithoutBuildsInput: { // input type
+    connect?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
+    create?: NexusGenInputs['UserCreateWithoutBuildsInput'] | null; // UserCreateWithoutBuildsInput
+  }
+  UserCreateWithoutBuildsInput: { // input type
+    email: string; // String!
+    id?: string | null; // ID
+    name?: string | null; // String
+    password: string; // String!
+  }
   UserWhereInput: { // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
     builds_every?: NexusGenInputs['BuildWhereInput'] | null; // BuildWhereInput
@@ -1006,6 +1171,10 @@ export interface NexusGenInputs {
     password_not_in?: string[] | null; // [String!]
     password_not_starts_with?: string | null; // String
     password_starts_with?: string | null; // String
+  }
+  UserWhereUniqueInput: { // input type
+    email?: string | null; // String
+    id?: string | null; // ID
   }
 }
 
@@ -1135,15 +1304,40 @@ export interface NexusGenRootTypes {
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
+  BuffCreateInput: NexusGenInputs['BuffCreateInput'];
+  BuffCreateOneInput: NexusGenInputs['BuffCreateOneInput'];
   BuffWhereInput: NexusGenInputs['BuffWhereInput'];
+  BuffWhereUniqueInput: NexusGenInputs['BuffWhereUniqueInput'];
+  BuildCreateInput: NexusGenInputs['BuildCreateInput'];
   BuildWhereInput: NexusGenInputs['BuildWhereInput'];
+  ModificationCreateInput: NexusGenInputs['ModificationCreateInput'];
+  ModificationCreateOneInput: NexusGenInputs['ModificationCreateOneInput'];
   ModificationWhereInput: NexusGenInputs['ModificationWhereInput'];
+  ModificationWhereUniqueInput: NexusGenInputs['ModificationWhereUniqueInput'];
+  MundusStoneCreateInput: NexusGenInputs['MundusStoneCreateInput'];
+  MundusStoneCreateOneInput: NexusGenInputs['MundusStoneCreateOneInput'];
   MundusStoneWhereInput: NexusGenInputs['MundusStoneWhereInput'];
+  MundusStoneWhereUniqueInput: NexusGenInputs['MundusStoneWhereUniqueInput'];
+  SetCreateInput: NexusGenInputs['SetCreateInput'];
+  SetCreateOneInput: NexusGenInputs['SetCreateOneInput'];
+  SetSelectionCreateInput: NexusGenInputs['SetSelectionCreateInput'];
+  SetSelectionCreateManyInput: NexusGenInputs['SetSelectionCreateManyInput'];
   SetSelectionWhereInput: NexusGenInputs['SetSelectionWhereInput'];
+  SetSelectionWhereUniqueInput: NexusGenInputs['SetSelectionWhereUniqueInput'];
   SetWhereInput: NexusGenInputs['SetWhereInput'];
+  SetWhereUniqueInput: NexusGenInputs['SetWhereUniqueInput'];
+  SkillCreateInput: NexusGenInputs['SkillCreateInput'];
+  SkillCreateOneInput: NexusGenInputs['SkillCreateOneInput'];
+  SkillSelectionCreateInput: NexusGenInputs['SkillSelectionCreateInput'];
+  SkillSelectionCreateManyInput: NexusGenInputs['SkillSelectionCreateManyInput'];
   SkillSelectionWhereInput: NexusGenInputs['SkillSelectionWhereInput'];
+  SkillSelectionWhereUniqueInput: NexusGenInputs['SkillSelectionWhereUniqueInput'];
   SkillWhereInput: NexusGenInputs['SkillWhereInput'];
+  SkillWhereUniqueInput: NexusGenInputs['SkillWhereUniqueInput'];
+  UserCreateOneWithoutBuildsInput: NexusGenInputs['UserCreateOneWithoutBuildsInput'];
+  UserCreateWithoutBuildsInput: NexusGenInputs['UserCreateWithoutBuildsInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
+  UserWhereUniqueInput: NexusGenInputs['UserWhereUniqueInput'];
   BuffOrderByInput: NexusGenEnums['BuffOrderByInput'];
   BuildOrderByInput: NexusGenEnums['BuildOrderByInput'];
   MundusStoneOrderByInput: NexusGenEnums['MundusStoneOrderByInput'];
@@ -1212,6 +1406,8 @@ export interface NexusGenFieldTypes {
   Mutation: { // field return type
     createBuild: NexusGenRootTypes['Build'] | null; // Build
     createDraft: NexusGenRootTypes['Post'] | null; // Post
+    createSetSelections: NexusGenRootTypes['SkillSelection'][] | null; // [SkillSelection!]
+    createSkillSelections: NexusGenRootTypes['SkillSelection'][] | null; // [SkillSelection!]
     deleteBuild: NexusGenRootTypes['Build'] | null; // Build
     draftBuild: NexusGenRootTypes['Build'] | null; // Build
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
@@ -1228,16 +1424,18 @@ export interface NexusGenFieldTypes {
     updatedAt: any; // DateTime!
   }
   Query: { // field return type
+    buff: NexusGenRootTypes['Buff'] | null; // Buff
     buffs: NexusGenRootTypes['Buff'][] | null; // [Buff!]
     build: NexusGenRootTypes['Build'] | null; // Build
     builds: NexusGenRootTypes['Build'][] | null; // [Build!]
     buildsByUser: NexusGenRootTypes['Build'][] | null; // [Build!]
     me: NexusGenRootTypes['User'] | null; // User
+    mundusStone: NexusGenRootTypes['MundusStone'] | null; // MundusStone
     mundusStones: NexusGenRootTypes['MundusStone'][] | null; // [MundusStone!]
     publishedBuilds: NexusGenRootTypes['Build'][] | null; // [Build!]
     set: NexusGenRootTypes['Set'][] | null; // [Set!]
     sets: NexusGenRootTypes['Set'][] | null; // [Set!]
-    skill: NexusGenRootTypes['Skill'][] | null; // [Skill!]
+    skill: NexusGenRootTypes['Skill'] | null; // Skill
     skills: NexusGenRootTypes['Skill'][] | null; // [Skill!]
   }
   Set: { // field return type
@@ -1368,16 +1566,21 @@ export interface NexusGenArgTypes {
   }
   Mutation: {
     createBuild: { // args
-      esoClass?: string | null; // String
-      frontBar?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
-      name?: string | null; // String
-      race?: string | null; // String
-      ultimateOneId?: number | null; // Int
-      ultimateTwoId?: number | null; // Int
+      data?: NexusGenInputs['BuildCreateInput'] | null; // BuildCreateInput
     }
     createDraft: { // args
       content?: string | null; // String
       title?: string | null; // String
+    }
+    createSetSelections: { // args
+      glyphDescriptions?: string[] | null; // [String!]
+      setIds?: number[] | null; // [Int!]
+      slots?: string[] | null; // [String!]
+      traitDescriptions?: string[] | null; // [String!]
+    }
+    createSkillSelections: { // args
+      indices?: number[] | null; // [Int!]
+      skillIds?: number[] | null; // [Int!]
     }
     deleteBuild: { // args
       id?: string | null; // ID
@@ -1406,6 +1609,9 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    buff: { // args
+      name?: string | null; // String
+    }
     buffs: { // args
       after?: string | null; // String
       before?: string | null; // String
@@ -1429,6 +1635,9 @@ export interface NexusGenArgTypes {
     }
     buildsByUser: { // args
       id?: string | null; // ID
+    }
+    mundusStone: { // args
+      name?: string | null; // String
     }
     mundusStones: { // args
       after?: string | null; // String
@@ -1486,7 +1695,7 @@ export interface NexusGenInheritedFields {}
 
 export type NexusGenObjectNames = "AuthPayload" | "Buff" | "Build" | "Modification" | "MundusStone" | "Mutation" | "Post" | "Query" | "Set" | "SetSelection" | "Skill" | "SkillSelection" | "User";
 
-export type NexusGenInputNames = "BuffWhereInput" | "BuildWhereInput" | "ModificationWhereInput" | "MundusStoneWhereInput" | "SetSelectionWhereInput" | "SetWhereInput" | "SkillSelectionWhereInput" | "SkillWhereInput" | "UserWhereInput";
+export type NexusGenInputNames = "BuffCreateInput" | "BuffCreateOneInput" | "BuffWhereInput" | "BuffWhereUniqueInput" | "BuildCreateInput" | "BuildWhereInput" | "ModificationCreateInput" | "ModificationCreateOneInput" | "ModificationWhereInput" | "ModificationWhereUniqueInput" | "MundusStoneCreateInput" | "MundusStoneCreateOneInput" | "MundusStoneWhereInput" | "MundusStoneWhereUniqueInput" | "SetCreateInput" | "SetCreateOneInput" | "SetSelectionCreateInput" | "SetSelectionCreateManyInput" | "SetSelectionWhereInput" | "SetSelectionWhereUniqueInput" | "SetWhereInput" | "SetWhereUniqueInput" | "SkillCreateInput" | "SkillCreateOneInput" | "SkillSelectionCreateInput" | "SkillSelectionCreateManyInput" | "SkillSelectionWhereInput" | "SkillSelectionWhereUniqueInput" | "SkillWhereInput" | "SkillWhereUniqueInput" | "UserCreateOneWithoutBuildsInput" | "UserCreateWithoutBuildsInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
 export type NexusGenEnumNames = "BuffOrderByInput" | "BuildOrderByInput" | "MundusStoneOrderByInput" | "SetOrderByInput" | "SetSelectionOrderByInput" | "SkillOrderByInput" | "SkillSelectionOrderByInput";
 
