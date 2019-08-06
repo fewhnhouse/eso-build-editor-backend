@@ -21,6 +21,8 @@ export interface Exists {
   modification: (where?: ModificationWhereInput) => Promise<boolean>;
   mundusStone: (where?: MundusStoneWhereInput) => Promise<boolean>;
   post: (where?: PostWhereInput) => Promise<boolean>;
+  raid: (where?: RaidWhereInput) => Promise<boolean>;
+  raidBuild: (where?: RaidBuildWhereInput) => Promise<boolean>;
   set: (where?: SetWhereInput) => Promise<boolean>;
   setSelection: (where?: SetSelectionWhereInput) => Promise<boolean>;
   skill: (where?: SkillWhereInput) => Promise<boolean>;
@@ -146,6 +148,44 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => PostConnectionPromise;
+  raid: (where: RaidWhereUniqueInput) => RaidNullablePromise;
+  raids: (args?: {
+    where?: RaidWhereInput;
+    orderBy?: RaidOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Raid>;
+  raidsConnection: (args?: {
+    where?: RaidWhereInput;
+    orderBy?: RaidOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => RaidConnectionPromise;
+  raidBuild: (where: RaidBuildWhereUniqueInput) => RaidBuildNullablePromise;
+  raidBuilds: (args?: {
+    where?: RaidBuildWhereInput;
+    orderBy?: RaidBuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<RaidBuild>;
+  raidBuildsConnection: (args?: {
+    where?: RaidBuildWhereInput;
+    orderBy?: RaidBuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => RaidBuildConnectionPromise;
   set: (where: SetWhereUniqueInput) => SetNullablePromise;
   sets: (args?: {
     where?: SetWhereInput;
@@ -337,6 +377,38 @@ export interface Prisma {
   }) => PostPromise;
   deletePost: (where: PostWhereUniqueInput) => PostPromise;
   deleteManyPosts: (where?: PostWhereInput) => BatchPayloadPromise;
+  createRaid: (data: RaidCreateInput) => RaidPromise;
+  updateRaid: (args: {
+    data: RaidUpdateInput;
+    where: RaidWhereUniqueInput;
+  }) => RaidPromise;
+  updateManyRaids: (args: {
+    data: RaidUpdateManyMutationInput;
+    where?: RaidWhereInput;
+  }) => BatchPayloadPromise;
+  upsertRaid: (args: {
+    where: RaidWhereUniqueInput;
+    create: RaidCreateInput;
+    update: RaidUpdateInput;
+  }) => RaidPromise;
+  deleteRaid: (where: RaidWhereUniqueInput) => RaidPromise;
+  deleteManyRaids: (where?: RaidWhereInput) => BatchPayloadPromise;
+  createRaidBuild: (data: RaidBuildCreateInput) => RaidBuildPromise;
+  updateRaidBuild: (args: {
+    data: RaidBuildUpdateInput;
+    where: RaidBuildWhereUniqueInput;
+  }) => RaidBuildPromise;
+  updateManyRaidBuilds: (args: {
+    data: RaidBuildUpdateManyMutationInput;
+    where?: RaidBuildWhereInput;
+  }) => BatchPayloadPromise;
+  upsertRaidBuild: (args: {
+    where: RaidBuildWhereUniqueInput;
+    create: RaidBuildCreateInput;
+    update: RaidBuildUpdateInput;
+  }) => RaidBuildPromise;
+  deleteRaidBuild: (where: RaidBuildWhereUniqueInput) => RaidBuildPromise;
+  deleteManyRaidBuilds: (where?: RaidBuildWhereInput) => BatchPayloadPromise;
   createSet: (data: SetCreateInput) => SetPromise;
   updateSet: (args: {
     data: SetUpdateInput;
@@ -451,6 +523,12 @@ export interface Subscription {
   post: (
     where?: PostSubscriptionWhereInput
   ) => PostSubscriptionPayloadSubscription;
+  raid: (
+    where?: RaidSubscriptionWhereInput
+  ) => RaidSubscriptionPayloadSubscription;
+  raidBuild: (
+    where?: RaidBuildSubscriptionWhereInput
+  ) => RaidBuildSubscriptionPayloadSubscription;
   set: (
     where?: SetSubscriptionWhereInput
   ) => SetSubscriptionPayloadSubscription;
@@ -503,6 +581,10 @@ export type BuildOrderByInput =
   | "id_DESC"
   | "name_ASC"
   | "name_DESC"
+  | "applicationArea_ASC"
+  | "applicationArea_DESC"
+  | "role_ASC"
+  | "role_DESC"
   | "race_ASC"
   | "race_DESC"
   | "esoClass_ASC"
@@ -520,7 +602,9 @@ export type SetSelectionOrderByInput =
   | "icon_ASC"
   | "icon_DESC"
   | "slot_ASC"
-  | "slot_DESC";
+  | "slot_DESC"
+  | "type_ASC"
+  | "type_DESC";
 
 export type SkillSelectionOrderByInput =
   | "id_ASC"
@@ -573,6 +657,36 @@ export type PostOrderByInput =
   | "title_DESC"
   | "content_ASC"
   | "content_DESC";
+
+export type UserOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "email_ASC"
+  | "email_DESC"
+  | "password_ASC"
+  | "password_DESC"
+  | "name_ASC"
+  | "name_DESC";
+
+export type RaidOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "applicationArea_ASC"
+  | "applicationArea_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "published_ASC"
+  | "published_DESC";
+
+export type RaidBuildOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "role_ASC"
+  | "role_DESC";
 
 export type SetOrderByInput =
   | "id_ASC"
@@ -647,16 +761,6 @@ export type SkillOrderByInput =
   | "type_DESC"
   | "unlocks_at_ASC"
   | "unlocks_at_DESC";
-
-export type UserOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "password_ASC"
-  | "password_DESC"
-  | "name_ASC"
-  | "name_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -833,6 +937,34 @@ export interface BuildWhereInput {
   name_not_starts_with?: Maybe<String>;
   name_ends_with?: Maybe<String>;
   name_not_ends_with?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  applicationArea_not?: Maybe<String>;
+  applicationArea_in?: Maybe<String[] | String>;
+  applicationArea_not_in?: Maybe<String[] | String>;
+  applicationArea_lt?: Maybe<String>;
+  applicationArea_lte?: Maybe<String>;
+  applicationArea_gt?: Maybe<String>;
+  applicationArea_gte?: Maybe<String>;
+  applicationArea_contains?: Maybe<String>;
+  applicationArea_not_contains?: Maybe<String>;
+  applicationArea_starts_with?: Maybe<String>;
+  applicationArea_not_starts_with?: Maybe<String>;
+  applicationArea_ends_with?: Maybe<String>;
+  applicationArea_not_ends_with?: Maybe<String>;
+  role?: Maybe<String>;
+  role_not?: Maybe<String>;
+  role_in?: Maybe<String[] | String>;
+  role_not_in?: Maybe<String[] | String>;
+  role_lt?: Maybe<String>;
+  role_lte?: Maybe<String>;
+  role_gt?: Maybe<String>;
+  role_gte?: Maybe<String>;
+  role_contains?: Maybe<String>;
+  role_not_contains?: Maybe<String>;
+  role_starts_with?: Maybe<String>;
+  role_not_starts_with?: Maybe<String>;
+  role_ends_with?: Maybe<String>;
+  role_not_ends_with?: Maybe<String>;
   race?: Maybe<String>;
   race_not?: Maybe<String>;
   race_in?: Maybe<String[] | String>;
@@ -1017,6 +1149,20 @@ export interface SetSelectionWhereInput {
   slot_not_starts_with?: Maybe<String>;
   slot_ends_with?: Maybe<String>;
   slot_not_ends_with?: Maybe<String>;
+  type?: Maybe<String>;
+  type_not?: Maybe<String>;
+  type_in?: Maybe<String[] | String>;
+  type_not_in?: Maybe<String[] | String>;
+  type_lt?: Maybe<String>;
+  type_lte?: Maybe<String>;
+  type_gt?: Maybe<String>;
+  type_gte?: Maybe<String>;
+  type_contains?: Maybe<String>;
+  type_not_contains?: Maybe<String>;
+  type_starts_with?: Maybe<String>;
+  type_not_starts_with?: Maybe<String>;
+  type_ends_with?: Maybe<String>;
+  type_not_ends_with?: Maybe<String>;
   selectedSet?: Maybe<SetWhereInput>;
   trait?: Maybe<ModificationWhereInput>;
   glyph?: Maybe<ModificationWhereInput>;
@@ -1755,6 +1901,125 @@ export interface PostWhereInput {
   NOT?: Maybe<PostWhereInput[] | PostWhereInput>;
 }
 
+export type RaidWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface RaidWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  owner?: Maybe<UserWhereInput>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  applicationArea_not?: Maybe<String>;
+  applicationArea_in?: Maybe<String[] | String>;
+  applicationArea_not_in?: Maybe<String[] | String>;
+  applicationArea_lt?: Maybe<String>;
+  applicationArea_lte?: Maybe<String>;
+  applicationArea_gt?: Maybe<String>;
+  applicationArea_gte?: Maybe<String>;
+  applicationArea_contains?: Maybe<String>;
+  applicationArea_not_contains?: Maybe<String>;
+  applicationArea_starts_with?: Maybe<String>;
+  applicationArea_not_starts_with?: Maybe<String>;
+  applicationArea_ends_with?: Maybe<String>;
+  applicationArea_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  published?: Maybe<Boolean>;
+  published_not?: Maybe<Boolean>;
+  canEdit_every?: Maybe<UserWhereInput>;
+  canEdit_some?: Maybe<UserWhereInput>;
+  canEdit_none?: Maybe<UserWhereInput>;
+  canView_every?: Maybe<UserWhereInput>;
+  canView_some?: Maybe<UserWhereInput>;
+  canView_none?: Maybe<UserWhereInput>;
+  builds_every?: Maybe<BuildWhereInput>;
+  builds_some?: Maybe<BuildWhereInput>;
+  builds_none?: Maybe<BuildWhereInput>;
+  AND?: Maybe<RaidWhereInput[] | RaidWhereInput>;
+  OR?: Maybe<RaidWhereInput[] | RaidWhereInput>;
+  NOT?: Maybe<RaidWhereInput[] | RaidWhereInput>;
+}
+
+export type RaidBuildWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface RaidBuildWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  build?: Maybe<BuildWhereInput>;
+  role?: Maybe<String>;
+  role_not?: Maybe<String>;
+  role_in?: Maybe<String[] | String>;
+  role_not_in?: Maybe<String[] | String>;
+  role_lt?: Maybe<String>;
+  role_lte?: Maybe<String>;
+  role_gt?: Maybe<String>;
+  role_gte?: Maybe<String>;
+  role_contains?: Maybe<String>;
+  role_not_contains?: Maybe<String>;
+  role_starts_with?: Maybe<String>;
+  role_not_starts_with?: Maybe<String>;
+  role_ends_with?: Maybe<String>;
+  role_not_ends_with?: Maybe<String>;
+  AND?: Maybe<RaidBuildWhereInput[] | RaidBuildWhereInput>;
+  OR?: Maybe<RaidBuildWhereInput[] | RaidBuildWhereInput>;
+  NOT?: Maybe<RaidBuildWhereInput[] | RaidBuildWhereInput>;
+}
+
 export type SetWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   setId?: Maybe<Int>;
@@ -1819,6 +2084,8 @@ export interface BuildCreateInput {
   id?: Maybe<ID_Input>;
   owner?: Maybe<UserCreateOneWithoutBuildsInput>;
   name?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  role?: Maybe<String>;
   race?: Maybe<String>;
   esoClass?: Maybe<String>;
   published?: Maybe<Boolean>;
@@ -1858,6 +2125,7 @@ export interface SetSelectionCreateInput {
   id?: Maybe<ID_Input>;
   icon?: Maybe<String>;
   slot?: Maybe<String>;
+  type?: Maybe<String>;
   selectedSet?: Maybe<SetCreateOneInput>;
   trait?: Maybe<ModificationCreateOneInput>;
   glyph?: Maybe<ModificationCreateOneInput>;
@@ -1965,6 +2233,8 @@ export interface BuffCreateOneInput {
 export interface BuildUpdateInput {
   owner?: Maybe<UserUpdateOneWithoutBuildsInput>;
   name?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  role?: Maybe<String>;
   race?: Maybe<String>;
   esoClass?: Maybe<String>;
   published?: Maybe<Boolean>;
@@ -2036,6 +2306,7 @@ export interface SetSelectionUpdateWithWhereUniqueNestedInput {
 export interface SetSelectionUpdateDataInput {
   icon?: Maybe<String>;
   slot?: Maybe<String>;
+  type?: Maybe<String>;
   selectedSet?: Maybe<SetUpdateOneInput>;
   trait?: Maybe<ModificationUpdateOneInput>;
   glyph?: Maybe<ModificationUpdateOneInput>;
@@ -2147,6 +2418,20 @@ export interface SetSelectionScalarWhereInput {
   slot_not_starts_with?: Maybe<String>;
   slot_ends_with?: Maybe<String>;
   slot_not_ends_with?: Maybe<String>;
+  type?: Maybe<String>;
+  type_not?: Maybe<String>;
+  type_in?: Maybe<String[] | String>;
+  type_not_in?: Maybe<String[] | String>;
+  type_lt?: Maybe<String>;
+  type_lte?: Maybe<String>;
+  type_gt?: Maybe<String>;
+  type_gte?: Maybe<String>;
+  type_contains?: Maybe<String>;
+  type_not_contains?: Maybe<String>;
+  type_starts_with?: Maybe<String>;
+  type_not_starts_with?: Maybe<String>;
+  type_ends_with?: Maybe<String>;
+  type_not_ends_with?: Maybe<String>;
   AND?: Maybe<SetSelectionScalarWhereInput[] | SetSelectionScalarWhereInput>;
   OR?: Maybe<SetSelectionScalarWhereInput[] | SetSelectionScalarWhereInput>;
   NOT?: Maybe<SetSelectionScalarWhereInput[] | SetSelectionScalarWhereInput>;
@@ -2160,6 +2445,7 @@ export interface SetSelectionUpdateManyWithWhereNestedInput {
 export interface SetSelectionUpdateManyDataInput {
   icon?: Maybe<String>;
   slot?: Maybe<String>;
+  type?: Maybe<String>;
 }
 
 export interface SkillSelectionUpdateManyInput {
@@ -2334,6 +2620,8 @@ export interface BuffUpsertNestedInput {
 
 export interface BuildUpdateManyMutationInput {
   name?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  role?: Maybe<String>;
   race?: Maybe<String>;
   esoClass?: Maybe<String>;
   published?: Maybe<Boolean>;
@@ -2404,6 +2692,8 @@ export interface BuildCreateManyWithoutOwnerInput {
 export interface BuildCreateWithoutOwnerInput {
   id?: Maybe<ID_Input>;
   name?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  role?: Maybe<String>;
   race?: Maybe<String>;
   esoClass?: Maybe<String>;
   published?: Maybe<Boolean>;
@@ -2468,6 +2758,8 @@ export interface BuildUpdateWithWhereUniqueWithoutOwnerInput {
 
 export interface BuildUpdateWithoutOwnerDataInput {
   name?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  role?: Maybe<String>;
   race?: Maybe<String>;
   esoClass?: Maybe<String>;
   published?: Maybe<Boolean>;
@@ -2519,6 +2811,34 @@ export interface BuildScalarWhereInput {
   name_not_starts_with?: Maybe<String>;
   name_ends_with?: Maybe<String>;
   name_not_ends_with?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  applicationArea_not?: Maybe<String>;
+  applicationArea_in?: Maybe<String[] | String>;
+  applicationArea_not_in?: Maybe<String[] | String>;
+  applicationArea_lt?: Maybe<String>;
+  applicationArea_lte?: Maybe<String>;
+  applicationArea_gt?: Maybe<String>;
+  applicationArea_gte?: Maybe<String>;
+  applicationArea_contains?: Maybe<String>;
+  applicationArea_not_contains?: Maybe<String>;
+  applicationArea_starts_with?: Maybe<String>;
+  applicationArea_not_starts_with?: Maybe<String>;
+  applicationArea_ends_with?: Maybe<String>;
+  applicationArea_not_ends_with?: Maybe<String>;
+  role?: Maybe<String>;
+  role_not?: Maybe<String>;
+  role_in?: Maybe<String[] | String>;
+  role_not_in?: Maybe<String[] | String>;
+  role_lt?: Maybe<String>;
+  role_lte?: Maybe<String>;
+  role_gt?: Maybe<String>;
+  role_gte?: Maybe<String>;
+  role_contains?: Maybe<String>;
+  role_not_contains?: Maybe<String>;
+  role_starts_with?: Maybe<String>;
+  role_not_starts_with?: Maybe<String>;
+  role_ends_with?: Maybe<String>;
+  role_not_ends_with?: Maybe<String>;
   race?: Maybe<String>;
   race_not?: Maybe<String>;
   race_in?: Maybe<String[] | String>;
@@ -2577,6 +2897,8 @@ export interface BuildUpdateManyWithWhereNestedInput {
 
 export interface BuildUpdateManyDataInput {
   name?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  role?: Maybe<String>;
   race?: Maybe<String>;
   esoClass?: Maybe<String>;
   published?: Maybe<Boolean>;
@@ -2591,6 +2913,242 @@ export interface PostUpdateManyMutationInput {
   published?: Maybe<Boolean>;
   title?: Maybe<String>;
   content?: Maybe<String>;
+}
+
+export interface RaidCreateInput {
+  id?: Maybe<ID_Input>;
+  owner?: Maybe<UserCreateOneInput>;
+  name?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  published?: Maybe<Boolean>;
+  canEdit?: Maybe<UserCreateManyInput>;
+  canView?: Maybe<UserCreateManyInput>;
+  builds?: Maybe<BuildCreateManyInput>;
+}
+
+export interface UserCreateManyInput {
+  create?: Maybe<UserCreateInput[] | UserCreateInput>;
+  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+}
+
+export interface BuildCreateManyInput {
+  create?: Maybe<BuildCreateInput[] | BuildCreateInput>;
+  connect?: Maybe<BuildWhereUniqueInput[] | BuildWhereUniqueInput>;
+}
+
+export interface RaidUpdateInput {
+  owner?: Maybe<UserUpdateOneInput>;
+  name?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  published?: Maybe<Boolean>;
+  canEdit?: Maybe<UserUpdateManyInput>;
+  canView?: Maybe<UserUpdateManyInput>;
+  builds?: Maybe<BuildUpdateManyInput>;
+}
+
+export interface UserUpdateOneInput {
+  create?: Maybe<UserCreateInput>;
+  update?: Maybe<UserUpdateDataInput>;
+  upsert?: Maybe<UserUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateManyInput {
+  create?: Maybe<UserCreateInput[] | UserCreateInput>;
+  update?: Maybe<
+    | UserUpdateWithWhereUniqueNestedInput[]
+    | UserUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | UserUpsertWithWhereUniqueNestedInput[]
+    | UserUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  set?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  disconnect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  deleteMany?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
+  updateMany?: Maybe<
+    UserUpdateManyWithWhereNestedInput[] | UserUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface UserUpdateWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput;
+  data: UserUpdateDataInput;
+}
+
+export interface UserUpsertWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput;
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface UserScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
+  password?: Maybe<String>;
+  password_not?: Maybe<String>;
+  password_in?: Maybe<String[] | String>;
+  password_not_in?: Maybe<String[] | String>;
+  password_lt?: Maybe<String>;
+  password_lte?: Maybe<String>;
+  password_gt?: Maybe<String>;
+  password_gte?: Maybe<String>;
+  password_contains?: Maybe<String>;
+  password_not_contains?: Maybe<String>;
+  password_starts_with?: Maybe<String>;
+  password_not_starts_with?: Maybe<String>;
+  password_ends_with?: Maybe<String>;
+  password_not_ends_with?: Maybe<String>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  AND?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
+  OR?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
+  NOT?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
+}
+
+export interface UserUpdateManyWithWhereNestedInput {
+  where: UserScalarWhereInput;
+  data: UserUpdateManyDataInput;
+}
+
+export interface UserUpdateManyDataInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  name?: Maybe<String>;
+}
+
+export interface BuildUpdateManyInput {
+  create?: Maybe<BuildCreateInput[] | BuildCreateInput>;
+  update?: Maybe<
+    | BuildUpdateWithWhereUniqueNestedInput[]
+    | BuildUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | BuildUpsertWithWhereUniqueNestedInput[]
+    | BuildUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<BuildWhereUniqueInput[] | BuildWhereUniqueInput>;
+  connect?: Maybe<BuildWhereUniqueInput[] | BuildWhereUniqueInput>;
+  set?: Maybe<BuildWhereUniqueInput[] | BuildWhereUniqueInput>;
+  disconnect?: Maybe<BuildWhereUniqueInput[] | BuildWhereUniqueInput>;
+  deleteMany?: Maybe<BuildScalarWhereInput[] | BuildScalarWhereInput>;
+  updateMany?: Maybe<
+    BuildUpdateManyWithWhereNestedInput[] | BuildUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface BuildUpdateWithWhereUniqueNestedInput {
+  where: BuildWhereUniqueInput;
+  data: BuildUpdateDataInput;
+}
+
+export interface BuildUpdateDataInput {
+  owner?: Maybe<UserUpdateOneWithoutBuildsInput>;
+  name?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  role?: Maybe<String>;
+  race?: Maybe<String>;
+  esoClass?: Maybe<String>;
+  published?: Maybe<Boolean>;
+  bigPieceSelection?: Maybe<SetSelectionUpdateManyInput>;
+  smallPieceSelection?: Maybe<SetSelectionUpdateManyInput>;
+  jewelrySelection?: Maybe<SetSelectionUpdateManyInput>;
+  frontbarSelection?: Maybe<SetSelectionUpdateManyInput>;
+  backbarSelection?: Maybe<SetSelectionUpdateManyInput>;
+  newBarOne?: Maybe<SkillSelectionUpdateManyInput>;
+  newBarTwo?: Maybe<SkillSelectionUpdateManyInput>;
+  ultimateOne?: Maybe<SkillUpdateOneInput>;
+  ultimateTwo?: Maybe<SkillUpdateOneInput>;
+  mundusStone?: Maybe<MundusStoneUpdateOneInput>;
+  buff?: Maybe<BuffUpdateOneInput>;
+}
+
+export interface BuildUpsertWithWhereUniqueNestedInput {
+  where: BuildWhereUniqueInput;
+  update: BuildUpdateDataInput;
+  create: BuildCreateInput;
+}
+
+export interface RaidUpdateManyMutationInput {
+  name?: Maybe<String>;
+  applicationArea?: Maybe<String>;
+  published?: Maybe<Boolean>;
+}
+
+export interface RaidBuildCreateInput {
+  id?: Maybe<ID_Input>;
+  build?: Maybe<BuildCreateOneInput>;
+  role?: Maybe<String>;
+}
+
+export interface BuildCreateOneInput {
+  create?: Maybe<BuildCreateInput>;
+  connect?: Maybe<BuildWhereUniqueInput>;
+}
+
+export interface RaidBuildUpdateInput {
+  build?: Maybe<BuildUpdateOneInput>;
+  role?: Maybe<String>;
+}
+
+export interface BuildUpdateOneInput {
+  create?: Maybe<BuildCreateInput>;
+  update?: Maybe<BuildUpdateDataInput>;
+  upsert?: Maybe<BuildUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<BuildWhereUniqueInput>;
+}
+
+export interface BuildUpsertNestedInput {
+  update: BuildUpdateDataInput;
+  create: BuildCreateInput;
+}
+
+export interface RaidBuildUpdateManyMutationInput {
+  role?: Maybe<String>;
 }
 
 export interface SetUpdateInput {
@@ -2638,6 +3196,7 @@ export interface SetUpdateManyMutationInput {
 export interface SetSelectionUpdateInput {
   icon?: Maybe<String>;
   slot?: Maybe<String>;
+  type?: Maybe<String>;
   selectedSet?: Maybe<SetUpdateOneInput>;
   trait?: Maybe<ModificationUpdateOneInput>;
   glyph?: Maybe<ModificationUpdateOneInput>;
@@ -2646,6 +3205,7 @@ export interface SetSelectionUpdateInput {
 export interface SetSelectionUpdateManyMutationInput {
   icon?: Maybe<String>;
   slot?: Maybe<String>;
+  type?: Maybe<String>;
 }
 
 export interface SkillUpdateInput {
@@ -2771,6 +3331,34 @@ export interface PostSubscriptionWhereInput {
   AND?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
   OR?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
   NOT?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
+}
+
+export interface RaidSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<RaidWhereInput>;
+  AND?: Maybe<RaidSubscriptionWhereInput[] | RaidSubscriptionWhereInput>;
+  OR?: Maybe<RaidSubscriptionWhereInput[] | RaidSubscriptionWhereInput>;
+  NOT?: Maybe<RaidSubscriptionWhereInput[] | RaidSubscriptionWhereInput>;
+}
+
+export interface RaidBuildSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<RaidBuildWhereInput>;
+  AND?: Maybe<
+    RaidBuildSubscriptionWhereInput[] | RaidBuildSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    RaidBuildSubscriptionWhereInput[] | RaidBuildSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    RaidBuildSubscriptionWhereInput[] | RaidBuildSubscriptionWhereInput
+  >;
 }
 
 export interface SetSubscriptionWhereInput {
@@ -2983,6 +3571,8 @@ export interface AggregateBuffSubscription
 export interface Build {
   id: ID_Output;
   name?: String;
+  applicationArea?: String;
+  role?: String;
   race?: String;
   esoClass?: String;
   createdAt: DateTimeOutput;
@@ -2994,6 +3584,8 @@ export interface BuildPromise extends Promise<Build>, Fragmentable {
   id: () => Promise<ID_Output>;
   owner: <T = UserPromise>() => T;
   name: () => Promise<String>;
+  applicationArea: () => Promise<String>;
+  role: () => Promise<String>;
   race: () => Promise<String>;
   esoClass: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -3074,6 +3666,8 @@ export interface BuildSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   owner: <T = UserSubscription>() => T;
   name: () => Promise<AsyncIterator<String>>;
+  applicationArea: () => Promise<AsyncIterator<String>>;
+  role: () => Promise<AsyncIterator<String>>;
   race: () => Promise<AsyncIterator<String>>;
   esoClass: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -3164,6 +3758,8 @@ export interface BuildNullablePromise
   id: () => Promise<ID_Output>;
   owner: <T = UserPromise>() => T;
   name: () => Promise<String>;
+  applicationArea: () => Promise<String>;
+  role: () => Promise<String>;
   race: () => Promise<String>;
   esoClass: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -3301,6 +3897,7 @@ export interface SetSelection {
   id: ID_Output;
   icon?: String;
   slot?: String;
+  type?: String;
 }
 
 export interface SetSelectionPromise
@@ -3309,6 +3906,7 @@ export interface SetSelectionPromise
   id: () => Promise<ID_Output>;
   icon: () => Promise<String>;
   slot: () => Promise<String>;
+  type: () => Promise<String>;
   selectedSet: <T = SetPromise>() => T;
   trait: <T = ModificationPromise>() => T;
   glyph: <T = ModificationPromise>() => T;
@@ -3320,6 +3918,7 @@ export interface SetSelectionSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   icon: () => Promise<AsyncIterator<String>>;
   slot: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<String>>;
   selectedSet: <T = SetSubscription>() => T;
   trait: <T = ModificationSubscription>() => T;
   glyph: <T = ModificationSubscription>() => T;
@@ -3331,6 +3930,7 @@ export interface SetSelectionNullablePromise
   id: () => Promise<ID_Output>;
   icon: () => Promise<String>;
   slot: () => Promise<String>;
+  type: () => Promise<String>;
   selectedSet: <T = SetPromise>() => T;
   trait: <T = ModificationPromise>() => T;
   glyph: <T = ModificationPromise>() => T;
@@ -3888,6 +4488,267 @@ export interface AggregatePostSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface Raid {
+  id: ID_Output;
+  name?: String;
+  applicationArea?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  published: Boolean;
+}
+
+export interface RaidPromise extends Promise<Raid>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  owner: <T = UserPromise>() => T;
+  name: () => Promise<String>;
+  applicationArea: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  published: () => Promise<Boolean>;
+  canEdit: <T = FragmentableArray<User>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  canView: <T = FragmentableArray<User>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  builds: <T = FragmentableArray<Build>>(args?: {
+    where?: BuildWhereInput;
+    orderBy?: BuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface RaidSubscription
+  extends Promise<AsyncIterator<Raid>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  owner: <T = UserSubscription>() => T;
+  name: () => Promise<AsyncIterator<String>>;
+  applicationArea: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  published: () => Promise<AsyncIterator<Boolean>>;
+  canEdit: <T = Promise<AsyncIterator<UserSubscription>>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  canView: <T = Promise<AsyncIterator<UserSubscription>>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  builds: <T = Promise<AsyncIterator<BuildSubscription>>>(args?: {
+    where?: BuildWhereInput;
+    orderBy?: BuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface RaidNullablePromise
+  extends Promise<Raid | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  owner: <T = UserPromise>() => T;
+  name: () => Promise<String>;
+  applicationArea: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  published: () => Promise<Boolean>;
+  canEdit: <T = FragmentableArray<User>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  canView: <T = FragmentableArray<User>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  builds: <T = FragmentableArray<Build>>(args?: {
+    where?: BuildWhereInput;
+    orderBy?: BuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface RaidConnection {
+  pageInfo: PageInfo;
+  edges: RaidEdge[];
+}
+
+export interface RaidConnectionPromise
+  extends Promise<RaidConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<RaidEdge>>() => T;
+  aggregate: <T = AggregateRaidPromise>() => T;
+}
+
+export interface RaidConnectionSubscription
+  extends Promise<AsyncIterator<RaidConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<RaidEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateRaidSubscription>() => T;
+}
+
+export interface RaidEdge {
+  node: Raid;
+  cursor: String;
+}
+
+export interface RaidEdgePromise extends Promise<RaidEdge>, Fragmentable {
+  node: <T = RaidPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface RaidEdgeSubscription
+  extends Promise<AsyncIterator<RaidEdge>>,
+    Fragmentable {
+  node: <T = RaidSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateRaid {
+  count: Int;
+}
+
+export interface AggregateRaidPromise
+  extends Promise<AggregateRaid>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateRaidSubscription
+  extends Promise<AsyncIterator<AggregateRaid>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface RaidBuild {
+  id: ID_Output;
+  role?: String;
+}
+
+export interface RaidBuildPromise extends Promise<RaidBuild>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  build: <T = BuildPromise>() => T;
+  role: () => Promise<String>;
+}
+
+export interface RaidBuildSubscription
+  extends Promise<AsyncIterator<RaidBuild>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  build: <T = BuildSubscription>() => T;
+  role: () => Promise<AsyncIterator<String>>;
+}
+
+export interface RaidBuildNullablePromise
+  extends Promise<RaidBuild | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  build: <T = BuildPromise>() => T;
+  role: () => Promise<String>;
+}
+
+export interface RaidBuildConnection {
+  pageInfo: PageInfo;
+  edges: RaidBuildEdge[];
+}
+
+export interface RaidBuildConnectionPromise
+  extends Promise<RaidBuildConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<RaidBuildEdge>>() => T;
+  aggregate: <T = AggregateRaidBuildPromise>() => T;
+}
+
+export interface RaidBuildConnectionSubscription
+  extends Promise<AsyncIterator<RaidBuildConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<RaidBuildEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateRaidBuildSubscription>() => T;
+}
+
+export interface RaidBuildEdge {
+  node: RaidBuild;
+  cursor: String;
+}
+
+export interface RaidBuildEdgePromise
+  extends Promise<RaidBuildEdge>,
+    Fragmentable {
+  node: <T = RaidBuildPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface RaidBuildEdgeSubscription
+  extends Promise<AsyncIterator<RaidBuildEdge>>,
+    Fragmentable {
+  node: <T = RaidBuildSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateRaidBuild {
+  count: Int;
+}
+
+export interface AggregateRaidBuildPromise
+  extends Promise<AggregateRaidBuild>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateRaidBuildSubscription
+  extends Promise<AsyncIterator<AggregateRaidBuild>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface SetConnection {
   pageInfo: PageInfo;
   edges: SetEdge[];
@@ -4274,6 +5135,8 @@ export interface BuildSubscriptionPayloadSubscription
 export interface BuildPreviousValues {
   id: ID_Output;
   name?: String;
+  applicationArea?: String;
+  role?: String;
   race?: String;
   esoClass?: String;
   createdAt: DateTimeOutput;
@@ -4286,6 +5149,8 @@ export interface BuildPreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
+  applicationArea: () => Promise<String>;
+  role: () => Promise<String>;
   race: () => Promise<String>;
   esoClass: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -4298,6 +5163,8 @@ export interface BuildPreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
+  applicationArea: () => Promise<AsyncIterator<String>>;
+  role: () => Promise<AsyncIterator<String>>;
   race: () => Promise<AsyncIterator<String>>;
   esoClass: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -4479,6 +5346,106 @@ export interface PostPreviousValuesSubscription
   content: () => Promise<AsyncIterator<String>>;
 }
 
+export interface RaidSubscriptionPayload {
+  mutation: MutationType;
+  node: Raid;
+  updatedFields: String[];
+  previousValues: RaidPreviousValues;
+}
+
+export interface RaidSubscriptionPayloadPromise
+  extends Promise<RaidSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = RaidPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = RaidPreviousValuesPromise>() => T;
+}
+
+export interface RaidSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RaidSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = RaidSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = RaidPreviousValuesSubscription>() => T;
+}
+
+export interface RaidPreviousValues {
+  id: ID_Output;
+  name?: String;
+  applicationArea?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  published: Boolean;
+}
+
+export interface RaidPreviousValuesPromise
+  extends Promise<RaidPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  applicationArea: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  published: () => Promise<Boolean>;
+}
+
+export interface RaidPreviousValuesSubscription
+  extends Promise<AsyncIterator<RaidPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  applicationArea: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  published: () => Promise<AsyncIterator<Boolean>>;
+}
+
+export interface RaidBuildSubscriptionPayload {
+  mutation: MutationType;
+  node: RaidBuild;
+  updatedFields: String[];
+  previousValues: RaidBuildPreviousValues;
+}
+
+export interface RaidBuildSubscriptionPayloadPromise
+  extends Promise<RaidBuildSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = RaidBuildPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = RaidBuildPreviousValuesPromise>() => T;
+}
+
+export interface RaidBuildSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RaidBuildSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = RaidBuildSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = RaidBuildPreviousValuesSubscription>() => T;
+}
+
+export interface RaidBuildPreviousValues {
+  id: ID_Output;
+  role?: String;
+}
+
+export interface RaidBuildPreviousValuesPromise
+  extends Promise<RaidBuildPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  role: () => Promise<String>;
+}
+
+export interface RaidBuildPreviousValuesSubscription
+  extends Promise<AsyncIterator<RaidBuildPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  role: () => Promise<AsyncIterator<String>>;
+}
+
 export interface SetSubscriptionPayload {
   mutation: MutationType;
   node: Set;
@@ -4603,6 +5570,7 @@ export interface SetSelectionPreviousValues {
   id: ID_Output;
   icon?: String;
   slot?: String;
+  type?: String;
 }
 
 export interface SetSelectionPreviousValuesPromise
@@ -4611,6 +5579,7 @@ export interface SetSelectionPreviousValuesPromise
   id: () => Promise<ID_Output>;
   icon: () => Promise<String>;
   slot: () => Promise<String>;
+  type: () => Promise<String>;
 }
 
 export interface SetSelectionPreviousValuesSubscription
@@ -4619,6 +5588,7 @@ export interface SetSelectionPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   icon: () => Promise<AsyncIterator<String>>;
   slot: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<String>>;
 }
 
 export interface SkillSubscriptionPayload {
@@ -4877,6 +5847,14 @@ export const models: Model[] = [
   },
   {
     name: "Build",
+    embedded: false
+  },
+  {
+    name: "RaidBuild",
+    embedded: false
+  },
+  {
+    name: "Raid",
     embedded: false
   }
 ];
