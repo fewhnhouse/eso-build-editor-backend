@@ -122,7 +122,7 @@ export const Mutation = mutationType({
           async (slot: string, index: number) =>
             await ctx.prisma.createSetSelection({
               slot,
-              type: types[index] ? types[index] : '',
+              type: types && types[index] ? types[index] : '',
               trait: traitDescriptions[index]
                 ? { connect: { description: traitDescriptions[index] } }
                 : undefined,

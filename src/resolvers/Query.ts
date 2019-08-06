@@ -194,7 +194,7 @@ export const Query = queryType({
         ctx
       ) => {
         return ctx.prisma.builds({
-          where: { ...where, published: true },
+          where: { ...where /*, published: true*/ },
           orderBy,
           first,
           last,
