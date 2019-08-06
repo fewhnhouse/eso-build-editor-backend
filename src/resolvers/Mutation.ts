@@ -1,5 +1,5 @@
 import { stringArg, idArg, mutationType, arg, intArg } from 'nexus'
-import { hash, compare } from 'bcrypt'
+import { hash, compare } from 'bcryptjs'
 import { APP_SECRET, getUserId } from '../utils'
 import { sign } from 'jsonwebtoken'
 
