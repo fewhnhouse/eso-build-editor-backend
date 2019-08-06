@@ -27,6 +27,34 @@ export const Query = queryType({
       },
     });
 
+    t.list.field('modifications', {
+      type: 'Modification',
+      args: {
+        where: arg({ type: 'ModificationWhereInput' }),
+        orderBy: arg({ type: 'ModificationOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
+        return ctx.prisma.modifications({
+          where,
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+      },
+    });
+
     t.list.field('sets', {
       type: 'Set',
       args: {
@@ -38,7 +66,11 @@ export const Query = queryType({
         after: stringArg(),
         before: stringArg(),
       },
-      resolve: (parent, { where, orderBy, first, last }, ctx) => {
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
         return ctx.prisma.sets({
           where,
           orderBy,

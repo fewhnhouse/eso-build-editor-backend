@@ -1226,6 +1226,7 @@ export interface NexusGenInputs {
 export interface NexusGenEnums {
   BuffOrderByInput: "buffDescription_ASC" | "buffDescription_DESC" | "buffType_ASC" | "buffType_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "duration_ASC" | "duration_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "notes_ASC" | "notes_DESC" | "quality_ASC" | "quality_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   BuildOrderByInput: "applicationArea_ASC" | "applicationArea_DESC" | "createdAt_ASC" | "createdAt_DESC" | "esoClass_ASC" | "esoClass_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "published_ASC" | "published_DESC" | "race_ASC" | "race_DESC" | "role_ASC" | "role_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ModificationOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "itemType_ASC" | "itemType_DESC" | "modificationType_ASC" | "modificationType_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   MundusStoneOrderByInput: "aldmeri_ASC" | "aldmeri_DESC" | "createdAt_ASC" | "createdAt_DESC" | "daggerfall_ASC" | "daggerfall_DESC" | "ebonheart_ASC" | "ebonheart_DESC" | "effect_ASC" | "effect_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "value_ASC" | "value_DESC"
   SetOrderByInput: "bonus_item_1_ASC" | "bonus_item_1_DESC" | "bonus_item_2_ASC" | "bonus_item_2_DESC" | "bonus_item_3_ASC" | "bonus_item_3_DESC" | "bonus_item_4_ASC" | "bonus_item_4_DESC" | "bonus_item_5_ASC" | "bonus_item_5_DESC" | "createdAt_ASC" | "createdAt_DESC" | "eso_id_ASC" | "eso_id_DESC" | "has_heavy_armor_ASC" | "has_heavy_armor_DESC" | "has_jewels_ASC" | "has_jewels_DESC" | "has_light_armor_ASC" | "has_light_armor_DESC" | "has_medium_armor_ASC" | "has_medium_armor_DESC" | "has_weapons_ASC" | "has_weapons_DESC" | "id_ASC" | "id_DESC" | "location_ASC" | "location_DESC" | "name_ASC" | "name_DESC" | "pts_ASC" | "pts_DESC" | "setId_ASC" | "setId_DESC" | "slug_ASC" | "slug_DESC" | "traits_needed_ASC" | "traits_needed_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   SetSelectionOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "slot_ASC" | "slot_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
@@ -1388,6 +1389,7 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   UserWhereUniqueInput: NexusGenInputs['UserWhereUniqueInput'];
   BuffOrderByInput: NexusGenEnums['BuffOrderByInput'];
   BuildOrderByInput: NexusGenEnums['BuildOrderByInput'];
+  ModificationOrderByInput: NexusGenEnums['ModificationOrderByInput'];
   MundusStoneOrderByInput: NexusGenEnums['MundusStoneOrderByInput'];
   SetOrderByInput: NexusGenEnums['SetOrderByInput'];
   SetSelectionOrderByInput: NexusGenEnums['SetSelectionOrderByInput'];
@@ -1480,6 +1482,7 @@ export interface NexusGenFieldTypes {
     builds: NexusGenRootTypes['Build'][] | null; // [Build!]
     buildsByUser: NexusGenRootTypes['Build'][] | null; // [Build!]
     me: NexusGenRootTypes['User'] | null; // User
+    modifications: NexusGenRootTypes['Modification'][] | null; // [Modification!]
     mundusStone: NexusGenRootTypes['MundusStone'] | null; // MundusStone
     mundusStones: NexusGenRootTypes['MundusStone'][] | null; // [MundusStone!]
     publishedBuilds: NexusGenRootTypes['Build'][] | null; // [Build!]
@@ -1689,6 +1692,15 @@ export interface NexusGenArgTypes {
     buildsByUser: { // args
       id?: string | null; // ID
     }
+    modifications: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ModificationOrderByInput'] | null; // ModificationOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ModificationWhereInput'] | null; // ModificationWhereInput
+    }
     mundusStone: { // args
       name?: string | null; // String
     }
@@ -1750,7 +1762,7 @@ export type NexusGenObjectNames = "AuthPayload" | "Buff" | "Build" | "Modificati
 
 export type NexusGenInputNames = "BuffCreateInput" | "BuffCreateOneInput" | "BuffWhereInput" | "BuffWhereUniqueInput" | "BuildCreateInput" | "BuildWhereInput" | "ModificationCreateInput" | "ModificationCreateOneInput" | "ModificationWhereInput" | "ModificationWhereUniqueInput" | "MundusStoneCreateInput" | "MundusStoneCreateOneInput" | "MundusStoneWhereInput" | "MundusStoneWhereUniqueInput" | "SetCreateInput" | "SetCreateOneInput" | "SetSelectionCreateInput" | "SetSelectionCreateManyInput" | "SetSelectionWhereInput" | "SetSelectionWhereUniqueInput" | "SetWhereInput" | "SetWhereUniqueInput" | "SkillCreateInput" | "SkillCreateOneInput" | "SkillSelectionCreateInput" | "SkillSelectionCreateManyInput" | "SkillSelectionWhereInput" | "SkillSelectionWhereUniqueInput" | "SkillWhereInput" | "SkillWhereUniqueInput" | "UserCreateOneWithoutBuildsInput" | "UserCreateWithoutBuildsInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
-export type NexusGenEnumNames = "BuffOrderByInput" | "BuildOrderByInput" | "MundusStoneOrderByInput" | "SetOrderByInput" | "SetSelectionOrderByInput" | "SkillOrderByInput" | "SkillSelectionOrderByInput";
+export type NexusGenEnumNames = "BuffOrderByInput" | "BuildOrderByInput" | "ModificationOrderByInput" | "MundusStoneOrderByInput" | "SetOrderByInput" | "SetSelectionOrderByInput" | "SkillOrderByInput" | "SkillSelectionOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 

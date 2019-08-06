@@ -430,6 +430,25 @@ input ModificationCreateOneInput {
   create: ModificationCreateInput
 }
 
+enum ModificationOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  icon_ASC
+  icon_DESC
+  id_ASC
+  id_DESC
+  itemType_ASC
+  itemType_DESC
+  modificationType_ASC
+  modificationType_DESC
+  type_ASC
+  type_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
 input ModificationWhereInput {
   AND: [ModificationWhereInput!]
   description: String
@@ -727,6 +746,7 @@ type Query {
   builds(after: String, before: String, first: Int, last: Int, orderBy: BuildOrderByInput, skip: Int, where: BuildWhereInput): [Build!]
   buildsByUser(id: ID): [Build!]
   me: User
+  modifications(after: String, before: String, first: Int, last: Int, orderBy: ModificationOrderByInput, skip: Int, where: ModificationWhereInput): [Modification!]
   mundusStone(name: String): MundusStone
   mundusStones(after: String, before: String, first: Int, last: Int, orderBy: MundusStoneOrderByInput, skip: Int, where: MundusStoneWhereInput): [MundusStone!]
   publishedBuilds: [Build!]
