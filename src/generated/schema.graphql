@@ -205,6 +205,7 @@ input BuffWhereUniqueInput {
 }
 
 type Build {
+  applicationArea: String
   backbarSelection(after: String, before: String, first: Int, last: Int, orderBy: SetSelectionOrderByInput, skip: Int, where: SetSelectionWhereInput): [SetSelection!]
   bigPieceSelection(after: String, before: String, first: Int, last: Int, orderBy: SetSelectionOrderByInput, skip: Int, where: SetSelectionWhereInput): [SetSelection!]
   buff: Buff
@@ -220,6 +221,7 @@ type Build {
   owner: User
   published: Boolean!
   race: String
+  role: String
   smallPieceSelection(after: String, before: String, first: Int, last: Int, orderBy: SetSelectionOrderByInput, skip: Int, where: SetSelectionWhereInput): [SetSelection!]
   ultimateOne: Skill
   ultimateTwo: Skill
@@ -227,6 +229,7 @@ type Build {
 }
 
 input BuildCreateInput {
+  applicationArea: String
   backbarSelection: SetSelectionCreateManyInput
   bigPieceSelection: SetSelectionCreateManyInput
   buff: BuffCreateOneInput
@@ -241,12 +244,15 @@ input BuildCreateInput {
   owner: UserCreateOneWithoutBuildsInput
   published: Boolean
   race: String
+  role: String
   smallPieceSelection: SetSelectionCreateManyInput
   ultimateOne: SkillCreateOneInput
   ultimateTwo: SkillCreateOneInput
 }
 
 enum BuildOrderByInput {
+  applicationArea_ASC
+  applicationArea_DESC
   createdAt_ASC
   createdAt_DESC
   esoClass_ASC
@@ -259,12 +265,28 @@ enum BuildOrderByInput {
   published_DESC
   race_ASC
   race_DESC
+  role_ASC
+  role_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
 
 input BuildWhereInput {
   AND: [BuildWhereInput!]
+  applicationArea: String
+  applicationArea_contains: String
+  applicationArea_ends_with: String
+  applicationArea_gt: String
+  applicationArea_gte: String
+  applicationArea_in: [String!]
+  applicationArea_lt: String
+  applicationArea_lte: String
+  applicationArea_not: String
+  applicationArea_not_contains: String
+  applicationArea_not_ends_with: String
+  applicationArea_not_in: [String!]
+  applicationArea_not_starts_with: String
+  applicationArea_starts_with: String
   backbarSelection_every: SetSelectionWhereInput
   backbarSelection_none: SetSelectionWhereInput
   backbarSelection_some: SetSelectionWhereInput
@@ -354,6 +376,20 @@ input BuildWhereInput {
   race_not_in: [String!]
   race_not_starts_with: String
   race_starts_with: String
+  role: String
+  role_contains: String
+  role_ends_with: String
+  role_gt: String
+  role_gte: String
+  role_in: [String!]
+  role_lt: String
+  role_lte: String
+  role_not: String
+  role_not_contains: String
+  role_not_ends_with: String
+  role_not_in: [String!]
+  role_not_starts_with: String
+  role_starts_with: String
   smallPieceSelection_every: SetSelectionWhereInput
   smallPieceSelection_none: SetSelectionWhereInput
   smallPieceSelection_some: SetSelectionWhereInput
@@ -665,7 +701,7 @@ input MundusStoneWhereUniqueInput {
 type Mutation {
   createBuild(data: BuildCreateInput): Build
   createDraft(content: String, title: String): Post
-  createSetSelections(glyphDescriptions: [String!], setIds: [Int!], slots: [String!], traitDescriptions: [String!]): [SkillSelection!]
+  createSetSelections(glyphDescriptions: [String!], setIds: [Int!], slots: [String!], traitDescriptions: [String!], types: [String!]): [SkillSelection!]
   createSkillSelections(indices: [Int!], skillIds: [Int!]): [SkillSelection!]
   deleteBuild(id: ID): Build
   draftBuild(backBarIds: [Int!], bigPieceIds: [Int!], esoClass: String, frontBarIds: [Int!], name: String, race: String, ultimateOneId: Int, ultimateTwoId: Int): Build
@@ -698,6 +734,7 @@ type Query {
   sets(after: String, before: String, first: Int, last: Int, orderBy: SetOrderByInput, skip: Int, where: SetWhereInput): [Set!]
   skill(id: ID, skillId: Int): Skill
   skills(after: String, before: String, first: Int, last: Int, orderBy: SkillOrderByInput, skip: Int, where: SkillWhereInput): [Skill!]
+  users: [User!]
 }
 
 type Set {
@@ -801,6 +838,7 @@ type SetSelection {
   selectedSet: Set
   slot: String
   trait: Modification
+  type: String
 }
 
 input SetSelectionCreateInput {
@@ -810,6 +848,7 @@ input SetSelectionCreateInput {
   selectedSet: SetCreateOneInput
   slot: String
   trait: ModificationCreateOneInput
+  type: String
 }
 
 input SetSelectionCreateManyInput {
@@ -826,6 +865,8 @@ enum SetSelectionOrderByInput {
   id_DESC
   slot_ASC
   slot_DESC
+  type_ASC
+  type_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
@@ -879,6 +920,20 @@ input SetSelectionWhereInput {
   slot_not_starts_with: String
   slot_starts_with: String
   trait: ModificationWhereInput
+  type: String
+  type_contains: String
+  type_ends_with: String
+  type_gt: String
+  type_gte: String
+  type_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_not: String
+  type_not_contains: String
+  type_not_ends_with: String
+  type_not_in: [String!]
+  type_not_starts_with: String
+  type_starts_with: String
 }
 
 input SetSelectionWhereUniqueInput {

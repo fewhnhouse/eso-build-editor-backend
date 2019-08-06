@@ -1,11 +1,11 @@
-import { getUserId } from '../utils'
-import { stringArg, idArg, queryType, arg, intArg, objectType } from 'nexus'
+import { getUserId } from '../utils';
+import { stringArg, idArg, queryType, arg, intArg, objectType } from 'nexus';
 
 const Data = objectType({
-  name: "Data",
+  name: 'Data',
   definition(t) {
-    t.int("index");
-    t.int("skillId");
+    t.int('index');
+    t.int('skillId');
   },
 });
 export const Query = queryType({
@@ -13,114 +13,212 @@ export const Query = queryType({
     t.field('me', {
       type: 'User',
       resolve: (parent, args, ctx) => {
-        const userId = getUserId(ctx)
-        return ctx.prisma.user({ id: userId })
+        const userId = getUserId(ctx);
+        return ctx.prisma.user({ id: userId });
       },
-    })
+    });
 
     t.list.field('publishedBuilds', {
       type: 'Build',
       resolve: (parent, args, ctx) => {
         return ctx.prisma.builds({
           where: { published: true },
-        })
+        });
       },
-    })
+    });
 
     t.list.field('sets', {
-      type: "Set",
-      args: { where: arg({ type: "SetWhereInput" }), orderBy: arg({ type: "SetOrderByInput" }), first: intArg(), last: intArg(), skip: intArg(), after: stringArg(), before: stringArg() },
+      type: 'Set',
+      args: {
+        where: arg({ type: 'SetWhereInput' }),
+        orderBy: arg({ type: 'SetOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
       resolve: (parent, { where, orderBy, first, last }, ctx) => {
-        return ctx.prisma.sets({ where, orderBy, first, last, skip, after, before })
-      }
-    })
+        return ctx.prisma.sets({
+          where,
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+      },
+    });
 
     t.list.field('set', {
       type: 'Set',
       args: { id: idArg(), setId: intArg() },
       resolve: (parent, { id, setId }, ctx) => {
-        return ctx.prisma.skill({ id, setId })
-      }
-    })
+        return ctx.prisma.skill({ id, setId });
+      },
+    });
 
     t.list.field('skills', {
-      type: "Skill",
-      args: { where: arg({ type: "SkillWhereInput" }), orderBy: arg({ type: "SkillOrderByInput" }), first: intArg(), last: intArg(), skip: intArg(), after: stringArg(), before: stringArg() },
-      resolve: (parent, { where, orderBy, first, last, skip, after, before }, ctx) => {
-        return ctx.prisma.skills({ where, orderBy, first, last, skip, after, before })
-      }
-    })
+      type: 'Skill',
+      args: {
+        where: arg({ type: 'SkillWhereInput' }),
+        orderBy: arg({ type: 'SkillOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
+        return ctx.prisma.skills({
+          where,
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+      },
+    });
 
     t.field('skill', {
       type: 'Skill',
       args: { id: idArg(), skillId: intArg() },
       resolve: (parent, { id, skillId }, ctx) => {
-        return ctx.prisma.skill({ id, skillId })
-      }
-    })
+        return ctx.prisma.skill({ id, skillId });
+      },
+    });
 
     t.list.field('mundusStones', {
-      type: "MundusStone",
-      args: { where: arg({ type: "MundusStoneWhereInput" }), orderBy: arg({ type: "MundusStoneOrderByInput" }), first: intArg(), last: intArg(), skip: intArg(), after: stringArg(), before: stringArg() },
-      resolve: (parent, { where, orderBy, first, last, skip, after, before }, ctx) => {
-        return ctx.prisma.mundusStones({ where, orderBy, first, last, skip, after, before })
-      }
-    })
+      type: 'MundusStone',
+      args: {
+        where: arg({ type: 'MundusStoneWhereInput' }),
+        orderBy: arg({ type: 'MundusStoneOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
+        return ctx.prisma.mundusStones({
+          where,
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+      },
+    });
 
     t.field('mundusStone', {
-      type: "MundusStone",
+      type: 'MundusStone',
       args: { name: stringArg() },
       resolve: (parent, { name }, ctx) => {
-        return ctx.prisma.mundusStone({ name })
-      }
-    })
+        return ctx.prisma.mundusStone({ name });
+      },
+    });
 
     t.list.field('buffs', {
-      type: "Buff",
-      args: { where: arg({ type: "BuffWhereInput" }), orderBy: arg({ type: "BuffOrderByInput" }), first: intArg(), last: intArg(), skip: intArg(), after: stringArg(), before: stringArg() },
-      resolve: (parent, { where, orderBy, first, last, skip, after, before }, ctx) => {
-        return ctx.prisma.buffs({ where, orderBy, first, last, skip, after, before })
-      }
-    })
+      type: 'Buff',
+      args: {
+        where: arg({ type: 'BuffWhereInput' }),
+        orderBy: arg({ type: 'BuffOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
+        return ctx.prisma.buffs({
+          where,
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+      },
+    });
 
     t.field('buff', {
-      type: "Buff",
+      type: 'Buff',
       args: { name: stringArg() },
       resolve: (parent, { name }, ctx) => {
-        return ctx.prisma.buff({ name })
-      }
-    })
+        return ctx.prisma.buff({ name });
+      },
+    });
 
     t.list.field('buildsByUser', {
       type: 'Build',
       args: {
-        id: idArg()
+        id: idArg(),
       },
       resolve: (parent, { id }, ctx) => {
         return ctx.prisma.user({ id }).builds();
-      }
-    })
+      },
+    });
 
     t.list.field('builds', {
       type: 'Build',
       args: {
-        where: arg({ type: "BuildWhereInput" }), orderBy: arg({ type: "BuildOrderByInput" }), first: intArg(), last: intArg(), skip: intArg(), after: stringArg(), before: stringArg()
+        where: arg({ type: 'BuildWhereInput' }),
+        orderBy: arg({ type: 'BuildOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
       },
-      resolve: (parent, { where, orderBy, first, last, skip, after, before }, ctx) => {
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
         return ctx.prisma.builds({
-          where: { ...where, published: true }, orderBy, first, last, skip, after, before
-        })
+          where: { ...where, published: true },
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
       },
-    })
-
+    });
 
     t.field('build', {
       type: 'Build',
       nullable: true,
       args: { id: idArg() },
       resolve: (parent, { id }, ctx) => {
-        return ctx.prisma.build({ id })
+        return ctx.prisma.build({ id });
       },
-    })
+    });
+
+    t.list.field('users', {
+      type: 'User',
+      resolve: (parent, args, ctx) => {
+        return ctx.prisma.users();
+      },
+    });
   },
-})
+});
