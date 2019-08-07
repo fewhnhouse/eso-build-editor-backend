@@ -5,6 +5,8 @@ import { makePrismaSchema } from 'nexus-prisma'
 import { permissions } from './permissions'
 import * as allTypes from './resolvers'
 import datamodelInfo from './generated/nexus-prisma'
+import { config } from "dotenv"
+config();
 
 const schema = makePrismaSchema({
   // Provide all the GraphQL types we've implemented

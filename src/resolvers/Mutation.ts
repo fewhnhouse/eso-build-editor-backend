@@ -2,11 +2,37 @@ import { stringArg, idArg, mutationType, arg, intArg } from 'nexus'
 import { hash, compare } from 'bcrypt'
 import { APP_SECRET, getUserId } from '../utils'
 import { sign } from 'jsonwebtoken'
+import { MailService, setApiKey, send } from '@sendgrid/mail';
+const crypto = require('crypto-random-string');
 
 export const Mutation = mutationType({
   definition(t) {
+
+    t.field('confirmSignup', {
+      type: 'Verification',
+      args: {
+        token: stringArg()
+      },
+      resolve: async (parent, { token }, ctx) => {
+        // get user by verificationToken
+        const verification = await ctx.prisma.verification({ token });
+        console.log(verification)
+        if (!verification) {
+          return new Error("Invalid token.")
+        }
+        const user = await ctx.prisma.updateUser({ data: { verified: true }, where: { id: verification.user.id } })
+        if (user) {
+          return {
+            token: sign({ userId: user.id }, APP_SECRET),
+            userId: user.id,
+          }
+        } else {
+          return new Error("Invalid token.")
+        }
+      },
+    })
     t.field('signup', {
-      type: 'AuthPayload',
+      type: 'User',
       args: {
         name: stringArg({ nullable: true }),
         email: stringArg(),
@@ -18,11 +44,23 @@ export const Mutation = mutationType({
           name,
           email,
           password: hashedPassword,
+          verified: false
         })
-        return {
-          token: sign({ userId: user.id }, APP_SECRET),
-          user,
-        }
+
+        const token = crypto({ length: 16 })
+        await ctx.prisma.createVerification({ token, user: { connect: { id: user.id } } })
+
+        setApiKey(process.env.SENDGRID_API_KEY);
+        const msg = {
+          to: email,
+          from: 'noreply@buildeditor.com',
+          subject: 'Verification Email ESO Build Editor',
+          text: 'and easy to do anywhere, even with Node.js',
+          html: `<strong>Click this link to verify your account:<a href="http://localhost:3000/verify?token=${token}">Link</a> </strong>`,
+        };
+        await send(msg);
+
+        return user
       },
     })
 

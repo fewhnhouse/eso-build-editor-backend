@@ -663,6 +663,7 @@ input MundusStoneWhereUniqueInput {
 }
 
 type Mutation {
+  confirmSignup(token: String): Verification
   createBuild(data: BuildCreateInput): Build
   createDraft(content: String, title: String): Post
   createSetSelections(glyphDescriptions: [String!], setIds: [Int!], slots: [String!], traitDescriptions: [String!]): [SkillSelection!]
@@ -671,7 +672,7 @@ type Mutation {
   draftBuild(backBarIds: [Int!], bigPieceIds: [Int!], esoClass: String, frontBarIds: [Int!], name: String, race: String, ultimateOneId: Int, ultimateTwoId: Int): Build
   login(email: String, password: String): AuthPayload
   publishBuild(id: ID): Build
-  signup(email: String, name: String, password: String): AuthPayload
+  signup(email: String, name: String, password: String): User
 }
 
 type Post {
@@ -1467,6 +1468,7 @@ input UserCreateWithoutBuildsInput {
   id: ID
   name: String
   password: String!
+  verified: Boolean
 }
 
 input UserWhereInput {
@@ -1532,9 +1534,17 @@ input UserWhereInput {
   password_not_in: [String!]
   password_not_starts_with: String
   password_starts_with: String
+  verified: Boolean
+  verified_not: Boolean
 }
 
 input UserWhereUniqueInput {
   email: String
   id: ID
+}
+
+type Verification {
+  id: ID!
+  token: String!
+  user: User!
 }

@@ -1107,6 +1107,7 @@ export interface NexusGenInputs {
     id?: string | null; // ID
     name?: string | null; // String
     password: string; // String!
+    verified?: boolean | null; // Boolean
   }
   UserWhereInput: { // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
@@ -1171,6 +1172,8 @@ export interface NexusGenInputs {
     password_not_in?: string[] | null; // [String!]
     password_not_starts_with?: string | null; // String
     password_starts_with?: string | null; // String
+    verified?: boolean | null; // Boolean
+    verified_not?: boolean | null; // Boolean
   }
   UserWhereUniqueInput: { // input type
     email?: string | null; // String
@@ -1295,6 +1298,10 @@ export interface NexusGenRootTypes {
     id: string; // ID!
     name?: string | null; // String
   }
+  Verification: { // root type
+    id: string; // ID!
+    token: string; // String!
+  }
   String: string;
   Int: number;
   Float: number;
@@ -1404,6 +1411,7 @@ export interface NexusGenFieldTypes {
     value: string; // String!
   }
   Mutation: { // field return type
+    confirmSignup: NexusGenRootTypes['Verification'] | null; // Verification
     createBuild: NexusGenRootTypes['Build'] | null; // Build
     createDraft: NexusGenRootTypes['Post'] | null; // Post
     createSetSelections: NexusGenRootTypes['SkillSelection'][] | null; // [SkillSelection!]
@@ -1412,7 +1420,7 @@ export interface NexusGenFieldTypes {
     draftBuild: NexusGenRootTypes['Build'] | null; // Build
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     publishBuild: NexusGenRootTypes['Build'] | null; // Build
-    signup: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
+    signup: NexusGenRootTypes['User'] | null; // User
   }
   Post: { // field return type
     author: NexusGenRootTypes['User']; // User!
@@ -1496,6 +1504,11 @@ export interface NexusGenFieldTypes {
     id: string; // ID!
     name: string | null; // String
   }
+  Verification: { // field return type
+    id: string; // ID!
+    token: string; // String!
+    user: NexusGenRootTypes['User']; // User!
+  }
 }
 
 export interface NexusGenArgTypes {
@@ -1565,6 +1578,9 @@ export interface NexusGenArgTypes {
     }
   }
   Mutation: {
+    confirmSignup: { // args
+      token?: string | null; // String
+    }
     createBuild: { // args
       data?: NexusGenInputs['BuildCreateInput'] | null; // BuildCreateInput
     }
@@ -1693,7 +1709,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AuthPayload" | "Buff" | "Build" | "Modification" | "MundusStone" | "Mutation" | "Post" | "Query" | "Set" | "SetSelection" | "Skill" | "SkillSelection" | "User";
+export type NexusGenObjectNames = "AuthPayload" | "Buff" | "Build" | "Modification" | "MundusStone" | "Mutation" | "Post" | "Query" | "Set" | "SetSelection" | "Skill" | "SkillSelection" | "User" | "Verification";
 
 export type NexusGenInputNames = "BuffCreateInput" | "BuffCreateOneInput" | "BuffWhereInput" | "BuffWhereUniqueInput" | "BuildCreateInput" | "BuildWhereInput" | "ModificationCreateInput" | "ModificationCreateOneInput" | "ModificationWhereInput" | "ModificationWhereUniqueInput" | "MundusStoneCreateInput" | "MundusStoneCreateOneInput" | "MundusStoneWhereInput" | "MundusStoneWhereUniqueInput" | "SetCreateInput" | "SetCreateOneInput" | "SetSelectionCreateInput" | "SetSelectionCreateManyInput" | "SetSelectionWhereInput" | "SetSelectionWhereUniqueInput" | "SetWhereInput" | "SetWhereUniqueInput" | "SkillCreateInput" | "SkillCreateOneInput" | "SkillSelectionCreateInput" | "SkillSelectionCreateManyInput" | "SkillSelectionWhereInput" | "SkillSelectionWhereUniqueInput" | "SkillWhereInput" | "SkillWhereUniqueInput" | "UserCreateOneWithoutBuildsInput" | "UserCreateWithoutBuildsInput" | "UserWhereInput" | "UserWhereUniqueInput";
 

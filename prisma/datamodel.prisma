@@ -8,11 +8,20 @@ type Post {
   author: User!
 }
 
+
+type Verification {
+  id: ID! @id
+  token: String! @unique
+  user: User! @relation(name: "VerificationUser")
+}
+
+
 type User {
   id: ID! @id
   email: String! @unique
   password: String!
   name: String
+  verified: Boolean! @default(value: false)
   builds: [Build!]!
 }
 

@@ -42,6 +42,10 @@ type AggregateUser {
   count: Int!
 }
 
+type AggregateVerification {
+  count: Int!
+}
+
 type BatchPayload {
   count: Long!
 }
@@ -1249,6 +1253,12 @@ type Mutation {
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
   deleteUser(where: UserWhereUniqueInput!): User
   deleteManyUsers(where: UserWhereInput): BatchPayload!
+  createVerification(data: VerificationCreateInput!): Verification!
+  updateVerification(data: VerificationUpdateInput!, where: VerificationWhereUniqueInput!): Verification
+  updateManyVerifications(data: VerificationUpdateManyMutationInput!, where: VerificationWhereInput): BatchPayload!
+  upsertVerification(where: VerificationWhereUniqueInput!, create: VerificationCreateInput!, update: VerificationUpdateInput!): Verification!
+  deleteVerification(where: VerificationWhereUniqueInput!): Verification
+  deleteManyVerifications(where: VerificationWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -1454,6 +1464,9 @@ type Query {
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  verification(where: VerificationWhereUniqueInput!): Verification
+  verifications(where: VerificationWhereInput, orderBy: VerificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Verification]!
+  verificationsConnection(where: VerificationWhereInput, orderBy: VerificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VerificationConnection!
   node(id: ID!): Node
 }
 
@@ -2691,6 +2704,7 @@ type Subscription {
   skill(where: SkillSubscriptionWhereInput): SkillSubscriptionPayload
   skillSelection(where: SkillSelectionSubscriptionWhereInput): SkillSelectionSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+  verification(where: VerificationSubscriptionWhereInput): VerificationSubscriptionPayload
 }
 
 type User {
@@ -2698,6 +2712,7 @@ type User {
   email: String!
   password: String!
   name: String
+  verified: Boolean!
   builds(where: BuildWhereInput, orderBy: BuildOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Build!]
 }
 
@@ -2712,6 +2727,7 @@ input UserCreateInput {
   email: String!
   password: String!
   name: String
+  verified: Boolean
   builds: BuildCreateManyWithoutOwnerInput
 }
 
@@ -2730,6 +2746,7 @@ input UserCreateWithoutBuildsInput {
   email: String!
   password: String!
   name: String
+  verified: Boolean
 }
 
 type UserEdge {
@@ -2746,6 +2763,8 @@ enum UserOrderByInput {
   password_DESC
   name_ASC
   name_DESC
+  verified_ASC
+  verified_DESC
 }
 
 type UserPreviousValues {
@@ -2753,6 +2772,7 @@ type UserPreviousValues {
   email: String!
   password: String!
   name: String
+  verified: Boolean!
 }
 
 type UserSubscriptionPayload {
@@ -2777,6 +2797,7 @@ input UserUpdateDataInput {
   email: String
   password: String
   name: String
+  verified: Boolean
   builds: BuildUpdateManyWithoutOwnerInput
 }
 
@@ -2784,6 +2805,7 @@ input UserUpdateInput {
   email: String
   password: String
   name: String
+  verified: Boolean
   builds: BuildUpdateManyWithoutOwnerInput
 }
 
@@ -2791,6 +2813,7 @@ input UserUpdateManyMutationInput {
   email: String
   password: String
   name: String
+  verified: Boolean
 }
 
 input UserUpdateOneRequiredInput {
@@ -2813,6 +2836,7 @@ input UserUpdateWithoutBuildsDataInput {
   email: String
   password: String
   name: String
+  verified: Boolean
 }
 
 input UserUpsertNestedInput {
@@ -2882,6 +2906,8 @@ input UserWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  verified: Boolean
+  verified_not: Boolean
   builds_every: BuildWhereInput
   builds_some: BuildWhereInput
   builds_none: BuildWhereInput
@@ -2893,5 +2919,107 @@ input UserWhereInput {
 input UserWhereUniqueInput {
   id: ID
   email: String
+}
+
+type Verification {
+  id: ID!
+  token: String!
+  user: User!
+}
+
+type VerificationConnection {
+  pageInfo: PageInfo!
+  edges: [VerificationEdge]!
+  aggregate: AggregateVerification!
+}
+
+input VerificationCreateInput {
+  id: ID
+  token: String!
+  user: UserCreateOneInput!
+}
+
+type VerificationEdge {
+  node: Verification!
+  cursor: String!
+}
+
+enum VerificationOrderByInput {
+  id_ASC
+  id_DESC
+  token_ASC
+  token_DESC
+}
+
+type VerificationPreviousValues {
+  id: ID!
+  token: String!
+}
+
+type VerificationSubscriptionPayload {
+  mutation: MutationType!
+  node: Verification
+  updatedFields: [String!]
+  previousValues: VerificationPreviousValues
+}
+
+input VerificationSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: VerificationWhereInput
+  AND: [VerificationSubscriptionWhereInput!]
+  OR: [VerificationSubscriptionWhereInput!]
+  NOT: [VerificationSubscriptionWhereInput!]
+}
+
+input VerificationUpdateInput {
+  token: String
+  user: UserUpdateOneRequiredInput
+}
+
+input VerificationUpdateManyMutationInput {
+  token: String
+}
+
+input VerificationWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  token: String
+  token_not: String
+  token_in: [String!]
+  token_not_in: [String!]
+  token_lt: String
+  token_lte: String
+  token_gt: String
+  token_gte: String
+  token_contains: String
+  token_not_contains: String
+  token_starts_with: String
+  token_not_starts_with: String
+  token_ends_with: String
+  token_not_ends_with: String
+  user: UserWhereInput
+  AND: [VerificationWhereInput!]
+  OR: [VerificationWhereInput!]
+  NOT: [VerificationWhereInput!]
+}
+
+input VerificationWhereUniqueInput {
+  id: ID
+  token: String
 }
 `

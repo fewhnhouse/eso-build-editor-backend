@@ -26,6 +26,7 @@ export interface Exists {
   skill: (where?: SkillWhereInput) => Promise<boolean>;
   skillSelection: (where?: SkillSelectionWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
+  verification: (where?: VerificationWhereInput) => Promise<boolean>;
 }
 
 export interface Node {}
@@ -245,6 +246,27 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => UserConnectionPromise;
+  verification: (
+    where: VerificationWhereUniqueInput
+  ) => VerificationNullablePromise;
+  verifications: (args?: {
+    where?: VerificationWhereInput;
+    orderBy?: VerificationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Verification>;
+  verificationsConnection: (args?: {
+    where?: VerificationWhereInput;
+    orderBy?: VerificationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => VerificationConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
@@ -427,6 +449,26 @@ export interface Prisma {
   }) => UserPromise;
   deleteUser: (where: UserWhereUniqueInput) => UserPromise;
   deleteManyUsers: (where?: UserWhereInput) => BatchPayloadPromise;
+  createVerification: (data: VerificationCreateInput) => VerificationPromise;
+  updateVerification: (args: {
+    data: VerificationUpdateInput;
+    where: VerificationWhereUniqueInput;
+  }) => VerificationPromise;
+  updateManyVerifications: (args: {
+    data: VerificationUpdateManyMutationInput;
+    where?: VerificationWhereInput;
+  }) => BatchPayloadPromise;
+  upsertVerification: (args: {
+    where: VerificationWhereUniqueInput;
+    create: VerificationCreateInput;
+    update: VerificationUpdateInput;
+  }) => VerificationPromise;
+  deleteVerification: (
+    where: VerificationWhereUniqueInput
+  ) => VerificationPromise;
+  deleteManyVerifications: (
+    where?: VerificationWhereInput
+  ) => BatchPayloadPromise;
 
   /**
    * Subscriptions
@@ -466,6 +508,9 @@ export interface Subscription {
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
+  verification: (
+    where?: VerificationSubscriptionWhereInput
+  ) => VerificationSubscriptionPayloadSubscription;
 }
 
 export interface ClientConstructor<T> {
@@ -656,7 +701,15 @@ export type UserOrderByInput =
   | "password_ASC"
   | "password_DESC"
   | "name_ASC"
-  | "name_DESC";
+  | "name_DESC"
+  | "verified_ASC"
+  | "verified_DESC";
+
+export type VerificationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "token_ASC"
+  | "token_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -966,6 +1019,8 @@ export interface UserWhereInput {
   name_not_starts_with?: Maybe<String>;
   name_ends_with?: Maybe<String>;
   name_not_ends_with?: Maybe<String>;
+  verified?: Maybe<Boolean>;
+  verified_not?: Maybe<Boolean>;
   builds_every?: Maybe<BuildWhereInput>;
   builds_some?: Maybe<BuildWhereInput>;
   builds_none?: Maybe<BuildWhereInput>;
@@ -1778,6 +1833,46 @@ export type UserWhereUniqueInput = AtLeastOne<{
   email?: Maybe<String>;
 }>;
 
+export type VerificationWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  token?: Maybe<String>;
+}>;
+
+export interface VerificationWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  token?: Maybe<String>;
+  token_not?: Maybe<String>;
+  token_in?: Maybe<String[] | String>;
+  token_not_in?: Maybe<String[] | String>;
+  token_lt?: Maybe<String>;
+  token_lte?: Maybe<String>;
+  token_gt?: Maybe<String>;
+  token_gte?: Maybe<String>;
+  token_contains?: Maybe<String>;
+  token_not_contains?: Maybe<String>;
+  token_starts_with?: Maybe<String>;
+  token_not_starts_with?: Maybe<String>;
+  token_ends_with?: Maybe<String>;
+  token_not_ends_with?: Maybe<String>;
+  user?: Maybe<UserWhereInput>;
+  AND?: Maybe<VerificationWhereInput[] | VerificationWhereInput>;
+  OR?: Maybe<VerificationWhereInput[] | VerificationWhereInput>;
+  NOT?: Maybe<VerificationWhereInput[] | VerificationWhereInput>;
+}
+
 export interface BuffCreateInput {
   id?: Maybe<ID_Input>;
   name: String;
@@ -1845,6 +1940,7 @@ export interface UserCreateWithoutBuildsInput {
   email: String;
   password: String;
   name?: Maybe<String>;
+  verified?: Maybe<Boolean>;
 }
 
 export interface SetSelectionCreateManyInput {
@@ -1994,6 +2090,7 @@ export interface UserUpdateWithoutBuildsDataInput {
   email?: Maybe<String>;
   password?: Maybe<String>;
   name?: Maybe<String>;
+  verified?: Maybe<Boolean>;
 }
 
 export interface UserUpsertWithoutBuildsInput {
@@ -2393,6 +2490,7 @@ export interface UserCreateInput {
   email: String;
   password: String;
   name?: Maybe<String>;
+  verified?: Maybe<Boolean>;
   builds?: Maybe<BuildCreateManyWithoutOwnerInput>;
 }
 
@@ -2438,6 +2536,7 @@ export interface UserUpdateDataInput {
   email?: Maybe<String>;
   password?: Maybe<String>;
   name?: Maybe<String>;
+  verified?: Maybe<Boolean>;
   builds?: Maybe<BuildUpdateManyWithoutOwnerInput>;
 }
 
@@ -2697,6 +2796,7 @@ export interface UserUpdateInput {
   email?: Maybe<String>;
   password?: Maybe<String>;
   name?: Maybe<String>;
+  verified?: Maybe<Boolean>;
   builds?: Maybe<BuildUpdateManyWithoutOwnerInput>;
 }
 
@@ -2704,6 +2804,22 @@ export interface UserUpdateManyMutationInput {
   email?: Maybe<String>;
   password?: Maybe<String>;
   name?: Maybe<String>;
+  verified?: Maybe<Boolean>;
+}
+
+export interface VerificationCreateInput {
+  id?: Maybe<ID_Input>;
+  token: String;
+  user: UserCreateOneInput;
+}
+
+export interface VerificationUpdateInput {
+  token?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
+}
+
+export interface VerificationUpdateManyMutationInput {
+  token?: Maybe<String>;
 }
 
 export interface BuffSubscriptionWhereInput {
@@ -2841,6 +2957,23 @@ export interface UserSubscriptionWhereInput {
   AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
   OR?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
   NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+}
+
+export interface VerificationSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<VerificationWhereInput>;
+  AND?: Maybe<
+    VerificationSubscriptionWhereInput[] | VerificationSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    VerificationSubscriptionWhereInput[] | VerificationSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    VerificationSubscriptionWhereInput[] | VerificationSubscriptionWhereInput
+  >;
 }
 
 export interface NodeNode {
@@ -3243,6 +3376,7 @@ export interface User {
   email: String;
   password: String;
   name?: String;
+  verified: Boolean;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
@@ -3250,6 +3384,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   email: () => Promise<String>;
   password: () => Promise<String>;
   name: () => Promise<String>;
+  verified: () => Promise<Boolean>;
   builds: <T = FragmentableArray<Build>>(args?: {
     where?: BuildWhereInput;
     orderBy?: BuildOrderByInput;
@@ -3268,6 +3403,7 @@ export interface UserSubscription
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
+  verified: () => Promise<AsyncIterator<Boolean>>;
   builds: <T = Promise<AsyncIterator<BuildSubscription>>>(args?: {
     where?: BuildWhereInput;
     orderBy?: BuildOrderByInput;
@@ -3286,6 +3422,7 @@ export interface UserNullablePromise
   email: () => Promise<String>;
   password: () => Promise<String>;
   name: () => Promise<String>;
+  verified: () => Promise<Boolean>;
   builds: <T = FragmentableArray<Build>>(args?: {
     where?: BuildWhereInput;
     orderBy?: BuildOrderByInput;
@@ -4162,6 +4299,91 @@ export interface AggregateUserSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface Verification {
+  id: ID_Output;
+  token: String;
+}
+
+export interface VerificationPromise
+  extends Promise<Verification>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  token: () => Promise<String>;
+  user: <T = UserPromise>() => T;
+}
+
+export interface VerificationSubscription
+  extends Promise<AsyncIterator<Verification>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  token: () => Promise<AsyncIterator<String>>;
+  user: <T = UserSubscription>() => T;
+}
+
+export interface VerificationNullablePromise
+  extends Promise<Verification | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  token: () => Promise<String>;
+  user: <T = UserPromise>() => T;
+}
+
+export interface VerificationConnection {
+  pageInfo: PageInfo;
+  edges: VerificationEdge[];
+}
+
+export interface VerificationConnectionPromise
+  extends Promise<VerificationConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<VerificationEdge>>() => T;
+  aggregate: <T = AggregateVerificationPromise>() => T;
+}
+
+export interface VerificationConnectionSubscription
+  extends Promise<AsyncIterator<VerificationConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<VerificationEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateVerificationSubscription>() => T;
+}
+
+export interface VerificationEdge {
+  node: Verification;
+  cursor: String;
+}
+
+export interface VerificationEdgePromise
+  extends Promise<VerificationEdge>,
+    Fragmentable {
+  node: <T = VerificationPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface VerificationEdgeSubscription
+  extends Promise<AsyncIterator<VerificationEdge>>,
+    Fragmentable {
+  node: <T = VerificationSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateVerification {
+  count: Int;
+}
+
+export interface AggregateVerificationPromise
+  extends Promise<AggregateVerification>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateVerificationSubscription
+  extends Promise<AsyncIterator<AggregateVerification>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface BatchPayload {
   count: Long;
 }
@@ -4781,6 +5003,7 @@ export interface UserPreviousValues {
   email: String;
   password: String;
   name?: String;
+  verified: Boolean;
 }
 
 export interface UserPreviousValuesPromise
@@ -4790,6 +5013,7 @@ export interface UserPreviousValuesPromise
   email: () => Promise<String>;
   password: () => Promise<String>;
   name: () => Promise<String>;
+  verified: () => Promise<Boolean>;
 }
 
 export interface UserPreviousValuesSubscription
@@ -4799,6 +5023,51 @@ export interface UserPreviousValuesSubscription
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
+  verified: () => Promise<AsyncIterator<Boolean>>;
+}
+
+export interface VerificationSubscriptionPayload {
+  mutation: MutationType;
+  node: Verification;
+  updatedFields: String[];
+  previousValues: VerificationPreviousValues;
+}
+
+export interface VerificationSubscriptionPayloadPromise
+  extends Promise<VerificationSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = VerificationPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = VerificationPreviousValuesPromise>() => T;
+}
+
+export interface VerificationSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<VerificationSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = VerificationSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = VerificationPreviousValuesSubscription>() => T;
+}
+
+export interface VerificationPreviousValues {
+  id: ID_Output;
+  token: String;
+}
+
+export interface VerificationPreviousValuesPromise
+  extends Promise<VerificationPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  token: () => Promise<String>;
+}
+
+export interface VerificationPreviousValuesSubscription
+  extends Promise<AsyncIterator<VerificationPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  token: () => Promise<AsyncIterator<String>>;
 }
 
 /*
@@ -4841,6 +5110,10 @@ export type Long = string;
 export const models: Model[] = [
   {
     name: "Post",
+    embedded: false
+  },
+  {
+    name: "Verification",
     embedded: false
   },
   {

@@ -29,6 +29,10 @@ export interface NexusPrismaTypes {
       PageInfo: PageInfoObject
       PostEdge: PostEdgeObject
       AggregatePost: AggregatePostObject
+      Verification: VerificationObject
+      VerificationConnection: VerificationConnectionObject
+      VerificationEdge: VerificationEdgeObject
+      AggregateVerification: AggregateVerificationObject
       UserConnection: UserConnectionObject
       UserEdge: UserEdgeObject
       AggregateUser: AggregateUserObject
@@ -61,6 +65,8 @@ export interface NexusPrismaTypes {
       Subscription: SubscriptionObject
       PostSubscriptionPayload: PostSubscriptionPayloadObject
       PostPreviousValues: PostPreviousValuesObject
+      VerificationSubscriptionPayload: VerificationSubscriptionPayloadObject
+      VerificationPreviousValues: VerificationPreviousValuesObject
       UserSubscriptionPayload: UserSubscriptionPayloadObject
       UserPreviousValues: UserPreviousValuesObject
       MundusStoneSubscriptionPayload: MundusStoneSubscriptionPayloadObject
@@ -96,6 +102,10 @@ export interface NexusPrismaTypes {
       PageInfo: PageInfoFieldDetails
       PostEdge: PostEdgeFieldDetails
       AggregatePost: AggregatePostFieldDetails
+      Verification: VerificationFieldDetails
+      VerificationConnection: VerificationConnectionFieldDetails
+      VerificationEdge: VerificationEdgeFieldDetails
+      AggregateVerification: AggregateVerificationFieldDetails
       UserConnection: UserConnectionFieldDetails
       UserEdge: UserEdgeFieldDetails
       AggregateUser: AggregateUserFieldDetails
@@ -128,6 +138,8 @@ export interface NexusPrismaTypes {
       Subscription: SubscriptionFieldDetails
       PostSubscriptionPayload: PostSubscriptionPayloadFieldDetails
       PostPreviousValues: PostPreviousValuesFieldDetails
+      VerificationSubscriptionPayload: VerificationSubscriptionPayloadFieldDetails
+      VerificationPreviousValues: VerificationPreviousValuesFieldDetails
       UserSubscriptionPayload: UserSubscriptionPayloadFieldDetails
       UserPreviousValues: UserPreviousValuesFieldDetails
       MundusStoneSubscriptionPayload: MundusStoneSubscriptionPayloadFieldDetails
@@ -161,6 +173,8 @@ export interface NexusPrismaTypes {
       MundusStoneWhereInput: MundusStoneWhereInputInputObject
       BuffWhereInput: BuffWhereInputInputObject
       PostWhereInput: PostWhereInputInputObject
+      VerificationWhereUniqueInput: VerificationWhereUniqueInputInputObject
+      VerificationWhereInput: VerificationWhereInputInputObject
       UserWhereUniqueInput: UserWhereUniqueInputInputObject
       MundusStoneWhereUniqueInput: MundusStoneWhereUniqueInputInputObject
       BuffWhereUniqueInput: BuffWhereUniqueInputInputObject
@@ -230,6 +244,9 @@ export interface NexusPrismaTypes {
       BuildUpdateManyDataInput: BuildUpdateManyDataInputInputObject
       UserUpsertNestedInput: UserUpsertNestedInputInputObject
       PostUpdateManyMutationInput: PostUpdateManyMutationInputInputObject
+      VerificationCreateInput: VerificationCreateInputInputObject
+      VerificationUpdateInput: VerificationUpdateInputInputObject
+      VerificationUpdateManyMutationInput: VerificationUpdateManyMutationInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
       UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
       MundusStoneUpdateInput: MundusStoneUpdateInputInputObject
@@ -255,6 +272,7 @@ export interface NexusPrismaTypes {
       UserUpsertWithoutBuildsInput: UserUpsertWithoutBuildsInputInputObject
       BuildUpdateManyMutationInput: BuildUpdateManyMutationInputInputObject
       PostSubscriptionWhereInput: PostSubscriptionWhereInputInputObject
+      VerificationSubscriptionWhereInput: VerificationSubscriptionWhereInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
       MundusStoneSubscriptionWhereInput: MundusStoneSubscriptionWhereInputInputObject
       BuffSubscriptionWhereInput: BuffSubscriptionWhereInputInputObject
@@ -271,6 +289,7 @@ export interface NexusPrismaTypes {
     SetSelectionOrderByInput: SetSelectionOrderByInputValues,
     SkillSelectionOrderByInput: SkillSelectionOrderByInputValues,
     PostOrderByInput: PostOrderByInputValues,
+    VerificationOrderByInput: VerificationOrderByInputValues,
     UserOrderByInput: UserOrderByInputValues,
     MundusStoneOrderByInput: MundusStoneOrderByInputValues,
     BuffOrderByInput: BuffOrderByInputValues,
@@ -288,6 +307,9 @@ type QueryObject =
   | { name: 'post', args?: QueryPostArgs[] | false, alias?: string  } 
   | { name: 'posts', args?: QueryPostsArgs[] | false, alias?: string  } 
   | { name: 'postsConnection', args?: QueryPostsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'verification', args?: QueryVerificationArgs[] | false, alias?: string  } 
+  | { name: 'verifications', args?: QueryVerificationsArgs[] | false, alias?: string  } 
+  | { name: 'verificationsConnection', args?: QueryVerificationsConnectionArgs[] | false, alias?: string  } 
   | { name: 'user', args?: QueryUserArgs[] | false, alias?: string  } 
   | { name: 'users', args?: QueryUsersArgs[] | false, alias?: string  } 
   | { name: 'usersConnection', args?: QueryUsersConnectionArgs[] | false, alias?: string  } 
@@ -320,6 +342,9 @@ type QueryFields =
   | 'post'
   | 'posts'
   | 'postsConnection'
+  | 'verification'
+  | 'verifications'
+  | 'verificationsConnection'
   | 'user'
   | 'users'
   | 'usersConnection'
@@ -360,6 +385,24 @@ type QueryPostsArgs =
   | 'first'
   | 'last'
 type QueryPostsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryVerificationArgs =
+  | 'where'
+type QueryVerificationsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryVerificationsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -570,6 +613,45 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PostConnection> | prisma.PostConnection
+  }
+  verification: {
+    type: 'Verification'
+    args: Record<QueryVerificationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: VerificationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Verification | null> | prisma.Verification | null
+  }
+  verifications: {
+    type: 'Verification'
+    args: Record<QueryVerificationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: VerificationWhereInput | null, orderBy?: prisma.VerificationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Verification[]> | prisma.Verification[]
+  }
+  verificationsConnection: {
+    type: 'VerificationConnection'
+    args: Record<QueryVerificationsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: VerificationWhereInput | null, orderBy?: prisma.VerificationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.VerificationConnection> | prisma.VerificationConnection
   }
   user: {
     type: 'User'
@@ -1023,6 +1105,7 @@ type UserObject =
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'verified', args?: [] | false, alias?: string  } 
   | { name: 'builds', args?: UserBuildsArgs[] | false, alias?: string  } 
 
 type UserFields =
@@ -1030,6 +1113,7 @@ type UserFields =
   | 'email'
   | 'password'
   | 'name'
+  | 'verified'
   | 'builds'
 
 
@@ -1074,6 +1158,14 @@ export interface UserFieldDetails {
     description: string
     list: undefined
     nullable: true
+    resolve: undefined
+  }
+  verified: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
     resolve: undefined
   }
   builds: {
@@ -2397,6 +2489,181 @@ export interface AggregatePostFieldDetails {
 }
   
 
+// Types for Verification
+
+type VerificationObject =
+  | VerificationFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'token', args?: [] | false, alias?: string  } 
+  | { name: 'user', args?: [] | false, alias?: string  } 
+
+type VerificationFields =
+  | 'id'
+  | 'token'
+  | 'user'
+
+
+
+  
+
+export interface VerificationFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  token: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  user: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Verification">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+}
+  
+
+// Types for VerificationConnection
+
+type VerificationConnectionObject =
+  | VerificationConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type VerificationConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface VerificationConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"VerificationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'VerificationEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"VerificationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.VerificationEdge[]> | prisma.VerificationEdge[]
+  }
+  aggregate: {
+    type: 'AggregateVerification'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"VerificationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateVerification> | prisma.AggregateVerification
+  }
+}
+  
+
+// Types for VerificationEdge
+
+type VerificationEdgeObject =
+  | VerificationEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type VerificationEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface VerificationEdgeFieldDetails {
+  node: {
+    type: 'Verification'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"VerificationEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Verification> | prisma.Verification
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateVerification
+
+type AggregateVerificationObject =
+  | AggregateVerificationFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateVerificationFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateVerificationFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for UserConnection
 
 type UserConnectionObject =
@@ -3532,6 +3799,12 @@ type MutationObject =
   | { name: 'upsertPost', args?: MutationUpsertPostArgs[] | false, alias?: string  } 
   | { name: 'deletePost', args?: MutationDeletePostArgs[] | false, alias?: string  } 
   | { name: 'deleteManyPosts', args?: MutationDeleteManyPostsArgs[] | false, alias?: string  } 
+  | { name: 'createVerification', args?: MutationCreateVerificationArgs[] | false, alias?: string  } 
+  | { name: 'updateVerification', args?: MutationUpdateVerificationArgs[] | false, alias?: string  } 
+  | { name: 'updateManyVerifications', args?: MutationUpdateManyVerificationsArgs[] | false, alias?: string  } 
+  | { name: 'upsertVerification', args?: MutationUpsertVerificationArgs[] | false, alias?: string  } 
+  | { name: 'deleteVerification', args?: MutationDeleteVerificationArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyVerifications', args?: MutationDeleteManyVerificationsArgs[] | false, alias?: string  } 
   | { name: 'createUser', args?: MutationCreateUserArgs[] | false, alias?: string  } 
   | { name: 'updateUser', args?: MutationUpdateUserArgs[] | false, alias?: string  } 
   | { name: 'updateManyUsers', args?: MutationUpdateManyUsersArgs[] | false, alias?: string  } 
@@ -3594,6 +3867,12 @@ type MutationFields =
   | 'upsertPost'
   | 'deletePost'
   | 'deleteManyPosts'
+  | 'createVerification'
+  | 'updateVerification'
+  | 'updateManyVerifications'
+  | 'upsertVerification'
+  | 'deleteVerification'
+  | 'deleteManyVerifications'
   | 'createUser'
   | 'updateUser'
   | 'updateManyUsers'
@@ -3665,6 +3944,22 @@ type MutationUpsertPostArgs =
 type MutationDeletePostArgs =
   | 'where'
 type MutationDeleteManyPostsArgs =
+  | 'where'
+type MutationCreateVerificationArgs =
+  | 'data'
+type MutationUpdateVerificationArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyVerificationsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertVerificationArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteVerificationArgs =
+  | 'where'
+type MutationDeleteManyVerificationsArgs =
   | 'where'
 type MutationCreateUserArgs =
   | 'data'
@@ -3887,6 +4182,84 @@ export interface MutationFieldDetails {
     resolve: (
       root: core.RootValue<"Mutation">,
       args: { where?: PostWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createVerification: {
+    type: 'Verification'
+    args: Record<MutationCreateVerificationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: VerificationCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Verification> | prisma.Verification
+  }
+  updateVerification: {
+    type: 'Verification'
+    args: Record<MutationUpdateVerificationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: VerificationUpdateInput, where: VerificationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Verification | null> | prisma.Verification | null
+  }
+  updateManyVerifications: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyVerificationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: VerificationUpdateManyMutationInput, where?: VerificationWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertVerification: {
+    type: 'Verification'
+    args: Record<MutationUpsertVerificationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: VerificationWhereUniqueInput, create: VerificationCreateInput, update: VerificationUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Verification> | prisma.Verification
+  }
+  deleteVerification: {
+    type: 'Verification'
+    args: Record<MutationDeleteVerificationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: VerificationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Verification | null> | prisma.Verification | null
+  }
+  deleteManyVerifications: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyVerificationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: VerificationWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -4626,6 +4999,7 @@ export interface BatchPayloadFieldDetails {
 type SubscriptionObject =
   | SubscriptionFields
   | { name: 'post', args?: SubscriptionPostArgs[] | false, alias?: string  } 
+  | { name: 'verification', args?: SubscriptionVerificationArgs[] | false, alias?: string  } 
   | { name: 'user', args?: SubscriptionUserArgs[] | false, alias?: string  } 
   | { name: 'mundusStone', args?: SubscriptionMundusStoneArgs[] | false, alias?: string  } 
   | { name: 'buff', args?: SubscriptionBuffArgs[] | false, alias?: string  } 
@@ -4638,6 +5012,7 @@ type SubscriptionObject =
 
 type SubscriptionFields =
   | 'post'
+  | 'verification'
   | 'user'
   | 'mundusStone'
   | 'buff'
@@ -4650,6 +5025,8 @@ type SubscriptionFields =
 
 
 type SubscriptionPostArgs =
+  | 'where'
+type SubscriptionVerificationArgs =
   | 'where'
 type SubscriptionUserArgs =
   | 'where'
@@ -4684,6 +5061,19 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PostSubscriptionPayload | null> | prisma.PostSubscriptionPayload | null
+  }
+  verification: {
+    type: 'VerificationSubscriptionPayload'
+    args: Record<SubscriptionVerificationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: VerificationSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.VerificationSubscriptionPayload | null> | prisma.VerificationSubscriptionPayload | null
   }
   user: {
     type: 'UserSubscriptionPayload'
@@ -4950,6 +5340,111 @@ export interface PostPreviousValuesFieldDetails {
 }
   
 
+// Types for VerificationSubscriptionPayload
+
+type VerificationSubscriptionPayloadObject =
+  | VerificationSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type VerificationSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface VerificationSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"VerificationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Verification'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"VerificationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Verification | null> | prisma.Verification | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'VerificationPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"VerificationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.VerificationPreviousValues | null> | prisma.VerificationPreviousValues | null
+  }
+}
+  
+
+// Types for VerificationPreviousValues
+
+type VerificationPreviousValuesObject =
+  | VerificationPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'token', args?: [] | false, alias?: string  } 
+
+type VerificationPreviousValuesFields =
+  | 'id'
+  | 'token'
+
+
+
+  
+
+export interface VerificationPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  token: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for UserSubscriptionPayload
 
 type UserSubscriptionPayloadObject =
@@ -5028,12 +5523,14 @@ type UserPreviousValuesObject =
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'verified', args?: [] | false, alias?: string  } 
 
 type UserPreviousValuesFields =
   | 'id'
   | 'email'
   | 'password'
   | 'name'
+  | 'verified'
 
 
 
@@ -5070,6 +5567,14 @@ export interface UserPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: true
+    resolve: undefined
+  }
+  verified: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
     resolve: undefined
   }
 }
@@ -6741,6 +7246,8 @@ export interface UserWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
+  verified?: boolean | null
+  verified_not?: boolean | null
   builds_every?: BuildWhereInput | null
   builds_some?: BuildWhereInput | null
   builds_none?: BuildWhereInput | null
@@ -6806,6 +7313,8 @@ export type UserWhereInputInputObject =
   | { name: 'name_not_starts_with', alias?: string  } 
   | { name: 'name_ends_with', alias?: string  } 
   | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'verified', alias?: string  } 
+  | { name: 'verified_not', alias?: string  } 
   | { name: 'builds_every', alias?: string  } 
   | { name: 'builds_some', alias?: string  } 
   | { name: 'builds_none', alias?: string  } 
@@ -8607,6 +9116,84 @@ export type PostWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface VerificationWhereUniqueInput {
+  id?: string | null
+  token?: string | null
+}
+export type VerificationWhereUniqueInputInputObject =
+  | Extract<keyof VerificationWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'token', alias?: string  } 
+  
+export interface VerificationWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  token?: string | null
+  token_not?: string | null
+  token_in?: string[]
+  token_not_in?: string[]
+  token_lt?: string | null
+  token_lte?: string | null
+  token_gt?: string | null
+  token_gte?: string | null
+  token_contains?: string | null
+  token_not_contains?: string | null
+  token_starts_with?: string | null
+  token_not_starts_with?: string | null
+  token_ends_with?: string | null
+  token_not_ends_with?: string | null
+  user?: UserWhereInput | null
+  AND?: VerificationWhereInput[]
+  OR?: VerificationWhereInput[]
+  NOT?: VerificationWhereInput[]
+}
+export type VerificationWhereInputInputObject =
+  | Extract<keyof VerificationWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'token', alias?: string  } 
+  | { name: 'token_not', alias?: string  } 
+  | { name: 'token_in', alias?: string  } 
+  | { name: 'token_not_in', alias?: string  } 
+  | { name: 'token_lt', alias?: string  } 
+  | { name: 'token_lte', alias?: string  } 
+  | { name: 'token_gt', alias?: string  } 
+  | { name: 'token_gte', alias?: string  } 
+  | { name: 'token_contains', alias?: string  } 
+  | { name: 'token_not_contains', alias?: string  } 
+  | { name: 'token_starts_with', alias?: string  } 
+  | { name: 'token_not_starts_with', alias?: string  } 
+  | { name: 'token_ends_with', alias?: string  } 
+  | { name: 'token_not_ends_with', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface UserWhereUniqueInput {
   id?: string | null
   email?: string | null
@@ -8711,6 +9298,7 @@ export interface UserCreateInput {
   email?: string
   password?: string
   name?: string | null
+  verified?: boolean | null
   builds?: BuildCreateManyWithoutOwnerInput | null
 }
 export type UserCreateInputInputObject =
@@ -8719,6 +9307,7 @@ export type UserCreateInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'verified', alias?: string  } 
   | { name: 'builds', alias?: string  } 
   
 export interface BuildCreateManyWithoutOwnerInput {
@@ -9031,6 +9620,7 @@ export interface UserUpdateDataInput {
   email?: string | null
   password?: string | null
   name?: string | null
+  verified?: boolean | null
   builds?: BuildUpdateManyWithoutOwnerInput | null
 }
 export type UserUpdateDataInputInputObject =
@@ -9038,6 +9628,7 @@ export type UserUpdateDataInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'verified', alias?: string  } 
   | { name: 'builds', alias?: string  } 
   
 export interface BuildUpdateManyWithoutOwnerInput {
@@ -9876,10 +10467,38 @@ export type PostUpdateManyMutationInputInputObject =
   | { name: 'title', alias?: string  } 
   | { name: 'content', alias?: string  } 
   
+export interface VerificationCreateInput {
+  id?: string | null
+  token?: string
+  user?: UserCreateOneInput
+}
+export type VerificationCreateInputInputObject =
+  | Extract<keyof VerificationCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'token', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  
+export interface VerificationUpdateInput {
+  token?: string | null
+  user?: UserUpdateOneRequiredInput | null
+}
+export type VerificationUpdateInputInputObject =
+  | Extract<keyof VerificationUpdateInput, string>
+  | { name: 'token', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  
+export interface VerificationUpdateManyMutationInput {
+  token?: string | null
+}
+export type VerificationUpdateManyMutationInputInputObject =
+  | Extract<keyof VerificationUpdateManyMutationInput, string>
+  | { name: 'token', alias?: string  } 
+  
 export interface UserUpdateInput {
   email?: string | null
   password?: string | null
   name?: string | null
+  verified?: boolean | null
   builds?: BuildUpdateManyWithoutOwnerInput | null
 }
 export type UserUpdateInputInputObject =
@@ -9887,18 +10506,21 @@ export type UserUpdateInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'verified', alias?: string  } 
   | { name: 'builds', alias?: string  } 
   
 export interface UserUpdateManyMutationInput {
   email?: string | null
   password?: string | null
   name?: string | null
+  verified?: boolean | null
 }
 export type UserUpdateManyMutationInputInputObject =
   | Extract<keyof UserUpdateManyMutationInput, string>
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'verified', alias?: string  } 
   
 export interface MundusStoneUpdateInput {
   name?: string | null
@@ -10259,6 +10881,7 @@ export interface UserCreateWithoutBuildsInput {
   email?: string
   password?: string
   name?: string | null
+  verified?: boolean | null
 }
 export type UserCreateWithoutBuildsInputInputObject =
   | Extract<keyof UserCreateWithoutBuildsInput, string>
@@ -10266,6 +10889,7 @@ export type UserCreateWithoutBuildsInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'verified', alias?: string  } 
   
 export interface BuildUpdateInput {
   owner?: UserUpdateOneWithoutBuildsInput | null
@@ -10325,12 +10949,14 @@ export interface UserUpdateWithoutBuildsDataInput {
   email?: string | null
   password?: string | null
   name?: string | null
+  verified?: boolean | null
 }
 export type UserUpdateWithoutBuildsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutBuildsDataInput, string>
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'verified', alias?: string  } 
   
 export interface UserUpsertWithoutBuildsInput {
   update?: UserUpdateWithoutBuildsDataInput
@@ -10366,6 +10992,27 @@ export interface PostSubscriptionWhereInput {
 }
 export type PostSubscriptionWhereInputInputObject =
   | Extract<keyof PostSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface VerificationSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: VerificationWhereInput | null
+  AND?: VerificationSubscriptionWhereInput[]
+  OR?: VerificationSubscriptionWhereInput[]
+  NOT?: VerificationSubscriptionWhereInput[]
+}
+export type VerificationSubscriptionWhereInputInputObject =
+  | Extract<keyof VerificationSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -10617,6 +11264,16 @@ export type PostOrderByInputValues =
   | 'content_ASC'
   | 'content_DESC'
   
+export type VerificationOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'token_ASC'
+  | 'token_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
 export type UserOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
@@ -10626,6 +11283,8 @@ export type UserOrderByInputValues =
   | 'password_DESC'
   | 'name_ASC'
   | 'name_DESC'
+  | 'verified_ASC'
+  | 'verified_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
