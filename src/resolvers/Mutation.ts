@@ -9,22 +9,21 @@ export const Mutation = mutationType({
   definition(t) {
 
     t.field('confirmSignup', {
-      type: 'Verification',
+      type: 'AuthPayload',
       args: {
         token: stringArg()
       },
       resolve: async (parent, { token }, ctx) => {
         // get user by verificationToken
-        const verification = await ctx.prisma.verification({ token });
-        console.log(verification)
-        if (!verification) {
+        const verificationUser = await ctx.prisma.verification({ token }).user();
+        if (!verificationUser) {
           return new Error("Invalid token.")
         }
-        const user = await ctx.prisma.updateUser({ data: { verified: true }, where: { id: verification.user.id } })
+        const user = await ctx.prisma.updateUser({ data: { verified: true }, where: { id: verificationUser.id } })
         if (user) {
           return {
             token: sign({ userId: user.id }, APP_SECRET),
-            userId: user.id,
+            user
           }
         } else {
           return new Error("Invalid token.")
@@ -47,9 +46,9 @@ export const Mutation = mutationType({
           verified: false
         })
 
-        const token = crypto({ length: 16 })
+        const token = crypto({ length: 32 })
         await ctx.prisma.createVerification({ token, user: { connect: { id: user.id } } })
-
+        console.log(token)
         setApiKey(process.env.SENDGRID_API_KEY);
         const msg = {
           to: email,
