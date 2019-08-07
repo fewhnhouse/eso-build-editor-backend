@@ -1,35 +1,39 @@
-import { stringArg, idArg, mutationType, arg, intArg } from 'nexus'
-import { hash, compare } from 'bcryptjs'
-import { APP_SECRET, getUserId } from '../utils'
-import { sign } from 'jsonwebtoken'
+import { stringArg, idArg, mutationType, arg, intArg } from 'nexus';
+import { hash, compare } from 'bcryptjs';
+import { APP_SECRET, getUserId } from '../utils';
+import { sign } from 'jsonwebtoken';
 import { MailService, setApiKey, send } from '@sendgrid/mail';
 const crypto = require('crypto-random-string');
 
 export const Mutation = mutationType({
   definition(t) {
-
     t.field('confirmSignup', {
       type: 'AuthPayload',
       args: {
-        token: stringArg()
+        token: stringArg(),
       },
       resolve: async (parent, { token }, ctx) => {
         // get user by verificationToken
-        const verificationUser = await ctx.prisma.verification({ token }).user();
+        const verificationUser = await ctx.prisma
+          .verification({ token })
+          .user();
         if (!verificationUser) {
-          return new Error("Invalid token.")
+          return new Error('Invalid token.');
         }
-        const user = await ctx.prisma.updateUser({ data: { verified: true }, where: { id: verificationUser.id } })
+        const user = await ctx.prisma.updateUser({
+          data: { verified: true },
+          where: { id: verificationUser.id },
+        });
         if (user) {
           return {
             token: sign({ userId: user.id }, APP_SECRET),
-            user
-          }
+            user,
+          };
         } else {
-          return new Error("Invalid token.")
+          return new Error('Invalid token.');
         }
       },
-    })
+    });
     t.field('signup', {
       type: 'User',
       args: {
@@ -43,23 +47,27 @@ export const Mutation = mutationType({
           name,
           email,
           password: hashedPassword,
-          verified: false
-        })
+          verified: false,
+        });
 
-        const token = crypto({ length: 32 })
-        await ctx.prisma.createVerification({ token, user: { connect: { id: user.id } } })
-        console.log(token)
+        const token = crypto({ length: 32 });
+        await ctx.prisma.createVerification({
+          token,
+          user: { connect: { id: user.id } },
+        });
         setApiKey(process.env.SENDGRID_API_KEY);
         const msg = {
           to: email,
           from: 'noreply@buildeditor.com',
           subject: 'Verification Email ESO Build Editor',
-          text: 'and easy to do anywhere, even with Node.js',
-          html: `<strong>Click this link to verify your account:<a href="http://localhost:3000/verify?token=${token}">Link</a> </strong>`,
+          text:
+            'Copy this link to your browser to verify your account:http://localhost:3000/verify/' +
+            token,
+          html: `<strong>Click this link to verify your account:<a href="http://localhost:3000/verify/${token}">Link</a> </strong>`,
         };
         await send(msg);
 
-        return user
+        return user;
       },
     });
 
