@@ -165,6 +165,7 @@ export interface NexusGenInputs {
     name?: string | null; // String
   }
   BuildCreateInput: { // input type
+    applicationArea?: string | null; // String
     backbarSelection?: NexusGenInputs['SetSelectionCreateManyInput'] | null; // SetSelectionCreateManyInput
     bigPieceSelection?: NexusGenInputs['SetSelectionCreateManyInput'] | null; // SetSelectionCreateManyInput
     buff?: NexusGenInputs['BuffCreateOneInput'] | null; // BuffCreateOneInput
@@ -179,12 +180,27 @@ export interface NexusGenInputs {
     owner?: NexusGenInputs['UserCreateOneWithoutBuildsInput'] | null; // UserCreateOneWithoutBuildsInput
     published?: boolean | null; // Boolean
     race?: string | null; // String
+    role?: string | null; // String
     smallPieceSelection?: NexusGenInputs['SetSelectionCreateManyInput'] | null; // SetSelectionCreateManyInput
     ultimateOne?: NexusGenInputs['SkillCreateOneInput'] | null; // SkillCreateOneInput
     ultimateTwo?: NexusGenInputs['SkillCreateOneInput'] | null; // SkillCreateOneInput
   }
   BuildWhereInput: { // input type
     AND?: NexusGenInputs['BuildWhereInput'][] | null; // [BuildWhereInput!]
+    applicationArea?: string | null; // String
+    applicationArea_contains?: string | null; // String
+    applicationArea_ends_with?: string | null; // String
+    applicationArea_gt?: string | null; // String
+    applicationArea_gte?: string | null; // String
+    applicationArea_in?: string[] | null; // [String!]
+    applicationArea_lt?: string | null; // String
+    applicationArea_lte?: string | null; // String
+    applicationArea_not?: string | null; // String
+    applicationArea_not_contains?: string | null; // String
+    applicationArea_not_ends_with?: string | null; // String
+    applicationArea_not_in?: string[] | null; // [String!]
+    applicationArea_not_starts_with?: string | null; // String
+    applicationArea_starts_with?: string | null; // String
     backbarSelection_every?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
     backbarSelection_none?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
     backbarSelection_some?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
@@ -274,6 +290,20 @@ export interface NexusGenInputs {
     race_not_in?: string[] | null; // [String!]
     race_not_starts_with?: string | null; // String
     race_starts_with?: string | null; // String
+    role?: string | null; // String
+    role_contains?: string | null; // String
+    role_ends_with?: string | null; // String
+    role_gt?: string | null; // String
+    role_gte?: string | null; // String
+    role_in?: string[] | null; // [String!]
+    role_lt?: string | null; // String
+    role_lte?: string | null; // String
+    role_not?: string | null; // String
+    role_not_contains?: string | null; // String
+    role_not_ends_with?: string | null; // String
+    role_not_in?: string[] | null; // [String!]
+    role_not_starts_with?: string | null; // String
+    role_starts_with?: string | null; // String
     smallPieceSelection_every?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
     smallPieceSelection_none?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
     smallPieceSelection_some?: NexusGenInputs['SetSelectionWhereInput'] | null; // SetSelectionWhereInput
@@ -560,6 +590,7 @@ export interface NexusGenInputs {
     selectedSet?: NexusGenInputs['SetCreateOneInput'] | null; // SetCreateOneInput
     slot?: string | null; // String
     trait?: NexusGenInputs['ModificationCreateOneInput'] | null; // ModificationCreateOneInput
+    type?: string | null; // String
   }
   SetSelectionCreateManyInput: { // input type
     connect?: NexusGenInputs['SetSelectionWhereUniqueInput'][] | null; // [SetSelectionWhereUniqueInput!]
@@ -614,6 +645,20 @@ export interface NexusGenInputs {
     slot_not_starts_with?: string | null; // String
     slot_starts_with?: string | null; // String
     trait?: NexusGenInputs['ModificationWhereInput'] | null; // ModificationWhereInput
+    type?: string | null; // String
+    type_contains?: string | null; // String
+    type_ends_with?: string | null; // String
+    type_gt?: string | null; // String
+    type_gte?: string | null; // String
+    type_in?: string[] | null; // [String!]
+    type_lt?: string | null; // String
+    type_lte?: string | null; // String
+    type_not?: string | null; // String
+    type_not_contains?: string | null; // String
+    type_not_ends_with?: string | null; // String
+    type_not_in?: string[] | null; // [String!]
+    type_not_starts_with?: string | null; // String
+    type_starts_with?: string | null; // String
   }
   SetSelectionWhereUniqueInput: { // input type
     id?: string | null; // ID
@@ -1183,10 +1228,11 @@ export interface NexusGenInputs {
 
 export interface NexusGenEnums {
   BuffOrderByInput: "buffDescription_ASC" | "buffDescription_DESC" | "buffType_ASC" | "buffType_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "duration_ASC" | "duration_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "notes_ASC" | "notes_DESC" | "quality_ASC" | "quality_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
-  BuildOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "esoClass_ASC" | "esoClass_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "published_ASC" | "published_DESC" | "race_ASC" | "race_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  BuildOrderByInput: "applicationArea_ASC" | "applicationArea_DESC" | "createdAt_ASC" | "createdAt_DESC" | "esoClass_ASC" | "esoClass_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "published_ASC" | "published_DESC" | "race_ASC" | "race_DESC" | "role_ASC" | "role_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ModificationOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "itemType_ASC" | "itemType_DESC" | "modificationType_ASC" | "modificationType_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   MundusStoneOrderByInput: "aldmeri_ASC" | "aldmeri_DESC" | "createdAt_ASC" | "createdAt_DESC" | "daggerfall_ASC" | "daggerfall_DESC" | "ebonheart_ASC" | "ebonheart_DESC" | "effect_ASC" | "effect_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "value_ASC" | "value_DESC"
   SetOrderByInput: "bonus_item_1_ASC" | "bonus_item_1_DESC" | "bonus_item_2_ASC" | "bonus_item_2_DESC" | "bonus_item_3_ASC" | "bonus_item_3_DESC" | "bonus_item_4_ASC" | "bonus_item_4_DESC" | "bonus_item_5_ASC" | "bonus_item_5_DESC" | "createdAt_ASC" | "createdAt_DESC" | "eso_id_ASC" | "eso_id_DESC" | "has_heavy_armor_ASC" | "has_heavy_armor_DESC" | "has_jewels_ASC" | "has_jewels_DESC" | "has_light_armor_ASC" | "has_light_armor_DESC" | "has_medium_armor_ASC" | "has_medium_armor_DESC" | "has_weapons_ASC" | "has_weapons_DESC" | "id_ASC" | "id_DESC" | "location_ASC" | "location_DESC" | "name_ASC" | "name_DESC" | "pts_ASC" | "pts_DESC" | "setId_ASC" | "setId_DESC" | "slug_ASC" | "slug_DESC" | "traits_needed_ASC" | "traits_needed_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
-  SetSelectionOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "slot_ASC" | "slot_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  SetSelectionOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "slot_ASC" | "slot_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   SkillOrderByInput: "cast_time_ASC" | "cast_time_DESC" | "cost_ASC" | "cost_DESC" | "createdAt_ASC" | "createdAt_DESC" | "effect_1_ASC" | "effect_1_DESC" | "effect_2_ASC" | "effect_2_DESC" | "icon_ASC" | "icon_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "parent_ASC" | "parent_DESC" | "pts_ASC" | "pts_DESC" | "range_ASC" | "range_DESC" | "skillId_ASC" | "skillId_DESC" | "skillline_ASC" | "skillline_DESC" | "slug_ASC" | "slug_DESC" | "target_ASC" | "target_DESC" | "type_ASC" | "type_DESC" | "unlocks_at_ASC" | "unlocks_at_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   SkillSelectionOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "index_ASC" | "index_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
@@ -1209,12 +1255,14 @@ export interface NexusGenRootTypes {
     type?: string | null; // String
   }
   Build: { // root type
+    applicationArea?: string | null; // String
     createdAt: any; // DateTime!
     esoClass?: string | null; // String
     id: string; // ID!
     name?: string | null; // String
     published: boolean; // Boolean!
     race?: string | null; // String
+    role?: string | null; // String
     updatedAt: any; // DateTime!
   }
   Modification: { // root type
@@ -1270,6 +1318,7 @@ export interface NexusGenRootTypes {
     icon?: string | null; // String
     id: string; // ID!
     slot?: string | null; // String
+    type?: string | null; // String
   }
   Skill: { // root type
     cast_time: string; // String!
@@ -1347,6 +1396,7 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   UserWhereUniqueInput: NexusGenInputs['UserWhereUniqueInput'];
   BuffOrderByInput: NexusGenEnums['BuffOrderByInput'];
   BuildOrderByInput: NexusGenEnums['BuildOrderByInput'];
+  ModificationOrderByInput: NexusGenEnums['ModificationOrderByInput'];
   MundusStoneOrderByInput: NexusGenEnums['MundusStoneOrderByInput'];
   SetOrderByInput: NexusGenEnums['SetOrderByInput'];
   SetSelectionOrderByInput: NexusGenEnums['SetSelectionOrderByInput'];
@@ -1372,6 +1422,7 @@ export interface NexusGenFieldTypes {
     type: string | null; // String
   }
   Build: { // field return type
+    applicationArea: string | null; // String
     backbarSelection: NexusGenRootTypes['SetSelection'][] | null; // [SetSelection!]
     bigPieceSelection: NexusGenRootTypes['SetSelection'][] | null; // [SetSelection!]
     buff: NexusGenRootTypes['Buff'] | null; // Buff
@@ -1387,6 +1438,7 @@ export interface NexusGenFieldTypes {
     owner: NexusGenRootTypes['User'] | null; // User
     published: boolean; // Boolean!
     race: string | null; // String
+    role: string | null; // String
     smallPieceSelection: NexusGenRootTypes['SetSelection'][] | null; // [SetSelection!]
     ultimateOne: NexusGenRootTypes['Skill'] | null; // Skill
     ultimateTwo: NexusGenRootTypes['Skill'] | null; // Skill
@@ -1438,6 +1490,7 @@ export interface NexusGenFieldTypes {
     builds: NexusGenRootTypes['Build'][] | null; // [Build!]
     buildsByUser: NexusGenRootTypes['Build'][] | null; // [Build!]
     me: NexusGenRootTypes['User'] | null; // User
+    modifications: NexusGenRootTypes['Modification'][] | null; // [Modification!]
     mundusStone: NexusGenRootTypes['MundusStone'] | null; // MundusStone
     mundusStones: NexusGenRootTypes['MundusStone'][] | null; // [MundusStone!]
     publishedBuilds: NexusGenRootTypes['Build'][] | null; // [Build!]
@@ -1445,6 +1498,7 @@ export interface NexusGenFieldTypes {
     sets: NexusGenRootTypes['Set'][] | null; // [Set!]
     skill: NexusGenRootTypes['Skill'] | null; // Skill
     skills: NexusGenRootTypes['Skill'][] | null; // [Skill!]
+    users: NexusGenRootTypes['User'][] | null; // [User!]
   }
   Set: { // field return type
     bonus_item_1: string | null; // String
@@ -1474,6 +1528,7 @@ export interface NexusGenFieldTypes {
     selectedSet: NexusGenRootTypes['Set'] | null; // Set
     slot: string | null; // String
     trait: NexusGenRootTypes['Modification'] | null; // Modification
+    type: string | null; // String
   }
   Skill: { // field return type
     cast_time: string; // String!
@@ -1593,6 +1648,7 @@ export interface NexusGenArgTypes {
       setIds?: number[] | null; // [Int!]
       slots?: string[] | null; // [String!]
       traitDescriptions?: string[] | null; // [String!]
+      types?: string[] | null; // [String!]
     }
     createSkillSelections: { // args
       indices?: number[] | null; // [Int!]
@@ -1651,6 +1707,15 @@ export interface NexusGenArgTypes {
     }
     buildsByUser: { // args
       id?: string | null; // ID
+    }
+    modifications: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ModificationOrderByInput'] | null; // ModificationOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ModificationWhereInput'] | null; // ModificationWhereInput
     }
     mundusStone: { // args
       name?: string | null; // String
@@ -1713,7 +1778,7 @@ export type NexusGenObjectNames = "AuthPayload" | "Buff" | "Build" | "Modificati
 
 export type NexusGenInputNames = "BuffCreateInput" | "BuffCreateOneInput" | "BuffWhereInput" | "BuffWhereUniqueInput" | "BuildCreateInput" | "BuildWhereInput" | "ModificationCreateInput" | "ModificationCreateOneInput" | "ModificationWhereInput" | "ModificationWhereUniqueInput" | "MundusStoneCreateInput" | "MundusStoneCreateOneInput" | "MundusStoneWhereInput" | "MundusStoneWhereUniqueInput" | "SetCreateInput" | "SetCreateOneInput" | "SetSelectionCreateInput" | "SetSelectionCreateManyInput" | "SetSelectionWhereInput" | "SetSelectionWhereUniqueInput" | "SetWhereInput" | "SetWhereUniqueInput" | "SkillCreateInput" | "SkillCreateOneInput" | "SkillSelectionCreateInput" | "SkillSelectionCreateManyInput" | "SkillSelectionWhereInput" | "SkillSelectionWhereUniqueInput" | "SkillWhereInput" | "SkillWhereUniqueInput" | "UserCreateOneWithoutBuildsInput" | "UserCreateWithoutBuildsInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
-export type NexusGenEnumNames = "BuffOrderByInput" | "BuildOrderByInput" | "MundusStoneOrderByInput" | "SetOrderByInput" | "SetSelectionOrderByInput" | "SkillOrderByInput" | "SkillSelectionOrderByInput";
+export type NexusGenEnumNames = "BuffOrderByInput" | "BuildOrderByInput" | "ModificationOrderByInput" | "MundusStoneOrderByInput" | "SetOrderByInput" | "SetSelectionOrderByInput" | "SkillOrderByInput" | "SkillSelectionOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 

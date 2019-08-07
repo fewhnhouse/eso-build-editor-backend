@@ -22,7 +22,7 @@ type User {
   password: String!
   name: String
   verified: Boolean! @default(value: false)
-  builds: [Build!]!
+  builds: [Build!]! @relation(name: "BuildOwner")
 }
 
 type MundusStone {
@@ -53,6 +53,7 @@ type SetSelection {
   id: ID! @id
   icon: String
   slot: String
+  type: String
   selectedSet: Set
   trait: Modification @relation(name: "Trait")
   glyph: Modification @relation(name: "Glyph")
@@ -116,8 +117,10 @@ type Skill {
 
 type Build {
   id: ID! @id
-  owner: User
+  owner: User @relation(name: "BuildOwner")
   name: String
+  applicationArea: String
+  role: String
   race: String
   esoClass: String
   createdAt: DateTime! @createdAt
@@ -135,4 +138,24 @@ type Build {
   ultimateTwo: Skill @relation(name: "UltimateTwo")
   mundusStone: MundusStone
   buff: Buff
+}
+
+#Possibly needed to specify useful role for build in raid
+type RaidBuild {
+  id: ID! @id
+  build: Build
+  role: String
+}
+
+type Raid {
+  id: ID! @id
+  owner: User @relation(name: "RaidOwner")
+  name: String
+  applicationArea: String 
+    createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  published: Boolean! @default(value: false)
+  canEdit: [User!]! @relation(name: "CanEdit")
+  canView: [User!]! @relation(name: "CanView")
+  builds: [Build!]! @relation(name: "RaidBuilds")
 }

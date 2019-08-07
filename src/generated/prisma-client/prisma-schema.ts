@@ -22,6 +22,14 @@ type AggregatePost {
   count: Int!
 }
 
+type AggregateRaid {
+  count: Int!
+}
+
+type AggregateRaidBuild {
+  count: Int!
+}
+
 type AggregateSet {
   count: Int!
 }
@@ -339,6 +347,8 @@ type Build {
   id: ID!
   owner: User
   name: String
+  applicationArea: String
+  role: String
   race: String
   esoClass: String
   createdAt: DateTime!
@@ -367,6 +377,8 @@ input BuildCreateInput {
   id: ID
   owner: UserCreateOneWithoutBuildsInput
   name: String
+  applicationArea: String
+  role: String
   race: String
   esoClass: String
   published: Boolean
@@ -383,14 +395,26 @@ input BuildCreateInput {
   buff: BuffCreateOneInput
 }
 
+input BuildCreateManyInput {
+  create: [BuildCreateInput!]
+  connect: [BuildWhereUniqueInput!]
+}
+
 input BuildCreateManyWithoutOwnerInput {
   create: [BuildCreateWithoutOwnerInput!]
   connect: [BuildWhereUniqueInput!]
 }
 
+input BuildCreateOneInput {
+  create: BuildCreateInput
+  connect: BuildWhereUniqueInput
+}
+
 input BuildCreateWithoutOwnerInput {
   id: ID
   name: String
+  applicationArea: String
+  role: String
   race: String
   esoClass: String
   published: Boolean
@@ -417,6 +441,10 @@ enum BuildOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  applicationArea_ASC
+  applicationArea_DESC
+  role_ASC
+  role_DESC
   race_ASC
   race_DESC
   esoClass_ASC
@@ -432,6 +460,8 @@ enum BuildOrderByInput {
 type BuildPreviousValues {
   id: ID!
   name: String
+  applicationArea: String
+  role: String
   race: String
   esoClass: String
   createdAt: DateTime!
@@ -468,6 +498,34 @@ input BuildScalarWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  applicationArea: String
+  applicationArea_not: String
+  applicationArea_in: [String!]
+  applicationArea_not_in: [String!]
+  applicationArea_lt: String
+  applicationArea_lte: String
+  applicationArea_gt: String
+  applicationArea_gte: String
+  applicationArea_contains: String
+  applicationArea_not_contains: String
+  applicationArea_starts_with: String
+  applicationArea_not_starts_with: String
+  applicationArea_ends_with: String
+  applicationArea_not_ends_with: String
+  role: String
+  role_not: String
+  role_in: [String!]
+  role_not_in: [String!]
+  role_lt: String
+  role_lte: String
+  role_gt: String
+  role_gte: String
+  role_contains: String
+  role_not_contains: String
+  role_starts_with: String
+  role_not_starts_with: String
+  role_ends_with: String
+  role_not_ends_with: String
   race: String
   race_not: String
   race_in: [String!]
@@ -537,9 +595,32 @@ input BuildSubscriptionWhereInput {
   NOT: [BuildSubscriptionWhereInput!]
 }
 
+input BuildUpdateDataInput {
+  owner: UserUpdateOneWithoutBuildsInput
+  name: String
+  applicationArea: String
+  role: String
+  race: String
+  esoClass: String
+  published: Boolean
+  bigPieceSelection: SetSelectionUpdateManyInput
+  smallPieceSelection: SetSelectionUpdateManyInput
+  jewelrySelection: SetSelectionUpdateManyInput
+  frontbarSelection: SetSelectionUpdateManyInput
+  backbarSelection: SetSelectionUpdateManyInput
+  newBarOne: SkillSelectionUpdateManyInput
+  newBarTwo: SkillSelectionUpdateManyInput
+  ultimateOne: SkillUpdateOneInput
+  ultimateTwo: SkillUpdateOneInput
+  mundusStone: MundusStoneUpdateOneInput
+  buff: BuffUpdateOneInput
+}
+
 input BuildUpdateInput {
   owner: UserUpdateOneWithoutBuildsInput
   name: String
+  applicationArea: String
+  role: String
   race: String
   esoClass: String
   published: Boolean
@@ -558,13 +639,29 @@ input BuildUpdateInput {
 
 input BuildUpdateManyDataInput {
   name: String
+  applicationArea: String
+  role: String
   race: String
   esoClass: String
   published: Boolean
 }
 
+input BuildUpdateManyInput {
+  create: [BuildCreateInput!]
+  update: [BuildUpdateWithWhereUniqueNestedInput!]
+  upsert: [BuildUpsertWithWhereUniqueNestedInput!]
+  delete: [BuildWhereUniqueInput!]
+  connect: [BuildWhereUniqueInput!]
+  set: [BuildWhereUniqueInput!]
+  disconnect: [BuildWhereUniqueInput!]
+  deleteMany: [BuildScalarWhereInput!]
+  updateMany: [BuildUpdateManyWithWhereNestedInput!]
+}
+
 input BuildUpdateManyMutationInput {
   name: String
+  applicationArea: String
+  role: String
   race: String
   esoClass: String
   published: Boolean
@@ -587,8 +684,19 @@ input BuildUpdateManyWithWhereNestedInput {
   data: BuildUpdateManyDataInput!
 }
 
+input BuildUpdateOneInput {
+  create: BuildCreateInput
+  update: BuildUpdateDataInput
+  upsert: BuildUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: BuildWhereUniqueInput
+}
+
 input BuildUpdateWithoutOwnerDataInput {
   name: String
+  applicationArea: String
+  role: String
   race: String
   esoClass: String
   published: Boolean
@@ -605,9 +713,25 @@ input BuildUpdateWithoutOwnerDataInput {
   buff: BuffUpdateOneInput
 }
 
+input BuildUpdateWithWhereUniqueNestedInput {
+  where: BuildWhereUniqueInput!
+  data: BuildUpdateDataInput!
+}
+
 input BuildUpdateWithWhereUniqueWithoutOwnerInput {
   where: BuildWhereUniqueInput!
   data: BuildUpdateWithoutOwnerDataInput!
+}
+
+input BuildUpsertNestedInput {
+  update: BuildUpdateDataInput!
+  create: BuildCreateInput!
+}
+
+input BuildUpsertWithWhereUniqueNestedInput {
+  where: BuildWhereUniqueInput!
+  update: BuildUpdateDataInput!
+  create: BuildCreateInput!
 }
 
 input BuildUpsertWithWhereUniqueWithoutOwnerInput {
@@ -646,6 +770,34 @@ input BuildWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  applicationArea: String
+  applicationArea_not: String
+  applicationArea_in: [String!]
+  applicationArea_not_in: [String!]
+  applicationArea_lt: String
+  applicationArea_lte: String
+  applicationArea_gt: String
+  applicationArea_gte: String
+  applicationArea_contains: String
+  applicationArea_not_contains: String
+  applicationArea_starts_with: String
+  applicationArea_not_starts_with: String
+  applicationArea_ends_with: String
+  applicationArea_not_ends_with: String
+  role: String
+  role_not: String
+  role_in: [String!]
+  role_not_in: [String!]
+  role_lt: String
+  role_lte: String
+  role_gt: String
+  role_gte: String
+  role_contains: String
+  role_not_contains: String
+  role_starts_with: String
+  role_not_starts_with: String
+  role_ends_with: String
+  role_not_ends_with: String
   race: String
   race_not: String
   race_in: [String!]
@@ -1223,6 +1375,18 @@ type Mutation {
   upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
   deletePost(where: PostWhereUniqueInput!): Post
   deleteManyPosts(where: PostWhereInput): BatchPayload!
+  createRaid(data: RaidCreateInput!): Raid!
+  updateRaid(data: RaidUpdateInput!, where: RaidWhereUniqueInput!): Raid
+  updateManyRaids(data: RaidUpdateManyMutationInput!, where: RaidWhereInput): BatchPayload!
+  upsertRaid(where: RaidWhereUniqueInput!, create: RaidCreateInput!, update: RaidUpdateInput!): Raid!
+  deleteRaid(where: RaidWhereUniqueInput!): Raid
+  deleteManyRaids(where: RaidWhereInput): BatchPayload!
+  createRaidBuild(data: RaidBuildCreateInput!): RaidBuild!
+  updateRaidBuild(data: RaidBuildUpdateInput!, where: RaidBuildWhereUniqueInput!): RaidBuild
+  updateManyRaidBuilds(data: RaidBuildUpdateManyMutationInput!, where: RaidBuildWhereInput): BatchPayload!
+  upsertRaidBuild(where: RaidBuildWhereUniqueInput!, create: RaidBuildCreateInput!, update: RaidBuildUpdateInput!): RaidBuild!
+  deleteRaidBuild(where: RaidBuildWhereUniqueInput!): RaidBuild
+  deleteManyRaidBuilds(where: RaidBuildWhereInput): BatchPayload!
   createSet(data: SetCreateInput!): Set!
   updateSet(data: SetUpdateInput!, where: SetWhereUniqueInput!): Set
   updateManySets(data: SetUpdateManyMutationInput!, where: SetWhereInput): BatchPayload!
@@ -1449,6 +1613,12 @@ type Query {
   post(where: PostWhereUniqueInput!): Post
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
   postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
+  raid(where: RaidWhereUniqueInput!): Raid
+  raids(where: RaidWhereInput, orderBy: RaidOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Raid]!
+  raidsConnection(where: RaidWhereInput, orderBy: RaidOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): RaidConnection!
+  raidBuild(where: RaidBuildWhereUniqueInput!): RaidBuild
+  raidBuilds(where: RaidBuildWhereInput, orderBy: RaidBuildOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [RaidBuild]!
+  raidBuildsConnection(where: RaidBuildWhereInput, orderBy: RaidBuildOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): RaidBuildConnection!
   set(where: SetWhereUniqueInput!): Set
   sets(where: SetWhereInput, orderBy: SetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Set]!
   setsConnection(where: SetWhereInput, orderBy: SetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SetConnection!
@@ -1468,6 +1638,280 @@ type Query {
   verifications(where: VerificationWhereInput, orderBy: VerificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Verification]!
   verificationsConnection(where: VerificationWhereInput, orderBy: VerificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VerificationConnection!
   node(id: ID!): Node
+}
+
+type Raid {
+  id: ID!
+  owner: User
+  name: String
+  applicationArea: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  published: Boolean!
+  canEdit(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
+  canView(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
+  builds(where: BuildWhereInput, orderBy: BuildOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Build!]
+}
+
+type RaidBuild {
+  id: ID!
+  build: Build
+  role: String
+}
+
+type RaidBuildConnection {
+  pageInfo: PageInfo!
+  edges: [RaidBuildEdge]!
+  aggregate: AggregateRaidBuild!
+}
+
+input RaidBuildCreateInput {
+  id: ID
+  build: BuildCreateOneInput
+  role: String
+}
+
+type RaidBuildEdge {
+  node: RaidBuild!
+  cursor: String!
+}
+
+enum RaidBuildOrderByInput {
+  id_ASC
+  id_DESC
+  role_ASC
+  role_DESC
+}
+
+type RaidBuildPreviousValues {
+  id: ID!
+  role: String
+}
+
+type RaidBuildSubscriptionPayload {
+  mutation: MutationType!
+  node: RaidBuild
+  updatedFields: [String!]
+  previousValues: RaidBuildPreviousValues
+}
+
+input RaidBuildSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: RaidBuildWhereInput
+  AND: [RaidBuildSubscriptionWhereInput!]
+  OR: [RaidBuildSubscriptionWhereInput!]
+  NOT: [RaidBuildSubscriptionWhereInput!]
+}
+
+input RaidBuildUpdateInput {
+  build: BuildUpdateOneInput
+  role: String
+}
+
+input RaidBuildUpdateManyMutationInput {
+  role: String
+}
+
+input RaidBuildWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  build: BuildWhereInput
+  role: String
+  role_not: String
+  role_in: [String!]
+  role_not_in: [String!]
+  role_lt: String
+  role_lte: String
+  role_gt: String
+  role_gte: String
+  role_contains: String
+  role_not_contains: String
+  role_starts_with: String
+  role_not_starts_with: String
+  role_ends_with: String
+  role_not_ends_with: String
+  AND: [RaidBuildWhereInput!]
+  OR: [RaidBuildWhereInput!]
+  NOT: [RaidBuildWhereInput!]
+}
+
+input RaidBuildWhereUniqueInput {
+  id: ID
+}
+
+type RaidConnection {
+  pageInfo: PageInfo!
+  edges: [RaidEdge]!
+  aggregate: AggregateRaid!
+}
+
+input RaidCreateInput {
+  id: ID
+  owner: UserCreateOneInput
+  name: String
+  applicationArea: String
+  published: Boolean
+  canEdit: UserCreateManyInput
+  canView: UserCreateManyInput
+  builds: BuildCreateManyInput
+}
+
+type RaidEdge {
+  node: Raid!
+  cursor: String!
+}
+
+enum RaidOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  applicationArea_ASC
+  applicationArea_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  published_ASC
+  published_DESC
+}
+
+type RaidPreviousValues {
+  id: ID!
+  name: String
+  applicationArea: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  published: Boolean!
+}
+
+type RaidSubscriptionPayload {
+  mutation: MutationType!
+  node: Raid
+  updatedFields: [String!]
+  previousValues: RaidPreviousValues
+}
+
+input RaidSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: RaidWhereInput
+  AND: [RaidSubscriptionWhereInput!]
+  OR: [RaidSubscriptionWhereInput!]
+  NOT: [RaidSubscriptionWhereInput!]
+}
+
+input RaidUpdateInput {
+  owner: UserUpdateOneInput
+  name: String
+  applicationArea: String
+  published: Boolean
+  canEdit: UserUpdateManyInput
+  canView: UserUpdateManyInput
+  builds: BuildUpdateManyInput
+}
+
+input RaidUpdateManyMutationInput {
+  name: String
+  applicationArea: String
+  published: Boolean
+}
+
+input RaidWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  owner: UserWhereInput
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  applicationArea: String
+  applicationArea_not: String
+  applicationArea_in: [String!]
+  applicationArea_not_in: [String!]
+  applicationArea_lt: String
+  applicationArea_lte: String
+  applicationArea_gt: String
+  applicationArea_gte: String
+  applicationArea_contains: String
+  applicationArea_not_contains: String
+  applicationArea_starts_with: String
+  applicationArea_not_starts_with: String
+  applicationArea_ends_with: String
+  applicationArea_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  published: Boolean
+  published_not: Boolean
+  canEdit_every: UserWhereInput
+  canEdit_some: UserWhereInput
+  canEdit_none: UserWhereInput
+  canView_every: UserWhereInput
+  canView_some: UserWhereInput
+  canView_none: UserWhereInput
+  builds_every: BuildWhereInput
+  builds_some: BuildWhereInput
+  builds_none: BuildWhereInput
+  AND: [RaidWhereInput!]
+  OR: [RaidWhereInput!]
+  NOT: [RaidWhereInput!]
+}
+
+input RaidWhereUniqueInput {
+  id: ID
 }
 
 type Set {
@@ -1597,6 +2041,7 @@ type SetSelection {
   id: ID!
   icon: String
   slot: String
+  type: String
   selectedSet: Set
   trait: Modification
   glyph: Modification
@@ -1612,6 +2057,7 @@ input SetSelectionCreateInput {
   id: ID
   icon: String
   slot: String
+  type: String
   selectedSet: SetCreateOneInput
   trait: ModificationCreateOneInput
   glyph: ModificationCreateOneInput
@@ -1634,12 +2080,15 @@ enum SetSelectionOrderByInput {
   icon_DESC
   slot_ASC
   slot_DESC
+  type_ASC
+  type_DESC
 }
 
 type SetSelectionPreviousValues {
   id: ID!
   icon: String
   slot: String
+  type: String
 }
 
 input SetSelectionScalarWhereInput {
@@ -1685,6 +2134,20 @@ input SetSelectionScalarWhereInput {
   slot_not_starts_with: String
   slot_ends_with: String
   slot_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
   AND: [SetSelectionScalarWhereInput!]
   OR: [SetSelectionScalarWhereInput!]
   NOT: [SetSelectionScalarWhereInput!]
@@ -1711,6 +2174,7 @@ input SetSelectionSubscriptionWhereInput {
 input SetSelectionUpdateDataInput {
   icon: String
   slot: String
+  type: String
   selectedSet: SetUpdateOneInput
   trait: ModificationUpdateOneInput
   glyph: ModificationUpdateOneInput
@@ -1719,6 +2183,7 @@ input SetSelectionUpdateDataInput {
 input SetSelectionUpdateInput {
   icon: String
   slot: String
+  type: String
   selectedSet: SetUpdateOneInput
   trait: ModificationUpdateOneInput
   glyph: ModificationUpdateOneInput
@@ -1727,6 +2192,7 @@ input SetSelectionUpdateInput {
 input SetSelectionUpdateManyDataInput {
   icon: String
   slot: String
+  type: String
 }
 
 input SetSelectionUpdateManyInput {
@@ -1744,6 +2210,7 @@ input SetSelectionUpdateManyInput {
 input SetSelectionUpdateManyMutationInput {
   icon: String
   slot: String
+  type: String
 }
 
 input SetSelectionUpdateManyWithWhereNestedInput {
@@ -1805,6 +2272,20 @@ input SetSelectionWhereInput {
   slot_not_starts_with: String
   slot_ends_with: String
   slot_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
   selectedSet: SetWhereInput
   trait: ModificationWhereInput
   glyph: ModificationWhereInput
@@ -2699,6 +3180,8 @@ type Subscription {
   modification(where: ModificationSubscriptionWhereInput): ModificationSubscriptionPayload
   mundusStone(where: MundusStoneSubscriptionWhereInput): MundusStoneSubscriptionPayload
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
+  raid(where: RaidSubscriptionWhereInput): RaidSubscriptionPayload
+  raidBuild(where: RaidBuildSubscriptionWhereInput): RaidBuildSubscriptionPayload
   set(where: SetSubscriptionWhereInput): SetSubscriptionPayload
   setSelection(where: SetSelectionSubscriptionWhereInput): SetSelectionSubscriptionPayload
   skill(where: SkillSubscriptionWhereInput): SkillSubscriptionPayload
@@ -2729,6 +3212,11 @@ input UserCreateInput {
   name: String
   verified: Boolean
   builds: BuildCreateManyWithoutOwnerInput
+}
+
+input UserCreateManyInput {
+  create: [UserCreateInput!]
+  connect: [UserWhereUniqueInput!]
 }
 
 input UserCreateOneInput {
@@ -2775,6 +3263,70 @@ type UserPreviousValues {
   verified: Boolean!
 }
 
+input UserScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  verified: Boolean
+  verified_not: Boolean
+  AND: [UserScalarWhereInput!]
+  OR: [UserScalarWhereInput!]
+  NOT: [UserScalarWhereInput!]
+}
+
 type UserSubscriptionPayload {
   mutation: MutationType!
   node: User
@@ -2809,11 +3361,44 @@ input UserUpdateInput {
   builds: BuildUpdateManyWithoutOwnerInput
 }
 
+input UserUpdateManyDataInput {
+  email: String
+  password: String
+  name: String
+  verified: Boolean
+}
+
+input UserUpdateManyInput {
+  create: [UserCreateInput!]
+  update: [UserUpdateWithWhereUniqueNestedInput!]
+  upsert: [UserUpsertWithWhereUniqueNestedInput!]
+  delete: [UserWhereUniqueInput!]
+  connect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+  disconnect: [UserWhereUniqueInput!]
+  deleteMany: [UserScalarWhereInput!]
+  updateMany: [UserUpdateManyWithWhereNestedInput!]
+}
+
 input UserUpdateManyMutationInput {
   email: String
   password: String
   name: String
   verified: Boolean
+}
+
+input UserUpdateManyWithWhereNestedInput {
+  where: UserScalarWhereInput!
+  data: UserUpdateManyDataInput!
+}
+
+input UserUpdateOneInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: UserWhereUniqueInput
 }
 
 input UserUpdateOneRequiredInput {
@@ -2839,6 +3424,11 @@ input UserUpdateWithoutBuildsDataInput {
   verified: Boolean
 }
 
+input UserUpdateWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput!
+  data: UserUpdateDataInput!
+}
+
 input UserUpsertNestedInput {
   update: UserUpdateDataInput!
   create: UserCreateInput!
@@ -2847,6 +3437,12 @@ input UserUpsertNestedInput {
 input UserUpsertWithoutBuildsInput {
   update: UserUpdateWithoutBuildsDataInput!
   create: UserCreateWithoutBuildsInput!
+}
+
+input UserUpsertWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput!
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
 }
 
 input UserWhereInput {

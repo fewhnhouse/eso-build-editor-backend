@@ -60,6 +60,14 @@ export interface NexusPrismaTypes {
       BuildConnection: BuildConnectionObject
       BuildEdge: BuildEdgeObject
       AggregateBuild: AggregateBuildObject
+      RaidBuild: RaidBuildObject
+      RaidBuildConnection: RaidBuildConnectionObject
+      RaidBuildEdge: RaidBuildEdgeObject
+      AggregateRaidBuild: AggregateRaidBuildObject
+      Raid: RaidObject
+      RaidConnection: RaidConnectionObject
+      RaidEdge: RaidEdgeObject
+      AggregateRaid: AggregateRaidObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
@@ -85,6 +93,10 @@ export interface NexusPrismaTypes {
       SkillPreviousValues: SkillPreviousValuesObject
       BuildSubscriptionPayload: BuildSubscriptionPayloadObject
       BuildPreviousValues: BuildPreviousValuesObject
+      RaidBuildSubscriptionPayload: RaidBuildSubscriptionPayloadObject
+      RaidBuildPreviousValues: RaidBuildPreviousValuesObject
+      RaidSubscriptionPayload: RaidSubscriptionPayloadObject
+      RaidPreviousValues: RaidPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
@@ -133,6 +145,14 @@ export interface NexusPrismaTypes {
       BuildConnection: BuildConnectionFieldDetails
       BuildEdge: BuildEdgeFieldDetails
       AggregateBuild: AggregateBuildFieldDetails
+      RaidBuild: RaidBuildFieldDetails
+      RaidBuildConnection: RaidBuildConnectionFieldDetails
+      RaidBuildEdge: RaidBuildEdgeFieldDetails
+      AggregateRaidBuild: AggregateRaidBuildFieldDetails
+      Raid: RaidFieldDetails
+      RaidConnection: RaidConnectionFieldDetails
+      RaidEdge: RaidEdgeFieldDetails
+      AggregateRaid: AggregateRaidFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
@@ -158,6 +178,10 @@ export interface NexusPrismaTypes {
       SkillPreviousValues: SkillPreviousValuesFieldDetails
       BuildSubscriptionPayload: BuildSubscriptionPayloadFieldDetails
       BuildPreviousValues: BuildPreviousValuesFieldDetails
+      RaidBuildSubscriptionPayload: RaidBuildSubscriptionPayloadFieldDetails
+      RaidBuildPreviousValues: RaidBuildPreviousValuesFieldDetails
+      RaidSubscriptionPayload: RaidSubscriptionPayloadFieldDetails
+      RaidPreviousValues: RaidPreviousValuesFieldDetails
     }
   }
   inputTypes: {
@@ -184,6 +208,10 @@ export interface NexusPrismaTypes {
       SkillSelectionWhereUniqueInput: SkillSelectionWhereUniqueInputInputObject
       SkillWhereUniqueInput: SkillWhereUniqueInputInputObject
       BuildWhereUniqueInput: BuildWhereUniqueInputInputObject
+      RaidBuildWhereUniqueInput: RaidBuildWhereUniqueInputInputObject
+      RaidBuildWhereInput: RaidBuildWhereInputInputObject
+      RaidWhereUniqueInput: RaidWhereUniqueInputInputObject
+      RaidWhereInput: RaidWhereInputInputObject
       PostCreateInput: PostCreateInputInputObject
       UserCreateOneInput: UserCreateOneInputInputObject
       UserCreateInput: UserCreateInputInputObject
@@ -271,6 +299,28 @@ export interface NexusPrismaTypes {
       UserUpdateWithoutBuildsDataInput: UserUpdateWithoutBuildsDataInputInputObject
       UserUpsertWithoutBuildsInput: UserUpsertWithoutBuildsInputInputObject
       BuildUpdateManyMutationInput: BuildUpdateManyMutationInputInputObject
+      RaidBuildCreateInput: RaidBuildCreateInputInputObject
+      BuildCreateOneInput: BuildCreateOneInputInputObject
+      RaidBuildUpdateInput: RaidBuildUpdateInputInputObject
+      BuildUpdateOneInput: BuildUpdateOneInputInputObject
+      BuildUpdateDataInput: BuildUpdateDataInputInputObject
+      BuildUpsertNestedInput: BuildUpsertNestedInputInputObject
+      RaidBuildUpdateManyMutationInput: RaidBuildUpdateManyMutationInputInputObject
+      RaidCreateInput: RaidCreateInputInputObject
+      UserCreateManyInput: UserCreateManyInputInputObject
+      BuildCreateManyInput: BuildCreateManyInputInputObject
+      RaidUpdateInput: RaidUpdateInputInputObject
+      UserUpdateOneInput: UserUpdateOneInputInputObject
+      UserUpdateManyInput: UserUpdateManyInputInputObject
+      UserUpdateWithWhereUniqueNestedInput: UserUpdateWithWhereUniqueNestedInputInputObject
+      UserUpsertWithWhereUniqueNestedInput: UserUpsertWithWhereUniqueNestedInputInputObject
+      UserScalarWhereInput: UserScalarWhereInputInputObject
+      UserUpdateManyWithWhereNestedInput: UserUpdateManyWithWhereNestedInputInputObject
+      UserUpdateManyDataInput: UserUpdateManyDataInputInputObject
+      BuildUpdateManyInput: BuildUpdateManyInputInputObject
+      BuildUpdateWithWhereUniqueNestedInput: BuildUpdateWithWhereUniqueNestedInputInputObject
+      BuildUpsertWithWhereUniqueNestedInput: BuildUpsertWithWhereUniqueNestedInputInputObject
+      RaidUpdateManyMutationInput: RaidUpdateManyMutationInputInputObject
       PostSubscriptionWhereInput: PostSubscriptionWhereInputInputObject
       VerificationSubscriptionWhereInput: VerificationSubscriptionWhereInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
@@ -282,6 +332,8 @@ export interface NexusPrismaTypes {
       SkillSelectionSubscriptionWhereInput: SkillSelectionSubscriptionWhereInputInputObject
       SkillSubscriptionWhereInput: SkillSubscriptionWhereInputInputObject
       BuildSubscriptionWhereInput: BuildSubscriptionWhereInputInputObject
+      RaidBuildSubscriptionWhereInput: RaidBuildSubscriptionWhereInputInputObject
+      RaidSubscriptionWhereInput: RaidSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
@@ -296,6 +348,8 @@ export interface NexusPrismaTypes {
     SetOrderByInput: SetOrderByInputValues,
     ModificationOrderByInput: ModificationOrderByInputValues,
     SkillOrderByInput: SkillOrderByInputValues,
+    RaidBuildOrderByInput: RaidBuildOrderByInputValues,
+    RaidOrderByInput: RaidOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -337,6 +391,12 @@ type QueryObject =
   | { name: 'build', args?: QueryBuildArgs[] | false, alias?: string  } 
   | { name: 'builds', args?: QueryBuildsArgs[] | false, alias?: string  } 
   | { name: 'buildsConnection', args?: QueryBuildsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'raidBuild', args?: QueryRaidBuildArgs[] | false, alias?: string  } 
+  | { name: 'raidBuilds', args?: QueryRaidBuildsArgs[] | false, alias?: string  } 
+  | { name: 'raidBuildsConnection', args?: QueryRaidBuildsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'raid', args?: QueryRaidArgs[] | false, alias?: string  } 
+  | { name: 'raids', args?: QueryRaidsArgs[] | false, alias?: string  } 
+  | { name: 'raidsConnection', args?: QueryRaidsConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'post'
@@ -372,6 +432,12 @@ type QueryFields =
   | 'build'
   | 'builds'
   | 'buildsConnection'
+  | 'raidBuild'
+  | 'raidBuilds'
+  | 'raidBuildsConnection'
+  | 'raid'
+  | 'raids'
+  | 'raidsConnection'
 
 
 type QueryPostArgs =
@@ -565,6 +631,42 @@ type QueryBuildsArgs =
   | 'first'
   | 'last'
 type QueryBuildsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryRaidBuildArgs =
+  | 'where'
+type QueryRaidBuildsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryRaidBuildsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryRaidArgs =
+  | 'where'
+type QueryRaidsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryRaidsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1004,6 +1106,84 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BuildConnection> | prisma.BuildConnection
   }
+  raidBuild: {
+    type: 'RaidBuild'
+    args: Record<QueryRaidBuildArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: RaidBuildWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuild | null> | prisma.RaidBuild | null
+  }
+  raidBuilds: {
+    type: 'RaidBuild'
+    args: Record<QueryRaidBuildsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: RaidBuildWhereInput | null, orderBy?: prisma.RaidBuildOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuild[]> | prisma.RaidBuild[]
+  }
+  raidBuildsConnection: {
+    type: 'RaidBuildConnection'
+    args: Record<QueryRaidBuildsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: RaidBuildWhereInput | null, orderBy?: prisma.RaidBuildOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuildConnection> | prisma.RaidBuildConnection
+  }
+  raid: {
+    type: 'Raid'
+    args: Record<QueryRaidArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: RaidWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Raid | null> | prisma.Raid | null
+  }
+  raids: {
+    type: 'Raid'
+    args: Record<QueryRaidsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: RaidWhereInput | null, orderBy?: prisma.RaidOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Raid[]> | prisma.Raid[]
+  }
+  raidsConnection: {
+    type: 'RaidConnection'
+    args: Record<QueryRaidsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: RaidWhereInput | null, orderBy?: prisma.RaidOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidConnection> | prisma.RaidConnection
+  }
 }
   
 
@@ -1191,6 +1371,8 @@ type BuildObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'owner', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'applicationArea', args?: [] | false, alias?: string  } 
+  | { name: 'role', args?: [] | false, alias?: string  } 
   | { name: 'race', args?: [] | false, alias?: string  } 
   | { name: 'esoClass', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
@@ -1212,6 +1394,8 @@ type BuildFields =
   | 'id'
   | 'owner'
   | 'name'
+  | 'applicationArea'
+  | 'role'
   | 'race'
   | 'esoClass'
   | 'createdAt'
@@ -1311,6 +1495,22 @@ export interface BuildFieldDetails {
     ) => Promise<prisma.User | null> | prisma.User | null
   }
   name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  applicationArea: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  role: {
     type: 'String'
     args: {}
     description: string
@@ -1511,6 +1711,7 @@ type SetSelectionObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'icon', args?: [] | false, alias?: string  } 
   | { name: 'slot', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
   | { name: 'selectedSet', args?: [] | false, alias?: string  } 
   | { name: 'trait', args?: [] | false, alias?: string  } 
   | { name: 'glyph', args?: [] | false, alias?: string  } 
@@ -1519,6 +1720,7 @@ type SetSelectionFields =
   | 'id'
   | 'icon'
   | 'slot'
+  | 'type'
   | 'selectedSet'
   | 'trait'
   | 'glyph'
@@ -1545,6 +1747,14 @@ export interface SetSelectionFieldDetails {
     resolve: undefined
   }
   slot: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  type: {
     type: 'String'
     args: {}
     description: string
@@ -3789,6 +3999,464 @@ export interface AggregateBuildFieldDetails {
 }
   
 
+// Types for RaidBuild
+
+type RaidBuildObject =
+  | RaidBuildFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'build', args?: [] | false, alias?: string  } 
+  | { name: 'role', args?: [] | false, alias?: string  } 
+
+type RaidBuildFields =
+  | 'id'
+  | 'build'
+  | 'role'
+
+
+
+  
+
+export interface RaidBuildFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  build: {
+    type: 'Build'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"RaidBuild">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Build | null> | prisma.Build | null
+  }
+  role: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for RaidBuildConnection
+
+type RaidBuildConnectionObject =
+  | RaidBuildConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type RaidBuildConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface RaidBuildConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RaidBuildConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'RaidBuildEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RaidBuildConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuildEdge[]> | prisma.RaidBuildEdge[]
+  }
+  aggregate: {
+    type: 'AggregateRaidBuild'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RaidBuildConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateRaidBuild> | prisma.AggregateRaidBuild
+  }
+}
+  
+
+// Types for RaidBuildEdge
+
+type RaidBuildEdgeObject =
+  | RaidBuildEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type RaidBuildEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface RaidBuildEdgeFieldDetails {
+  node: {
+    type: 'RaidBuild'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RaidBuildEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuild> | prisma.RaidBuild
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateRaidBuild
+
+type AggregateRaidBuildObject =
+  | AggregateRaidBuildFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateRaidBuildFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateRaidBuildFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for Raid
+
+type RaidObject =
+  | RaidFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'owner', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'applicationArea', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'published', args?: [] | false, alias?: string  } 
+  | { name: 'canEdit', args?: RaidCanEditArgs[] | false, alias?: string  } 
+  | { name: 'canView', args?: RaidCanViewArgs[] | false, alias?: string  } 
+  | { name: 'builds', args?: RaidBuildsArgs[] | false, alias?: string  } 
+
+type RaidFields =
+  | 'id'
+  | 'owner'
+  | 'name'
+  | 'applicationArea'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'published'
+  | 'canEdit'
+  | 'canView'
+  | 'builds'
+
+
+type RaidCanEditArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type RaidCanViewArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type RaidBuildsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface RaidFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  owner: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Raid">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User | null> | prisma.User | null
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  applicationArea: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  published: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  canEdit: {
+    type: 'User'
+    args: Record<RaidCanEditArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Raid">,
+      args: { where?: UserWhereInput | null, orderBy?: prisma.UserOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User[]> | prisma.User[]
+  }
+  canView: {
+    type: 'User'
+    args: Record<RaidCanViewArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Raid">,
+      args: { where?: UserWhereInput | null, orderBy?: prisma.UserOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User[]> | prisma.User[]
+  }
+  builds: {
+    type: 'Build'
+    args: Record<RaidBuildsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Raid">,
+      args: { where?: BuildWhereInput | null, orderBy?: prisma.BuildOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Build[]> | prisma.Build[]
+  }
+}
+  
+
+// Types for RaidConnection
+
+type RaidConnectionObject =
+  | RaidConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type RaidConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface RaidConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RaidConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'RaidEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RaidConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidEdge[]> | prisma.RaidEdge[]
+  }
+  aggregate: {
+    type: 'AggregateRaid'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RaidConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateRaid> | prisma.AggregateRaid
+  }
+}
+  
+
+// Types for RaidEdge
+
+type RaidEdgeObject =
+  | RaidEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type RaidEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface RaidEdgeFieldDetails {
+  node: {
+    type: 'Raid'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RaidEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Raid> | prisma.Raid
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateRaid
+
+type AggregateRaidObject =
+  | AggregateRaidFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateRaidFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateRaidFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Mutation
 
 type MutationObject =
@@ -3859,6 +4527,18 @@ type MutationObject =
   | { name: 'upsertBuild', args?: MutationUpsertBuildArgs[] | false, alias?: string  } 
   | { name: 'deleteBuild', args?: MutationDeleteBuildArgs[] | false, alias?: string  } 
   | { name: 'deleteManyBuilds', args?: MutationDeleteManyBuildsArgs[] | false, alias?: string  } 
+  | { name: 'createRaidBuild', args?: MutationCreateRaidBuildArgs[] | false, alias?: string  } 
+  | { name: 'updateRaidBuild', args?: MutationUpdateRaidBuildArgs[] | false, alias?: string  } 
+  | { name: 'updateManyRaidBuilds', args?: MutationUpdateManyRaidBuildsArgs[] | false, alias?: string  } 
+  | { name: 'upsertRaidBuild', args?: MutationUpsertRaidBuildArgs[] | false, alias?: string  } 
+  | { name: 'deleteRaidBuild', args?: MutationDeleteRaidBuildArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyRaidBuilds', args?: MutationDeleteManyRaidBuildsArgs[] | false, alias?: string  } 
+  | { name: 'createRaid', args?: MutationCreateRaidArgs[] | false, alias?: string  } 
+  | { name: 'updateRaid', args?: MutationUpdateRaidArgs[] | false, alias?: string  } 
+  | { name: 'updateManyRaids', args?: MutationUpdateManyRaidsArgs[] | false, alias?: string  } 
+  | { name: 'upsertRaid', args?: MutationUpsertRaidArgs[] | false, alias?: string  } 
+  | { name: 'deleteRaid', args?: MutationDeleteRaidArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyRaids', args?: MutationDeleteManyRaidsArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createPost'
@@ -3927,6 +4607,18 @@ type MutationFields =
   | 'upsertBuild'
   | 'deleteBuild'
   | 'deleteManyBuilds'
+  | 'createRaidBuild'
+  | 'updateRaidBuild'
+  | 'updateManyRaidBuilds'
+  | 'upsertRaidBuild'
+  | 'deleteRaidBuild'
+  | 'deleteManyRaidBuilds'
+  | 'createRaid'
+  | 'updateRaid'
+  | 'updateManyRaids'
+  | 'upsertRaid'
+  | 'deleteRaid'
+  | 'deleteManyRaids'
 
 
 type MutationCreatePostArgs =
@@ -4104,6 +4796,38 @@ type MutationUpsertBuildArgs =
 type MutationDeleteBuildArgs =
   | 'where'
 type MutationDeleteManyBuildsArgs =
+  | 'where'
+type MutationCreateRaidBuildArgs =
+  | 'data'
+type MutationUpdateRaidBuildArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyRaidBuildsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertRaidBuildArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteRaidBuildArgs =
+  | 'where'
+type MutationDeleteManyRaidBuildsArgs =
+  | 'where'
+type MutationCreateRaidArgs =
+  | 'data'
+type MutationUpdateRaidArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyRaidsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertRaidArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteRaidArgs =
+  | 'where'
+type MutationDeleteManyRaidsArgs =
   | 'where'
   
 
@@ -4966,6 +5690,162 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createRaidBuild: {
+    type: 'RaidBuild'
+    args: Record<MutationCreateRaidBuildArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RaidBuildCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuild> | prisma.RaidBuild
+  }
+  updateRaidBuild: {
+    type: 'RaidBuild'
+    args: Record<MutationUpdateRaidBuildArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RaidBuildUpdateInput, where: RaidBuildWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuild | null> | prisma.RaidBuild | null
+  }
+  updateManyRaidBuilds: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyRaidBuildsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RaidBuildUpdateManyMutationInput, where?: RaidBuildWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertRaidBuild: {
+    type: 'RaidBuild'
+    args: Record<MutationUpsertRaidBuildArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: RaidBuildWhereUniqueInput, create: RaidBuildCreateInput, update: RaidBuildUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuild> | prisma.RaidBuild
+  }
+  deleteRaidBuild: {
+    type: 'RaidBuild'
+    args: Record<MutationDeleteRaidBuildArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: RaidBuildWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuild | null> | prisma.RaidBuild | null
+  }
+  deleteManyRaidBuilds: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyRaidBuildsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: RaidBuildWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createRaid: {
+    type: 'Raid'
+    args: Record<MutationCreateRaidArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RaidCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Raid> | prisma.Raid
+  }
+  updateRaid: {
+    type: 'Raid'
+    args: Record<MutationUpdateRaidArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RaidUpdateInput, where: RaidWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Raid | null> | prisma.Raid | null
+  }
+  updateManyRaids: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyRaidsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RaidUpdateManyMutationInput, where?: RaidWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertRaid: {
+    type: 'Raid'
+    args: Record<MutationUpsertRaidArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: RaidWhereUniqueInput, create: RaidCreateInput, update: RaidUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Raid> | prisma.Raid
+  }
+  deleteRaid: {
+    type: 'Raid'
+    args: Record<MutationDeleteRaidArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: RaidWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Raid | null> | prisma.Raid | null
+  }
+  deleteManyRaids: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyRaidsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: RaidWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
 }
   
 
@@ -5009,6 +5889,8 @@ type SubscriptionObject =
   | { name: 'skillSelection', args?: SubscriptionSkillSelectionArgs[] | false, alias?: string  } 
   | { name: 'skill', args?: SubscriptionSkillArgs[] | false, alias?: string  } 
   | { name: 'build', args?: SubscriptionBuildArgs[] | false, alias?: string  } 
+  | { name: 'raidBuild', args?: SubscriptionRaidBuildArgs[] | false, alias?: string  } 
+  | { name: 'raid', args?: SubscriptionRaidArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'post'
@@ -5022,6 +5904,8 @@ type SubscriptionFields =
   | 'skillSelection'
   | 'skill'
   | 'build'
+  | 'raidBuild'
+  | 'raid'
 
 
 type SubscriptionPostArgs =
@@ -5045,6 +5929,10 @@ type SubscriptionSkillSelectionArgs =
 type SubscriptionSkillArgs =
   | 'where'
 type SubscriptionBuildArgs =
+  | 'where'
+type SubscriptionRaidBuildArgs =
+  | 'where'
+type SubscriptionRaidArgs =
   | 'where'
   
 
@@ -5191,6 +6079,32 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BuildSubscriptionPayload | null> | prisma.BuildSubscriptionPayload | null
+  }
+  raidBuild: {
+    type: 'RaidBuildSubscriptionPayload'
+    args: Record<SubscriptionRaidBuildArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: RaidBuildSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuildSubscriptionPayload | null> | prisma.RaidBuildSubscriptionPayload | null
+  }
+  raid: {
+    type: 'RaidSubscriptionPayload'
+    args: Record<SubscriptionRaidArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: RaidSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidSubscriptionPayload | null> | prisma.RaidSubscriptionPayload | null
   }
 }
   
@@ -6007,11 +6921,13 @@ type SetSelectionPreviousValuesObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'icon', args?: [] | false, alias?: string  } 
   | { name: 'slot', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
 
 type SetSelectionPreviousValuesFields =
   | 'id'
   | 'icon'
   | 'slot'
+  | 'type'
 
 
 
@@ -6035,6 +6951,14 @@ export interface SetSelectionPreviousValuesFieldDetails {
     resolve: undefined
   }
   slot: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  type: {
     type: 'String'
     args: {}
     description: string
@@ -6891,6 +7815,8 @@ type BuildPreviousValuesObject =
   | BuildPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'applicationArea', args?: [] | false, alias?: string  } 
+  | { name: 'role', args?: [] | false, alias?: string  } 
   | { name: 'race', args?: [] | false, alias?: string  } 
   | { name: 'esoClass', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
@@ -6900,6 +7826,8 @@ type BuildPreviousValuesObject =
 type BuildPreviousValuesFields =
   | 'id'
   | 'name'
+  | 'applicationArea'
+  | 'role'
   | 'race'
   | 'esoClass'
   | 'createdAt'
@@ -6927,6 +7855,22 @@ export interface BuildPreviousValuesFieldDetails {
     nullable: true
     resolve: undefined
   }
+  applicationArea: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  role: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
   race: {
     type: 'String'
     args: {}
@@ -6936,6 +7880,256 @@ export interface BuildPreviousValuesFieldDetails {
     resolve: undefined
   }
   esoClass: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  published: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for RaidBuildSubscriptionPayload
+
+type RaidBuildSubscriptionPayloadObject =
+  | RaidBuildSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type RaidBuildSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface RaidBuildSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RaidBuildSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'RaidBuild'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"RaidBuildSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuild | null> | prisma.RaidBuild | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'RaidBuildPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"RaidBuildSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidBuildPreviousValues | null> | prisma.RaidBuildPreviousValues | null
+  }
+}
+  
+
+// Types for RaidBuildPreviousValues
+
+type RaidBuildPreviousValuesObject =
+  | RaidBuildPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'role', args?: [] | false, alias?: string  } 
+
+type RaidBuildPreviousValuesFields =
+  | 'id'
+  | 'role'
+
+
+
+  
+
+export interface RaidBuildPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  role: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for RaidSubscriptionPayload
+
+type RaidSubscriptionPayloadObject =
+  | RaidSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type RaidSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface RaidSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RaidSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Raid'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"RaidSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Raid | null> | prisma.Raid | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'RaidPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"RaidSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RaidPreviousValues | null> | prisma.RaidPreviousValues | null
+  }
+}
+  
+
+// Types for RaidPreviousValues
+
+type RaidPreviousValuesObject =
+  | RaidPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'applicationArea', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'published', args?: [] | false, alias?: string  } 
+
+type RaidPreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'applicationArea'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'published'
+
+
+
+  
+
+export interface RaidPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  applicationArea: {
     type: 'String'
     args: {}
     description: string
@@ -7008,6 +8202,34 @@ export interface BuildWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
+  applicationArea?: string | null
+  applicationArea_not?: string | null
+  applicationArea_in?: string[]
+  applicationArea_not_in?: string[]
+  applicationArea_lt?: string | null
+  applicationArea_lte?: string | null
+  applicationArea_gt?: string | null
+  applicationArea_gte?: string | null
+  applicationArea_contains?: string | null
+  applicationArea_not_contains?: string | null
+  applicationArea_starts_with?: string | null
+  applicationArea_not_starts_with?: string | null
+  applicationArea_ends_with?: string | null
+  applicationArea_not_ends_with?: string | null
+  role?: string | null
+  role_not?: string | null
+  role_in?: string[]
+  role_not_in?: string[]
+  role_lt?: string | null
+  role_lte?: string | null
+  role_gt?: string | null
+  role_gte?: string | null
+  role_contains?: string | null
+  role_not_contains?: string | null
+  role_starts_with?: string | null
+  role_not_starts_with?: string | null
+  role_ends_with?: string | null
+  role_not_ends_with?: string | null
   race?: string | null
   race_not?: string | null
   race_in?: string[]
@@ -7114,6 +8336,34 @@ export type BuildWhereInputInputObject =
   | { name: 'name_not_starts_with', alias?: string  } 
   | { name: 'name_ends_with', alias?: string  } 
   | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'applicationArea_not', alias?: string  } 
+  | { name: 'applicationArea_in', alias?: string  } 
+  | { name: 'applicationArea_not_in', alias?: string  } 
+  | { name: 'applicationArea_lt', alias?: string  } 
+  | { name: 'applicationArea_lte', alias?: string  } 
+  | { name: 'applicationArea_gt', alias?: string  } 
+  | { name: 'applicationArea_gte', alias?: string  } 
+  | { name: 'applicationArea_contains', alias?: string  } 
+  | { name: 'applicationArea_not_contains', alias?: string  } 
+  | { name: 'applicationArea_starts_with', alias?: string  } 
+  | { name: 'applicationArea_not_starts_with', alias?: string  } 
+  | { name: 'applicationArea_ends_with', alias?: string  } 
+  | { name: 'applicationArea_not_ends_with', alias?: string  } 
+  | { name: 'role', alias?: string  } 
+  | { name: 'role_not', alias?: string  } 
+  | { name: 'role_in', alias?: string  } 
+  | { name: 'role_not_in', alias?: string  } 
+  | { name: 'role_lt', alias?: string  } 
+  | { name: 'role_lte', alias?: string  } 
+  | { name: 'role_gt', alias?: string  } 
+  | { name: 'role_gte', alias?: string  } 
+  | { name: 'role_contains', alias?: string  } 
+  | { name: 'role_not_contains', alias?: string  } 
+  | { name: 'role_starts_with', alias?: string  } 
+  | { name: 'role_not_starts_with', alias?: string  } 
+  | { name: 'role_ends_with', alias?: string  } 
+  | { name: 'role_not_ends_with', alias?: string  } 
   | { name: 'race', alias?: string  } 
   | { name: 'race_not', alias?: string  } 
   | { name: 'race_in', alias?: string  } 
@@ -7365,6 +8615,20 @@ export interface SetSelectionWhereInput {
   slot_not_starts_with?: string | null
   slot_ends_with?: string | null
   slot_not_ends_with?: string | null
+  type?: string | null
+  type_not?: string | null
+  type_in?: string[]
+  type_not_in?: string[]
+  type_lt?: string | null
+  type_lte?: string | null
+  type_gt?: string | null
+  type_gte?: string | null
+  type_contains?: string | null
+  type_not_contains?: string | null
+  type_starts_with?: string | null
+  type_not_starts_with?: string | null
+  type_ends_with?: string | null
+  type_not_ends_with?: string | null
   selectedSet?: SetWhereInput | null
   trait?: ModificationWhereInput | null
   glyph?: ModificationWhereInput | null
@@ -7416,6 +8680,20 @@ export type SetSelectionWhereInputInputObject =
   | { name: 'slot_not_starts_with', alias?: string  } 
   | { name: 'slot_ends_with', alias?: string  } 
   | { name: 'slot_not_ends_with', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'type_not', alias?: string  } 
+  | { name: 'type_in', alias?: string  } 
+  | { name: 'type_not_in', alias?: string  } 
+  | { name: 'type_lt', alias?: string  } 
+  | { name: 'type_lte', alias?: string  } 
+  | { name: 'type_gt', alias?: string  } 
+  | { name: 'type_gte', alias?: string  } 
+  | { name: 'type_contains', alias?: string  } 
+  | { name: 'type_not_contains', alias?: string  } 
+  | { name: 'type_starts_with', alias?: string  } 
+  | { name: 'type_not_starts_with', alias?: string  } 
+  | { name: 'type_ends_with', alias?: string  } 
+  | { name: 'type_not_ends_with', alias?: string  } 
   | { name: 'selectedSet', alias?: string  } 
   | { name: 'trait', alias?: string  } 
   | { name: 'glyph', alias?: string  } 
@@ -9269,6 +10547,240 @@ export type BuildWhereUniqueInputInputObject =
   | Extract<keyof BuildWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
+export interface RaidBuildWhereUniqueInput {
+  id?: string | null
+}
+export type RaidBuildWhereUniqueInputInputObject =
+  | Extract<keyof RaidBuildWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface RaidBuildWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  build?: BuildWhereInput | null
+  role?: string | null
+  role_not?: string | null
+  role_in?: string[]
+  role_not_in?: string[]
+  role_lt?: string | null
+  role_lte?: string | null
+  role_gt?: string | null
+  role_gte?: string | null
+  role_contains?: string | null
+  role_not_contains?: string | null
+  role_starts_with?: string | null
+  role_not_starts_with?: string | null
+  role_ends_with?: string | null
+  role_not_ends_with?: string | null
+  AND?: RaidBuildWhereInput[]
+  OR?: RaidBuildWhereInput[]
+  NOT?: RaidBuildWhereInput[]
+}
+export type RaidBuildWhereInputInputObject =
+  | Extract<keyof RaidBuildWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'build', alias?: string  } 
+  | { name: 'role', alias?: string  } 
+  | { name: 'role_not', alias?: string  } 
+  | { name: 'role_in', alias?: string  } 
+  | { name: 'role_not_in', alias?: string  } 
+  | { name: 'role_lt', alias?: string  } 
+  | { name: 'role_lte', alias?: string  } 
+  | { name: 'role_gt', alias?: string  } 
+  | { name: 'role_gte', alias?: string  } 
+  | { name: 'role_contains', alias?: string  } 
+  | { name: 'role_not_contains', alias?: string  } 
+  | { name: 'role_starts_with', alias?: string  } 
+  | { name: 'role_not_starts_with', alias?: string  } 
+  | { name: 'role_ends_with', alias?: string  } 
+  | { name: 'role_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface RaidWhereUniqueInput {
+  id?: string | null
+}
+export type RaidWhereUniqueInputInputObject =
+  | Extract<keyof RaidWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface RaidWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  owner?: UserWhereInput | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  applicationArea?: string | null
+  applicationArea_not?: string | null
+  applicationArea_in?: string[]
+  applicationArea_not_in?: string[]
+  applicationArea_lt?: string | null
+  applicationArea_lte?: string | null
+  applicationArea_gt?: string | null
+  applicationArea_gte?: string | null
+  applicationArea_contains?: string | null
+  applicationArea_not_contains?: string | null
+  applicationArea_starts_with?: string | null
+  applicationArea_not_starts_with?: string | null
+  applicationArea_ends_with?: string | null
+  applicationArea_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  published?: boolean | null
+  published_not?: boolean | null
+  canEdit_every?: UserWhereInput | null
+  canEdit_some?: UserWhereInput | null
+  canEdit_none?: UserWhereInput | null
+  canView_every?: UserWhereInput | null
+  canView_some?: UserWhereInput | null
+  canView_none?: UserWhereInput | null
+  builds_every?: BuildWhereInput | null
+  builds_some?: BuildWhereInput | null
+  builds_none?: BuildWhereInput | null
+  AND?: RaidWhereInput[]
+  OR?: RaidWhereInput[]
+  NOT?: RaidWhereInput[]
+}
+export type RaidWhereInputInputObject =
+  | Extract<keyof RaidWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'owner', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'applicationArea_not', alias?: string  } 
+  | { name: 'applicationArea_in', alias?: string  } 
+  | { name: 'applicationArea_not_in', alias?: string  } 
+  | { name: 'applicationArea_lt', alias?: string  } 
+  | { name: 'applicationArea_lte', alias?: string  } 
+  | { name: 'applicationArea_gt', alias?: string  } 
+  | { name: 'applicationArea_gte', alias?: string  } 
+  | { name: 'applicationArea_contains', alias?: string  } 
+  | { name: 'applicationArea_not_contains', alias?: string  } 
+  | { name: 'applicationArea_starts_with', alias?: string  } 
+  | { name: 'applicationArea_not_starts_with', alias?: string  } 
+  | { name: 'applicationArea_ends_with', alias?: string  } 
+  | { name: 'applicationArea_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  | { name: 'published_not', alias?: string  } 
+  | { name: 'canEdit_every', alias?: string  } 
+  | { name: 'canEdit_some', alias?: string  } 
+  | { name: 'canEdit_none', alias?: string  } 
+  | { name: 'canView_every', alias?: string  } 
+  | { name: 'canView_some', alias?: string  } 
+  | { name: 'canView_none', alias?: string  } 
+  | { name: 'builds_every', alias?: string  } 
+  | { name: 'builds_some', alias?: string  } 
+  | { name: 'builds_none', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface PostCreateInput {
   id?: string | null
   published?: boolean | null
@@ -9322,6 +10834,8 @@ export type BuildCreateManyWithoutOwnerInputInputObject =
 export interface BuildCreateWithoutOwnerInput {
   id?: string | null
   name?: string | null
+  applicationArea?: string | null
+  role?: string | null
   race?: string | null
   esoClass?: string | null
   published?: boolean | null
@@ -9341,6 +10855,8 @@ export type BuildCreateWithoutOwnerInputInputObject =
   | Extract<keyof BuildCreateWithoutOwnerInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   | { name: 'race', alias?: string  } 
   | { name: 'esoClass', alias?: string  } 
   | { name: 'published', alias?: string  } 
@@ -9369,6 +10885,7 @@ export interface SetSelectionCreateInput {
   id?: string | null
   icon?: string | null
   slot?: string | null
+  type?: string | null
   selectedSet?: SetCreateOneInput | null
   trait?: ModificationCreateOneInput | null
   glyph?: ModificationCreateOneInput | null
@@ -9378,6 +10895,7 @@ export type SetSelectionCreateInputInputObject =
   | { name: 'id', alias?: string  } 
   | { name: 'icon', alias?: string  } 
   | { name: 'slot', alias?: string  } 
+  | { name: 'type', alias?: string  } 
   | { name: 'selectedSet', alias?: string  } 
   | { name: 'trait', alias?: string  } 
   | { name: 'glyph', alias?: string  } 
@@ -9665,6 +11183,8 @@ export type BuildUpdateWithWhereUniqueWithoutOwnerInputInputObject =
   
 export interface BuildUpdateWithoutOwnerDataInput {
   name?: string | null
+  applicationArea?: string | null
+  role?: string | null
   race?: string | null
   esoClass?: string | null
   published?: boolean | null
@@ -9683,6 +11203,8 @@ export interface BuildUpdateWithoutOwnerDataInput {
 export type BuildUpdateWithoutOwnerDataInputInputObject =
   | Extract<keyof BuildUpdateWithoutOwnerDataInput, string>
   | { name: 'name', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   | { name: 'race', alias?: string  } 
   | { name: 'esoClass', alias?: string  } 
   | { name: 'published', alias?: string  } 
@@ -9733,6 +11255,7 @@ export type SetSelectionUpdateWithWhereUniqueNestedInputInputObject =
 export interface SetSelectionUpdateDataInput {
   icon?: string | null
   slot?: string | null
+  type?: string | null
   selectedSet?: SetUpdateOneInput | null
   trait?: ModificationUpdateOneInput | null
   glyph?: ModificationUpdateOneInput | null
@@ -9741,6 +11264,7 @@ export type SetSelectionUpdateDataInputInputObject =
   | Extract<keyof SetSelectionUpdateDataInput, string>
   | { name: 'icon', alias?: string  } 
   | { name: 'slot', alias?: string  } 
+  | { name: 'type', alias?: string  } 
   | { name: 'selectedSet', alias?: string  } 
   | { name: 'trait', alias?: string  } 
   | { name: 'glyph', alias?: string  } 
@@ -9907,6 +11431,20 @@ export interface SetSelectionScalarWhereInput {
   slot_not_starts_with?: string | null
   slot_ends_with?: string | null
   slot_not_ends_with?: string | null
+  type?: string | null
+  type_not?: string | null
+  type_in?: string[]
+  type_not_in?: string[]
+  type_lt?: string | null
+  type_lte?: string | null
+  type_gt?: string | null
+  type_gte?: string | null
+  type_contains?: string | null
+  type_not_contains?: string | null
+  type_starts_with?: string | null
+  type_not_starts_with?: string | null
+  type_ends_with?: string | null
+  type_not_ends_with?: string | null
   AND?: SetSelectionScalarWhereInput[]
   OR?: SetSelectionScalarWhereInput[]
   NOT?: SetSelectionScalarWhereInput[]
@@ -9955,6 +11493,20 @@ export type SetSelectionScalarWhereInputInputObject =
   | { name: 'slot_not_starts_with', alias?: string  } 
   | { name: 'slot_ends_with', alias?: string  } 
   | { name: 'slot_not_ends_with', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'type_not', alias?: string  } 
+  | { name: 'type_in', alias?: string  } 
+  | { name: 'type_not_in', alias?: string  } 
+  | { name: 'type_lt', alias?: string  } 
+  | { name: 'type_lte', alias?: string  } 
+  | { name: 'type_gt', alias?: string  } 
+  | { name: 'type_gte', alias?: string  } 
+  | { name: 'type_contains', alias?: string  } 
+  | { name: 'type_not_contains', alias?: string  } 
+  | { name: 'type_starts_with', alias?: string  } 
+  | { name: 'type_not_starts_with', alias?: string  } 
+  | { name: 'type_ends_with', alias?: string  } 
+  | { name: 'type_not_ends_with', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -9971,11 +11523,13 @@ export type SetSelectionUpdateManyWithWhereNestedInputInputObject =
 export interface SetSelectionUpdateManyDataInput {
   icon?: string | null
   slot?: string | null
+  type?: string | null
 }
 export type SetSelectionUpdateManyDataInputInputObject =
   | Extract<keyof SetSelectionUpdateManyDataInput, string>
   | { name: 'icon', alias?: string  } 
   | { name: 'slot', alias?: string  } 
+  | { name: 'type', alias?: string  } 
   
 export interface SkillSelectionUpdateManyInput {
   create?: SkillSelectionCreateInput[]
@@ -10295,6 +11849,34 @@ export interface BuildScalarWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
+  applicationArea?: string | null
+  applicationArea_not?: string | null
+  applicationArea_in?: string[]
+  applicationArea_not_in?: string[]
+  applicationArea_lt?: string | null
+  applicationArea_lte?: string | null
+  applicationArea_gt?: string | null
+  applicationArea_gte?: string | null
+  applicationArea_contains?: string | null
+  applicationArea_not_contains?: string | null
+  applicationArea_starts_with?: string | null
+  applicationArea_not_starts_with?: string | null
+  applicationArea_ends_with?: string | null
+  applicationArea_not_ends_with?: string | null
+  role?: string | null
+  role_not?: string | null
+  role_in?: string[]
+  role_not_in?: string[]
+  role_lt?: string | null
+  role_lte?: string | null
+  role_gt?: string | null
+  role_gte?: string | null
+  role_contains?: string | null
+  role_not_contains?: string | null
+  role_starts_with?: string | null
+  role_not_starts_with?: string | null
+  role_ends_with?: string | null
+  role_not_ends_with?: string | null
   race?: string | null
   race_not?: string | null
   race_in?: string[]
@@ -10375,6 +11957,34 @@ export type BuildScalarWhereInputInputObject =
   | { name: 'name_not_starts_with', alias?: string  } 
   | { name: 'name_ends_with', alias?: string  } 
   | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'applicationArea_not', alias?: string  } 
+  | { name: 'applicationArea_in', alias?: string  } 
+  | { name: 'applicationArea_not_in', alias?: string  } 
+  | { name: 'applicationArea_lt', alias?: string  } 
+  | { name: 'applicationArea_lte', alias?: string  } 
+  | { name: 'applicationArea_gt', alias?: string  } 
+  | { name: 'applicationArea_gte', alias?: string  } 
+  | { name: 'applicationArea_contains', alias?: string  } 
+  | { name: 'applicationArea_not_contains', alias?: string  } 
+  | { name: 'applicationArea_starts_with', alias?: string  } 
+  | { name: 'applicationArea_not_starts_with', alias?: string  } 
+  | { name: 'applicationArea_ends_with', alias?: string  } 
+  | { name: 'applicationArea_not_ends_with', alias?: string  } 
+  | { name: 'role', alias?: string  } 
+  | { name: 'role_not', alias?: string  } 
+  | { name: 'role_in', alias?: string  } 
+  | { name: 'role_not_in', alias?: string  } 
+  | { name: 'role_lt', alias?: string  } 
+  | { name: 'role_lte', alias?: string  } 
+  | { name: 'role_gt', alias?: string  } 
+  | { name: 'role_gte', alias?: string  } 
+  | { name: 'role_contains', alias?: string  } 
+  | { name: 'role_not_contains', alias?: string  } 
+  | { name: 'role_starts_with', alias?: string  } 
+  | { name: 'role_not_starts_with', alias?: string  } 
+  | { name: 'role_ends_with', alias?: string  } 
+  | { name: 'role_not_ends_with', alias?: string  } 
   | { name: 'race', alias?: string  } 
   | { name: 'race_not', alias?: string  } 
   | { name: 'race_in', alias?: string  } 
@@ -10436,6 +12046,8 @@ export type BuildUpdateManyWithWhereNestedInputInputObject =
   
 export interface BuildUpdateManyDataInput {
   name?: string | null
+  applicationArea?: string | null
+  role?: string | null
   race?: string | null
   esoClass?: string | null
   published?: boolean | null
@@ -10443,6 +12055,8 @@ export interface BuildUpdateManyDataInput {
 export type BuildUpdateManyDataInputInputObject =
   | Extract<keyof BuildUpdateManyDataInput, string>
   | { name: 'name', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   | { name: 'race', alias?: string  } 
   | { name: 'esoClass', alias?: string  } 
   | { name: 'published', alias?: string  } 
@@ -10609,6 +12223,7 @@ export type BuffUpdateManyMutationInputInputObject =
 export interface SetSelectionUpdateInput {
   icon?: string | null
   slot?: string | null
+  type?: string | null
   selectedSet?: SetUpdateOneInput | null
   trait?: ModificationUpdateOneInput | null
   glyph?: ModificationUpdateOneInput | null
@@ -10617,6 +12232,7 @@ export type SetSelectionUpdateInputInputObject =
   | Extract<keyof SetSelectionUpdateInput, string>
   | { name: 'icon', alias?: string  } 
   | { name: 'slot', alias?: string  } 
+  | { name: 'type', alias?: string  } 
   | { name: 'selectedSet', alias?: string  } 
   | { name: 'trait', alias?: string  } 
   | { name: 'glyph', alias?: string  } 
@@ -10624,11 +12240,13 @@ export type SetSelectionUpdateInputInputObject =
 export interface SetSelectionUpdateManyMutationInput {
   icon?: string | null
   slot?: string | null
+  type?: string | null
 }
 export type SetSelectionUpdateManyMutationInputInputObject =
   | Extract<keyof SetSelectionUpdateManyMutationInput, string>
   | { name: 'icon', alias?: string  } 
   | { name: 'slot', alias?: string  } 
+  | { name: 'type', alias?: string  } 
   
 export interface SetUpdateInput {
   setId?: number | null
@@ -10832,6 +12450,8 @@ export interface BuildCreateInput {
   id?: string | null
   owner?: UserCreateOneWithoutBuildsInput | null
   name?: string | null
+  applicationArea?: string | null
+  role?: string | null
   race?: string | null
   esoClass?: string | null
   published?: boolean | null
@@ -10852,6 +12472,8 @@ export type BuildCreateInputInputObject =
   | { name: 'id', alias?: string  } 
   | { name: 'owner', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   | { name: 'race', alias?: string  } 
   | { name: 'esoClass', alias?: string  } 
   | { name: 'published', alias?: string  } 
@@ -10894,6 +12516,8 @@ export type UserCreateWithoutBuildsInputInputObject =
 export interface BuildUpdateInput {
   owner?: UserUpdateOneWithoutBuildsInput | null
   name?: string | null
+  applicationArea?: string | null
+  role?: string | null
   race?: string | null
   esoClass?: string | null
   published?: boolean | null
@@ -10913,6 +12537,8 @@ export type BuildUpdateInputInputObject =
   | Extract<keyof BuildUpdateInput, string>
   | { name: 'owner', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   | { name: 'race', alias?: string  } 
   | { name: 'esoClass', alias?: string  } 
   | { name: 'published', alias?: string  } 
@@ -10969,6 +12595,8 @@ export type UserUpsertWithoutBuildsInputInputObject =
   
 export interface BuildUpdateManyMutationInput {
   name?: string | null
+  applicationArea?: string | null
+  role?: string | null
   race?: string | null
   esoClass?: string | null
   published?: boolean | null
@@ -10976,8 +12604,434 @@ export interface BuildUpdateManyMutationInput {
 export type BuildUpdateManyMutationInputInputObject =
   | Extract<keyof BuildUpdateManyMutationInput, string>
   | { name: 'name', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   | { name: 'race', alias?: string  } 
   | { name: 'esoClass', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  
+export interface RaidBuildCreateInput {
+  id?: string | null
+  build?: BuildCreateOneInput | null
+  role?: string | null
+}
+export type RaidBuildCreateInputInputObject =
+  | Extract<keyof RaidBuildCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'build', alias?: string  } 
+  | { name: 'role', alias?: string  } 
+  
+export interface BuildCreateOneInput {
+  create?: BuildCreateInput | null
+  connect?: BuildWhereUniqueInput | null
+}
+export type BuildCreateOneInputInputObject =
+  | Extract<keyof BuildCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface RaidBuildUpdateInput {
+  build?: BuildUpdateOneInput | null
+  role?: string | null
+}
+export type RaidBuildUpdateInputInputObject =
+  | Extract<keyof RaidBuildUpdateInput, string>
+  | { name: 'build', alias?: string  } 
+  | { name: 'role', alias?: string  } 
+  
+export interface BuildUpdateOneInput {
+  create?: BuildCreateInput | null
+  update?: BuildUpdateDataInput | null
+  upsert?: BuildUpsertNestedInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: BuildWhereUniqueInput | null
+}
+export type BuildUpdateOneInputInputObject =
+  | Extract<keyof BuildUpdateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface BuildUpdateDataInput {
+  owner?: UserUpdateOneWithoutBuildsInput | null
+  name?: string | null
+  applicationArea?: string | null
+  role?: string | null
+  race?: string | null
+  esoClass?: string | null
+  published?: boolean | null
+  bigPieceSelection?: SetSelectionUpdateManyInput | null
+  smallPieceSelection?: SetSelectionUpdateManyInput | null
+  jewelrySelection?: SetSelectionUpdateManyInput | null
+  frontbarSelection?: SetSelectionUpdateManyInput | null
+  backbarSelection?: SetSelectionUpdateManyInput | null
+  newBarOne?: SkillSelectionUpdateManyInput | null
+  newBarTwo?: SkillSelectionUpdateManyInput | null
+  ultimateOne?: SkillUpdateOneInput | null
+  ultimateTwo?: SkillUpdateOneInput | null
+  mundusStone?: MundusStoneUpdateOneInput | null
+  buff?: BuffUpdateOneInput | null
+}
+export type BuildUpdateDataInputInputObject =
+  | Extract<keyof BuildUpdateDataInput, string>
+  | { name: 'owner', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'role', alias?: string  } 
+  | { name: 'race', alias?: string  } 
+  | { name: 'esoClass', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  | { name: 'bigPieceSelection', alias?: string  } 
+  | { name: 'smallPieceSelection', alias?: string  } 
+  | { name: 'jewelrySelection', alias?: string  } 
+  | { name: 'frontbarSelection', alias?: string  } 
+  | { name: 'backbarSelection', alias?: string  } 
+  | { name: 'newBarOne', alias?: string  } 
+  | { name: 'newBarTwo', alias?: string  } 
+  | { name: 'ultimateOne', alias?: string  } 
+  | { name: 'ultimateTwo', alias?: string  } 
+  | { name: 'mundusStone', alias?: string  } 
+  | { name: 'buff', alias?: string  } 
+  
+export interface BuildUpsertNestedInput {
+  update?: BuildUpdateDataInput
+  create?: BuildCreateInput
+}
+export type BuildUpsertNestedInputInputObject =
+  | Extract<keyof BuildUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface RaidBuildUpdateManyMutationInput {
+  role?: string | null
+}
+export type RaidBuildUpdateManyMutationInputInputObject =
+  | Extract<keyof RaidBuildUpdateManyMutationInput, string>
+  | { name: 'role', alias?: string  } 
+  
+export interface RaidCreateInput {
+  id?: string | null
+  owner?: UserCreateOneInput | null
+  name?: string | null
+  applicationArea?: string | null
+  published?: boolean | null
+  canEdit?: UserCreateManyInput | null
+  canView?: UserCreateManyInput | null
+  builds?: BuildCreateManyInput | null
+}
+export type RaidCreateInputInputObject =
+  | Extract<keyof RaidCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'owner', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  | { name: 'canEdit', alias?: string  } 
+  | { name: 'canView', alias?: string  } 
+  | { name: 'builds', alias?: string  } 
+  
+export interface UserCreateManyInput {
+  create?: UserCreateInput[]
+  connect?: UserWhereUniqueInput[]
+}
+export type UserCreateManyInputInputObject =
+  | Extract<keyof UserCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface BuildCreateManyInput {
+  create?: BuildCreateInput[]
+  connect?: BuildWhereUniqueInput[]
+}
+export type BuildCreateManyInputInputObject =
+  | Extract<keyof BuildCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface RaidUpdateInput {
+  owner?: UserUpdateOneInput | null
+  name?: string | null
+  applicationArea?: string | null
+  published?: boolean | null
+  canEdit?: UserUpdateManyInput | null
+  canView?: UserUpdateManyInput | null
+  builds?: BuildUpdateManyInput | null
+}
+export type RaidUpdateInputInputObject =
+  | Extract<keyof RaidUpdateInput, string>
+  | { name: 'owner', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  | { name: 'canEdit', alias?: string  } 
+  | { name: 'canView', alias?: string  } 
+  | { name: 'builds', alias?: string  } 
+  
+export interface UserUpdateOneInput {
+  create?: UserCreateInput | null
+  update?: UserUpdateDataInput | null
+  upsert?: UserUpsertNestedInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneInputInputObject =
+  | Extract<keyof UserUpdateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateManyInput {
+  create?: UserCreateInput[]
+  update?: UserUpdateWithWhereUniqueNestedInput[]
+  upsert?: UserUpsertWithWhereUniqueNestedInput[]
+  delete?: UserWhereUniqueInput[]
+  connect?: UserWhereUniqueInput[]
+  set?: UserWhereUniqueInput[]
+  disconnect?: UserWhereUniqueInput[]
+  deleteMany?: UserScalarWhereInput[]
+  updateMany?: UserUpdateManyWithWhereNestedInput[]
+}
+export type UserUpdateManyInputInputObject =
+  | Extract<keyof UserUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface UserUpdateWithWhereUniqueNestedInput {
+  where?: UserWhereUniqueInput
+  data?: UserUpdateDataInput
+}
+export type UserUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof UserUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface UserUpsertWithWhereUniqueNestedInput {
+  where?: UserWhereUniqueInput
+  update?: UserUpdateDataInput
+  create?: UserCreateInput
+}
+export type UserUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof UserUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface UserScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  email?: string | null
+  email_not?: string | null
+  email_in?: string[]
+  email_not_in?: string[]
+  email_lt?: string | null
+  email_lte?: string | null
+  email_gt?: string | null
+  email_gte?: string | null
+  email_contains?: string | null
+  email_not_contains?: string | null
+  email_starts_with?: string | null
+  email_not_starts_with?: string | null
+  email_ends_with?: string | null
+  email_not_ends_with?: string | null
+  password?: string | null
+  password_not?: string | null
+  password_in?: string[]
+  password_not_in?: string[]
+  password_lt?: string | null
+  password_lte?: string | null
+  password_gt?: string | null
+  password_gte?: string | null
+  password_contains?: string | null
+  password_not_contains?: string | null
+  password_starts_with?: string | null
+  password_not_starts_with?: string | null
+  password_ends_with?: string | null
+  password_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  verified?: boolean | null
+  verified_not?: boolean | null
+  AND?: UserScalarWhereInput[]
+  OR?: UserScalarWhereInput[]
+  NOT?: UserScalarWhereInput[]
+}
+export type UserScalarWhereInputInputObject =
+  | Extract<keyof UserScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'email_not', alias?: string  } 
+  | { name: 'email_in', alias?: string  } 
+  | { name: 'email_not_in', alias?: string  } 
+  | { name: 'email_lt', alias?: string  } 
+  | { name: 'email_lte', alias?: string  } 
+  | { name: 'email_gt', alias?: string  } 
+  | { name: 'email_gte', alias?: string  } 
+  | { name: 'email_contains', alias?: string  } 
+  | { name: 'email_not_contains', alias?: string  } 
+  | { name: 'email_starts_with', alias?: string  } 
+  | { name: 'email_not_starts_with', alias?: string  } 
+  | { name: 'email_ends_with', alias?: string  } 
+  | { name: 'email_not_ends_with', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'password_not', alias?: string  } 
+  | { name: 'password_in', alias?: string  } 
+  | { name: 'password_not_in', alias?: string  } 
+  | { name: 'password_lt', alias?: string  } 
+  | { name: 'password_lte', alias?: string  } 
+  | { name: 'password_gt', alias?: string  } 
+  | { name: 'password_gte', alias?: string  } 
+  | { name: 'password_contains', alias?: string  } 
+  | { name: 'password_not_contains', alias?: string  } 
+  | { name: 'password_starts_with', alias?: string  } 
+  | { name: 'password_not_starts_with', alias?: string  } 
+  | { name: 'password_ends_with', alias?: string  } 
+  | { name: 'password_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'verified', alias?: string  } 
+  | { name: 'verified_not', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface UserUpdateManyWithWhereNestedInput {
+  where?: UserScalarWhereInput
+  data?: UserUpdateManyDataInput
+}
+export type UserUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof UserUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface UserUpdateManyDataInput {
+  email?: string | null
+  password?: string | null
+  name?: string | null
+  verified?: boolean | null
+}
+export type UserUpdateManyDataInputInputObject =
+  | Extract<keyof UserUpdateManyDataInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'verified', alias?: string  } 
+  
+export interface BuildUpdateManyInput {
+  create?: BuildCreateInput[]
+  update?: BuildUpdateWithWhereUniqueNestedInput[]
+  upsert?: BuildUpsertWithWhereUniqueNestedInput[]
+  delete?: BuildWhereUniqueInput[]
+  connect?: BuildWhereUniqueInput[]
+  set?: BuildWhereUniqueInput[]
+  disconnect?: BuildWhereUniqueInput[]
+  deleteMany?: BuildScalarWhereInput[]
+  updateMany?: BuildUpdateManyWithWhereNestedInput[]
+}
+export type BuildUpdateManyInputInputObject =
+  | Extract<keyof BuildUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface BuildUpdateWithWhereUniqueNestedInput {
+  where?: BuildWhereUniqueInput
+  data?: BuildUpdateDataInput
+}
+export type BuildUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof BuildUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface BuildUpsertWithWhereUniqueNestedInput {
+  where?: BuildWhereUniqueInput
+  update?: BuildUpdateDataInput
+  create?: BuildCreateInput
+}
+export type BuildUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof BuildUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface RaidUpdateManyMutationInput {
+  name?: string | null
+  applicationArea?: string | null
+  published?: boolean | null
+}
+export type RaidUpdateManyMutationInputInputObject =
+  | Extract<keyof RaidUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'applicationArea', alias?: string  } 
   | { name: 'published', alias?: string  } 
   
 export interface PostSubscriptionWhereInput {
@@ -11211,12 +13265,58 @@ export type BuildSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface RaidBuildSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: RaidBuildWhereInput | null
+  AND?: RaidBuildSubscriptionWhereInput[]
+  OR?: RaidBuildSubscriptionWhereInput[]
+  NOT?: RaidBuildSubscriptionWhereInput[]
+}
+export type RaidBuildSubscriptionWhereInputInputObject =
+  | Extract<keyof RaidBuildSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface RaidSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: RaidWhereInput | null
+  AND?: RaidSubscriptionWhereInput[]
+  OR?: RaidSubscriptionWhereInput[]
+  NOT?: RaidSubscriptionWhereInput[]
+}
+export type RaidSubscriptionWhereInputInputObject =
+  | Extract<keyof RaidSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 
 export type BuildOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
   | 'name_ASC'
   | 'name_DESC'
+  | 'applicationArea_ASC'
+  | 'applicationArea_DESC'
+  | 'role_ASC'
+  | 'role_DESC'
   | 'race_ASC'
   | 'race_DESC'
   | 'esoClass_ASC'
@@ -11235,6 +13335,8 @@ export type SetSelectionOrderByInputValues =
   | 'icon_DESC'
   | 'slot_ASC'
   | 'slot_DESC'
+  | 'type_ASC'
+  | 'type_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
@@ -11437,6 +13539,30 @@ export type SkillOrderByInputValues =
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
+  
+export type RaidBuildOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'role_ASC'
+  | 'role_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type RaidOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'applicationArea_ASC'
+  | 'applicationArea_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'published_ASC'
+  | 'published_DESC'
   
 export type MutationTypeValues =
   | 'CREATED'
