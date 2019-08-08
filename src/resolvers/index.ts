@@ -1,3 +1,4 @@
+import { Raid } from './Raid';
 import { Query } from './Query'
 import { User } from './User'
 import { Mutation } from './Mutation'
@@ -10,4 +11,5 @@ export const resolvers = {
   Mutation,
   AuthPayload,
   Build,
+  Raid
 }

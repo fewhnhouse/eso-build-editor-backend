@@ -2,7 +2,7 @@ import { stringArg, idArg, mutationType, arg, intArg } from 'nexus';
 import { hash, compare } from 'bcryptjs';
 import { APP_SECRET, getUserId } from '../utils';
 import { sign } from 'jsonwebtoken';
-import { MailService, setApiKey, send } from '@sendgrid/mail';
+import { setApiKey, send } from '@sendgrid/mail';
 const crypto = require('crypto-random-string');
 
 export const Mutation = mutationType({
@@ -181,23 +181,23 @@ export const Mutation = mutationType({
         );
       },
     });
-
+    /*
     t.field('createDraft', {
-      type: 'Post',
+      type: 'Build',
       args: {
         title: stringArg(),
         content: stringArg({ nullable: true }),
       },
       resolve: (parent, { title, content }, ctx) => {
         const userId = getUserId(ctx);
-        return ctx.prisma.createPost({
+        return ctx.prisma.createBuild({
           title,
           content,
           author: { connect: { id: userId } },
         });
       },
     });
-
+*/
     t.field('deleteBuild', {
       type: 'Build',
       nullable: true,
@@ -215,6 +215,36 @@ export const Mutation = mutationType({
         return ctx.prisma.updateBuild({
           where: { id },
           data: { published: true },
+        });
+      },
+    });
+
+    t.field('createRaid', {
+      type: 'Raid',
+      args: {
+        data: arg({ type: 'RaidCreateInput' }),
+      },
+      resolve: (parent, { data }, ctx) => {
+        const userId = getUserId(ctx);
+        return ctx.prisma.createRaid({
+          ...data,
+          owner: { connect: { id: userId } },
+        });
+      },
+    });
+
+    t.field('createRole', {
+      type: 'Role',
+      args: {
+        name: stringArg(),
+        buildIds: idArg({ list: true }),
+      },
+      resolve: async (parent, { name, buildIds }, ctx) => {
+        return ctx.prisma.createRole({
+          name,
+          builds: {
+            connect: buildIds.map((id: string) => ({ id })),
+          },
         });
       },
     });

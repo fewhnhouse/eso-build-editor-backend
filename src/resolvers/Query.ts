@@ -252,5 +252,45 @@ export const Query = queryType({
         return ctx.prisma.users();
       },
     });
+    t.field('raid', {
+      type: 'Raid',
+      args: { id: idArg() },
+      resolve: (parent, { id }, ctx) => {
+        return ctx.prisma.raid({ id });
+      },
+    });
+    t.list.field('raids', {
+      type: 'Raid',
+      args: {
+        where: arg({ type: 'RaidWhereInput' }),
+        orderBy: arg({ type: 'RaidOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
+        const userId = getUserId(ctx);
+
+        return ctx.prisma.raids({
+          where: {
+            ...where,
+            canEdit_some: { id: userId },
+            canView_some: { id: userId } /*, published: true*/,
+          },
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+      },
+    });
   },
 });
