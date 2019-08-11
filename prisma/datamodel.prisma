@@ -15,6 +15,7 @@ type User {
   name: String
   verified: Boolean! @default(value: false)
   builds: [Build!]! @relation(name: "BuildOwner")
+  raids: [Raid!]! @relation(name: "RaidOwner")
 }
 
 type MundusStone {
