@@ -146,6 +146,7 @@ type Raid {
   id: ID! @id
   owner: User @relation(name: "RaidOwner")
   name: String
+  description: String
   applicationArea: String 
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt

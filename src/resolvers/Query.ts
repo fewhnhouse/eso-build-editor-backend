@@ -46,6 +46,13 @@ export const Query = queryType({
       },
     });
 
+    t.list.field('users', {
+      type: 'User',
+      resolve: (parent, args, ctx) => {
+        return ctx.prisma.users();
+      },
+    });
+
     t.list.field('set', {
       type: 'Set',
       args: { id: idArg(), setId: intArg() },

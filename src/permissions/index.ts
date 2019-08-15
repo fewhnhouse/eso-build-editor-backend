@@ -14,8 +14,23 @@ const rules = {
   isRaidOwner: rule()(async (parent, { id }, context) => {
     const userId = getUserId(context);
     const owner = await context.prisma.raid({ id }).owner();
+    console.log(owner, userId);
     return userId === owner.id;
   }),
+  canUpdateRaid: rule()(async (parent, { where }, context) => {
+    const userId = getUserId(context);
+    const owner = await context.prisma.raid({ id: where.id }).owner();
+    console.log(owner, userId);
+    return userId === owner.id;
+  }),
+
+  canUpdateBuild: rule()(async (parent, { where }, context) => {
+    const userId = getUserId(context);
+    const owner = await context.prisma.build({ id: where.id }).owner();
+    console.log(owner, userId);
+    return userId === owner.id;
+  }),
+
   canViewRaid: rule()(async (parent, { id }, context) => {
     const userId = getUserId(context);
     const canView = await context.prisma.raid({ id }).canView();
@@ -26,6 +41,7 @@ const rules = {
 export const permissions = shield({
   Query: {
     me: rules.isAuthenticatedUser,
+    users: rules.isAuthenticatedUser,
     builds: rules.isAuthenticatedUser,
     build: rules.isAuthenticatedUser,
     raid: rules.isAuthenticatedUser,
@@ -33,15 +49,13 @@ export const permissions = shield({
   },
   Mutation: {
     createRaid: rules.isAuthenticatedUser,
-    updateRaid: rules.isRaidOwner,
+    updateRaid: rules.canUpdateRaid,
     deleteRaid: rules.isRaidOwner,
     createBuild: rules.isAuthenticatedUser,
-    updateBuild: rules.isBuildOwner,
+    updateBuild: rules.canUpdateBuild,
     deleteBuild: rules.isBuildOwner,
     createSkillSelections: rules.isAuthenticatedUser,
     createSetSelections: rules.isAuthenticatedUser,
-    createRole: rules.isAuthenticatedUser,
-    updateRole: rules.isAuthenticatedUser,
     publishBuild: rules.isBuildOwner,
   },
 });

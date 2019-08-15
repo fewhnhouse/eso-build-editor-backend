@@ -8,6 +8,9 @@ const crypto = require('crypto-random-string');
 
 export const Mutation = mutationType({
   definition(t) {
+    /**
+     * AUTH
+     */
     t.field('confirmSignup', {
       type: 'AuthPayload',
       args: {
@@ -94,6 +97,10 @@ export const Mutation = mutationType({
       },
     });
 
+    /**
+     * BUILDS
+     */
+
     t.field('draftBuild', {
       type: 'Build',
       args: {
@@ -159,6 +166,10 @@ export const Mutation = mutationType({
         });
       },
     });
+
+    /**
+     * SKILLSELECTIONS
+     */
     t.list.field('createSkillSelections', {
       type: 'SkillSelection',
       args: {
@@ -192,7 +203,9 @@ export const Mutation = mutationType({
         });
       },
     });
-
+    /**
+     * SET SELECTIONS
+     */
     t.list.field('createSetSelections', {
       type: 'SetSelection',
       args: {
@@ -248,7 +261,9 @@ export const Mutation = mutationType({
         });
       },
     });
-
+    /**
+     * RAIDS
+     */
     t.field('createRaid', {
       type: 'Raid',
       args: {
@@ -280,31 +295,6 @@ export const Mutation = mutationType({
       },
       resolve: async (parent, { id }, ctx) => {
         return await ctx.prisma.deleteRaid({ id });
-      },
-    });
-    t.field('createRole', {
-      type: 'Role',
-      args: {
-        name: stringArg(),
-        buildIds: idArg({ list: true }),
-      },
-      resolve: async (parent, { name, buildIds }, ctx) => {
-        return await ctx.prisma.createRole({
-          name,
-          builds: {
-            connect: buildIds.map((id: string) => ({ id })),
-          },
-        });
-      },
-    });
-    t.field('updateRole', {
-      type: 'Role',
-      args: {
-        where: arg({ type: 'RoleWhereUniqueInput' }),
-        data: arg({ type: 'RoleUpdateInput' }),
-      },
-      resolve: async (parent, { where, data }, ctx) => {
-        return await ctx.prisma.updateRole({ where, data });
       },
     });
   },
