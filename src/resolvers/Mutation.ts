@@ -1,3 +1,4 @@
+import { SkillSelectionUpdateDataInput } from './../generated/nexus-prisma/nexus-prisma';
 import { stringArg, idArg, mutationType, arg, intArg } from 'nexus';
 import { hash, compare } from 'bcryptjs';
 import { APP_SECRET, getUserId } from '../utils';
@@ -120,9 +121,9 @@ export const Mutation = mutationType({
       args: {
         data: arg({ type: 'BuildCreateInput' }),
       },
-      resolve: (parent, { data }, ctx) => {
+      resolve: async (parent, { data }, ctx) => {
         const userId = getUserId(ctx);
-        return ctx.prisma.createBuild({
+        return await ctx.prisma.createBuild({
           ...data,
           owner: { connect: { id: userId } },
         });
@@ -149,6 +150,20 @@ export const Mutation = mutationType({
       },
     });
 
+    t.field('updateSkillSelection', {
+      type: 'SkillSelection',
+      args: {
+        where: arg({ type: 'SkillSelectionWhereUniqueInput' }),
+        data: arg({ type: 'SkillSelectionUpdateInput' }),
+      },
+      resolve: async (parent, { where, data }, ctx) => {
+        return await ctx.prisma.updateSkillSelection({
+          where,
+          data,
+        });
+      },
+    });
+
     t.list.field('createSetSelections', {
       type: 'SetSelection',
       args: {
@@ -161,16 +176,23 @@ export const Mutation = mutationType({
       },
       resolve: async (
         parent,
-        { slots, traitDescriptions, glyphDescriptions, types, weaponTypes, setIds },
+        {
+          slots,
+          traitDescriptions,
+          glyphDescriptions,
+          types,
+          weaponTypes,
+          setIds,
+        },
         ctx
       ) => {
-        console.log(types, weaponTypes)
         return await slots.map(
           async (slot: string, index: number) =>
             await ctx.prisma.createSetSelection({
               slot,
               type: types && types[index] ? types[index] : '',
-              weaponType: weaponTypes && weaponTypes[index] ? weaponTypes[index] : '',
+              weaponType:
+                weaponTypes && weaponTypes[index] ? weaponTypes[index] : '',
               trait: traitDescriptions[index]
                 ? { connect: { description: traitDescriptions[index] } }
                 : undefined,
@@ -182,6 +204,19 @@ export const Mutation = mutationType({
                 : undefined,
             })
         );
+      },
+    });
+    t.field('updateSetSelection', {
+      type: 'SetSelection',
+      args: {
+        where: arg({ type: 'SetSelectionWhereUniqueInput' }),
+        data: arg({ type: 'SetSelectionUpdateInput' }),
+      },
+      resolve: async (parent, { where, data }, ctx) => {
+        return await ctx.prisma.updateSetSelection({
+          data,
+          where,
+        });
       },
     });
     /*
@@ -209,13 +244,23 @@ export const Mutation = mutationType({
         return ctx.prisma.deleteBuild({ id });
       },
     });
+    t.field('updateBuild', {
+      type: 'Build',
+      args: {
+        where: arg({ type: 'BuildWhereUniqueInput' }),
+        data: arg({ type: 'BuildUpdateInput' }),
+      },
+      resolve: async (parent, { where, data }, ctx) => {
+        return await ctx.prisma.updateBuild({ where, data });
+      },
+    });
 
     t.field('publishBuild', {
       type: 'Build',
       nullable: true,
       args: { id: idArg() },
-      resolve: (parent, { id }, ctx) => {
-        return ctx.prisma.updateBuild({
+      resolve: async (parent, { id }, ctx) => {
+        return await ctx.prisma.updateBuild({
           where: { id },
           data: { published: true },
         });
@@ -227,9 +272,9 @@ export const Mutation = mutationType({
       args: {
         data: arg({ type: 'RaidCreateInput' }),
       },
-      resolve: (parent, { data }, ctx) => {
+      resolve: async (parent, { data }, ctx) => {
         const userId = getUserId(ctx);
-        return ctx.prisma.createRaid({
+        return await ctx.prisma.createRaid({
           ...data,
           owner: { connect: { id: userId } },
         });
@@ -243,7 +288,7 @@ export const Mutation = mutationType({
         buildIds: idArg({ list: true }),
       },
       resolve: async (parent, { name, buildIds }, ctx) => {
-        return ctx.prisma.createRole({
+        return await ctx.prisma.createRole({
           name,
           builds: {
             connect: buildIds.map((id: string) => ({ id })),
