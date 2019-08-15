@@ -141,7 +141,7 @@ export const Mutation = mutationType({
             await ctx.prisma.createSkillSelection({
               index,
               skill:
-                skillIds[index] !== 0
+                skillIds && skillIds[index] !== 0
                   ? { connect: { skillId: skillIds[index] } }
                   : undefined,
             })
@@ -150,24 +150,27 @@ export const Mutation = mutationType({
     });
 
     t.list.field('createSetSelections', {
-      type: 'SkillSelection',
+      type: 'SetSelection',
       args: {
         slots: arg({ list: true, type: 'String' }),
         types: arg({ list: true, type: 'String' }),
+        weaponTypes: arg({ list: true, type: 'String' }),
         traitDescriptions: arg({ list: true, type: 'String' }),
         glyphDescriptions: arg({ list: true, type: 'String' }),
         setIds: arg({ list: true, type: 'Int' }),
       },
       resolve: async (
         parent,
-        { slots, traitDescriptions, glyphDescriptions, types, setIds },
+        { slots, traitDescriptions, glyphDescriptions, types, weaponTypes, setIds },
         ctx
       ) => {
+        console.log(types, weaponTypes)
         return await slots.map(
           async (slot: string, index: number) =>
             await ctx.prisma.createSetSelection({
               slot,
               type: types && types[index] ? types[index] : '',
+              weaponType: weaponTypes && weaponTypes[index] ? weaponTypes[index] : '',
               trait: traitDescriptions[index]
                 ? { connect: { description: traitDescriptions[index] } }
                 : undefined,

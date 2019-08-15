@@ -47,6 +47,7 @@ type SetSelection {
   icon: String
   slot: String
   type: String
+  weaponType: String
   selectedSet: Set
   trait: Modification @relation(name: "Trait")
   glyph: Modification @relation(name: "Glyph")
@@ -113,6 +114,8 @@ type Build {
   owner: User @relation(name: "BuildOwner")
   name: String
   applicationArea: String
+  description: String
+  mainResource: String
   role: String
   race: String
   esoClass: String
