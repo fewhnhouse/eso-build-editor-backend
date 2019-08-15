@@ -18,15 +18,6 @@ export const Query = queryType({
       },
     });
 
-    t.list.field('publishedBuilds', {
-      type: 'Build',
-      resolve: (parent, args, ctx) => {
-        return ctx.prisma.builds({
-          where: { published: true },
-        });
-      },
-    });
-
     t.list.field('modifications', {
       type: 'Modification',
       args: {
@@ -52,6 +43,14 @@ export const Query = queryType({
           after,
           before,
         });
+      },
+    });
+
+    t.list.field('set', {
+      type: 'Set',
+      args: { id: idArg(), setId: intArg() },
+      resolve: (parent, { id, setId }, ctx) => {
+        return ctx.prisma.skill({ id, setId });
       },
     });
 
@@ -83,11 +82,11 @@ export const Query = queryType({
       },
     });
 
-    t.list.field('set', {
-      type: 'Set',
-      args: { id: idArg(), setId: intArg() },
-      resolve: (parent, { id, setId }, ctx) => {
-        return ctx.prisma.skill({ id, setId });
+    t.field('skill', {
+      type: 'Skill',
+      args: { id: idArg(), skillId: intArg() },
+      resolve: (parent, { id, skillId }, ctx) => {
+        return ctx.prisma.skill({ id, skillId });
       },
     });
 
@@ -119,11 +118,11 @@ export const Query = queryType({
       },
     });
 
-    t.field('skill', {
-      type: 'Skill',
-      args: { id: idArg(), skillId: intArg() },
-      resolve: (parent, { id, skillId }, ctx) => {
-        return ctx.prisma.skill({ id, skillId });
+    t.field('mundusStone', {
+      type: 'MundusStone',
+      args: { name: stringArg() },
+      resolve: (parent, { name }, ctx) => {
+        return ctx.prisma.mundusStone({ name });
       },
     });
 
@@ -155,11 +154,11 @@ export const Query = queryType({
       },
     });
 
-    t.field('mundusStone', {
-      type: 'MundusStone',
+    t.field('buff', {
+      type: 'Buff',
       args: { name: stringArg() },
       resolve: (parent, { name }, ctx) => {
-        return ctx.prisma.mundusStone({ name });
+        return ctx.prisma.buff({ name });
       },
     });
 
@@ -191,21 +190,12 @@ export const Query = queryType({
       },
     });
 
-    t.field('buff', {
-      type: 'Buff',
-      args: { name: stringArg() },
-      resolve: (parent, { name }, ctx) => {
-        return ctx.prisma.buff({ name });
-      },
-    });
-
-    t.list.field('buildsByUser', {
+    t.field('build', {
       type: 'Build',
-      args: {
-        id: idArg(),
-      },
+      nullable: true,
+      args: { id: idArg() },
       resolve: (parent, { id }, ctx) => {
-        return ctx.prisma.user({ id }).builds();
+        return ctx.prisma.build({ id });
       },
     });
 
@@ -237,21 +227,6 @@ export const Query = queryType({
       },
     });
 
-    t.field('build', {
-      type: 'Build',
-      nullable: true,
-      args: { id: idArg() },
-      resolve: (parent, { id }, ctx) => {
-        return ctx.prisma.build({ id });
-      },
-    });
-
-    t.list.field('users', {
-      type: 'User',
-      resolve: (parent, args, ctx) => {
-        return ctx.prisma.users();
-      },
-    });
     t.field('raid', {
       type: 'Raid',
       args: { id: idArg() },
@@ -259,6 +234,7 @@ export const Query = queryType({
         return ctx.prisma.raid({ id });
       },
     });
+
     t.list.field('raids', {
       type: 'Raid',
       args: {

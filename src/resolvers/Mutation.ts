@@ -129,7 +129,36 @@ export const Mutation = mutationType({
         });
       },
     });
+    t.field('deleteBuild', {
+      type: 'Build',
+      nullable: true,
+      args: { id: idArg() },
+      resolve: (parent, { id }, ctx) => {
+        return ctx.prisma.deleteBuild({ id });
+      },
+    });
+    t.field('updateBuild', {
+      type: 'Build',
+      args: {
+        where: arg({ type: 'BuildWhereUniqueInput' }),
+        data: arg({ type: 'BuildUpdateInput' }),
+      },
+      resolve: async (parent, { where, data }, ctx) => {
+        return await ctx.prisma.updateBuild({ where, data });
+      },
+    });
 
+    t.field('publishBuild', {
+      type: 'Build',
+      nullable: true,
+      args: { id: idArg() },
+      resolve: async (parent, { id }, ctx) => {
+        return await ctx.prisma.updateBuild({
+          where: { id },
+          data: { published: true },
+        });
+      },
+    });
     t.list.field('createSkillSelections', {
       type: 'SkillSelection',
       args: {
@@ -219,53 +248,6 @@ export const Mutation = mutationType({
         });
       },
     });
-    /*
-    t.field('createDraft', {
-      type: 'Build',
-      args: {
-        title: stringArg(),
-        content: stringArg({ nullable: true }),
-      },
-      resolve: (parent, { title, content }, ctx) => {
-        const userId = getUserId(ctx);
-        return ctx.prisma.createBuild({
-          title,
-          content,
-          author: { connect: { id: userId } },
-        });
-      },
-    });
-*/
-    t.field('deleteBuild', {
-      type: 'Build',
-      nullable: true,
-      args: { id: idArg() },
-      resolve: (parent, { id }, ctx) => {
-        return ctx.prisma.deleteBuild({ id });
-      },
-    });
-    t.field('updateBuild', {
-      type: 'Build',
-      args: {
-        where: arg({ type: 'BuildWhereUniqueInput' }),
-        data: arg({ type: 'BuildUpdateInput' }),
-      },
-      resolve: async (parent, { where, data }, ctx) => {
-        return await ctx.prisma.updateBuild({ where, data });
-      },
-    });
-
-    t.field('publishBuild', {
-      type: 'Build',
-      nullable: true,
-      args: { id: idArg() },
-      resolve: async (parent, { id }, ctx) => {
-        return await ctx.prisma.updateBuild({
-          where: { id },
-          data: { published: true },
-        });
-      },
-    });
 
     t.field('createRaid', {
       type: 'Raid',
@@ -281,6 +263,25 @@ export const Mutation = mutationType({
       },
     });
 
+    t.field('updateRaid', {
+      type: 'Raid',
+      args: {
+        where: arg({ type: 'RaidWhereUniqueInput' }),
+        data: arg({ type: 'RaidUpdateInput' }),
+      },
+      resolve: async (parent, { where, data }, ctx) => {
+        return await ctx.prisma.updateRaid({ where, data });
+      },
+    });
+    t.field('deleteRaid', {
+      type: 'Raid',
+      args: {
+        id: idArg(),
+      },
+      resolve: async (parent, { id }, ctx) => {
+        return await ctx.prisma.deleteRaid({ id });
+      },
+    });
     t.field('createRole', {
       type: 'Role',
       args: {
@@ -294,6 +295,16 @@ export const Mutation = mutationType({
             connect: buildIds.map((id: string) => ({ id })),
           },
         });
+      },
+    });
+    t.field('updateRole', {
+      type: 'Role',
+      args: {
+        where: arg({ type: 'RoleWhereUniqueInput' }),
+        data: arg({ type: 'RoleUpdateInput' }),
+      },
+      resolve: async (parent, { where, data }, ctx) => {
+        return await ctx.prisma.updateRole({ where, data });
       },
     });
   },

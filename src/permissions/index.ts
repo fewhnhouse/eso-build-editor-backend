@@ -11,6 +11,11 @@ const rules = {
     const owner = await context.prisma.build({ id }).owner();
     return userId === owner.id;
   }),
+  isRaidOwner: rule()(async (parent, { id }, context) => {
+    const userId = getUserId(context);
+    const owner = await context.prisma.raid({ id }).owner();
+    return userId === owner.id;
+  }),
   canViewRaid: rule()(async (parent, { id }, context) => {
     const userId = getUserId(context);
     const canView = await context.prisma.raid({ id }).canView();
@@ -21,19 +26,22 @@ const rules = {
 export const permissions = shield({
   Query: {
     me: rules.isAuthenticatedUser,
-    publishedBuilds: rules.isAuthenticatedUser,
     builds: rules.isAuthenticatedUser,
     build: rules.isAuthenticatedUser,
     raid: rules.isAuthenticatedUser,
     raids: rules.isAuthenticatedUser,
   },
   Mutation: {
+    createRaid: rules.isAuthenticatedUser,
+    updateRaid: rules.isRaidOwner,
+    deleteRaid: rules.isRaidOwner,
     createBuild: rules.isAuthenticatedUser,
+    updateBuild: rules.isBuildOwner,
+    deleteBuild: rules.isBuildOwner,
     createSkillSelections: rules.isAuthenticatedUser,
     createSetSelections: rules.isAuthenticatedUser,
-    createRaid: rules.isAuthenticatedUser,
     createRole: rules.isAuthenticatedUser,
-    deleteBuild: rules.isBuildOwner,
+    updateRole: rules.isAuthenticatedUser,
     publishBuild: rules.isBuildOwner,
   },
 });
