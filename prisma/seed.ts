@@ -233,6 +233,11 @@ async function users() {
     name: 'Kaisa',
     password: '$2b$10$o6KioO.taArzboM44Ig85O3ZFZYZpR3XD7mI8T29eP4znU/.xyJbW', // "secret43"
   });
+  await prisma.createUser({
+    email: 'fist@prisma.io',
+    name: 'Fist',
+    password: '$2a$10$UvmfHvGKLz5gNydXKbq7Uelmdljes0RbpEB6rXeB.VnakznLfv6GG',
+  })
 }
 
 mundus();
