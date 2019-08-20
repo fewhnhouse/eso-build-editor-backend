@@ -34,6 +34,6 @@
     "@types/node": "10.14.14",
     "@types/ws": "6.0.1",
     "ts-node-dev": "1.0.0-pre.40",
-    "typescript": "^3.5.3"
+    "typescript": "^3.4.5"
   }
 }
