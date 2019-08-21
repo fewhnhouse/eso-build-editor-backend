@@ -68,7 +68,7 @@ const opts = {
   port: process.env.PORT || 4000,
   cors: {
     credentials: true,
-    origin: ["http://localhost:3000"] // your frontend url.
+    origin: ["https://eso-build-editor.fewhnhouse.de"] // your frontend url.
   }
 };
 
