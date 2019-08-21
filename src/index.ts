@@ -65,11 +65,11 @@ server.express.use(function (req, res, next) {
 });
 */
 const opts = {
-  port: 4000,
+  port: process.env.PORT || 4000,
   cors: {
     credentials: true,
     origin: ["http://localhost:3000"] // your frontend url.
   }
 };
 
-server.start(opts, () => console.log(`🚀 Server ready at http://localhost:4000`))
+server.start(opts, () => console.log(`🚀 Server ready at ${opts.port}`))
