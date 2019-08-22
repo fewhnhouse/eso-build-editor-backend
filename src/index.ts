@@ -68,7 +68,7 @@ const opts = {
   port: process.env.PORT || 4000,
   cors: {
     credentials: true,
-    origin: [process.env.FRONTEND_ORIGIN] // your frontend url.
+    origin: [process.env.FRONTEND_ORIGIN.split(",")] // your frontend url.
   }
 };
 
