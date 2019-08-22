@@ -31,7 +31,7 @@ export const Query = queryType({
       },
       resolve: (
         parent,
-        { where, orderBy, first, last, skip, after, before },
+        { where, orderBy, first, last, skip, after, before }: any,
         ctx
       ) => {
         return ctx.prisma.modifications({
@@ -53,14 +53,6 @@ export const Query = queryType({
       },
     });
 
-    t.list.field('set', {
-      type: 'Set',
-      args: { id: idArg(), setId: intArg() },
-      resolve: (parent, { id, setId }, ctx) => {
-        return ctx.prisma.skill({ id, setId });
-      },
-    });
-
     t.list.field('sets', {
       type: 'Set',
       args: {
@@ -74,7 +66,7 @@ export const Query = queryType({
       },
       resolve: (
         parent,
-        { where, orderBy, first, last, skip, after, before },
+        { where, orderBy, first, last, skip, after, before }: any,
         ctx
       ) => {
         return ctx.prisma.sets({
@@ -110,7 +102,7 @@ export const Query = queryType({
       },
       resolve: (
         parent,
-        { where, orderBy, first, last, skip, after, before },
+        { where, orderBy, first, last, skip, after, before }: any,
         ctx
       ) => {
         return ctx.prisma.skills({
@@ -146,7 +138,7 @@ export const Query = queryType({
       },
       resolve: (
         parent,
-        { where, orderBy, first, last, skip, after, before },
+        { where, orderBy, first, last, skip, after, before }: any,
         ctx
       ) => {
         return ctx.prisma.mundusStones({
@@ -182,7 +174,7 @@ export const Query = queryType({
       },
       resolve: (
         parent,
-        { where, orderBy, first, last, skip, after, before },
+        { where, orderBy, first, last, skip, after, before }: any,
         ctx
       ) => {
         return ctx.prisma.buffs({
@@ -224,7 +216,7 @@ export const Query = queryType({
       ) => {
         const userId = getUserId(ctx)
         return ctx.prisma.builds({
-          where: { ...where, OR: [{published: true}, {owner: {id: userId}}] },
+          where: { ...where, OR: [{ published: true }, { owner: { id: userId } }] },
           orderBy,
           first,
           last,

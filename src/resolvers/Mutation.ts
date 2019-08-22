@@ -1,9 +1,10 @@
-import { SkillSelectionUpdateDataInput } from './../generated/nexus-prisma/nexus-prisma';
+import { SkillSelectionUpdateDataInput, BuildWhereUniqueInput, BuildUpdateInput, } from './../generated/nexus-prisma/nexus-prisma';
 import { stringArg, idArg, mutationType, arg, intArg } from 'nexus';
 import { hash, compare } from 'bcryptjs';
 import { APP_SECRET, getUserId } from '../utils';
 import { sign } from 'jsonwebtoken';
 import { setApiKey, send } from '@sendgrid/mail';
+import { AtLeastOne, ID_Input, } from '../generated/prisma-client';
 const crypto = require('crypto-random-string');
 
 export const Mutation = mutationType({
@@ -22,7 +23,7 @@ export const Mutation = mutationType({
           .verification({ token })
           .user();
         if (!verificationUser) {
-          return new Error('Invalid token.');
+          throw new Error('Invalid token.');
         }
         const user = await ctx.prisma.updateUser({
           data: { verified: true },
@@ -34,7 +35,7 @@ export const Mutation = mutationType({
             user,
           };
         } else {
-          return new Error('Invalid token.');
+          throw new Error('Invalid token.');
         }
       },
     });
@@ -128,11 +129,11 @@ export const Mutation = mutationType({
       args: {
         data: arg({ type: 'BuildCreateInput' }),
       },
-      resolve: async (parent, { data }, ctx) => {
+      resolve: async (parent, { data }: any, ctx) => {
         const userId = getUserId(ctx);
         return await ctx.prisma.createBuild({
           ...data,
-          owner: { connect: { id: userId } },
+          owner: { connect: [{ id: userId }] },
         });
       },
     });
@@ -150,9 +151,7 @@ export const Mutation = mutationType({
         where: arg({ type: 'BuildWhereUniqueInput' }),
         data: arg({ type: 'BuildUpdateInput' }),
       },
-      resolve: async (parent, { where, data }, ctx) => {
-        return await ctx.prisma.updateBuild({ where, data });
-      },
+      resolve: async (parent, { where, data }: any, ctx) => await ctx.prisma.updateBuild({ where, data }),
     });
 
     t.field('publishBuild', {
@@ -196,7 +195,7 @@ export const Mutation = mutationType({
         where: arg({ type: 'SkillSelectionWhereUniqueInput' }),
         data: arg({ type: 'SkillSelectionUpdateInput' }),
       },
-      resolve: async (parent, { where, data }, ctx) => {
+      resolve: async (parent, { where, data }: any, ctx) => {
         return await ctx.prisma.updateSkillSelection({
           where,
           data,
@@ -254,7 +253,7 @@ export const Mutation = mutationType({
         where: arg({ type: 'SetSelectionWhereUniqueInput' }),
         data: arg({ type: 'SetSelectionUpdateInput' }),
       },
-      resolve: async (parent, { where, data }, ctx) => {
+      resolve: async (parent, { where, data }: any, ctx) => {
         return await ctx.prisma.updateSetSelection({
           data,
           where,
@@ -269,7 +268,7 @@ export const Mutation = mutationType({
       args: {
         data: arg({ type: 'RaidCreateInput' }),
       },
-      resolve: async (parent, { data }, ctx) => {
+      resolve: async (parent, { data }: any, ctx) => {
         const userId = getUserId(ctx);
         return await ctx.prisma.createRaid({
           ...data,
@@ -284,7 +283,7 @@ export const Mutation = mutationType({
         where: arg({ type: 'RaidWhereUniqueInput' }),
         data: arg({ type: 'RaidUpdateInput' }),
       },
-      resolve: async (parent, { where, data }, ctx) => {
+      resolve: async (parent, { where, data }: any, ctx) => {
         return await ctx.prisma.updateRaid({ where, data });
       },
     });

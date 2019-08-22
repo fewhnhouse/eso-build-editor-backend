@@ -64,7 +64,7 @@ server.express.use(function (req, res, next) {
   next();
 });
 */
-const opts = {
+const opts: any = {
   port: process.env.PORT || 4000,
   cors: {
     credentials: true,

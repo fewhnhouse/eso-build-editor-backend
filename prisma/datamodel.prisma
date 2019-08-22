@@ -139,7 +139,13 @@ type Build {
 type Role {
   id: ID! @id
   name: String
-  builds: [Build!]!
+  builds: [SortedBuild!]!
+}
+
+type SortedBuild {
+  id: ID! @id
+  index: Int!
+  build: Build!
 }
 
 type Raid {
