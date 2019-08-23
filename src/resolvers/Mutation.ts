@@ -1,10 +1,8 @@
-import { SkillSelectionUpdateDataInput, BuildWhereUniqueInput, BuildUpdateInput, } from './../generated/nexus-prisma/nexus-prisma';
 import { stringArg, idArg, mutationType, arg, intArg } from 'nexus';
 import { hash, compare } from 'bcryptjs';
 import { APP_SECRET, getUserId } from '../utils';
 import { sign } from 'jsonwebtoken';
 import { setApiKey, send } from '@sendgrid/mail';
-import { AtLeastOne, ID_Input, } from '../generated/prisma-client';
 const crypto = require('crypto-random-string');
 
 export const Mutation = mutationType({
@@ -66,9 +64,8 @@ export const Mutation = mutationType({
           from: 'noreply@buildeditor.com',
           subject: 'Verification Email ESO Build Editor',
           text:
-            'Copy this link to your browser to verify your account:http://localhost:3000/verify/' +
-            token,
-          html: `<strong>Click this link to verify your account:<a href="http://localhost:3000/verify/${token}">Link</a> </strong>`,
+            `Copy this link to your browser to verify your account: ${process.env.VERIFY_URL}/verify/${token}`,
+          html: `<strong>Click this link to verify your account:<a href="${process.env.VERIFY_URL}/verify/${token}">Link</a> </strong>`,
         };
         await send(msg);
 
@@ -133,7 +130,7 @@ export const Mutation = mutationType({
         const userId = getUserId(ctx);
         return await ctx.prisma.createBuild({
           ...data,
-          owner: { connect: [{ id: userId }] },
+          owner: { connect: { id: userId } },
         });
       },
     });
