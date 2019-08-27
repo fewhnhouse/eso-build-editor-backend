@@ -1,3 +1,4 @@
-# npm run build
-sudo docker build . --tag eso-build-backend
-sudo docker-compose up -d
+rm -r dist/
+npm run build
+docker build . --tag eso-build-backend
+docker-compose up -d

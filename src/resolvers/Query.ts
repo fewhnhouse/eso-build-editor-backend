@@ -211,7 +211,7 @@ export const Query = queryType({
       },
       resolve: (
         parent,
-        { where, orderBy, first, last, skip, after, before },
+        { where, orderBy, first, last, skip, after, before }: any,
         ctx
       ) => {
         const userId = getUserId(ctx)
