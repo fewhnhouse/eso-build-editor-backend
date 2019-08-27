@@ -124,15 +124,15 @@ type Build {
   stamina: Int
   magicka: Int
   health: Int
-  bigPieceSelection: [SetSelection!]! @relation(name: "Bigpieces")
-  smallPieceSelection: [SetSelection!]! @relation(name: "Smallpieces")
-  jewelrySelection: [SetSelection!]! @relation(name: "Jewelry")
-  frontbarSelection: [SetSelection!]! @relation(name: "Frontbar")
-  backbarSelection: [SetSelection!]! @relation(name: "Backbar")
-  newBarOne: [SkillSelection!]! @relation(name: "NewBarOne")
-  newBarTwo: [SkillSelection!]! @relation(name: "NewBarTwo")
+  bigPieceSelection: [SetSelection!]! @relation(name: "Bigpieces", onDelete: CASCADE)
+  smallPieceSelection: [SetSelection!]! @relation(name: "Smallpieces", onDelete: CASCADE)
+  jewelrySelection: [SetSelection!]! @relation(name: "Jewelry", onDelete: CASCADE)
+  frontbarSelection: [SetSelection!]! @relation(name: "Frontbar", onDelete: CASCADE)
+  backbarSelection: [SetSelection!]! @relation(name: "Backbar", onDelete: CASCADE)
+  newBarOne: [SkillSelection!]! @relation(name: "NewBarOne", onDelete: CASCADE)
+  newBarTwo: [SkillSelection!]! @relation(name: "NewBarTwo", onDelete: CASCADE)
   ultimateOne: Skill @relation(name: "UltimateOne")
-  ultimateTwo: Skill @relation(name: "UltimateTwo")
+  ultimateTwo: Skill @relation(name: "UltimateTwo", onDelete: CASCADE)
   mundusStone: MundusStone
   buff: Buff
 }
@@ -160,5 +160,5 @@ type Raid {
   published: Boolean! @default(value: false)
   canEdit: [User!]! @relation(name: "CanEdit")
   canView: [User!]! @relation(name: "CanView")
-  roles: [Role!]! @relation(name: "RaidRoles")
+  roles: [Role!]! @relation(name: "RaidRoles", onDelete: CASCADE)
 }
