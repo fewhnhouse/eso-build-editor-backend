@@ -115,14 +115,15 @@ type Build {
   name: String
   applicationArea: String
   description: String
-  mainResource: String
   role: String
   race: String
   esoClass: String
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   published: Boolean! @default(value: false)
-
+  stamina: Int
+  magicka: Int
+  health: Int
   bigPieceSelection: [SetSelection!]! @relation(name: "Bigpieces")
   smallPieceSelection: [SetSelection!]! @relation(name: "Smallpieces")
   jewelrySelection: [SetSelection!]! @relation(name: "Jewelry")
