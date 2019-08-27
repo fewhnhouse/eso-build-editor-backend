@@ -14,8 +14,8 @@ type User {
   password: String!
   name: String
   verified: Boolean! @default(value: false)
-  builds: [Build!]! @relation(name: "BuildOwner")
-  raids: [Raid!]! @relation(name: "RaidOwner")
+  builds: [Build!]! @relation(name: "BuildOwner", onDelete: CASCADE)
+  raids: [Raid!]! @relation(name: "RaidOwner", onDelete: CASCADE)
 }
 
 type MundusStone {
