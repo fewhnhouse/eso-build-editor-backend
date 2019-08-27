@@ -98,9 +98,19 @@ export const Mutation = mutationType({
 
     t.field('deleteAccount', {
       type: 'User',
-      resolve: async (parent, args, context) => {
+      args: {
+        oldPassword: stringArg()
+      },
+      resolve: async (parent, { oldPassword }, context) => {
         const userId = await getUserId(context)
-        await context.prisma.deleteUser({ id: userId })
+        const user = await prisma.user({ id: userId })
+        const oldPasswordValid = await compare(oldPassword, user.password);
+        if (oldPasswordValid) {
+          await context.prisma.deleteUser({ id: userId })
+          return user
+        } else {
+          throw new Error('Invalid password')
+        }
       }
     })
 
