@@ -3,6 +3,7 @@ import { hash, compare } from 'bcryptjs';
 import { APP_SECRET, getUserId } from '../utils';
 import { sign } from 'jsonwebtoken';
 import { setApiKey, send } from '@sendgrid/mail';
+import { prisma } from '../generated/prisma-client';
 const crypto = require('crypto-random-string');
 
 export const Mutation = mutationType({
@@ -94,6 +95,86 @@ export const Mutation = mutationType({
         };
       },
     });
+
+    t.field('deleteAccount', {
+      type: 'User',
+      resolve: async (parent, args, context) => {
+        const userId = await getUserId(context)
+        await context.prisma.deleteUser({ id: userId })
+      }
+    })
+
+    t.field('updateEmail', {
+      type: 'User',
+      args: {
+        newEmail: stringArg(),
+        oldPassword: stringArg()
+      },
+      resolve: async (parent, { newEmail, oldPassword }: any, context) => {
+        const userId = await getUserId(context)
+        const user = await prisma.user({ id: userId })
+        if (!user) {
+          throw new Error(`No user found`);
+        }
+        const oldPasswordValid = await compare(oldPassword, user.password);
+        if (oldPasswordValid) {
+          const user = await context.prisma.updateUser({
+            where: {
+              id: userId
+            }, data: {
+              email: newEmail,
+              verified: false,
+            }
+          });
+
+          const token = crypto({ length: 32 });
+          await context.prisma.createVerification({
+            token,
+            user: { connect: { id: user.id } },
+          });
+          setApiKey(process.env.SENDGRID_API_KEY);
+          const msg = {
+            to: newEmail,
+            from: 'noreply@buildeditor.com',
+            subject: 'Verification Email ESO Build Editor',
+            text:
+              `Copy this link to your browser to verify your account: ${process.env.VERIFY_URL}/verify/${token}`,
+            html: `<strong>Click this link to verify your account:<a href="${process.env.VERIFY_URL}/verify/${token}">Link</a> </strong>`,
+          };
+          await send(msg);
+
+          return user;
+        } else {
+          throw new Error(`Invalid password.`)
+        }
+      }
+    })
+
+    t.field('updatePassword', {
+      type: 'User',
+      args: {
+        newPassword: stringArg(),
+        oldPassword: stringArg()
+      },
+      resolve: async (parent, { newPassword, oldPassword }, context) => {
+        const userId = await getUserId(context)
+        const user = await prisma.user({ id: userId })
+        if (!user) {
+          throw new Error(`No user found`);
+        }
+        const oldPasswordValid = await compare(oldPassword, user.password);
+        if (oldPasswordValid) {
+          const hashedPassword = await hash(newPassword, 10)
+          return await context.prisma.updateUser({
+            where: { id: userId }, data: {
+              password: hashedPassword
+            }
+          })
+        } else {
+          throw new Error(`Invalid password.`)
+        }
+      }
+    })
 
     /**
      * BUILDS
