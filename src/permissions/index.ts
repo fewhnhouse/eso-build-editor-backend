@@ -13,7 +13,7 @@ const rules = {
     if (published) {
       return true;
     } else {
-      return userId === owner;
+      return userId === owner.id;
     }
   }),
   canViewRaid: rule()(async (parent, { id }, context) => {
