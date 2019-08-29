@@ -4,7 +4,7 @@
 type Verification {
   id: ID! @id
   token: String! @unique
-  user: User! @relation(name: "VerificationUser")
+  userId: ID! @unique
 }
 
 

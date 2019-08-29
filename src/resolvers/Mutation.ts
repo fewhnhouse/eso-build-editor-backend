@@ -18,15 +18,14 @@ export const Mutation = mutationType({
       },
       resolve: async (parent, { token }, ctx) => {
         // get user by verificationToken
-        const verificationUser = await ctx.prisma
+        const { userId } = await ctx.prisma
           .verification({ token })
-          .user();
-        if (!verificationUser) {
+        if (!userId) {
           throw new Error('Invalid token.');
         }
         const user = await ctx.prisma.updateUser({
           data: { verified: true },
-          where: { id: verificationUser.id },
+          where: { id: userId },
         });
         if (user) {
           return {
@@ -57,7 +56,7 @@ export const Mutation = mutationType({
         const token = crypto({ length: 32 });
         await ctx.prisma.createVerification({
           token,
-          user: { connect: { id: user.id } },
+          userId: user.id
         });
         setApiKey(process.env.SENDGRID_API_KEY);
         const msg = {
@@ -117,6 +116,30 @@ export const Mutation = mutationType({
       }
     })
 
+    t.field('resendVerification', {
+      type: 'User',
+      resolve: async (parent, args, context) => {
+        const userId = await getUserId(context)
+        const user = await context.prisma.user({ id: userId })
+        const { email } = user;
+        const { token } = await context.prisma
+          .verification({ userId })
+
+        setApiKey(process.env.SENDGRID_API_KEY);
+        const msg = {
+          to: email,
+          from: 'noreply@buildeditor.com',
+          subject: 'Verification Email ESO Build Editor',
+          text:
+            `Copy this link to your browser to verify your account: ${process.env.VERIFY_URL}/verify/${token}`,
+          html: `<strong>Click this link to verify your account:<a href="${process.env.VERIFY_URL}/verify/${token}">Link</a> </strong>`,
+        };
+        await send(msg);
+
+        return user;
+      }
+    })
+
     t.field('updateEmail', {
       type: 'User',
       args: {
@@ -141,10 +164,11 @@ export const Mutation = mutationType({
           });
 
           const token = crypto({ length: 32 });
-          await context.prisma.createVerification({
-            token,
-            user: { connect: { id: user.id } },
-          });
+          await context.prisma.updateVerification({
+            where: { userId }, data: {
+              token,
+            }
+          })
           setApiKey(process.env.SENDGRID_API_KEY);
           const msg = {
             to: newEmail,
