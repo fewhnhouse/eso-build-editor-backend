@@ -6,35 +6,48 @@ const rules = {
     const userId = getUserId(context);
     return Boolean(userId);
   }),
-  isBuildOwner: rule()(async (parent, { id }, context) => {
+  canViewBuild: rule()(async (parent, { id }, context) => {
+    const userId = getUserId(context);
+    const { published } = await context.prisma.build({ id })
+    const owner = await context.prisma.build({ id }).owner();
+    if (published) {
+      return true;
+    } else {
+      return userId === owner;
+    }
+  }),
+  canViewRaid: rule()(async (parent, { id }, context) => {
+    const userId = getUserId(context);
+    //const { published } = await context.prisma.raid({ id })
+    const owner = await context.prisma.raid({ id }).owner();
+    if (/*TODO published*/ false) {
+
+    } else {
+      const canView = await context.prisma.raid({ id }).canView();
+      return canView.find((user: any) => user.id === userId) || userId === owner.id;
+    }
+  }),
+  canDeleteBuild: rule()(async (parent, { id }, context) => {
     const userId = getUserId(context);
     const owner = await context.prisma.build({ id }).owner();
     return userId === owner.id;
   }),
-  isRaidOwner: rule()(async (parent, { id }, context) => {
+  canDeleteRaid: rule()(async (parent, { id }, context) => {
     const userId = getUserId(context);
     const owner = await context.prisma.raid({ id }).owner();
-    console.log(owner, userId);
     return userId === owner.id;
   }),
   canUpdateRaid: rule()(async (parent, { where }, context) => {
     const userId = getUserId(context);
+    const canEdit = await context.prisma.raid({ id: where.id }).canEdit();
     const owner = await context.prisma.raid({ id: where.id }).owner();
-    console.log(owner, userId);
-    return userId === owner.id;
+    return canEdit.find((user: any) => user.id === userId) || userId === owner.id;
   }),
 
   canUpdateBuild: rule()(async (parent, { where }, context) => {
     const userId = getUserId(context);
     const owner = await context.prisma.build({ id: where.id }).owner();
-    console.log(owner, userId);
     return userId === owner.id;
-  }),
-
-  canViewRaid: rule()(async (parent, { id }, context) => {
-    const userId = getUserId(context);
-    const canView = await context.prisma.raid({ id }).canView();
-    return canView.find((user: any) => user.id === userId);
   }),
 };
 
@@ -43,19 +56,18 @@ export const permissions = shield({
     me: rules.isAuthenticatedUser,
     users: rules.isAuthenticatedUser,
     builds: rules.isAuthenticatedUser,
-    build: rules.isAuthenticatedUser,
-    raid: rules.isAuthenticatedUser,
+    build: rules.canViewBuild,
+    raid: rules.canViewRaid,
     raids: rules.isAuthenticatedUser,
   },
   Mutation: {
     createRaid: rules.isAuthenticatedUser,
     updateRaid: rules.canUpdateRaid,
-    deleteRaid: rules.isRaidOwner,
+    deleteRaid: rules.canDeleteRaid,
     createBuild: rules.isAuthenticatedUser,
     updateBuild: rules.canUpdateBuild,
-    deleteBuild: rules.isBuildOwner,
+    deleteBuild: rules.canDeleteBuild,
     createSkillSelections: rules.isAuthenticatedUser,
     createSetSelections: rules.isAuthenticatedUser,
-    publishBuild: rules.isBuildOwner,
   },
 });
