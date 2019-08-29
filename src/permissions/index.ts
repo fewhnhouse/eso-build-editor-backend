@@ -18,13 +18,13 @@ const rules = {
   }),
   canViewRaid: rule()(async (parent, { id }, context) => {
     const userId = getUserId(context);
-    //const { published } = await context.prisma.raid({ id })
+    const { published } = await context.prisma.raid({ id })
     const owner = await context.prisma.raid({ id }).owner();
-    if (/*TODO published*/ false) {
-
+    if (published) {
+      return true;
     } else {
-      const canView = await context.prisma.raid({ id }).canView();
-      return canView.find((user: any) => user.id === userId) || userId === owner.id;
+      // const canView = await context.prisma.raid({ id }).canView();
+      return /*canView.find((user: any) => user.id === userId) ||*/ userId === owner.id;
     }
   }),
   canDeleteBuild: rule()(async (parent, { id }, context) => {
