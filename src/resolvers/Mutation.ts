@@ -122,9 +122,6 @@ export const Mutation = mutationType({
         const userId = await getUserId(context)
         const user = await context.prisma.user({ id: userId })
         const { email } = user;
-        const { token } = await context.prisma
-          .verification({ userId })
-
         const sendMail = async (token: string) => {
           setApiKey(process.env.SENDGRID_API_KEY);
           const msg = {
@@ -137,14 +134,18 @@ export const Mutation = mutationType({
           };
           return await send(msg);
         }
-        if (!token) {
+        try {
+
+          const { token } = await context.prisma
+            .verification({ userId })
+          await sendMail(token)
+        } catch (e) {
+
           const token = crypto({ length: 32 });
           await context.prisma.createVerification({
             token,
             userId
           });
-          await sendMail(token)
-        } else {
           await sendMail(token)
         }
         return user;
