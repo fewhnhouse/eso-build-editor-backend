@@ -103,7 +103,10 @@ export const Mutation = mutationType({
       },
       resolve: async (parent, { oldPassword }, context) => {
         const userId = await getUserId(context)
-        const user = await prisma.user({ id: userId })
+        const user = await context.prisma.user({ id: userId })
+        if (!user) {
+          throw new Error(`No user found`);
+        }
         const oldPasswordValid = await compare(oldPassword, user.password);
         if (oldPasswordValid) {
           await context.prisma.deleteUser({ id: userId })
@@ -122,7 +125,7 @@ export const Mutation = mutationType({
       },
       resolve: async (parent, { newEmail, oldPassword }: any, context) => {
         const userId = await getUserId(context)
-        const user = await prisma.user({ id: userId })
+        const user = await context.prisma.user({ id: userId })
         if (!user) {
           throw new Error(`No user found`);
         }
@@ -168,7 +171,7 @@ export const Mutation = mutationType({
       },
       resolve: async (parent, { newPassword, oldPassword }, context) => {
         const userId = await getUserId(context)
-        const user = await prisma.user({ id: userId })
+        const user = await context.prisma.user({ id: userId })
         if (!user) {
           throw new Error(`No user found`);
         }
