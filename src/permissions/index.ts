@@ -49,6 +49,7 @@ const rules = {
     const owner = await context.prisma.build({ id: where.id }).owner();
     return userId === owner.id;
   }),
+
 };
 
 export const permissions = shield({
@@ -72,4 +73,10 @@ export const permissions = shield({
     createSkillSelections: rules.isAuthenticatedUser,
     createSetSelections: rules.isAuthenticatedUser,
   },
+  Subscription: {
+    buildUpdateSubscription: rules.canViewBuild,
+    raidUpdateSubscription: rules.canViewRaid,
+    buildCreateSubscription: rules.isAuthenticatedUser,
+    raidCreateSubscription: rules.isAuthenticatedUser
+  }
 });
