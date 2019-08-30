@@ -1,6 +1,6 @@
 import { stringArg, idArg, mutationType, arg, intArg } from 'nexus';
 import { hash, compare } from 'bcryptjs';
-import { APP_SECRET, getUserId } from '../utils';
+import { getUserId } from '../utils';
 import { sign } from 'jsonwebtoken';
 import { setApiKey, send } from '@sendgrid/mail';
 import { prisma } from '../generated/prisma-client';
@@ -29,7 +29,7 @@ export const Mutation = mutationType({
         });
         if (user) {
           return {
-            token: sign({ userId: user.id }, APP_SECRET),
+            token: sign({ userId: user.id }, process.env.APP_SECRET),
             user,
           };
         } else {
@@ -89,7 +89,7 @@ export const Mutation = mutationType({
           throw new Error('Invalid password');
         }
         return {
-          token: sign({ userId: user.id }, APP_SECRET),
+          token: sign({ userId: user.id }, process.env.APP_SECRET),
           user,
         };
       },

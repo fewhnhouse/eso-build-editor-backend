@@ -7,12 +7,15 @@ const rules = {
     return Boolean(userId);
   }),
   canViewBuild: rule()(async (parent, { id }, context) => {
+    console.log("view:", id)
     const userId = getUserId(context);
     const { published } = await context.prisma.build({ id })
     const owner = await context.prisma.build({ id }).owner();
     if (published) {
       return true;
     } else {
+      console.log("view:", userId === owner.id)
+
       return userId === owner.id;
     }
   }),
