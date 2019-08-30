@@ -56,9 +56,11 @@ export const permissions = shield({
     me: rules.isAuthenticatedUser,
     users: rules.isAuthenticatedUser,
     builds: rules.isAuthenticatedUser,
+    ownBuilds: rules.isAuthenticatedUser,
     build: rules.canViewBuild,
     raid: rules.canViewRaid,
     raids: rules.isAuthenticatedUser,
+    ownRaids: rules.isAuthenticatedUser
   },
   Mutation: {
     createRaid: rules.isAuthenticatedUser,
