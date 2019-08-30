@@ -227,6 +227,36 @@ export const Query = queryType({
       },
     });
 
+    t.list.field('ownBuilds', {
+      type: 'Build',
+      args: {
+        where: arg({ type: 'BuildWhereInput' }),
+        orderBy: arg({ type: 'BuildOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
+        const userId = getUserId(ctx)
+        return ctx.prisma.builds({
+          where: { ...where, owner: { id: userId } },
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+      },
+    });
+
+
     t.field('raid', {
       type: 'Raid',
       args: { id: idArg() },
@@ -256,8 +286,40 @@ export const Query = queryType({
         return ctx.prisma.raids({
           where: {
             ...where,
-            canEdit_some: { id: userId },
-            canView_some: { id: userId } /*, published: true*/,
+            OR: [{ published: true }, { owner: { id: userId } }]
+          },
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+      },
+    });
+
+    t.list.field('ownRaids', {
+      type: 'Raid',
+      args: {
+        where: arg({ type: 'RaidWhereInput' }),
+        orderBy: arg({ type: 'RaidOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
+        const userId = getUserId(ctx);
+
+        return ctx.prisma.raids({
+          where: {
+            ...where,
+            owner: { id: userId }
           },
           orderBy,
           first,
@@ -269,4 +331,6 @@ export const Query = queryType({
       },
     });
   },
+
+
 });
