@@ -4,7 +4,7 @@
 type Verification {
   id: ID! @id
   token: String! @unique
-  user: User! @relation(name: "VerificationUser")
+  userId: ID! @unique
 }
 
 
@@ -14,8 +14,8 @@ type User {
   password: String!
   name: String
   verified: Boolean! @default(value: false)
-  builds: [Build!]! @relation(name: "BuildOwner")
-  raids: [Raid!]! @relation(name: "RaidOwner")
+  builds: [Build!]! @relation(name: "BuildOwner", onDelete: CASCADE)
+  raids: [Raid!]! @relation(name: "RaidOwner", onDelete: CASCADE)
 }
 
 type MundusStone {
@@ -115,23 +115,24 @@ type Build {
   name: String
   applicationArea: String
   description: String
-  mainResource: String
   role: String
   race: String
   esoClass: String
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   published: Boolean! @default(value: false)
-
-  bigPieceSelection: [SetSelection!]! @relation(name: "Bigpieces")
-  smallPieceSelection: [SetSelection!]! @relation(name: "Smallpieces")
-  jewelrySelection: [SetSelection!]! @relation(name: "Jewelry")
-  frontbarSelection: [SetSelection!]! @relation(name: "Frontbar")
-  backbarSelection: [SetSelection!]! @relation(name: "Backbar")
-  newBarOne: [SkillSelection!]! @relation(name: "NewBarOne")
-  newBarTwo: [SkillSelection!]! @relation(name: "NewBarTwo")
+  stamina: Int
+  magicka: Int
+  health: Int
+  bigPieceSelection: [SetSelection!]! @relation(name: "Bigpieces", onDelete: CASCADE)
+  smallPieceSelection: [SetSelection!]! @relation(name: "Smallpieces", onDelete: CASCADE)
+  jewelrySelection: [SetSelection!]! @relation(name: "Jewelry", onDelete: CASCADE)
+  frontbarSelection: [SetSelection!]! @relation(name: "Frontbar", onDelete: CASCADE)
+  backbarSelection: [SetSelection!]! @relation(name: "Backbar", onDelete: CASCADE)
+  newBarOne: [SkillSelection!]! @relation(name: "NewBarOne", onDelete: CASCADE)
+  newBarTwo: [SkillSelection!]! @relation(name: "NewBarTwo", onDelete: CASCADE)
   ultimateOne: Skill @relation(name: "UltimateOne")
-  ultimateTwo: Skill @relation(name: "UltimateTwo")
+  ultimateTwo: Skill @relation(name: "UltimateTwo", onDelete: CASCADE)
   mundusStone: MundusStone
   buff: Buff
 }
@@ -159,5 +160,5 @@ type Raid {
   published: Boolean! @default(value: false)
   canEdit: [User!]! @relation(name: "CanEdit")
   canView: [User!]! @relation(name: "CanView")
-  roles: [Role!]! @relation(name: "RaidRoles")
+  roles: [Role!]! @relation(name: "RaidRoles", onDelete: CASCADE)
 }
