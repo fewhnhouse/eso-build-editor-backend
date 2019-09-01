@@ -145,9 +145,9 @@ export const Query = queryType({
 
     t.field('mundusStone', {
       type: 'MundusStone',
-      args: { name: stringArg() },
-      resolve: (parent, { name }, ctx) => {
-        return ctx.prisma.mundusStone({ name });
+      args: { name: stringArg(), id: idArg() },
+      resolve: (parent, { name, id }, ctx) => {
+        return ctx.prisma.mundusStone({ name, id });
       },
     });
 
@@ -181,9 +181,9 @@ export const Query = queryType({
 
     t.field('buff', {
       type: 'Buff',
-      args: { name: stringArg() },
-      resolve: (parent, { name }, ctx) => {
-        return ctx.prisma.buff({ name });
+      args: { name: stringArg(), id: idArg() },
+      resolve: (parent, { name, id }, ctx) => {
+        return ctx.prisma.buff({ name, id });
       },
     });
 
