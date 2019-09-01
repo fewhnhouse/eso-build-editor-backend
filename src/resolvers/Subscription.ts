@@ -39,7 +39,6 @@ export const buildUpdateSubscription = subscriptionField("buildUpdateSubscriptio
         id: idArg()
     },
     subscribe: (root, { id }, context) => {
-        console.log(root, context)
         return context.prisma.$subscribe.build({ node: { id }, mutation_in: ["UPDATED"] }) as any;
     },
     resolve: payload => {

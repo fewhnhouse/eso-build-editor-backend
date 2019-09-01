@@ -53,6 +53,18 @@ export const Query = queryType({
       },
     });
 
+    t.field('set', {
+      type: 'Set',
+      args: {
+        id: idArg(),
+        setId: intArg()
+      },
+      resolve: (parent, { id, setId }, ctx) => {
+        return ctx.prisma.set({ id, setId });
+      },
+
+    })
+
     t.list.field('sets', {
       type: 'Set',
       args: {
@@ -116,6 +128,20 @@ export const Query = queryType({
         });
       },
     });
+
+    t.list.field('skillLine', {
+      type: 'Skill',
+      args: { skillline: intArg() },
+      resolve: (
+        parent,
+        { skillline },
+        ctx
+      ) => {
+        return ctx.prisma.skills({
+          where: { skillline },
+        });
+      },
+    })
 
     t.field('mundusStone', {
       type: 'MundusStone',
