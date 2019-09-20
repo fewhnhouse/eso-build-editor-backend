@@ -12,6 +12,7 @@ type User {
   id: ID! @id
   email: String! @unique
   password: String!
+  webhook: String
   name: String
   verified: Boolean! @default(value: false)
   builds: [Build!]! @relation(name: "BuildOwner", onDelete: CASCADE)

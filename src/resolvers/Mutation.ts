@@ -3,7 +3,9 @@ import { hash, compare } from 'bcryptjs';
 import { getUserId } from '../utils';
 import { sign } from 'jsonwebtoken';
 import { setApiKey, send } from '@sendgrid/mail';
-import { prisma } from '../generated/prisma-client';
+require('dotenv').config();
+
+const webhook = require("webhook-discord")
 const crypto = require('crypto-random-string');
 
 export const Mutation = mutationType({
@@ -94,6 +96,22 @@ export const Mutation = mutationType({
         };
       },
     });
+
+    t.field('updateWebhook', {
+      type: 'User',
+      args: {
+        webhook: stringArg()
+      },
+      resolve: async (parent, { webhook }, context) => {
+        const id = await getUserId(context)
+        const reg = new RegExp(webhook);
+        const isValid = reg.test('#\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#iS');
+        if (!isValid) {
+          throw new Error("Invalid Webhook URL")
+        }
+        return await context.prisma.updateUser({ where: { id }, data: { webhook } })
+      }
+    })
 
     t.field('deleteAccount', {
       type: 'User',
@@ -278,7 +296,21 @@ export const Mutation = mutationType({
         where: arg({ type: 'BuildWhereUniqueInput' }),
         data: arg({ type: 'BuildUpdateInput' }),
       },
-      resolve: async (parent, { where, data }: any, ctx) => await ctx.prisma.updateBuild({ where, data }),
+      resolve: async (parent, { where, data }, ctx) => {
+        const userId = getUserId(ctx)
+        const user = await ctx.prisma.user({ id: userId })
+        const build = await ctx.prisma.updateBuild({ where, data })
+        if (user.webhook) {
+          const DiscordWebhook = new webhook.Webhook(user.webhook || "")
+          const msg = new webhook.MessageBuilder()
+            .setName("Build Update")
+            .setColor("#aabbcc")
+            .setText(build.name)
+            .setTime();
+          DiscordWebhook.send(msg)
+        }
+        return build;
+      }
     });
 
     t.field('publishBuild', {
@@ -410,8 +442,22 @@ export const Mutation = mutationType({
         where: arg({ type: 'RaidWhereUniqueInput' }),
         data: arg({ type: 'RaidUpdateInput' }),
       },
-      resolve: async (parent, { where, data }: any, ctx) => {
-        return await ctx.prisma.updateRaid({ where, data });
+      resolve: async (parent, { where, data }, ctx) => {
+        const userId = getUserId(ctx)
+        const user = await ctx.prisma.user({ id: userId })
+
+        const raid = await ctx.prisma.updateRaid({ where, data });
+        if (user.webhook) {
+          const DiscordWebhook = new webhook.Webhook(user.webhook || "")
+          const msg = new webhook.MessageBuilder()
+            .setName("Raid Update")
+            .setColor("#aabbcc")
+            .setText(raid.name)
+            .setTime();
+
+          DiscordWebhook.send(msg)
+        }
+        return raid;
       },
     });
     t.field('deleteRaid', {
