@@ -104,8 +104,8 @@ export const Mutation = mutationType({
       },
       resolve: async (parent, { webhook }, context) => {
         const id = await getUserId(context)
-        const reg = new RegExp(webhook);
-        const isValid = reg.test('#\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#iS');
+        const urlRegex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm
+        const isValid = urlRegex.test(webhook);
         if (!isValid) {
           throw new Error("Invalid Webhook URL")
         }
@@ -303,10 +303,13 @@ export const Mutation = mutationType({
         if (user.webhook) {
           const DiscordWebhook = new webhook.Webhook(user.webhook || "")
           const msg = new webhook.MessageBuilder()
-            .setName("Build Update")
-            .setColor("#aabbcc")
-            .setText(build.name)
-            .setTime();
+            .setName('Build & Raid Editor')
+            .setTitle(`Build ${build.name} has been updated!`)
+            .addField('', build.description)
+            .setColor("#16a085")
+            .setImage(`${process.env.IMAGE_SERVICE}/classes/${build.esoClass}.png`)
+            .addField("Info", build.race + " " + build.esoClass)
+            .setFooter(`${process.env.VERIFY_URL}/builds/${build.id}`)
           DiscordWebhook.send(msg)
         }
         return build;
@@ -450,10 +453,10 @@ export const Mutation = mutationType({
         if (user.webhook) {
           const DiscordWebhook = new webhook.Webhook(user.webhook || "")
           const msg = new webhook.MessageBuilder()
-            .setName("Raid Update")
-            .setColor("#aabbcc")
-            .setText(raid.name)
-            .setTime();
+            .setName('Build & Raid Editor')
+            .setTitle(`Raid ${raid.name} has been updated!`)
+            .setColor("#f39c12")
+            .setFooter(`${process.env.VERIFY_URL}/raids/${raid.id}`)
 
           DiscordWebhook.send(msg)
         }

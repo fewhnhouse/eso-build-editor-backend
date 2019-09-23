@@ -122,6 +122,7 @@ type Build {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   published: Boolean! @default(value: false)
+  accessRights: String! @default(value: "unlisted")
   stamina: Int
   magicka: Int
   health: Int
@@ -159,6 +160,7 @@ type Raid {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   published: Boolean! @default(value: false)
+  accessRights: String! @default(value: "unlisted")
   canEdit: [User!]! @relation(name: "CanEdit")
   canView: [User!]! @relation(name: "CanView")
   roles: [Role!]! @relation(name: "RaidRoles", onDelete: CASCADE)

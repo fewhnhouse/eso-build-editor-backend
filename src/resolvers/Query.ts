@@ -242,7 +242,7 @@ export const Query = queryType({
       ) => {
         const userId = getUserId(ctx)
         return ctx.prisma.builds({
-          where: { ...where, OR: [{ published: true }, { owner: { id: userId } }] },
+          where: { ...where, OR: [{ accessRights: "public" }, { owner: { id: userId } }] },
           orderBy,
           first,
           last,
