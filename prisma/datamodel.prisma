@@ -171,12 +171,12 @@ type GroupBuild {
   id: ID! @id
   group: Group!
   build: Build!
-  members: [String!]!
+  members: [String!]! @scalarList(strategy: RELATION)
 }
 
 type Group {
   id: ID! @id
-  members: [String!]!
+  members: [String!]! @scalarList(strategy: RELATION)
   owner: User @relation(name: "GroupOwner")
   description: String
   createdAt: DateTime! @createdAt

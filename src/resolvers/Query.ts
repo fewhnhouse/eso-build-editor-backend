@@ -356,6 +356,69 @@ export const Query = queryType({
         });
       },
     });
+
+    t.field('groupBuild', {
+      type: 'GroupBuild',
+      args: {
+        id: idArg(),
+      },
+      resolve: (
+        parent,
+        { id },
+        ctx
+      ) => {
+
+        return ctx.prisma.groupBuild({ id })
+      },
+    })
+
+
+    t.field('group', {
+      type: 'Group',
+      args: {
+        id: idArg(),
+      },
+      resolve: (
+        parent,
+        { id },
+        ctx
+      ) => {
+        const userId = getUserId(ctx);
+
+        return ctx.prisma.group({ id })
+      },
+    })
+
+    t.field('groups', {
+      type: 'Groups',
+      args: {
+        where: arg({ type: 'GroupWhereInput' }),
+        orderBy: arg({ type: 'GroupOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
+        const userId = getUserId(ctx);
+
+        return ctx.prisma.groups({
+          where: { ...where, OR: [{ accessRights: "public" }, { owner: { id: userId } }] },
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+      },
+
+    })
   },
 
 
