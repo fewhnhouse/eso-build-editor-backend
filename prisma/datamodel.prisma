@@ -17,6 +17,7 @@ type User {
   verified: Boolean! @default(value: false)
   builds: [Build!]! @relation(name: "BuildOwner", onDelete: CASCADE)
   raids: [Raid!]! @relation(name: "RaidOwner", onDelete: CASCADE)
+  groups: [Group!]! @relation(name: "GroupOwner", onDelete: CASCADE)
 }
 
 type MundusStone {
@@ -164,4 +165,24 @@ type Raid {
   canEdit: [User!]! @relation(name: "CanEdit")
   canView: [User!]! @relation(name: "CanView")
   roles: [Role!]! @relation(name: "RaidRoles", onDelete: CASCADE)
+}
+
+type GroupBuild {
+  id: ID! @id
+  group: Group!
+  build: Build!
+  members: [String!]!
+}
+
+type Group {
+  id: ID! @id
+  members: [String!]!
+  owner: User @relation(name: "GroupOwner")
+  description: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  accessRights: String! @default(value: "unlisted")
+  raid: Raid!
+  groupBuilds: [GroupBuild!]!
+
 }
