@@ -389,8 +389,8 @@ export const Query = queryType({
       },
     })
 
-    t.field('groups', {
-      type: 'Groups',
+    t.list.field('groups', {
+      type: 'Group',
       args: {
         where: arg({ type: 'GroupWhereInput' }),
         orderBy: arg({ type: 'GroupOrderByInput' }),

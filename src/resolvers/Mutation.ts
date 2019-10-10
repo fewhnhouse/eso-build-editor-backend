@@ -472,5 +472,42 @@ export const Mutation = mutationType({
         return await ctx.prisma.deleteRaid({ id });
       },
     });
+
+    /**
+ * GROUPS
+ */
+    t.field('createGroup', {
+      type: 'Group',
+      args: {
+        data: arg({ type: 'GroupCreateInput' }),
+      },
+      resolve: async (parent, { data }: any, ctx) => {
+        const userId = getUserId(ctx);
+        return await ctx.prisma.createGroup({
+          ...data,
+          owner: { connect: { id: userId } },
+        });
+      },
+    });
+
+    t.field('updateGroup', {
+      type: 'Group',
+      args: {
+        where: arg({ type: 'GroupWhereUniqueInput' }),
+        data: arg({ type: 'GroupUpdateInput' }),
+      },
+      resolve: async (parent, { where, data }, ctx) => {
+        return await ctx.prisma.updateGroup({ where, data });
+      },
+    });
+    t.field('deleteGroup', {
+      type: 'Group',
+      args: {
+        id: idArg(),
+      },
+      resolve: async (parent, { id }, ctx) => {
+        return await ctx.prisma.deleteGroup({ id });
+      },
+    });
   },
 });
