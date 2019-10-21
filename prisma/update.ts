@@ -1,9 +1,11 @@
 import { prisma } from '../src/generated/prisma-client';
 import axios from 'axios';
-
+const fs = require('fs');
 require('dotenv').config();
 
 async function skills() {
+  fs.appendFileSync('log.txt', `------------------------------------------ SKILLS -------------------------------------------------------\n`)
+
   console.log("------------------------------------------ SKILLS -------------------------------------------------------")
   const { data } = await axios.get(
     'https://beast.pathfindermediagroup.com/api/eso/skills',
@@ -30,10 +32,11 @@ async function skills() {
       unlocks_at,
     } = skill;
 
-    const dbSkill = prisma.skill({ skillId: id })
+    const dbSkill = await prisma.skill({ skillId: id })
 
     if (!dbSkill) {
-      console.log("Update:", name)
+      console.log("Create:", name)
+      fs.appendFileSync('log.txt', `Create Skill: ${name}\n`)
       await prisma.createSkill({
         cast_time,
         cost,
@@ -52,7 +55,9 @@ async function skills() {
         unlocks_at,
       });
     } else {
-      console.log("Create:", name)
+      console.log("Update:", name)
+      fs.appendFileSync('log.txt', `Update Skill: ${name}\n`)
+
       await prisma.updateSkill({
         data: {
           cast_time,
@@ -77,6 +82,8 @@ async function skills() {
 }
 
 async function sets() {
+  fs.appendFileSync('log.txt', `------------------------------------------ SETS -------------------------------------------------------\n`)
+
   console.log("------------------------------------------ SETS -------------------------------------------------------")
 
   const { data } = await axios.get(
@@ -106,8 +113,11 @@ async function sets() {
       pts,
       eso_id,
     } = set;
-    const dbSet = prisma.set({ setId: id })
+    const dbSet = await prisma.set({ setId: id })
+
     if (!dbSet) {
+      fs.appendFileSync('log.txt', `Create Set: ${name}\n`)
+
       console.log("Create:", name)
       await prisma.createSet({
         setId: id,
@@ -130,6 +140,8 @@ async function sets() {
         eso_id,
       });
     } else {
+      fs.appendFileSync('log.txt', `Update Set: ${name}\n`)
+
       console.log("Update:", name)
       await prisma.updateSet({
         data: {
@@ -156,5 +168,4 @@ async function sets() {
   });
 }
 
-skills()
-sets()
+skills().then(res => sets())
