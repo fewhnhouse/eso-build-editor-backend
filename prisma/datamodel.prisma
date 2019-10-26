@@ -169,17 +169,9 @@ type Raid {
 
 type GroupBuild {
   id: ID! @id
-  groupRaid: GroupRaid! @relation(name: "RelatedRaid")
+  group: Group! @relation(name: "RelatedGroup")
   build: Build!
   members: [String!]! @scalarList(strategy: RELATION)
-}
-
-type GroupRaid {
-  id: ID! @id
-  group: Group! @relation(name: "RelatedGroup")
-  raid: Raid!
-  members: [String!]! @scalarList(strategy: RELATION)
-  groupBuilds: [GroupBuild!]! @relation(name: "RelatedRaid", onDelete: CASCADE)
 }
 
 type Group {
@@ -189,6 +181,8 @@ type Group {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   accessRights: String! @default(value: "unlisted")
-  groupRaids: [GroupRaid!]! @relation(name: "RelatedGroup")
+  members: [String!]! @scalarList(strategy: RELATION)
+  raids: [Raid!]! 
+  groupBuilds: [GroupBuild!]! @relation(name: "RelatedGroup", onDelete: CASCADE)
 
 }
