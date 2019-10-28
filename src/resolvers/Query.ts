@@ -419,6 +419,35 @@ export const Query = queryType({
       },
 
     })
+
+    t.list.field('ownGroups', {
+      type: 'Group',
+      args: {
+        where: arg({ type: 'GroupWhereInput' }),
+        orderBy: arg({ type: 'GroupOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
+        const userId = getUserId(ctx)
+        return ctx.prisma.groups({
+          where: { ...where, owner: { id: userId } },
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+      },
+    });
   },
 
 
