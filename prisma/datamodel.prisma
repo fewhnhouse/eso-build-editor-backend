@@ -169,13 +169,13 @@ type Raid {
 
 type GroupBuild {
   id: ID! @id
-  group: Group! @relation(name: "RelatedGroup")
   build: Build!
   members: [String!]! @scalarList(strategy: RELATION)
 }
 
 type Group {
   id: ID! @id
+  name: String
   owner: User @relation(name: "GroupOwner")
   description: String
   createdAt: DateTime! @createdAt

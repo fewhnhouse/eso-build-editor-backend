@@ -7,7 +7,6 @@
     "ts-node": "ts-node --transpile-only ./src",
     "seed": "ts-node prisma/seed.ts",
     "update": "ts-node prisma/update.ts"
-
   },
   "dependencies": {
     "@sendgrid/mail": "^6.4.0",
