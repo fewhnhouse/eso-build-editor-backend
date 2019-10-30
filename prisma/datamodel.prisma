@@ -1,19 +1,23 @@
-type Post {
+
+
+
+type Verification {
   id: ID! @id
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-  published: Boolean! @default(value: false)
-  title: String!
-  content: String
-  author: User!
+  token: String! @unique
+  userId: ID! @unique
 }
+
 
 type User {
   id: ID! @id
   email: String! @unique
   password: String!
+  webhook: String
   name: String
-  builds: [Build!]!
+  verified: Boolean! @default(value: false)
+  builds: [Build!]! @relation(name: "BuildOwner", onDelete: CASCADE)
+  raids: [Raid!]! @relation(name: "RaidOwner", onDelete: CASCADE)
+  groups: [Group!]! @relation(name: "GroupOwner", onDelete: CASCADE)
 }
 
 type MundusStone {
@@ -44,6 +48,8 @@ type SetSelection {
   id: ID! @id
   icon: String
   slot: String
+  type: String
+  weaponType: String
   selectedSet: Set
   trait: Modification @relation(name: "Trait")
   glyph: Modification @relation(name: "Glyph")
@@ -107,23 +113,76 @@ type Skill {
 
 type Build {
   id: ID! @id
-  owner: User
+  owner: User @relation(name: "BuildOwner")
   name: String
+  applicationArea: String
+  description: String
+  role: String
   race: String
   esoClass: String
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   published: Boolean! @default(value: false)
-
-  bigPieceSelection: [SetSelection!]! @relation(name: "Bigpieces")
-  smallPieceSelection: [SetSelection!]! @relation(name: "Smallpieces")
-  jewelrySelection: [SetSelection!]! @relation(name: "Jewelry")
-  frontbarSelection: [SetSelection!]! @relation(name: "Frontbar")
-  backbarSelection: [SetSelection!]! @relation(name: "Backbar")
-  newBarOne: [SkillSelection!]! @relation(name: "NewBarOne")
-  newBarTwo: [SkillSelection!]! @relation(name: "NewBarTwo")
+  accessRights: String! @default(value: "unlisted")
+  stamina: Int
+  magicka: Int
+  health: Int
+  bigPieceSelection: [SetSelection!]! @relation(name: "Bigpieces", onDelete: CASCADE)
+  smallPieceSelection: [SetSelection!]! @relation(name: "Smallpieces", onDelete: CASCADE)
+  jewelrySelection: [SetSelection!]! @relation(name: "Jewelry", onDelete: CASCADE)
+  frontbarSelection: [SetSelection!]! @relation(name: "Frontbar", onDelete: CASCADE)
+  backbarSelection: [SetSelection!]! @relation(name: "Backbar", onDelete: CASCADE)
+  newBarOne: [SkillSelection!]! @relation(name: "NewBarOne", onDelete: CASCADE)
+  newBarTwo: [SkillSelection!]! @relation(name: "NewBarTwo", onDelete: CASCADE)
   ultimateOne: Skill @relation(name: "UltimateOne")
-  ultimateTwo: Skill @relation(name: "UltimateTwo")
+  ultimateTwo: Skill @relation(name: "UltimateTwo", onDelete: CASCADE)
   mundusStone: MundusStone
   buff: Buff
+}
+
+type Role {
+  id: ID! @id
+  name: String
+  builds: [SortedBuild!]!
+}
+
+type SortedBuild {
+  id: ID! @id
+  index: Int!
+  build: Build!
+}
+
+type Raid {
+  id: ID! @id
+  owner: User @relation(name: "RaidOwner")
+  name: String
+  description: String
+  applicationArea: String 
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  published: Boolean! @default(value: false)
+  accessRights: String! @default(value: "unlisted")
+  canEdit: [User!]! @relation(name: "CanEdit")
+  canView: [User!]! @relation(name: "CanView")
+  roles: [Role!]! @relation(name: "RaidRoles", onDelete: CASCADE)
+}
+
+type GroupBuild {
+  id: ID! @id
+  build: Build!
+  members: [String!]! @scalarList(strategy: RELATION)
+}
+
+type Group {
+  id: ID! @id
+  name: String
+  owner: User @relation(name: "GroupOwner")
+  description: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  accessRights: String! @default(value: "unlisted")
+  members: [String!]! @scalarList(strategy: RELATION)
+  raids: [Raid!]! 
+  groupBuilds: [GroupBuild!]! @relation(name: "RelatedGroup", onDelete: CASCADE)
+
 }

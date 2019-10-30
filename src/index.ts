@@ -5,6 +5,8 @@ import { makePrismaSchema } from 'nexus-prisma'
 import { permissions } from './permissions'
 import * as allTypes from './resolvers'
 import datamodelInfo from './generated/nexus-prisma'
+import { config } from "dotenv"
+config();
 
 const schema = makePrismaSchema({
   // Provide all the GraphQL types we've implemented
@@ -51,4 +53,23 @@ const server = new GraphQLServer({
   },
 })
 
-server.start(() => console.log(`🚀 Server ready at http://localhost:4000`))
+/*
+
+server.express.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
+*/
+const opts: any = {
+  port: process.env.PORT || 4000,
+  cors: {
+    credentials: true,
+    origin: [process.env.FRONTEND_ORIGIN.split(",")] // your frontend url.
+  }
+};
+
+server.start(opts, () => console.log(`🚀 Server ready at ${opts.port}`))
