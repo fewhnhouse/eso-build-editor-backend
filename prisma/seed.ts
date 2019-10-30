@@ -11,8 +11,12 @@ import {
   jewelryTraits,
 } from './modificationData';
 require('dotenv').config();
+const fs = require('fs');
 
 async function skills() {
+  fs.appendFileSync('log.txt', `------------------------------------------ SKILLS -------------------------------------------------------\n`)
+
+  console.log("------------------------------------------ SKILLS -------------------------------------------------------")
   const { data } = await axios.get(
     'https://beast.pathfindermediagroup.com/api/eso/skills',
     {
@@ -38,27 +42,60 @@ async function skills() {
       unlocks_at,
     } = skill;
 
-    await prisma.createSkill({
-      cast_time,
-      cost,
-      effect_1,
-      effect_2,
-      icon,
-      skillId: id,
-      name,
-      parent,
-      pts,
-      range,
-      skillline,
-      slug,
-      target,
-      type,
-      unlocks_at,
-    });
+    const dbSkill = await prisma.skill({ skillId: id })
+
+    if (!dbSkill) {
+      console.log("Create:", name)
+      fs.appendFileSync('log.txt', `Create Skill: ${name}\n`)
+      await prisma.createSkill({
+        cast_time,
+        cost,
+        effect_1,
+        effect_2,
+        icon,
+        skillId: id,
+        name,
+        parent,
+        pts,
+        range,
+        skillline,
+        slug,
+        target,
+        type,
+        unlocks_at,
+      });
+    } else {
+      console.log("Update:", name)
+      fs.appendFileSync('log.txt', `Update Skill: ${name}\n`)
+
+      await prisma.updateSkill({
+        data: {
+          cast_time,
+          cost,
+          effect_1,
+          effect_2,
+          icon,
+          name,
+          parent,
+          pts,
+          range,
+          skillline,
+          slug,
+          target,
+          type,
+          unlocks_at,
+        }, where: { skillId: id }
+      })
+
+    }
   });
 }
 
 async function sets() {
+  fs.appendFileSync('log.txt', `------------------------------------------ SETS -------------------------------------------------------\n`)
+
+  console.log("------------------------------------------ SETS -------------------------------------------------------")
+
   const { data } = await axios.get(
     'https://beast.pathfindermediagroup.com/api/eso/sets',
     {
@@ -86,28 +123,61 @@ async function sets() {
       pts,
       eso_id,
     } = set;
-    await prisma.createSet({
-      setId: id,
-      name,
-      location,
-      type,
-      slug,
-      bonus_item_1,
-      bonus_item_2,
-      bonus_item_3,
-      bonus_item_4,
-      bonus_item_5,
-      has_jewels,
-      has_weapons,
-      has_heavy_armor,
-      has_medium_armor,
-      has_light_armor,
-      traits_needed,
-      pts,
-      eso_id,
-    });
+    const dbSet = await prisma.set({ setId: id })
+
+    if (!dbSet) {
+      fs.appendFileSync('log.txt', `Create Set: ${name}\n`)
+
+      console.log("Create:", name)
+      await prisma.createSet({
+        setId: id,
+        name,
+        location,
+        type,
+        slug,
+        bonus_item_1,
+        bonus_item_2,
+        bonus_item_3,
+        bonus_item_4,
+        bonus_item_5,
+        has_jewels,
+        has_weapons,
+        has_heavy_armor,
+        has_medium_armor,
+        has_light_armor,
+        traits_needed,
+        pts,
+        eso_id,
+      });
+    } else {
+      fs.appendFileSync('log.txt', `Update Set: ${name}\n`)
+
+      console.log("Update:", name)
+      await prisma.updateSet({
+        data: {
+          name,
+          location,
+          type,
+          slug,
+          bonus_item_1,
+          bonus_item_2,
+          bonus_item_3,
+          bonus_item_4,
+          bonus_item_5,
+          has_jewels,
+          has_weapons,
+          has_heavy_armor,
+          has_medium_armor,
+          has_light_armor,
+          traits_needed,
+          pts,
+          eso_id,
+        }, where: { setId: id }
+      })
+    }
   });
 }
+
 
 async function mundus() {
   mundusStones.forEach(async (mundus: any) => {
@@ -118,17 +188,25 @@ async function mundus() {
       value,
       icon
     } = mundus;
+    try {
 
-    await prisma.createMundusStone({
-      name,
-      aldmeri,
-      daggerfall,
-      ebonheart,
-      effect,
-      value: value + '',
-      icon
-    });
-  });
+      await prisma.createMundusStone({
+        name,
+        aldmeri,
+        daggerfall,
+        ebonheart,
+        effect,
+        value: value + '',
+        icon
+      });
+      console.log("mundus created: ", name)
+    }
+    catch (e) {
+      console.error(e)
+    }
+
+  })
+
 }
 
 async function buffs() {
@@ -144,17 +222,22 @@ async function buffs() {
       buffType,
       icon
     } = buff;
-    await prisma.createBuff({
-      name,
-      buffDescription,
-      description,
-      duration,
-      notes,
-      quality,
-      type,
-      buffType,
-      icon
-    });
+    try {
+      await prisma.createBuff({
+        name,
+        buffDescription,
+        description,
+        duration,
+        notes,
+        quality,
+        type,
+        buffType,
+        icon
+      })
+      console.log("buff created: ", name)
+    } catch (e) {
+      console.error(e)
+    }
   });
 }
 
@@ -240,9 +323,13 @@ async function users() {
   })
 }
 
-mundus();
-buffs();
-modifications();
-sets();
-skills();
-users()
+const execute = async () => {
+  await mundus()
+  await buffs()
+  await modifications()
+  await sets()
+  await skills()
+  await users()
+}
+
+execute()
