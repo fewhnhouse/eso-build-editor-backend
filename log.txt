@@ -826,3 +826,404 @@ Update Skill: Woodworking
 Update Skill: World in Ruin
 Update Skill: Wrecking Blow
 Update Skill: Y'ffre's Endurance
+------------------------------------------ SETS -------------------------------------------------------
+------------------------------------------ SKILLS -------------------------------------------------------
+Update Set: Death's Wind
+Update Set: Twilight's Embrace
+Update Set: Night's Silence
+Update Set: Whitestrake's Retribution
+Update Set: Armor of the Seducer
+Update Set: Vampire's Kiss
+Update Set: Magnus' Gift
+Update Set: Night Mother's Gaze
+Update Set: Ashen Grip
+Update Set: Oblivion's Foe
+Update Set: Spectre's Eye
+Update Set: Torug's Pact
+Update Set: Hist Bark
+Update Set: Willow's Path
+Update Set: Hunding's Rage
+Update Set: Song of Lamae
+Update Set: Alessia's Bulwark
+Update Set: Orgnum's Scales
+Update Set: Eyes of Mara
+Update Set: Kagrenac's Hope
+Update Set: Shalidor's Curse
+Update Set: Way of the Arena
+Update Set: Grand Rejuvenation
+Update Set: Puncturing Remedy
+Update Set: Titanic Cleave
+Update Set: Caustic Arrow
+Update Set: Destructive Impact
+Update Set: Twice-Born Star
+Update Set: Spawn of Mephala
+Update Set: Bloodspawn
+Update Set: Lord Warden
+Update Set: Scourge Harvester
+Update Set: Engine Guardian
+Update Set: Nightflame
+Update Set: Nerien'eth
+Update Set: Valkyn Skoria
+Update Set: Maw of the Infernal
+Update Set: Noble's Conquest
+Update Set: Redistributor
+Update Set: Armor Master
+Update Set: Molag Kena
+Update Set: Black Rose
+Update Set: Trinimac's Valor
+Update Set: Briarheart
+Update Set: Winterborn
+Update Set: Powerful Assault
+Update Set: Mark of the Pariah
+Update Set: Meritorious Service
+Update Set: Para Bellum
+Update Set: Glorious Defender
+Update Set: Elemental Succession
+Update Set: Shield Breaker
+Update Set: Permafrost
+Update Set: Phoenix
+Update Set: Hunt Leader
+Update Set: Reactive Armor
+Update Set: Endurance
+Update Set: Willpower
+Update Set: Agility
+Update Set: Law of Julianos
+Update Set: Trial by Fire
+Update Set: Morkuldin
+Update Set: Cruel Flurry
+Update Set: Rampaging Slash
+Update Set: Merciless Charge
+Update Set: Thunderous Volley
+Update Set: Crushing Wall
+Update Set: Tava's Favor
+Update Set: Clever Alchemist
+Update Set: Eternal Hunt
+Update Set: Bahraha's Curse
+Update Set: Syvarra's Scales
+Update Set: Moondancer
+Update Set: Twilight Remedy
+Update Set: Roar of Alkosh
+Update Set: Lunar Bastion
+Update Set: Marksman's Crest
+Update Set: Leki's Focus
+Update Set: Fasalla's Guile
+Update Set: Warrior's Fury
+Update Set: Vicious Death
+Update Set: Robes of Transmutation
+Update Set: Darkstride
+Update Set: Shadow Dancer's Raiment
+Update Set: Kvatch Gladiator
+Update Set: Varen's Legacy
+Update Set: Pelinal's Aptitude
+Update Set: Hide of Morihaus
+Update Set: Flanking Strategist
+Update Set: Sithis' Touch
+Update Set: Galerion's Revenge
+Update Set: Vicecanon of Venom
+Update Set: Thews of the Harbinger
+Update Set: Imperial Physique
+Update Set: Precise Regeneration
+Update Set: Eternal Warrior
+Update Set: Vicious Serpent
+Update Set: Infallible Mage
+Update Set: Queen's Elegance
+Update Set: Senche's Bite
+Update Set: Velidreth
+Update Set: Mighty Chudan
+Update Set: Aspect of Mazzatun
+Update Set: Amber Plasm
+Update Set: Heem-Jas' Retribution
+Update Set: Hand of Mephala
+Update Set: Gossamer
+Update Set: Widowmaker
+Update Set: Akaviri Dragonguard
+Update Set: Silks of the Sun
+Update Set: Shadow of the Red Mountain
+Update Set: Syrabane's Grip
+Update Set: Salvation
+Update Set: Hide of the Werewolf
+Update Set: Robes of the Withered Hand
+Update Set: Storm Knight's Plate
+Update Set: Necropotence
+Update Set: Footman's Fortune
+Update Set: Healer's Habit
+Update Set: Robes of Destruction Mastery
+Update Set: Archer's Mind
+Update Set: Blessing of the Potentates
+Update Set: Deadly Strike
+Update Set: Alessian Order
+Update Set: Crest of Cyrodiil
+Update Set: Bastion of the Heartland
+Update Set: Beckoning Steel
+Update Set: The Juggernaut
+Update Set: Affliction
+Update Set: Ravager
+Update Set: Elf Bane
+Update Set: Wrath of the Imperium
+Update Set: Grace of the Ancients
+Update Set: Desert Rose
+Update Set: Curse Eater
+Update Set: Almalexia's Mercy
+Update Set: Robes of Alteration Mastery
+Update Set: The Arch-Mage
+Update Set: Light of Cyrodiil
+Update Set: Buffer of the Swift
+Update Set: Eagle Eye
+Update Set: Vengeance Leech
+Update Set: Twin Sisters
+Update Set: Shield of the Valiant
+Update Set: Shadow Walker
+Update Set: Hawk's Eye
+Update Set: The Morag Tong
+Update Set: Kyne's Kiss
+Update Set: Ward of Cyrodiil
+Update Set: Sentry
+Update Set: Armor of the Veiled Heritance
+Update Set: Swarm Mother
+Update Set: Slimecraw
+Update Set: Tremorscale
+Update Set: Pirate Skeleton
+Update Set: Shadowrend
+Update Set: Sentinel of Rkugamz
+Update Set: Chokethorn
+Update Set: Infernal Guardian
+Update Set: Ilambris
+Update Set: Iceheart
+Update Set: The Troll King
+Update Set: Grothdarr
+Update Set: Kra'gh
+Update Set: Sellistrix
+Update Set: Stormfist
+Update Set: Selene
+Update Set: Way of Fire
+Update Set: Way of Martial Knowledge
+Update Set: Way of Air
+Update Set: Armor of the Trainee
+Update Set: Bloodthorn's Touch
+Update Set: Shalk Exoskeleton
+Update Set: Wyrd Tree's Blessing
+Update Set: Night Mother's Embrace
+Update Set: Plague Doctor
+Update Set: Mother's Sorrow
+Update Set: Wilderqueen's Arch
+Update Set: Green Pact
+Update Set: Night Terror
+Update Set: Dreamer's Mantle
+Update Set: Ranger's Gait
+Update Set: Beekeeper's Gear
+Update Set: Vampire Cloak
+Update Set: Robes of the Hist
+Update Set: Swamp Raider
+Update Set: Hatchling's Shell
+Update Set: Sword-Singer
+Update Set: Order of Diagna
+Update Set: Spinner's Garments
+Update Set: Thunderbug's Carapace
+Update Set: Stendarr's Embrace
+Update Set: Fiord's Legacy
+Update Set: Vampire Lord
+Update Set: Spriggan's Thorns
+Update Set: Seventh Legion Brute
+Update Set: Skooma Smuggler
+Update Set: Soulshine
+Update Set: Ysgramor's Birthright
+Update Set: Witchman Armor
+Update Set: Draugr's Heritage
+Update Set: Prisoner's Rags
+Update Set: Stygian
+Update Set: Meridia's Blessed Armor
+Update Set: Sanctuary
+Update Set: Jailbreaker
+Update Set: Tormentor
+Update Set: Spelunker
+Update Set: Spider Cultist Cowl
+Update Set: Light Speaker
+Update Set: Undaunted Bastion
+Update Set: Combat Physician
+Update Set: Toothrow
+Update Set: Netch's Touch
+Update Set: Strength of the Automaton
+Update Set: Burning Spellweave
+Update Set: Sunderflame
+Update Set: Embershield
+Update Set: Hircine's Veneer
+Update Set: Sword Dancer
+Update Set: Treasure Hunter
+Update Set: Duneripper's Scales
+Update Set: Shroud of the Lich
+Update Set: Leviathan
+Update Set: Ebon Armory
+Update Set: Lamia's Song
+Update Set: Undaunted Infiltrator
+Update Set: Medusa
+Update Set: Magicka Furnace
+Update Set: Draugr Hulk
+Update Set: Undaunted Unweaver
+Update Set: Bone Pirate's Tatters
+Update Set: Knight-Errant's Mail
+Update Set: Prayer Shawl
+Update Set: Knightmare
+Update Set: Viper's Sting
+Update Set: Dreugh King Slayer
+Update Set: Barkskin
+Update Set: Sergeant's Mail
+Update Set: Armor of Truth
+Update Set: Crusader
+Update Set: The Ice Furnace
+Update Set: Vestments of the Warlock
+Update Set: Durok's Bane
+Update Set: Noble Duelist's Silks
+Update Set: Nikulas' Heavy Armor
+Update Set: Overwhelming Surge
+Update Set: Storm Master
+Update Set: Jolting Arms
+Update Set: The Worm's Raiment
+Update Set: Oblivion's Edge
+Update Set: Rattlecage
+Update Set: Scathing Mage
+Update Set: Sheer Venom
+Update Set: Leeching Plate
+Update Set: Spell Power Cure
+Update Set: Essence Thief
+Update Set: Brands of Imperium
+Update Set: Healing Mage
+Update Set: Quick Serpent
+Update Set: Defending Warrior
+Update Set: Destructive Mage
+Update Set: Poisonous Serpent
+Update Set: Berserking Warrior
+Update Set: Wise Mage
+Update Set: Twice-Fanged Serpent
+Update Set: Immortal Warrior
+Update Set: Assassin's Guile
+Update Set: Daedric Trickery
+Update Set: Shacklebreaker
+Update Set: Defiler
+Update Set: War Maiden
+Update Set: Warrior-Poet
+Update Set: Automated Defense
+Update Set: Inventor's Guard
+Update Set: Master Architect
+Update Set: War Machine
+Update Set: Coward's Gear
+Update Set: Knight Slayer
+Update Set: Impregnable Armor
+Update Set: Vanguard's Challenge
+Update Set: Wizard's Riposte
+Update Set: Ironblood
+Update Set: Draugr's Rest
+Update Set: Pillar of Nirn
+Update Set: Hagraven's Garden
+Update Set: Flame Blossom
+Update Set: Blooddrinker
+Update Set: Earthgore
+Update Set: Domihaus
+Update Set: Innate Axiom
+Update Set: Fortified Brass
+Update Set: Mechanical Acuity
+Update Set: Mad Tinkerer
+Update Set: Unfathomable Darkness
+Update Set: Livewire
+Update Set: Timeless Blessing (Perfected)
+Update Set: Chaotic Whirlwind (Perfected)
+Update Set: Disciplined Slash (Perfected)
+Update Set: Piercing Spray (Perfected)
+Update Set: Concentrated Force (Perfected)
+Update Set: Defensive Position (Perfected)
+Update Set: Timeless Blessing
+Update Set: Chaotic Whirlwind
+Update Set: Disciplined Slash
+Update Set: Piercing Spray
+Update Set: Concentrated Force
+Update Set: Defensive Position
+Update Set: Adept Rider
+Update Set: Sload's Semblance
+Update Set: Nocturnal's Favor
+Update Set: Wisdom of Vanus
+Update Set: Gryphon's Ferocity
+Update Set: Grace of Gloom
+Update Set: Mantle of Siroria
+Update Set: Vestment of Olorime
+Update Set: Arms of Relequen
+Update Set: Aegis of Galenwe
+Update Set: Zaan
+Update Set: Thurvokun
+Update Set: Caluurion's Legacy
+Update Set: Jorvuld's Guidance
+Update Set: Trappings of Invigoration
+Update Set: Plague Slinger
+Update Set: Ulfnor's Favor
+Update Set: Curse of Doylemish
+Update Set: Perfect Aegis of Galenwe
+Update Set: Perfect Vestment of Olorime
+Update Set: Perfect Arms of Relequen
+Update Set: Perfect Mantle of Siroria
+Update Set: Stinging Slashes
+Update Set: Moon Hunter
+Update Set: Savage Werewolf
+Update Set: Jailer's Tenacity
+Update Set: Vykosa
+Update Set: Hanu's Compassion
+Update Set: Blood Moon
+Update Set: Haven of Ursus
+Update Set: Balorgh
+Update Set: Radial Uppercut
+Update Set: Mender's Ward
+Update Set: Indomitable Fury
+Update Set: Spell Strategist
+Update Set: Battlefield Acrobat
+Update Set: Soldier of Anguish
+Update Set: Steadfast Hero
+Update Set: Battalion Defender
+Update Set: Bright-Throat's Boast
+Update Set: Dead-Water's Guile
+Update Set: Champion of the Hist
+Update Set: Grave-Stake Collector
+Update Set: Naga Shaman
+Update Set: Might of the Lost Legion
+Update Set: Perfect Radial Uppercut
+Update Set: Gallant Charge
+Update Set: Perfect Gallant Charge
+Update Set: Spectral Cloak
+Update Set: Perfect Spectral Cloak
+Update Set: Virulent Shot
+Update Set: Perfect Virulent Shot
+Update Set: Wild Impulse
+Update Set: Perfect Wild Impulse
+Update Set: Perfect Mender's Ward
+Update Set: Icy Conjuror
+Update Set: Tzogvin's Warband
+Update Set: Mighty Glacier
+Update Set: Stonekeeper
+Update Set: Auroran's Thunder
+Update Set: Scavenging Demise
+Update Set: Frozen Watcher
+Update Set: Symphony of Blades
+Update Set: Vastarie's Tutelage
+Update Set: Crafty Alfiq
+Update Set: Vesture of Darloc Brae
+Update Set: Call of the Undertaker
+Update Set: False God's Devotion
+Update Set: Coldharbour's Favorite
+Update Set: Senche-raht's Grit
+Update Set: Tooth of Lokkestiiz
+Update Set: Eye of Nahviintaas
+Update Set: Claw of Yolnahkriin
+Update Set: Perfected Tooth of Lokkestiiz
+Update Set: Perfected Claw of Yolnahkriin
+Update Set: Perfected Eye of Nahviintaas
+Update Set: Perfected False God's Devotion
+Update Set: Hollowfang Thirst
+Update Set: Dro'Zakar's Claws
+Update Set: Renald's Resolve
+Update Set: Grundwulf
+Update Set: Z'en's Redress
+Update Set: Azureblight Reaper
+Update Set: Dragon's Defilement
+Update Set: Maarselok
+Update Set: Marauder's Haste
+Update Set: Dragonguard Elite
+Update Set: Senchal Defender
+Update Set: Ancient Dragonguard
+Update Set: Daring Corsair
+Update Set: New Moon Acolyte

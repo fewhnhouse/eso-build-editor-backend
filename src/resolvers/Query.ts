@@ -1,5 +1,6 @@
 import { getUserId } from '../utils';
 import { stringArg, idArg, queryType, arg, intArg, objectType } from 'nexus';
+import { BuildRevision } from '../generated/prisma-client';
 
 const Data = objectType({
   name: 'Data',
@@ -286,8 +287,8 @@ export const Query = queryType({
       type: 'BuildRevision',
       nullable: true,
       args: { id: idArg() },
-      resolve: (parent, { id }, ctx) => {
-        return ctx.prisma.buildRevision({ id });
+      resolve: async (parent, { id }, ctx) => {
+        return await ctx.prisma.buildRevision({ id });
       },
     });
 
@@ -302,12 +303,12 @@ export const Query = queryType({
         after: stringArg(),
         before: stringArg(),
       },
-      resolve: (
+      resolve: async (
         parent,
-        { where, orderBy, first, last, skip, after, before },
+        { where, orderBy, first, last, skip, after, before }: any,
         ctx
       ) => {
-        const { id, builds } = ctx.prisma.buildRevisions({
+        return await ctx.prisma.buildRevisions({
           where,
           orderBy,
           first,
@@ -316,10 +317,6 @@ export const Query = queryType({
           after,
           before,
         });
-        return {
-          id,
-          builds: builds.length ? builds[0] : null
-        }
       },
     });
 

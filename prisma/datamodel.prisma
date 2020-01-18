@@ -7,7 +7,6 @@ type Verification {
   userId: ID! @unique
 }
 
-
 type User {
   id: ID! @id
   email: String! @unique
@@ -138,7 +137,7 @@ type Build {
   ultimateTwo: Skill @relation(name: "UltimateTwo", onDelete: CASCADE)
   mundusStone: MundusStone
   buff: Buff
-  revision: BuildRevision @relation(name: "BuildRevision")
+  revision: BuildRevision 
 }
 
 type Role {
@@ -189,7 +188,7 @@ type Group {
 
 type BuildRevision {
   id: ID! @id
-  builds: [Build!]! @relation(name: "BuildRevision", onDelete: CASCADE)
+  builds: [Build!]! 
 }
 
 type RaidRevision {
