@@ -138,6 +138,7 @@ type Build {
   ultimateTwo: Skill @relation(name: "UltimateTwo", onDelete: CASCADE)
   mundusStone: MundusStone
   buff: Buff
+  revision: BuildRevision @relation(name: "BuildRevision")
 }
 
 type Role {
@@ -184,5 +185,14 @@ type Group {
   members: [String!]! @scalarList(strategy: RELATION)
   raids: [Raid!]! 
   groupBuilds: [GroupBuild!]! @relation(name: "RelatedGroup", onDelete: CASCADE)
+}
 
+type BuildRevision {
+  id: ID! @id
+  builds: [Build!]! @relation(name: "BuildRevision", onDelete: CASCADE)
+}
+
+type RaidRevision {
+  id: ID! @id
+  raids: [Raid!]!
 }

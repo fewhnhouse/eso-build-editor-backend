@@ -282,6 +282,46 @@ export const Query = queryType({
       },
     });
 
+    t.field('buildRevision', {
+      type: 'BuildRevision',
+      nullable: true,
+      args: { id: idArg() },
+      resolve: (parent, { id }, ctx) => {
+        return ctx.prisma.buildRevision({ id });
+      },
+    });
+
+    t.list.field('buildRevisions', {
+      type: 'BuildRevision',
+      args: {
+        where: arg({ type: 'BuildRevisionWhereInput' }),
+        orderBy: arg({ type: 'BuildRevisionOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
+      resolve: (
+        parent,
+        { where, orderBy, first, last, skip, after, before },
+        ctx
+      ) => {
+        const { id, builds } = ctx.prisma.buildRevisions({
+          where,
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+        return {
+          id,
+          builds: builds.length ? builds[0] : null
+        }
+      },
+    });
 
     t.field('raid', {
       type: 'Raid',

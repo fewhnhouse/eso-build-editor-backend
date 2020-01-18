@@ -324,12 +324,12 @@ async function users() {
 }
 
 const execute = async () => {
-  await mundus()
-  await buffs()
-  await modifications()
-  await sets()
+//  await mundus()
+//  await buffs()
+//  await modifications()
+//  await sets()
   await skills()
-  await users()
+//  await users()
 }
 
 execute()

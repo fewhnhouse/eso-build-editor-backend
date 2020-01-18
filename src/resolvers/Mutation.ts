@@ -422,6 +422,45 @@ export const Mutation = mutationType({
         });
       },
     });
+
+    /**
+     * BUILD REVISIONS
+     */
+
+    t.field('createBuildRevision', {
+      type: 'BuildRevision',
+      args: { data: arg({ type: 'BuildRevisionCreateInput' }) },
+      resolve: async (parent, { data }: any, ctx) => {
+        return await ctx.prisma.createBuildRevision({
+          ...data
+        })
+      }
+    })
+
+    t.field('deleteBuildRevision', {
+      type: 'BuildRevision',
+      args: {
+        id: idArg(),
+      },
+      resolve: async (parent, { id }, ctx) => {
+        return await ctx.prisma.deleteBuildRevision({ id });
+      },
+    });
+
+    t.field('addBuildToRevision', {
+      type: 'BuildRevision',
+      args: { id: idArg(), buildId: idArg() },
+      resolve: (parent, { id, buildId }, ctx) => {
+        return ctx.prisma.updateBuildRevision({
+          where: { id },
+          data: {
+            builds: {
+              connect: { id: buildId }
+            }
+          }
+        })
+      }
+    })
     /**
      * RAIDS
      */

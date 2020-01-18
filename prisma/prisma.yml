@@ -3,7 +3,7 @@
 endpoint: http://localhost:4466
 
 # prisma service secret
-secret: my-service-secret
+secret: my-super-secret-app-secret-1
 
 # Defines your models, each model is mapped to the database as a table.
 datamodel: datamodel.prisma
