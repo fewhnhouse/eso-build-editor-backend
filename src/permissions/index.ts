@@ -61,7 +61,9 @@ export const permissions = shield({
     build: rules.canViewBuild,
     raid: rules.canViewRaid,
     raids: rules.isAuthenticatedUser,
-    ownRaids: rules.isAuthenticatedUser
+    ownRaids: rules.isAuthenticatedUser,
+    buildRevisions: rules.isAuthenticatedUser,
+    buildRevision: rules.isAuthenticatedUser,
   },
   Mutation: {
     createRaid: rules.isAuthenticatedUser,
@@ -72,6 +74,8 @@ export const permissions = shield({
     deleteBuild: rules.canDeleteBuild,
     createSkillSelections: rules.isAuthenticatedUser,
     createSetSelections: rules.isAuthenticatedUser,
+    addBuildToRevision: rules.isAuthenticatedUser,
+    deleteBuildRevision: rules.isAuthenticatedUser,
   },
   Subscription: {
     buildUpdateSubscription: rules.canViewBuild,

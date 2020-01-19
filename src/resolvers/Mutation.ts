@@ -431,8 +431,10 @@ export const Mutation = mutationType({
       type: 'BuildRevision',
       args: { data: arg({ type: 'BuildRevisionCreateInput' }) },
       resolve: async (parent, { data }: any, ctx) => {
+        const userId = getUserId(ctx);
         return await ctx.prisma.createBuildRevision({
-          ...data
+          ...data,
+          owner: { connect: { id: userId } },
         })
       }
     })

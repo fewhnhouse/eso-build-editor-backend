@@ -313,12 +313,7 @@ export const Query = queryType({
         return await ctx.prisma.buildRevisions({
           where: {
             ...where,
-            builds_some: {
-              AND: [
-                ...where.builds_some,
-                { owner: { id: userId } }
-              ]
-            }
+            owner: { id: userId }
           },
           orderBy,
           first,

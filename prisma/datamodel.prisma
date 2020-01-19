@@ -15,7 +15,7 @@ type User {
   name: String
   verified: Boolean! @default(value: false)
   builds: [Build!]! @relation(name: "BuildOwner", onDelete: CASCADE)
-  buildRevisions: [Build!]! @relation(name: "RevisionOwner", onDelete: CASCADE)
+  buildRevisions: [BuildRevision!]! @relation(name: "RevisionOwner", onDelete: CASCADE)
   raids: [Raid!]! @relation(name: "RaidOwner", onDelete: CASCADE)
   groups: [Group!]! @relation(name: "GroupOwner", onDelete: CASCADE)
 }
