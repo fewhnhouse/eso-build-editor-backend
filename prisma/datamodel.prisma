@@ -15,6 +15,7 @@ type User {
   name: String
   verified: Boolean! @default(value: false)
   builds: [Build!]! @relation(name: "BuildOwner", onDelete: CASCADE)
+  buildRevisions: [Build!]! @relation(name: "RevisionOwner", onDelete: CASCADE)
   raids: [Raid!]! @relation(name: "RaidOwner", onDelete: CASCADE)
   groups: [Group!]! @relation(name: "GroupOwner", onDelete: CASCADE)
 }
@@ -137,7 +138,7 @@ type Build {
   ultimateTwo: Skill @relation(name: "UltimateTwo", onDelete: CASCADE)
   mundusStone: MundusStone
   buff: Buff
-  revision: BuildRevision 
+  revision: BuildRevision @relation(name: "RevisionBuild")
 }
 
 type Role {
@@ -188,7 +189,8 @@ type Group {
 
 type BuildRevision {
   id: ID! @id
-  builds: [Build!]! 
+  owner: User @relation(name: "RevisionOwner")
+  builds: [Build!]! @relation(name: "RevisionBuild", onDelete: CASCADE)
 }
 
 type RaidRevision {

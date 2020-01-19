@@ -308,8 +308,18 @@ export const Query = queryType({
         { where, orderBy, first, last, skip, after, before }: any,
         ctx
       ) => {
+        const userId = getUserId(ctx);
+
         return await ctx.prisma.buildRevisions({
-          where,
+          where: {
+            ...where,
+            builds_some: {
+              AND: [
+                ...where.builds_some,
+                { owner: { id: userId } }
+              ]
+            }
+          },
           orderBy,
           first,
           last,
