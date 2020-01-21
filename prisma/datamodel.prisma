@@ -183,7 +183,6 @@ type Group {
   updatedAt: DateTime! @updatedAt
   accessRights: String! @default(value: "unlisted")
   members: [String!]! @scalarList(strategy: RELATION)
-  raids: [Raid!]! 
   groupBuilds: [GroupBuild!]! @relation(name: "RelatedGroup", onDelete: CASCADE)
 }
 
