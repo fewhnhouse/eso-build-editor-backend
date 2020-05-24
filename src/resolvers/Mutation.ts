@@ -31,7 +31,7 @@ export const Mutation = mutationType({
         });
         if (user) {
           return {
-            token: sign({ userId: user.id }, process.env.APP_SECRET),
+            token: sign({ userId: user.id }, process.env.TOKEN_SECRET),
             user,
           };
         } else {
@@ -91,7 +91,7 @@ export const Mutation = mutationType({
           throw new Error('Invalid password');
         }
         return {
-          token: sign({ userId: user.id }, process.env.APP_SECRET),
+          token: sign({ userId: user.id }, process.env.TOKEN_SECRET),
           user,
         };
       },

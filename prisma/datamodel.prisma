@@ -72,6 +72,7 @@ type Set {
   has_heavy_armor: Int!
   has_light_armor: Int!
   has_medium_armor: Int!
+  uniqueItem: String
   traits_needed: Int
   pts: Int
   eso_id: Int
@@ -95,8 +96,8 @@ type SkillSelection {
 type Skill {
   id: ID! @id
   skillId: Int! @unique
-  cast_time: String!
-  cost: String!
+  cast_time: String
+  cost: String
   effect_1: String!
   effect_2: String
   icon: String

@@ -244,64 +244,98 @@ async function buffs() {
 async function modifications() {
   weaponGlyphs.forEach(async (glyph: any) => {
     const { type, modificationType, itemType, description, icon } = glyph;
-    await prisma.createModification({
-      type,
-      modificationType: "glyph",
-      itemType: "weapon",
-      description,
-      icon,
-    });
+    try {
+      await prisma.createModification({
+        type,
+        modificationType: "glyph",
+        itemType: "weapon",
+        description,
+        icon,
+      });
+      console.log("weapon glyph created: ", name)
+    } catch (e) {
+      console.error(e)
+    }
   });
   armorGlyphs.forEach(async (glyph: any) => {
     const { type, modificationType, itemType, description, icon } = glyph;
-    await prisma.createModification({
-      type,
-      modificationType: "glyph",
-      itemType: "armor",
-      description,
-      icon,
-    });
+    try {
+      await prisma.createModification({
+        type,
+        modificationType: "glyph",
+        itemType: "armor",
+        description,
+        icon,
+      });
+      console.log("armor glyph created: ", name)
+    } catch (e) {
+      console.error(e)
+    }
   });
   jewelryGlyphs.forEach(async (glyph: any) => {
     const { type, modificationType, itemType, description, icon } = glyph;
-    await prisma.createModification({
-      type,
-      modificationType: "glyph",
-      itemType: "jewelry",
-      description,
-      icon,
-    });
+    try {
+      await prisma.createModification({
+        type,
+        modificationType: "glyph",
+        itemType: "jewelry",
+        description,
+        icon,
+      });
+      console.log("jewelry glyph created: ", name)
+    } catch (e) {
+      console.error(e)
+    }
   });
   weaponTraits.forEach(async (trait: any) => {
     const { type, modificationType, itemType, description, icon } = trait;
-    await prisma.createModification({
-      type,
-      modificationType: "trait",
-      itemType: "weapon",
-      description,
-      icon,
-    });
+    try {
+      await prisma.createModification({
+        type,
+        modificationType: "trait",
+        itemType: "weapon",
+        description,
+        icon,
+      });
+      console.log("weapon trait created: ", name)
+    }
+    catch (e) {
+      console.error(e)
+    }
   });
   armorTraits.forEach(async (trait: any) => {
     const { type, modificationType, itemType, description, icon } = trait;
-    await prisma.createModification({
-      type,
-      modificationType: "trait",
-      itemType: "armor",
-      description,
-      icon,
-    });
+    try {
+
+      await prisma.createModification({
+        type,
+        modificationType: "trait",
+        itemType: "armor",
+        description,
+        icon,
+      });
+      console.log("armor trait created: ", name)
+    } catch (e) {
+      console.error(e)
+    }
   });
 
   jewelryTraits.forEach(async (trait: any) => {
     const { type, modificationType, itemType, description, icon } = trait;
-    await prisma.createModification({
-      type,
-      modificationType: "trait",
-      itemType: "jewelry",
-      description,
-      icon,
-    });
+    try {
+
+      await prisma.createModification({
+        type,
+        modificationType: "trait",
+        itemType: "jewelry",
+        description,
+        icon,
+      });
+      console.log("jewelry trait created: ", name)
+    } catch (e) {
+      console.error(e)
+    }
+
   });
 }
 
@@ -324,12 +358,12 @@ async function users() {
 }
 
 const execute = async () => {
-  await mundus()
-  await buffs()
+  // await mundus()
+  // await buffs()
   await modifications()
-  await sets()
-  await skills()
-  await users()
+  // await sets()
+  // await skills()
+  // await users()
 }
 
 execute()

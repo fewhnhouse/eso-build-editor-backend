@@ -215,6 +215,16 @@ export const jewelryGlyphs = [
     description: 'Increase the duration of potion effects by 3.6 seconds.',
     icon: 'Glyph of Potion Boost.png',
   },
+  {
+    type: 'Glyph of Prismatic Recovery',
+    description: 'Adds 84 Stamina, Magicka and Health Recovery.',
+    icon: 'glyph_of_prismatic.png',
+  },
+  {
+    type: 'Glyph of Reduce Skill Cost',
+    description: 'Reduce Health, Magicka, and Stamina cost of abilities by 133.',
+    icon: 'glyph_of_prismatic.png',
+  }
 ];
 
 export const jewelryTraits = [
