@@ -101,12 +101,12 @@ export const weaponTraits = [
   },
   {
     type: 'Precise',
-    description: 'Increases Weapon and Spell Critical Values by 3.5% / 7%.',
+    description: 'Increases Weapon and Spell Critical Values by 4.3% / 8.6%.',
     icon: 'ruby.png',
   },
   {
     type: 'Sharpened',
-    description: 'Increase Armor and Spell Penetration by 1376 / 2752.',
+    description: 'Increase Armor and Spell Penetration by 1638 / 3276.',
     icon: 'fire_opal.png',
   },
   {
@@ -117,7 +117,7 @@ export const weaponTraits = [
   {
     type: 'Decisive',
     description:
-      '20% / 40% Chance to gain 1 additional Ultimate anytime that Ultimate is gained.',
+      '27.5% / 55% Chance to gain 1 additional Ultimate anytime that Ultimate is gained.',
     icon: 'citrine.png',
   },
 ];
@@ -230,17 +230,17 @@ export const jewelryGlyphs = [
 export const jewelryTraits = [
   {
     type: 'Arcane',
-    description: 'Increases Max Magicka by 870.',
+    description: 'Increases Max Magicka by 877.',
     icon: 'cobalt.png',
   },
   {
     type: 'Healthy',
-    description: 'Increases Max Health 957.',
+    description: 'Increases Max Health 965.',
     icon: 'antimony.png',
   },
   {
     type: 'Robust',
-    description: 'Increases Max Stamina by 870.',
+    description: 'Increases Max Stamina by 877.',
     icon: 'zinc.png',
   },
   {
@@ -255,22 +255,22 @@ export const jewelryTraits = [
   },
   {
     type: 'Triune',
-    description: 'Increases Health by 478, Stamina by 435 & Magicka by 435.',
+    description: 'Increases Health by 482, Stamina by 439 & Magicka by 439.',
     icon: 'dawn_prism.png',
   },
   {
     type: 'Swift',
-    description: 'Increases Movement Speed by 6%.',
+    description: 'Increases Movement Speed by 7%.',
     icon: 'gildin_wax.png',
   },
   {
     type: 'Harmony',
-    description: 'Increases Synergy Effectiveness by 35%.',
+    description: 'Increases Synergy Effectiveness by 20%.',
     icon: 'dibellium.png',
   },
   {
     type: 'Bloodthirsty',
-    description: 'Increases Damage against low-health foes by 10%.',
+    description: 'Grants up to 250 Weapon and Spell Damage against targets under 90% Health.',
     icon: 'slaughter_stone.png',
   },
 ];
@@ -301,28 +301,28 @@ export const armorGlyphs = [
 export const armorTraits = [
   {
     type: 'Divines',
-    description: 'Increases Mundus Stone effects by 7.5%',
+    description: 'Increases Mundus Stone effects by 9.1%',
     icon: 'sapphire.png',
   },
   {
     type: 'Invigorating',
-    description: 'Increases Magicka, Stamina and Health Recovery 11.',
+    description: 'Increases Magicka, Stamina and Health Recovery 16.',
     icon: 'garnet.png',
   },
   {
     type: 'Impenetrable',
     description:
-      "Reduces item's durability damage 50%. Increases Critical Resistance by 258.",
+      "Reduces item's durability damage 50%. Increases Critical Resistance by 127.",
     icon: 'diamond.png',
   },
   {
     type: 'Infused',
-    description: 'Increase Armor Enchantment effect by 20%',
+    description: 'Increase Armor Enchantment effect by 25%',
     icon: 'bloodstone.png',
   },
   {
     type: 'Nirnhoned',
-    description: 'Increases Spell Resistance and Physical Resistance by 301',
+    description: 'Increases Spell Resistance and Physical Resistance by 253',
     icon: 'fortified_nirncrux.png',
   },
   {
@@ -338,7 +338,7 @@ export const armorTraits = [
   },
   {
     type: 'Well-Fitted',
-    description: 'Reduces the cost of Sprinting and Roll Dodge by 5%.',
+    description: 'Reduces the cost of Sprinting and Roll Dodge by 6%.',
     icon: 'almandine.png',
   },
 ];

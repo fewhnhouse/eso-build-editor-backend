@@ -188,23 +188,50 @@ async function mundus() {
       value,
       icon
     } = mundus;
-    try {
 
-      await prisma.createMundusStone({
-        name,
-        aldmeri,
-        daggerfall,
-        ebonheart,
-        effect,
-        value: value + '',
-        icon
-      });
-      console.log("mundus created: ", name)
-    }
-    catch (e) {
-      console.error(e)
-    }
+    const dbMundus = await prisma.mundusStone({ name })
 
+    if (!dbMundus) {
+
+      try {
+        await prisma.createMundusStone({
+          name,
+          aldmeri,
+          daggerfall,
+          ebonheart,
+          effect,
+          value: value + '',
+          icon
+        });
+        fs.appendFileSync('log.txt', `Create Mundus: ${name}\n`)
+
+        console.log("Update:", name)
+
+        console.log("Mundus created: ", name)
+      }
+      catch (e) {
+        console.error(e)
+      }
+    } else {
+      try {
+        await prisma.updateMundusStone({
+          data: {
+            aldmeri,
+            daggerfall,
+            ebonheart,
+            effect,
+            value: value + '',
+            icon
+          }, where: { name }
+        });
+        fs.appendFileSync('log.txt', `Update Mundus: ${name}\n`)
+
+        console.log("Mundus updated: ", name)
+      }
+      catch (e) {
+        console.error(e)
+      }
+    }
   })
 
 }
@@ -244,96 +271,200 @@ async function buffs() {
 async function modifications() {
   weaponGlyphs.forEach(async (glyph: any) => {
     const { type, modificationType, itemType, description, icon } = glyph;
-    try {
-      await prisma.createModification({
-        type,
-        modificationType: "glyph",
-        itemType: "weapon",
-        description,
-        icon,
-      });
-      console.log("weapon glyph created: ", name)
-    } catch (e) {
-      console.error(e)
+    const dbModification = await prisma.modifications({ where: { type, modificationType, itemType, icon } })
+
+    if (!dbModification.length) {
+      try {
+        await prisma.createModification({
+          type,
+          modificationType: "glyph",
+          itemType: "weapon",
+          description,
+          icon,
+        });
+        fs.appendFileSync('log.txt', `Create Weapon Glyph\n`)
+        console.log("Weapon Glyph created: ")
+      } catch (e) {
+        console.error(e)
+      }
+    } else {
+      await prisma.updateModification({
+        data: {
+          type,
+          description,
+          icon,
+
+        }, where: { id: dbModification[0].id }
+      })
+      fs.appendFileSync('log.txt', `Update Weapon Glyph\n`)
+      console.log("Weapon Glyph updated: ", description)
+
     }
   });
   armorGlyphs.forEach(async (glyph: any) => {
     const { type, modificationType, itemType, description, icon } = glyph;
-    try {
-      await prisma.createModification({
-        type,
-        modificationType: "glyph",
-        itemType: "armor",
-        description,
-        icon,
-      });
-      console.log("armor glyph created: ", name)
-    } catch (e) {
-      console.error(e)
+    const dbModification = await prisma.modifications({ where: { type, modificationType, itemType, icon } })
+
+    if (!dbModification.length) {
+      try {
+        await prisma.createModification({
+          type,
+          modificationType: "glyph",
+          itemType: "armor",
+          description,
+          icon,
+        });
+        fs.appendFileSync('log.txt', `Create Armor Glyph\n`)
+        console.log("Armor Glyph created: ")
+      } catch (e) {
+        console.error(e)
+      }
+    } else {
+      await prisma.updateModification({
+        data: {
+          type,
+          description,
+          icon,
+
+        }, where: { id: dbModification[0].id }
+      })
+      fs.appendFileSync('log.txt', `Update Armor Glyph\n`)
+      console.log("Armor Glyph updated: ", description)
     }
   });
   jewelryGlyphs.forEach(async (glyph: any) => {
     const { type, modificationType, itemType, description, icon } = glyph;
-    try {
-      await prisma.createModification({
-        type,
-        modificationType: "glyph",
-        itemType: "jewelry",
-        description,
-        icon,
-      });
-      console.log("jewelry glyph created: ", name)
-    } catch (e) {
-      console.error(e)
+    const dbModification = await prisma.modifications({ where: { type, modificationType, itemType, icon } })
+
+    if (!dbModification.length) {
+
+      try {
+        await prisma.createModification({
+          type,
+          modificationType: "glyph",
+          itemType: "jewelry",
+          description,
+          icon,
+        });
+        fs.appendFileSync('log.txt', `Create Jewelry Glyph\n`)
+        console.log("Jewelry Glyph created: ")
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    else {
+      await prisma.updateModification({
+        data: {
+          type,
+          description,
+          icon,
+
+        }, where: { id: dbModification[0].id }
+      })
+      fs.appendFileSync('log.txt', `Update Jewelry Glyph\n`)
+      console.log("Jewelry Glyph updated: ", description)
     }
   });
   weaponTraits.forEach(async (trait: any) => {
     const { type, modificationType, itemType, description, icon } = trait;
-    try {
-      await prisma.createModification({
-        type,
-        modificationType: "trait",
-        itemType: "weapon",
-        description,
-        icon,
-      });
-      console.log("weapon trait created: ", name)
-    }
-    catch (e) {
-      console.error(e)
+    const dbModification = await prisma.modifications({ where: { type, modificationType, itemType, icon } })
+
+    if (!dbModification.length) {
+
+      try {
+        await prisma.createModification({
+          type,
+          modificationType: "trait",
+          itemType: "weapon",
+          description,
+          icon,
+        });
+        fs.appendFileSync('log.txt', `Create Weapon Trait\n`)
+        console.log("Weapon Trait created: ")
+      }
+      catch (e) {
+        console.error(e)
+      }
+    } else {
+      await prisma.updateModification({
+        data: {
+          type,
+          description,
+          icon,
+
+        }, where: { id: dbModification[0].id }
+      })
+      fs.appendFileSync('log.txt', `Update Weapon Trait\n`)
+      console.log("Weapon Trait updated: ", description)
+
     }
   });
   armorTraits.forEach(async (trait: any) => {
     const { type, modificationType, itemType, description, icon } = trait;
-    try {
+    const dbModification = await prisma.modifications({ where: { type, modificationType, itemType, icon } })
 
-      await prisma.createModification({
-        type,
-        modificationType: "trait",
-        itemType: "armor",
-        description,
-        icon,
-      });
-      console.log("armor trait created: ", name)
-    } catch (e) {
-      console.error(e)
+    if (!dbModification.length) {
+
+      try {
+
+        await prisma.createModification({
+          type,
+          modificationType: "trait",
+          itemType: "armor",
+          description,
+          icon,
+        });
+        fs.appendFileSync('log.txt', `Create Armor Trait\n`)
+        console.log("Armor Trait created: ")
+      } catch (e) {
+        console.error(e)
+      }
+    } else {
+      await prisma.updateModification({
+        data: {
+          type,
+          description,
+          icon,
+
+        }, where: { id: dbModification[0].id }
+      })
+      fs.appendFileSync('log.txt', `Update Armor Trait\n`)
+      console.log("Armor Trait updated: ", description)
+
     }
   });
 
   jewelryTraits.forEach(async (trait: any) => {
     const { type, modificationType, itemType, description, icon } = trait;
-    try {
+    const dbModification = await prisma.modifications({ where: { type, modificationType, itemType, icon } })
 
-      await prisma.createModification({
-        type,
-        modificationType: "trait",
-        itemType: "jewelry",
-        description,
-        icon,
-      });
-      console.log("jewelry trait created: ", name)
-    } catch (e) {
-      console.error(e)
+    if (!dbModification.length) {
+      try {
+
+        await prisma.createModification({
+          type,
+          modificationType: "trait",
+          itemType: "jewelry",
+          description,
+          icon,
+        });
+        fs.appendFileSync('log.txt', `Create Jewelry Trait\n`)
+        console.log("Jewelry Trait created: ")
+      } catch (e) {
+        console.error(e)
+      }
+    } else {
+      await prisma.updateModification({
+        data: {
+          type,
+          description,
+          icon,
+
+        }, where: { id: dbModification[0].id }
+      })
+      fs.appendFileSync('log.txt', `Update Jewelry Trait\n`)
+      console.log("Jewelry Trait updated: ", description)
+
     }
 
   });
@@ -360,9 +491,9 @@ async function users() {
 const execute = async () => {
   // await mundus()
   // await buffs()
-  await modifications()
-  // await sets()
-  // await skills()
+  // await modifications()
+  await sets()
+  await skills()
   // await users()
 }
 

@@ -19,7 +19,7 @@ export const mundusStones: any[] = [
       ebonheart: "Shadowfen"
     },
     effect: "Increases Magicka Recovery	",
-    value: 238,
+    value: 310,
     id: 2,
     icon: "icon-mundus-atronach.png"
   },
@@ -31,7 +31,7 @@ export const mundusStones: any[] = [
       ebonheart: "Stonefalls"
     },
     effect: "Increases Physical and Spell Resistance",
-    value: 2752,
+    value: 2744,
     id: 3,
     icon: "icon-mundus-lady.png"
   },
@@ -43,7 +43,7 @@ export const mundusStones: any[] = [
       ebonheart: "Deshaan"
     },
     effect: "Increases Maximum Health",
-    value: 2231,
+    value: 2225,
     id: 4,
     icon: "icon-mundus-lord.png"
   },
@@ -55,7 +55,7 @@ export const mundusStones: any[] = [
       ebonheart: "Stonefalls"
     },
     effect: "Increases Physical and Spell Penetration",
-    value: 2752,
+    value: 2744,
     id: 5,
     icon: "icon-mundus-lover.png"
   },
@@ -67,7 +67,7 @@ export const mundusStones: any[] = [
       ebonheart: "Deshaan"
     },
     effect: "Increases Maximum Magicka",
-    value: 2028,
+    value: 2023,
     id: 6,
     icon: "icon-mundus-mage.png"
   },
@@ -79,7 +79,7 @@ export const mundusStones: any[] = [
       ebonheart: "Eastmarch"
     },
     effect: "Increases Healing Done",
-    value: "10%",
+    value: "8%",
     id: 7,
     icon: "icon-mundus-ritual.png"
   },
@@ -91,7 +91,7 @@ export const mundusStones: any[] = [
       ebonheart: "Shadowfen"
     },
     effect: "Increases Stamina Recovery",
-    value: 238,
+    value: 310,
     id: 8,
     icon: "icon-mundus-serpent.png"
   },
@@ -102,8 +102,8 @@ export const mundusStones: any[] = [
       daggerfall: "Rivenspire",
       ebonheart: "Shadowfen"
     },
-    effect: "Increases Critical Damage done",
-    value: "13%",
+    effect: "Increases Critical Damage and Healing done",
+    value: "11%",
     id: 9,
     icon: "icon-mundus-shadow.png"
   },
@@ -127,7 +127,7 @@ export const mundusStones: any[] = [
       ebonheart: "Eastmarch"
     },
     effect: "Increases Weapon and Spell Critical Strike ratings",
-    value: 1633,
+    value: 1537,
     id: 11,
     icon: "icon-mundus-thief.png"
   },
@@ -139,7 +139,7 @@ export const mundusStones: any[] = [
       ebonheart: "Deshaan"
     },
     effect: "Increases Maximum Stamina",
-    value: 2028,
+    value: 2023,
     id: 12,
     icon: "icon-mundus-tower.png"
   },
