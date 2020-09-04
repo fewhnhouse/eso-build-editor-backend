@@ -2,8 +2,8 @@
 #endpoint: ''
 endpoint: http://localhost:4466
 
-# prisma service secret
-secret: my-super-secret-app-secret-1
+# prisma service secret. dont forget to invoke prisma with -e .env
+secret: ${env:PRISMA_SERVICE_SECRET}
 
 # Defines your models, each model is mapped to the database as a table.
 datamodel: datamodel.prisma
