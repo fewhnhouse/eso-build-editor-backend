@@ -515,6 +515,47 @@ export const Mutation = mutationType({
     });
 
     /**
+     * RAID REVISIONS
+     */
+
+    t.field('createRaidRevision', {
+      type: 'RaidRevision',
+      args: { data: arg({ type: 'RaidRevisionCreateInput' }) },
+      resolve: async (parent, { data }: any, ctx) => {
+        const userId = getUserId(ctx);
+        return await ctx.prisma.createRaidRevision({
+          ...data,
+          owner: { connect: { id: userId } },
+        })
+      }
+    })
+
+    t.field('deleteRaidRevision', {
+      type: 'RaidRevision',
+      args: {
+        id: idArg(),
+      },
+      resolve: async (parent, { id }, ctx) => {
+        return await ctx.prisma.deleteRaidRevision({ id });
+      },
+    });
+
+    t.field('addRaidToRevision', {
+      type: 'RaidRevision',
+      args: { id: idArg(), buildId: idArg() },
+      resolve: (parent, { id, buildId }, ctx) => {
+        return ctx.prisma.updateRaidRevision({
+          where: { id },
+          data: {
+            builds: {
+              connect: { id: buildId }
+            }
+          }
+        })
+      }
+    })
+
+    /**
  * GROUPS
  */
     t.field('createGroup', {

@@ -399,6 +399,48 @@ export const Query = queryType({
       },
     });
 
+    t.field('raidRevision', {
+      type: 'RaidRevision',
+      nullable: true,
+      args: { id: idArg() },
+      resolve: async (parent, { id }, ctx) => {
+        return await ctx.prisma.raidRevision({ id });
+      },
+    });
+
+    t.list.field('raidRevisions', {
+      type: 'RaidRevision',
+      args: {
+        where: arg({ type: 'RaidRevisionWhereInput' }),
+        orderBy: arg({ type: 'RaidRevisionOrderByInput' }),
+        first: intArg(),
+        last: intArg(),
+        skip: intArg(),
+        after: stringArg(),
+        before: stringArg(),
+      },
+      resolve: async (
+        parent,
+        { where, orderBy, first, last, skip, after, before }: any,
+        ctx
+      ) => {
+        const userId = getUserId(ctx);
+
+        return await ctx.prisma.raidRevisions({
+          where: {
+            ...where,
+            owner: { id: userId }
+          },
+          orderBy,
+          first,
+          last,
+          skip,
+          after,
+          before,
+        });
+      },
+    });
+
     t.field('groupBuild', {
       type: 'GroupBuild',
       args: {

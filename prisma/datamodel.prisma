@@ -16,6 +16,7 @@ type User {
   verified: Boolean! @default(value: false)
   builds: [Build!]! @relation(name: "BuildOwner", onDelete: CASCADE)
   buildRevisions: [BuildRevision!]! @relation(name: "RevisionOwner", onDelete: CASCADE)
+  raidRevisions: [RaidRevision!]! @relation(name: "RaidRevisionOwner", onDelete: CASCADE)
   raids: [Raid!]! @relation(name: "RaidOwner", onDelete: CASCADE)
   groups: [Group!]! @relation(name: "GroupOwner", onDelete: CASCADE)
 }
@@ -167,6 +168,7 @@ type Raid {
   canEdit: [User!]! @relation(name: "CanEdit")
   canView: [User!]! @relation(name: "CanView")
   roles: [Role!]! @relation(name: "RaidRoles", onDelete: CASCADE)
+  revision: RaidRevision @relation(name: "RevisionRaid")
 }
 
 type GroupBuild {
@@ -195,5 +197,6 @@ type BuildRevision {
 
 type RaidRevision {
   id: ID! @id
-  raids: [Raid!]!
+  owner: User @relation(name: "RaidRevisionOwner")
+  raids: [Raid!]! @relation(name: "RevisionRaid", onDelete: CASCADE)
 }
