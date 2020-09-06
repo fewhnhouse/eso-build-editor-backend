@@ -542,13 +542,13 @@ export const Mutation = mutationType({
 
     t.field('addRaidToRevision', {
       type: 'RaidRevision',
-      args: { id: idArg(), buildId: idArg() },
-      resolve: (parent, { id, buildId }, ctx) => {
+      args: { id: idArg(), raidId: idArg() },
+      resolve: (parent, { id, raidId }, ctx) => {
         return ctx.prisma.updateRaidRevision({
           where: { id },
           data: {
-            builds: {
-              connect: { id: buildId }
+            raids: {
+              connect: { id: raidId }
             }
           }
         })
