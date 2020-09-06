@@ -16,8 +16,8 @@ services:
             connector: postgres
             host: postgres
             port: 5432
-            user: prisma
-            password: prisma
+            user: ${PRISMA_USER}
+            password: ${PRISMA_PASSWORD}
   postgres:
     image: postgres:10.3
     restart: always
