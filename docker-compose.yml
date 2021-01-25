@@ -29,25 +29,31 @@ services:
     volumes:
       - postgres:/var/lib/postgresql/data
 
-  app: 
-   image: eso-build-backend
-   networks: 
-     - reverse-proxy
-     - back
-   environment:
-     - VIRTUAL_PORT=80
-     - VIRTUAL_HOST=eso-build-backend.fewhnhouse.de
-     - LETSENCRYPT_HOST=eso-build-backend.fewhnhouse.de
-     - LETSENCRYPT_EMAIL=felix.wohnhaas@outlook.com
- 
-      
+  app:
+    image: eso-build-backend
+    networks:
+      - traefik
+      - back
+    expose:
+      - 80
+    labels:
+      #### Labels define the behavior and rules of the traefik proxy for this container ####
+      - 'traefik.enable=true' # <== Enable traefik to proxy this container
+      - 'traefik.http.routers.eso-build-backend-web.rule=Host(`eso-build-backend.fewhnhouse.de`)' # <== Your Domain Name goes here for the http rule
+      - 'traefik.http.routers.eso-build-backend-web.entrypoints=web' # <== Defining the entrypoint for http, **ref: line 30
+      # - "traefik.http.routers.eso-build-backend-web.middlewares=redirect@file" # <== This is a middleware to redirect to https
+      - 'traefik.http.middlewares.test-redirectscheme.redirectscheme.scheme=https'
+      - 'traefik.http.middlewares.test-redirectscheme.redirectscheme.permanent=true'
+      - 'traefik.http.routers.eso-build-backend-secured.rule=Host(`eso-build-backend.fewhnhouse.de`)' # <== Your Domain Name for the https rule
+      - 'traefik.http.routers.eso-build-backend-secured.entrypoints=web-secured' # <== Defining entrypoint for https, **ref: line 31
+      - 'traefik.http.routers.eso-build-backend-secured.tls.certresolver=mytlschallenge' # <== Defining certsresolvers for https
+      - "traefik.docker.network=traefik"
+
 volumes:
   postgres: ~
 
 networks:
-  reverse-proxy:
-    external:
-      name: reverse-proxy
+  traefik:
+    external: true
   back:
     driver: bridge
-
